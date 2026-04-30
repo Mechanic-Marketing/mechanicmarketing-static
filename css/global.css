@@ -1,0 +1,293 @@
+/* ==========================================================================
+   Mechanic Marketing — Global CSS
+   ========================================================================== */
+
+:root {
+  --mm-orange: #FF3D02;
+  --mm-warm-white: #F0F0EC;
+  --mm-dark: #1c1c1a;
+  --mm-golden: #F0AA00;
+
+  --mm-orange-t1: #FF6746;
+  --mm-orange-t2: #FF8A6F;
+  --mm-orange-t3: #FFAC98;
+  --mm-orange-t4: #FFD1C6;
+
+  --font-display: 'TT Commons Condensed', 'Helvetica Neue', Arial, sans-serif;
+  --font-body: 'TT Commons', 'Helvetica Neue', Arial, sans-serif;
+
+  --sp-xxs: 7px;
+  --sp-xs: 11px;
+  --sp-sm: 16px;
+  --sp-md: 24px;
+  --sp-lg: 36px;
+  --sp-xl: 54px;
+  --sp-xxl: 81px;
+}
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--mm-warm-white);
+  color: var(--mm-dark);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  line-height: 0.89;
+  margin: 0 0 var(--sp-md);
+}
+
+h1 { font-size: clamp(56px, 8vw, 120px); }
+h2 { font-size: clamp(36px, 5vw, 72px); }
+h3 { font-size: clamp(24px, 3vw, 40px); }
+h4 { font-size: 20px; line-height: 1.1; }
+
+p {
+  margin: 0 0 var(--sp-md);
+}
+
+a {
+  color: var(--mm-orange);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.site-header {
+  background: var(--mm-warm-white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-md);
+  height: 64px;
+}
+
+.logo {
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo-text {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  color: var(--mm-dark);
+  line-height: 1;
+}
+
+.site-nav {
+  flex: 1;
+}
+
+.site-nav ul {
+  display: flex;
+  gap: var(--sp-md);
+  align-items: center;
+}
+
+.site-nav a {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--mm-dark);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: color 0.15s ease;
+}
+
+.site-nav a:hover {
+  color: var(--mm-orange);
+  text-decoration: none;
+}
+
+.nav-cta {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--mm-dark);
+  padding: 4px;
+  margin-left: auto;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.site-footer {
+  background: var(--mm-dark);
+  color: #fff;
+}
+
+.site-footer .container {
+  padding-top: var(--sp-xxl);
+  padding-bottom: var(--sp-xl);
+}
+
+.footer-top {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-xxl);
+  padding-bottom: var(--sp-xl);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: var(--sp-lg);
+}
+
+.footer-brand .logo-text {
+  color: #fff;
+  display: block;
+  margin-bottom: var(--sp-sm);
+}
+
+.footer-brand p {
+  font-size: 14px;
+  opacity: 0.6;
+  line-height: 1.6;
+  max-width: 320px;
+  margin: 0;
+}
+
+.footer-links {
+  display: flex;
+  gap: var(--sp-xxl);
+}
+
+.footer-col h4 {
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  color: var(--mm-orange);
+  margin-bottom: var(--sp-sm);
+  line-height: 1.2;
+}
+
+.footer-col ul {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-xs);
+}
+
+.footer-col a {
+  font-size: 14px;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.footer-col a:hover {
+  color: var(--mm-orange);
+  text-decoration: none;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--sp-md);
+}
+
+.footer-bottom p {
+  font-size: 13px;
+  opacity: 0.45;
+  margin: 0;
+}
+
+.footer-tagline {
+  font-style: italic;
+  opacity: 0.4 !important;
+  font-size: 12px !important;
+}
+
+/* ==========================================================================
+   Mobile Nav
+   ========================================================================== */
+
+@media (max-width: 767px) {
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: var(--mm-warm-white);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding: var(--sp-sm) var(--sp-md);
+    z-index: 99;
+  }
+
+  .site-nav.is-open {
+    display: block;
+  }
+
+  .site-nav ul {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-sm);
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-cta {
+    display: none;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: var(--sp-xl);
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: var(--sp-lg);
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-xs);
+  }
+}

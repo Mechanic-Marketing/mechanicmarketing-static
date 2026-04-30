@@ -1,0 +1,48 @@
+backend:
+  name: github
+  repo: teddi-coder/mechanicmarketing-static
+  branch: main
+
+media_folder: assets/images/uploads
+public_folder: /assets/images/uploads
+
+collections:
+  - name: blog
+    label: Blog Posts
+    folder: blog
+    create: true
+    slug: "{{slug}}"
+    extension: html
+    format: frontmatter
+    fields:
+      - { label: Title, name: title, widget: string }
+      - { label: Publish Date, name: date, widget: datetime }
+      - { label: Category, name: category, widget: select, options: [Google Ads, SEO, Facebook Ads, Strategy, Lead Gen] }
+      - { label: Excerpt, name: excerpt, widget: text }
+      - { label: Featured Image, name: image, widget: image, required: false }
+      - { label: Read Time (mins), name: read_time, widget: number }
+      - { label: Body, name: body, widget: markdown }
+
+  - name: case_studies
+    label: Case Studies
+    folder: case-studies
+    create: false
+    slug: "{{slug}}"
+    extension: html
+    format: frontmatter
+    files:
+      - { label: BB Garage, name: bb-garage, file: case-studies/bb-garage.html }
+      - { label: Busselton Automotive, name: busselton-automotive, file: case-studies/busselton-automotive.html }
+      - { label: Core Diesel, name: core-diesel, file: case-studies/core-diesel.html }
+      - { label: Accelerate Automotive, name: accelerate-automotive, file: case-studies/accelerate-automotive.html }
+    fields:
+      - { label: Client Name, name: title, widget: string }
+      - { label: Workshop Type, name: workshop_type, widget: string }
+      - { label: Headline Stat, name: headline_stat, widget: string }
+      - { label: Stat Label, name: stat_label, widget: string }
+      - { label: Excerpt, name: excerpt, widget: text }
+      - { label: Hero Image, name: image, widget: image, required: false }
+      - { label: Background, name: background, widget: markdown }
+      - { label: The Challenge, name: challenge, widget: markdown }
+      - { label: What We Did, name: what_we_did, widget: markdown }
+      - { label: The Results, name: results, widget: markdown }
