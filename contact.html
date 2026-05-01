@@ -67,7 +67,7 @@
 
         <!-- RIGHT: FORM -->
         <div>
-          <form class="contact-form" id="contact-form" action="__CONTACT_FORM_ENDPOINT__" method="POST" novalidate>
+          <form class="contact-form" id="contact-form" action="/contact" method="POST" novalidate>
             <div class="form-group">
               <label for="full_name">Full Name <span aria-hidden="true">*</span></label>
               <input type="text" id="full_name" name="full_name" placeholder="Your full name" required>
@@ -104,6 +104,9 @@
             </div>
             <button type="submit" class="btn btn-primary">Get in touch</button>
           </form>
+          <div id="form-success" style="display:none;" class="form-success">
+            <p>Thanks — we'll be in touch within 1 business day.</p>
+          </div>
         </div>
 
       </div>
@@ -187,5 +190,49 @@
   </footer>
 
   <script src="/js/main.js"></script>
+  <script>
+    (function() {
+      var form = document.getElementById('contact-form');
+      var success = document.getElementById('form-success');
+      if (!form) return;
+
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        var btn = form.querySelector('button[type="submit"], input[type="submit"]');
+        if (btn) {
+          btn.disabled = true;
+          btn.textContent = 'Sending...';
+        }
+
+        try {
+          var formData = new FormData(form);
+          var response = await fetch('/contact', {
+            method: 'POST',
+            body: formData,
+          });
+          var result = await response.json();
+
+          if (result.success) {
+            form.style.display = 'none';
+            if (success) success.style.display = 'block';
+          } else {
+            alert(result.error || 'Something went wrong. Please try again.');
+            if (btn) {
+              btn.disabled = false;
+              btn.textContent = 'Get in touch';
+            }
+          }
+        } catch (err) {
+          console.error(err);
+          alert('Something went wrong. Please email us directly at hello@mechanicmarketing.co');
+          if (btn) {
+            btn.disabled = false;
+            btn.textContent = 'Get in touch';
+          }
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
