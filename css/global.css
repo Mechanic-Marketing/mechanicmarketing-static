@@ -173,20 +173,7 @@ img {
    Nav
    ========================================================================== */
 
-.nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px 54px;
-  background: var(--mm-dark);
-  position: fixed;
-  top: 32px; /* sits below announce bar */
-  left: 0;
-  right: 0;
-  z-index: 100;
-}
-
-/* Site-header nav (case study pages + sub-pages) */
+/* Site-header nav (all pages) */
 .site-header {
   position: fixed;
   top: 0;
@@ -838,6 +825,73 @@ body {
 }
 
 /* ==========================================================================
+   Page Hero — Service, Industry, and other sub-pages
+   ========================================================================== */
+
+.page-hero {
+  background: var(--b);
+  padding: 96px 40px 80px;
+  text-align: center;
+}
+
+.page-hero .container {
+  max-width: 760px;
+  margin: 0 auto;
+  display: block; /* override any inherited grid/flex */
+}
+
+.page-hero .section-eyebrow {
+  display: block;
+  color: var(--o);
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.page-hero h1 {
+  color: var(--w);
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.page-hero h2 {
+  color: rgba(240,240,236,0.65);
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.page-hero p {
+  color: rgba(240,240,236,0.55);
+  font-size: 16px;
+  line-height: 1.65;
+  margin-bottom: 28px;
+  max-width: 580px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-hero .btn,
+.page-hero a.btn {
+  display: inline-block;
+}
+
+@media (max-width: 768px) {
+  .page-hero { padding: 72px 24px 56px; }
+  .page-hero h1 { font-size: clamp(28px, 8vw, 44px); }
+}
+
+/* ==========================================================================
    Pain Point Cards (Change 5)
    ========================================================================== */
 
@@ -991,9 +1045,6 @@ body {
    ========================================================================== */
 
 @media (max-width: 768px) {
-  .nav { padding: 11px 24px; }
-  .nav-links a:not(.nav-cta) { display: none; }
-
   .ft-top { grid-template-columns: 1fr 1fr; gap: 36px; }
   .footer { padding: 54px 24px 24px; }
   .ft-bot { flex-direction: column; align-items: flex-start; gap: var(--sp-sm); }
@@ -1065,6 +1116,62 @@ body {
   color: rgba(240,240,236,0.6);
   margin-bottom: 20px;
   line-height: 1.5;
+}
+
+.blog-post-sidebar {
+  /* sidebar column — grid handles placement */
+}
+
+.blog-post-content {
+  min-width: 0; /* prevent grid blowout */
+}
+
+.blog-post-content h2 {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--b);
+  letter-spacing: -0.02em;
+  margin-top: 40px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+.blog-post-content h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--b);
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.blog-post-content ul {
+  margin: 0 0 24px 0;
+  padding: 0;
+  list-style: none;
+}
+
+.blog-post-content ul li {
+  padding-left: 20px;
+  position: relative;
+  margin-bottom: 8px;
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(28,28,26,0.75);
+}
+
+.blog-post-content ul li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--o);
+  font-weight: 700;
+}
+
+.blog-post-content a {
+  color: var(--o);
+  text-decoration: underline;
 }
 
 /* ==========================================================================
@@ -1210,4 +1317,30 @@ a.blog-card:hover {
   color: var(--b);
   letter-spacing: -0.03em;
   margin-bottom: 40px;
+}
+
+/* ==========================================================================
+   About Page — Intro Paragraph
+   ========================================================================== */
+
+.about-intro {
+  font-size: 18px;
+  line-height: 1.65;
+  color: rgba(240,240,236,0.65);
+  max-width: 600px;
+  margin: 16px auto 48px;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Case Studies Hub — Sub-heading
+   ========================================================================== */
+
+.cs-hub-sub {
+  text-align: center;
+  font-size: 16px;
+  color: rgba(28,28,26,0.55);
+  max-width: 500px;
+  margin: 0 auto 48px;
+  padding: 0 24px;
 }
