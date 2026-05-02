@@ -634,7 +634,7 @@ img {
    Nav: Cream Background
    ========================================================================== */
 
-.site-header, .site-nav {
+.site-header {
   background: var(--w);
   border-bottom: 1px solid rgba(28,28,26,0.08);
   position: fixed;
