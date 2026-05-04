@@ -16,6 +16,7 @@ jobs:
           username: ${{ secrets.CLOUDWAYS_USERNAME }}
           key: ${{ secrets.CLOUDWAYS_SSH_KEY }}
           script: |
+            git config --global --add safe.directory '*'
             cd ${{ secrets.CLOUDWAYS_GIT_PATH }}
             git pull origin main
-            rsync -a --delete --exclude='.git' ${{ secrets.CLOUDWAYS_GIT_PATH }}/ ${{ secrets.CLOUDWAYS_APP_PATH }}/
+            rsync -rlt --no-perms --no-owner --no-group --delete --exclude='.git' ${{ secrets.CLOUDWAYS_GIT_PATH }}/ ${{ secrets.CLOUDWAYS_APP_PATH }}/
