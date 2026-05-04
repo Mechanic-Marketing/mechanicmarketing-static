@@ -381,5 +381,127 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </footer>
 
   <script src="/js/main.js"></script>
+<!-- Event Tracking -->
+<script>
+(function() {
+  window.dataLayer = window.dataLayer || [];
+
+  // Phone clicks
+  document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      window.dataLayer.push({
+        event: 'phone_click',
+        event_category: 'Contact',
+        event_label: el.getAttribute('href').replace('tel:', ''),
+        page_path: window.location.pathname
+      });
+    });
+  });
+
+  // Email clicks
+  document.querySelectorAll('a[href^="mailto:"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      window.dataLayer.push({
+        event: 'email_click',
+        event_category: 'Contact',
+        event_label: el.getAttribute('href').replace('mailto:', ''),
+        page_path: window.location.pathname
+      });
+    });
+  });
+
+  // CTA / Book Now clicks
+  document.querySelectorAll('.btn-primary, .btn-nav, .btn-dark, .btn-white, .btn-outline').forEach(function(el) {
+    el.addEventListener('click', function() {
+      window.dataLayer.push({
+        event: 'cta_click',
+        event_category: 'Engagement',
+        event_label: el.innerText.trim(),
+        page_path: window.location.pathname
+      });
+    });
+  });
+
+  // Get Directions clicks
+  document.querySelectorAll('a[href*="maps.app.goo.gl"], a[href*="maps.google.com"], a[href*="google.com/maps"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      window.dataLayer.push({
+        event: 'directions_click',
+        event_category: 'Engagement',
+        event_label: 'Get Directions',
+        page_path: window.location.pathname
+      });
+    });
+  });
+
+  // FAQ open
+  document.querySelectorAll('.faq-q').forEach(function(el) {
+    el.addEventListener('click', function() {
+      window.dataLayer.push({
+        event: 'faq_open',
+        event_category: 'Engagement',
+        event_label: el.innerText.trim().replace(/\s*\+\s*$/, '').trim(),
+        page_path: window.location.pathname
+      });
+    });
+  });
+
+  // Outbound clicks
+  document.querySelectorAll('a[target="_blank"]').forEach(function(el) {
+    el.addEventListener('click', function() {
+      window.dataLayer.push({
+        event: 'outbound_click',
+        event_category: 'Outbound',
+        event_label: el.getAttribute('href'),
+        page_path: window.location.pathname
+      });
+    });
+  });
+
+  // Scroll depth — 25%, 50%, 75%, 90%
+  var scrollDepths = [25, 50, 75, 90];
+  var firedDepths = {};
+  window.addEventListener('scroll', function() {
+    var docHeight = document.body.scrollHeight - window.innerHeight;
+    if (docHeight <= 0) return;
+    var scrollPct = Math.round((window.scrollY / docHeight) * 100);
+    scrollDepths.forEach(function(depth) {
+      if (scrollPct >= depth && !firedDepths[depth]) {
+        firedDepths[depth] = true;
+        window.dataLayer.push({
+          event: 'scroll_depth',
+          event_category: 'Engagement',
+          event_label: depth + '%',
+          page_path: window.location.pathname
+        });
+      }
+    });
+  });
+
+  // Time on page — 30s, 60s, 120s
+  [30, 60, 120].forEach(function(seconds) {
+    setTimeout(function() {
+      window.dataLayer.push({
+        event: 'time_on_page',
+        event_category: 'Engagement',
+        event_label: seconds + 's',
+        page_path: window.location.pathname
+      });
+    }, seconds * 1000);
+  });
+
+  // Booking conversion — thank-you page
+  if (window.location.pathname.indexOf('thank-you') > -1) {
+    window.dataLayer.push({
+      event: 'booking_conversion',
+      event_category: 'Conversion',
+      event_label: 'Booking Request Submitted',
+      page_path: window.location.pathname
+    });
+  }
+
+})();
+</script>
+<!-- End Event Tracking -->
 </body>
 </html>
