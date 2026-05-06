@@ -156,6 +156,26 @@
   z-index: 2;
 }
 
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: var(--mm-dark);
+  color: var(--mm-warm-white, #F0F0EC);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 6px 14px;
+  border-radius: 4px;
+}
+
 .hero-eyebrow {
   font-family: var(--font-display);
   font-weight: 700;
@@ -1368,6 +1388,10 @@
 .cta-strip h2 {
   color: var(--mm-dark);
   margin-bottom: var(--sp-md);
+}
+
+.cta-strip p {
+  color: var(--mm-dark);
 }
 
 .placeholder-section { padding: var(--sp-xxl) 0; }
