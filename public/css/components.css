@@ -1495,3 +1495,27 @@
 @media (max-width: 1023px) {
   .blog-grid { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ==========================================================================
+   Stats ticker
+   ========================================================================== */
+.stats-ticker { overflow: hidden; background: #ffffff; padding: 0.5rem 0; border-bottom: 1px solid #e5e5e5; }
+.ticker-track { display: flex; gap: 4rem; white-space: nowrap; animation: ticker 22s linear infinite; width: max-content; }
+.ticker-track span { font-size: 0.85rem; color: #1c1c1e; padding: 0 1rem; }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ==========================================================================
+   Team section
+   ========================================================================== */
+.team-section { background: #f5f5f5; padding: 80px 54px; }
+.team-section .container { max-width: 760px; margin: 0 auto; }
+.team-member { display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; }
+.team-photo { width: 200px; height: 200px; object-fit: cover; border-radius: 8px; flex-shrink: 0; }
+.team-member-details { flex: 1; min-width: 260px; }
+.team-member-details h3 { font-family: var(--font-display, 'TT Commons Pro','TT Commons','Helvetica Neue',Arial,sans-serif); font-weight: 700; font-size: 22px; margin-bottom: 8px; color: #1c1c1e; }
+.team-role { font-weight: 700; color: #FF3D02; margin-bottom: 16px; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
+.team-member-details p { line-height: 1.6; margin-bottom: 12px; color: #1c1c1e; }
+@media (max-width: 640px) {
+  .team-section { padding: 60px 24px; }
+  .team-photo { width: 160px; height: 160px; }
+}
