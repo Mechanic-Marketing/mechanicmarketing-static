@@ -1497,12 +1497,39 @@
 }
 
 /* ==========================================================================
-   Stats ticker
+   Stats ticker — Guy review
    ========================================================================== */
-.stats-ticker { overflow: hidden; background: #ffffff; padding: 0.5rem 0; border-bottom: 1px solid #e5e5e5; }
-.ticker-track { display: flex; gap: 4rem; white-space: nowrap; animation: ticker 22s linear infinite; width: max-content; }
-.ticker-track span { font-size: 0.85rem; color: #1c1c1e; padding: 0 1rem; }
-@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.stats-ticker {
+  overflow: hidden;
+  background: #fff;
+  padding: 10px 0;
+  border-bottom: 1px solid #e8e8e6;
+}
+.ticker-track {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  white-space: nowrap;
+  animation: ticker 22s linear infinite;
+}
+.ticker-track span {
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--mm-dark);
+}
+.ticker-dot {
+  color: var(--mm-orange) !important;
+  font-weight: 700;
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ===================================================================
 
 /* ==========================================================================
    Team section
