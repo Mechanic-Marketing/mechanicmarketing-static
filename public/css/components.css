@@ -1248,6 +1248,7 @@
   background: var(--mm-dark);
   color: var(--mm-warm-white);
   border: none;
+  box-shadow: 0 0 48px rgba(255,61,2,0.18), 0 8px 40px rgba(0,0,0,0.22);
 }
 
 .pbadge {
@@ -1880,7 +1881,7 @@
 .page-hero .section-label { color: var(--mm-orange-t2); margin-left: auto; margin-right: auto; }
 .page-hero h1 { max-width: 800px; margin: 0 auto 16px; }
 .page-hero h2 { max-width: 700px; margin: 0 auto 16px; }
-.page-hero p { max-width: 640px; font-size: 18px; opacity: 0.75; margin: 0 auto var(--sp-lg); }
+.page-hero p { max-width: 640px; font-size: 18px; color: #fff; opacity: 1; margin: 0 auto var(--sp-lg); }
 .page-hero .btn { display: inline-block; }
 
 .cta-strip {
