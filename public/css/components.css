@@ -156,7 +156,7 @@
 }
 
 .hero-text {
-  padding: 64px 48px 64px 88px; /* left gutter matches right side */
+  padding: 64px 48px 64px 116px; /* left gutter matches right side (88px padding + 25px SVG internal + 4px centering) */
   display: flex;
   flex-direction: column;
   justify-content: center;
