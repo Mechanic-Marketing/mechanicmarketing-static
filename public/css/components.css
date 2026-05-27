@@ -156,7 +156,7 @@
 }
 
 .hero-text {
-  padding: 64px 54px;
+  padding: 64px 48px 64px 88px; /* left gutter matches right side */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -265,7 +265,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px 24px 76px; /* bottom clears the motif strip */
+  padding: 20px 88px 76px 24px; /* right gutter matches left text column */
 }
 
 .hero-car-anim {
