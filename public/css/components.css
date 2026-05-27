@@ -337,6 +337,20 @@
   to   { transform: rotate(360deg); }
 }
 
+.hero-car-anim .mm-be-next { cursor: pointer; }
+.hero-car-anim .mm-be-next:hover { filter: brightness(1.12); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-car-anim animate,
+  .hero-car-anim animateMotion {
+    animation-duration: 0s !important;
+  }
+  .mm-car,
+  .mm-orbit-group {
+    opacity: 1;
+  }
+}
+
 /* ==========================================================================
    Trust Section — unified stats + logo strip
    ========================================================================== */
