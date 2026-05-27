@@ -156,7 +156,7 @@
 }
 
 .hero-text {
-  padding: 81px 54px;
+  padding: 64px 54px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -288,7 +288,7 @@
 
 /* Wheel rotation handled via SMIL <animateTransform> in the SVG markup */
 
-/* Motif strip — now a direct child of .hero, spans full page width */
+/* Motif strip — full-width bottom of hero, single seamless scrolling row */
 .hero > .hero-motif-overlay {
   position: absolute;
   bottom: 0;
@@ -301,17 +301,11 @@
   pointer-events: none;
 }
 
-/* Float wrapper — subtle bobbing + motion blur for speed-trail feel */
-.hero-motif-float {
-  animation: heroMotifFloat 3.5s ease-in-out infinite;
-  filter: blur(1px);
-}
-
 /* Scrolling track — two identical images side-by-side for seamless loop */
 .hero-motif-track {
   display: flex;
   flex-direction: row;
-  animation: heroMotifScroll 22s linear infinite;
+  animation: heroMotifScroll 28s linear infinite;
 }
 
 .hero-motif-track img {
@@ -327,14 +321,57 @@
   to   { transform: translateX(-50%); }
 }
 
-@keyframes heroMotifFloat {
-  0%, 100% { transform: translateY(10px); }
-  50%      { transform: translateY(4px); }
-}
-
 @keyframes wheelSpin {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
+}
+
+/* ==========================================================================
+   Services MMMM counter-scroll divider
+   ========================================================================== */
+
+.motif-divider--anim {
+  line-height: 0;
+  overflow: hidden;
+}
+
+.motif-divider-row {
+  height: 88px;
+  overflow: hidden;
+}
+
+.motif-divider-track {
+  display: flex;
+  flex-direction: row;
+  animation: motifScrollL 36s linear infinite;
+  will-change: transform;
+}
+
+.motif-divider-track--rev {
+  animation: motifScrollR 46s linear infinite;
+}
+
+.motif-divider-track img {
+  height: 88px;
+  width: auto;
+  display: block;
+  flex-shrink: 0;
+  opacity: 0.22;
+}
+
+@keyframes motifScrollL {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes motifScrollR {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motif-divider-track,
+  .motif-divider-track--rev { animation: none; }
 }
 
 /* ==========================================================================
@@ -348,7 +385,7 @@
 
 .trust-section {
   background: var(--mm-warm-white);
-  padding: 64px 54px 56px;
+  padding: 48px 54px 44px;
   border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
@@ -546,15 +583,20 @@
    ========================================================================== */
 
 .services {
-  padding: 121px 54px;
+  padding: 80px 54px;
   background: var(--mm-dark);
   text-align: center;
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
 }
 
 .services-hdr {
   max-width: 680px;
-  margin: 0 auto 72px;
+  margin: 0 auto 48px;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 .services-hdr h2 {
@@ -582,6 +624,27 @@
   gap: 15px;
   max-width: 1100px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Animated ambient glow — sits between dark bg and card content */
+@keyframes servicesGlow {
+  0%, 100% { opacity: 0.5; }
+  50%       { opacity: 1; }
+}
+
+.services::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 55% 55% at 15% 45%, rgba(255,61,2,0.11) 0%, transparent 55%),
+    radial-gradient(ellipse 45% 40% at 82% 20%, rgba(255,61,2,0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 40% 50% at 55% 88%, rgba(255,61,2,0.07) 0%, transparent 50%);
+  animation: servicesGlow 11s ease-in-out infinite;
 }
 
 .svc {
@@ -670,13 +733,13 @@
    ========================================================================== */
 
 .process {
-  padding: 121px 54px;
+  padding: 80px 54px;
   background: var(--mm-warm-white);
 }
 
 .process-hdr {
   text-align: center;
-  margin-bottom: 81px;
+  margin-bottom: 54px;
 }
 
 .process-hdr h2 {
@@ -805,16 +868,18 @@
    ========================================================================== */
 
 .cases {
-  padding: 121px 54px;
+  padding: 80px 54px;
   background:
     radial-gradient(ellipse 75% 65% at 100% 0%, rgba(255,61,2,0.055) 0%, transparent 70%),
     radial-gradient(ellipse 45% 50% at 0% 100%, rgba(255,61,2,0.035) 0%, transparent 60%),
     #ffffff;
   border-top: 1px solid rgba(0,0,0,0.06);
+  position: relative;
+  isolation: isolate;
 }
 
 .cases-hdr {
-  margin-bottom: 54px;
+  margin-bottom: 36px;
   text-align: center;
 }
 
@@ -993,9 +1058,11 @@
    ========================================================================== */
 
 .test {
-  padding: 121px 54px;
+  padding: 80px 54px;
   background: var(--mm-warm-white);
   text-align: center;
+  position: relative;
+  isolation: isolate;
 }
 
 .testimonial-card {
@@ -1075,12 +1142,47 @@
   border-top: none;
 }
 
+/* Per-section ambient glow — Results 03 */
+@keyframes sectionPulse {
+  0%, 100% { opacity: 0.55; }
+  50%       { opacity: 1; }
+}
+
+.mid-zone .cases::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 65% 55% at 88% 15%, rgba(255,61,2,0.065) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 45% at 12% 82%, rgba(255,61,2,0.045) 0%, transparent 55%);
+  animation: sectionPulse 14s ease-in-out infinite;
+}
+
+.mid-zone .cases > * { position: relative; z-index: 1; }
+
+/* Per-section ambient glow — Clients 04 */
+.mid-zone .test::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 30%, rgba(255,61,2,0.05) 0%, transparent 58%),
+    radial-gradient(ellipse 40% 55% at 85% 75%, rgba(255,61,2,0.035) 0%, transparent 52%);
+  animation: sectionPulse 18s ease-in-out infinite 4s;
+}
+
+.mid-zone .test > * { position: relative; z-index: 1; }
+
 /* ==========================================================================
    Pricing
    ========================================================================== */
 
 .pricing {
-  padding: 121px 54px;
+  padding: 80px 54px;
   background: var(--mm-warm-white);
 }
 
@@ -1121,7 +1223,8 @@
   border: 1px solid rgba(0,0,0,0.08);
   padding: 54px 36px;
   position: relative;
-  background: var(--mm-warm-white);
+  background: #fff;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.06);
 }
 
 .pcard.feat {
@@ -1231,7 +1334,7 @@
    ========================================================================== */
 
 .faq {
-  padding: 121px 54px;
+  padding: 80px 54px;
   background: var(--mm-warm-white);
   border-top: 1px solid rgba(0,0,0,0.06);
 }
@@ -1308,7 +1411,7 @@
    ========================================================================== */
 
 .cta-final {
-  padding: 121px 54px;
+  padding: 80px 54px;
   background: var(--mm-orange);
   text-align: center;
   position: relative;
@@ -1859,7 +1962,7 @@
   .tick:nth-child(2)::after { display: none; }
   .tick-num { font-size: 36px; }
 
-  .services, .process, .cases, .test, .pricing, .faq, .cta-final { padding: 81px 24px; }
+  .services, .process, .cases, .test, .pricing, .faq, .cta-final { padding: 56px 24px; }
   .svc-grid { grid-template-columns: 1fr; }
   .svc { margin-bottom: 0; }
   .steps { grid-template-columns: 1fr; gap: 20px; }
@@ -1924,18 +2027,3 @@
 
 /* ===================================================================
 
-/* ==========================================================================
-   Team section
-   ========================================================================== */
-.team-section { background: #f5f5f5; padding: 80px 54px; }
-.team-section .container { max-width: 760px; margin: 0 auto; }
-.team-member { display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap; }
-.team-photo { width: 200px; height: 200px; object-fit: cover; border-radius: 8px; flex-shrink: 0; }
-.team-member-details { flex: 1; min-width: 260px; }
-.team-member-details h3 { font-family: var(--font-display, 'TT Commons Pro','TT Commons','Helvetica Neue',Arial,sans-serif); font-weight: 700; font-size: 22px; margin-bottom: 8px; color: #1c1c1e; }
-.team-role { font-weight: 700; color: #FF3D02; margin-bottom: 16px; font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; }
-.team-member-details p { line-height: 1.6; margin-bottom: 12px; color: #1c1c1e; }
-@media (max-width: 640px) {
-  .team-section { padding: 60px 24px; }
-  .team-photo { width: 160px; height: 160px; }
-}
