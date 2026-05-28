@@ -2074,10 +2074,29 @@
   .steps { grid-template-columns: 1fr; gap: 20px; }
   .step-s1, .step-s2, .step-s3, .step-s4 { margin-top: 0; }
   .cases-grid { grid-template-columns: 1fr; }
-  /* Mobile carousel: 1 card at a time */
+  /* Mobile carousel: 1 card at a time, arrows overlaid on top of card */
   .cases-carousel-track .case { flex: 0 0 100%; }
   .cases-carousel-track { gap: 0; }
-  .cases-carousel-outer { gap: 10px; }
+  .cases-carousel-outer {
+    position: relative;
+    gap: 0;
+  }
+  .carousel-btn {
+    position: absolute;
+    top: 38%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 40px;
+    height: 40px;
+  }
+  .carousel-prev { left: 10px; }
+  .carousel-next { right: 10px; }
+
+  /* Clients · 04 testimonial — smaller font, tighter side padding */
+  .test { padding: 48px 20px; }
+  .testimonial-card { padding: var(--sp-lg) var(--sp-md); }
+  .test blockquote { font-size: 24px; line-height: 108%; margin-bottom: 24px; }
+
   .price-cards { grid-template-columns: 1fr; }
 
   .services-hdr h2, .process-hdr h2, .cases-hdr h2, .pricing-hdr h2, .faq h2 { font-size: 36px; }
