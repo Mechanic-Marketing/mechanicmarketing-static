@@ -38,34 +38,89 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
   <header class="mm-header">
-
-  <!-- Sticky nav -->
-  <nav class="mm-nav" style="display:flex;align-items:center;justify-content:space-between;background:#000;padding:16px 48px;box-sizing:border-box;position:sticky;top:0;z-index:1000;">
-    <a href="/" class="mm-nav-logo" style="display:flex;align-items:center;flex-shrink:0;">
-      <img src="/images/MM-LogoInline-WarmWhite.svg" alt="Mechanic Marketing" style="height:32px;">
-    </a>
-    <div class="mm-nav-links" style="display:flex;align-items:center;gap:48px;">
-      <a href="/about" style="font-family:'TT Commons Pro','TT Commons','Helvetica Neue',Arial,sans-serif;font-weight:700;font-size:14px;color:#F0F0EC;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap;">About</a>
-      <a href="/pricing" style="font-family:'TT Commons Pro','TT Commons','Helvetica Neue',Arial,sans-serif;font-weight:700;font-size:14px;color:#F0F0EC;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap;">Pricing</a>
-      <a href="/blog" style="font-family:'TT Commons Pro','TT Commons','Helvetica Neue',Arial,sans-serif;font-weight:700;font-size:14px;color:#F0F0EC;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap;">Blog</a>
-      <a href="/contact" style="display:inline-flex;align-items:center;padding:12px 28px;font-family:'TT Commons Pro','TT Commons','Helvetica Neue',Arial,sans-serif;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:0.05em;background:#fff;color:#1c1c1a;text-decoration:none;white-space:nowrap;">Get in Touch</a>
+  <!-- Seamless marquee ticker: 4 identical groups so translateX(-25%) = exactly one group width -->
+  <div class="stats-ticker">
+    <div class="ticker-track">
+      <div class="ticker-group">
+        <span>3,714+ leads generated</span>
+        <span class="ticker-sep" aria-hidden="true">&#9670;</span>
+        <span>Average 4.2&times; ROI across clients</span>
+        <span class="ticker-sep" aria-hidden="true">&#9670;</span>
+        <span>Over $5M+ in revenue for workshops</span>
+        <span class="ticker-sep" aria-hidden="true">&#9670;</span>
+        <span>30+ workshops across Australia</span>
+        <span class="ticker-sep" aria-hidden="true">&#9670;</span>
+        <span>Avg. $38 cost per lead</span>
+        <span class="ticker-sep" aria-hidden="true">&#9670;</span>
+        <span>Campaigns live in 7 days</span>
+      </div>
+      <div class="ticker-group" aria-hidden="true">
+        <span>3,714+ leads generated</span>
+        <span class="ticker-sep">&#9670;</span>
+        <span>Average 4.2&times; ROI across clients</span>
+        <span class="ticker-sep">&#9670;</span>
+        <span>Over $5M+ in revenue for workshops</span>
+        <span class="ticker-sep">&#9670;</span>
+        <span>30+ workshops across Australia</span>
+        <span class="ticker-sep">&#9670;</span>
+        <span>Avg. $38 cost per lead</span>
+        <span class="ticker-sep">&#9670;</span>
+        <span>Campaigns live in 7 days</span>
+      </div>
+      <div class="ticker-group" aria-hidden="true">
+        <span>3,714+ leads generated</span>
+        <span class="ticker-sep">&#9670;</span>
+        <span>Average 4.2&times; ROI across clients</span>
+        <span class="ticker-sep">&#9670;</span>
+        <span>Over $5M+ in revenue for workshops</span>
+        <span class="ticker-sep">&#9670;</span>
+        <span>30+ workshops across Australia</span>
+        <span class="ticker-sep">&#9670;</span>
+        <span>Avg. $38 cost per lead</span>
+        <span class="ticker-sep">&#9670;</span>
+        <span>Campaigns live in 7 days</span>
+      </div>
+      <div class="ticker-group" aria-hidden="true">
+        <span>3,714+ leads generated</span>
+        <span class="ticker-sep">&#9670;</span>
+        <span>Average 4.2&times; ROI across clients</span>
+        <span class="ticker-sep">&#9670;</span>
+        <span>Over $5M+ in revenue for workshops</span>
+        <span class="ticker-sep">&#9670;</span>
+        <span>30+ workshops across Australia</span>
+        <span class="ticker-sep">&#9670;</span>
+        <span>Avg. $38 cost per lead</span>
+        <span class="ticker-sep">&#9670;</span>
+        <span>Campaigns live in 7 days</span>
+      </div>
     </div>
-    <button class="mm-nav-toggle" onclick="document.querySelector('.mm-nav-links').classList.toggle('mm-nav-open')" style="display:none;background:none;border:none;cursor:pointer;padding:8px;">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F0F0EC" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>
-    </button>
-  </nav>
-
-  <style>
-    @media(max-width:768px){
-      .mm-nav { padding:12px 24px !important; }
-      .mm-nav-links { display:none !important; position:absolute; top:100%; left:0; right:0; background:#000; flex-direction:column; padding:24px; gap:20px; z-index:100; }
-      .mm-nav-links.mm-nav-open { display:flex !important; }
-      .mm-nav-toggle { display:block !important; }
-      .mm-nav { position:relative; }
-    }
-  </style>
-
+  </div>
 </header>
+
+<!-- Sticky nav lives OUTSIDE the header so sticky positioning works across the full page scroll -->
+<nav class="mm-nav" style="display:flex;align-items:center;justify-content:space-between;background:#000;padding:16px 48px;box-sizing:border-box;position:sticky;top:0;z-index:1000;">
+  <a href="/" class="mm-nav-logo" style="display:flex;align-items:center;flex-shrink:0;">
+    <img src="/images/MM-LogoInline-WarmWhite.svg" alt="Mechanic Marketing" style="height:32px;">
+  </a>
+  <div class="mm-nav-links" style="display:flex;align-items:center;gap:48px;">
+    <a href="/about.html" style="font-family:'TT Commons Pro','TT Commons','Helvetica Neue',Arial,sans-serif;font-weight:700;font-size:14px;color:#F0F0EC;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap;">About</a>
+    <a href="/pricing.html" style="font-family:'TT Commons Pro','TT Commons','Helvetica Neue',Arial,sans-serif;font-weight:700;font-size:14px;color:#F0F0EC;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap;">Pricing</a>
+    <a href="/blog/" style="font-family:'TT Commons Pro','TT Commons','Helvetica Neue',Arial,sans-serif;font-weight:700;font-size:14px;color:#F0F0EC;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap;">Blog</a>
+    <a href="/contact.html" style="display:inline-flex;align-items:center;padding:12px 28px;font-family:'TT Commons Pro','TT Commons','Helvetica Neue',Arial,sans-serif;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:0.05em;background:#FF3D02;color:#fff;text-decoration:none;white-space:nowrap;">Get in Touch</a>
+  </div>
+  <button class="mm-nav-toggle" onclick="this.closest('nav').querySelector('.mm-nav-links').classList.toggle('mm-nav-open')" style="display:none;background:none;border:none;cursor:pointer;padding:8px;">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F0F0EC" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>
+  </button>
+</nav>
+
+<style>
+  @media(max-width:768px){
+    .mm-nav { padding:12px 24px !important; }
+    .mm-nav-links { display:none !important; position:absolute; top:100%; left:0; right:0; background:#000; flex-direction:column; padding:24px; gap:20px; z-index:100; }
+    .mm-nav-links.mm-nav-open { display:flex !important; }
+    .mm-nav-toggle { display:block !important; }
+  }
+</style>
 
   <!-- HERO -->
   <section class="page-hero">
