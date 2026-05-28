@@ -82,48 +82,31 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 
-  <!-- Floating car-shaped nav -->
-  <nav class="mm-nav" id="mm-nav">
-    <a href="/" class="mm-nav-logo">
-      <img src="/images/MM-LogoInline-Black.svg" alt="Mechanic Marketing" class="mm-nav-logo-img mm-nav-logo-default">
-      <img src="/images/MM-LogoInline-WarmWhite.svg" alt="Mechanic Marketing" class="mm-nav-logo-img mm-nav-logo-scrolled">
+  <!-- Sticky nav -->
+  <nav class="mm-nav" style="display:flex;align-items:center;justify-content:space-between;background:#000;padding:16px 48px;box-sizing:border-box;position:sticky;top:0;z-index:1000;">
+    <a href="/" class="mm-nav-logo" style="display:flex;align-items:center;flex-shrink:0;">
+      <img src="/images/MM-LogoInline-WarmWhite.svg" alt="Mechanic Marketing" style="height:32px;">
     </a>
-    <div class="mm-nav-links" id="mm-nav-links">
-      <a href="/about.html">About</a>
-      <a href="/pricing.html">Pricing</a>
-      <a href="/blog/">Blog</a>
-      <a href="/contact.html" class="mm-nav-cta">Get in Touch</a>
+    <div class="mm-nav-links" style="display:flex;align-items:center;gap:48px;">
+      <a href="/about.html" style="font-family:'TT Commons Pro','TT Commons','Helvetica Neue',Arial,sans-serif;font-weight:700;font-size:14px;color:#F0F0EC;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap;">About</a>
+      <a href="/pricing.html" style="font-family:'TT Commons Pro','TT Commons','Helvetica Neue',Arial,sans-serif;font-weight:700;font-size:14px;color:#F0F0EC;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap;">Pricing</a>
+      <a href="/blog/" style="font-family:'TT Commons Pro','TT Commons','Helvetica Neue',Arial,sans-serif;font-weight:700;font-size:14px;color:#F0F0EC;text-decoration:none;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap;">Blog</a>
+      <a href="/contact.html" style="display:inline-flex;align-items:center;padding:12px 28px;font-family:'TT Commons Pro','TT Commons','Helvetica Neue',Arial,sans-serif;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:0.05em;background:#FF3D02;color:#fff;text-decoration:none;white-space:nowrap;">Get in Touch</a>
     </div>
-    <button class="mm-nav-toggle" id="mm-nav-toggle" aria-label="Toggle menu">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+    <button class="mm-nav-toggle" onclick="document.querySelector('.mm-nav-links').classList.toggle('mm-nav-open')" style="display:none;background:none;border:none;cursor:pointer;padding:8px;">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F0F0EC" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"></path></svg>
     </button>
   </nav>
 
-  <script>
-  /* Floating header — transparent → car-shaped dark pill on scroll */
-  (function () {
-    var nav    = document.getElementById('mm-nav');
-    var toggle = document.getElementById('mm-nav-toggle');
-    var links  = document.getElementById('mm-nav-links');
-    if (!nav) return;
-
-    function setScrolled() {
-      if (window.scrollY > 60) {
-        nav.classList.add('mm-nav--scrolled');
-      } else {
-        nav.classList.remove('mm-nav--scrolled');
-      }
+  <style>
+    @media(max-width:768px){
+      .mm-nav { padding:12px 24px !important; }
+      .mm-nav-links { display:none !important; position:absolute; top:100%; left:0; right:0; background:#000; flex-direction:column; padding:24px; gap:20px; z-index:100; }
+      .mm-nav-links.mm-nav-open { display:flex !important; }
+      .mm-nav-toggle { display:block !important; }
+      .mm-nav { position:relative; }
     }
-    window.addEventListener('scroll', setScrolled, { passive: true });
-    setScrolled();
-
-    if (toggle && links) {
-      toggle.addEventListener('click', function () {
-        links.classList.toggle('mm-nav--open');
-      });
-    }
-  })();
-  </script>
+  </style>
 
 </header>
 
