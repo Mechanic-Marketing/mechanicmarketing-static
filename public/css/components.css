@@ -486,11 +486,66 @@
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
+/* Trust logos label */
+.trust-logos-label {
+  text-align: center;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(28,28,26,0.38);
+  margin: 0 0 20px;
+}
+
+/* Logo slider wrapper with arrows */
+.trust-logos-wrap {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.trust-logos-wrap .trust-logos {
+  flex: 1;
+  max-width: none;
+  margin: 0;
+}
+
+.trust-arrow {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(28,28,26,0.14);
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+  color: rgba(28,28,26,0.45);
+  padding: 0;
+}
+
+.trust-arrow:hover {
+  border-color: rgba(255,61,2,0.38);
+  color: #FF3D02;
+  box-shadow: 0 2px 10px rgba(255,61,2,0.10);
+}
+
+.trust-arrow svg {
+  width: 15px;
+  height: 15px;
+  display: block;
+}
+
 .trust-logos-track {
   display: flex;
   align-items: center;
   gap: 80px;
-  animation: mm-scroll 22s linear infinite;
+  animation: mm-scroll 18s linear infinite;
   white-space: nowrap;
   will-change: transform;
 }
@@ -508,6 +563,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .trust-logos-track { animation: none; flex-wrap: wrap; justify-content: center; gap: 40px; }
+  .trust-arrow { display: none; }
 }
 
 /* Legacy ticker/logos kept for other pages */

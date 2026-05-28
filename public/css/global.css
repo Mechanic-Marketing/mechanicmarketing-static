@@ -845,11 +845,28 @@ img {
   background: var(--w);
   position: relative;
   isolation: isolate;
+  overflow: hidden;
+}
+
+/* Atmospheric car silhouette — decorative background */
+.pain-car-bg {
+  position: absolute;
+  right: -3%;
+  bottom: -6%;
+  width: 50%;
+  max-width: 580px;
+  min-width: 260px;
+  color: var(--mm-orange);
+  opacity: 0.055;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .pain-section .container {
   text-align: center;
   max-width: 1100px;
+  position: relative;
+  z-index: 1;
 }
 
 .pain-section .section-label {
