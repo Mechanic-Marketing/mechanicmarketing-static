@@ -1372,53 +1372,6 @@ a.blog-card:hover {
   }
 }
 
-/* ==========================================================================
-   Nav — Industries dropdown
-   ========================================================================== */
-
-.mm-nav-industries {
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-}
-
-.mm-nav-dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: -16px;
-  min-width: 196px;
-  background: #111;
-  border-top: 3px solid #FF3D02;
-  padding: 4px 0;
-  z-index: 200;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-}
-
-.mm-nav-industries:hover .mm-nav-dropdown { display: block; }
-
-.mm-nav-dropdown a {
-  display: block;
-  padding: 10px 20px;
-  font-family: 'TT Commons Pro', 'TT Commons', 'Helvetica Neue', Arial, sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  color: #F0F0EC;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  white-space: nowrap;
-  transition: background 0.15s, color 0.15s;
-}
-
-.mm-nav-dropdown a:hover {
-  background: #1e1e1e;
-  color: #FF3D02;
-}
-
-@media (max-width: 768px) {
-  .mm-nav-dropdown { display: none !important; }
-}
 
 /* ==========================================================================
    Case Studies Hub — Sub-heading
