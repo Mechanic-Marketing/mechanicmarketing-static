@@ -90,13 +90,15 @@ if (form) {
     btn.textContent = 'Sending...';
     btn.disabled = true;
     try {
-      var res = await fetch('__CONTACT_FORM_ENDPOINT__', {
+      var res = await fetch('/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(Object.fromEntries(new FormData(form)))
       });
       if (res.ok) {
         form.innerHTML = '<p class="form-success">Thanks — we\'ll be in touch within 1 business day.</p>';
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'form_submission', form_name: 'contact' });
       } else {
         throw new Error('Server error');
       }
