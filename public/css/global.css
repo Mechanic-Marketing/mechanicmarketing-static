@@ -1326,6 +1326,29 @@ a.blog-card:hover {
 }
 
 /* ==========================================================================
+   Nav — Centered layout (logo left | links centre | toggle right)
+   Overrides the inline display:flex;justify-content:space-between on .mm-nav
+   ========================================================================== */
+
+.mm-nav {
+  display: grid !important;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+}
+
+.mm-nav .mm-nav-logo {
+  justify-self: start;
+}
+
+.mm-nav .mm-nav-links {
+  justify-self: center;
+}
+
+.mm-nav .mm-nav-toggle {
+  justify-self: end;
+}
+
+/* ==========================================================================
    Nav — Industries dropdown
    ========================================================================== */
 
