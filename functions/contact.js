@@ -57,11 +57,3 @@ ${message || 'No message provided'}
 
   return Response.json({ success: true });
 }
-
-// Return 405 for non-POST requests
-export async function onRequest(context) {
-  if (context.request.method === 'POST') {
-    return onRequestPost(context);
-  }
-  return new Response('Method not allowed', { status: 405 });
-}
