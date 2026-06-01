@@ -1,0 +1,2090 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+    <title>Free Website Audit for Mechanics | Mechanic Marketing</title>
+    <meta name="description" content="We checked 50 Aussie workshop sites. Most made the same 5 mistakes. Get yours checked free in 30 minutes. No pitch, no obligation.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Meta Pixel Code -->
+    <!-- TODO: Insert Meta Pixel base code here -->
+    <!-- End Meta Pixel Code -->
+
+    <!-- GA4 -->
+    <!-- TODO: Insert Google Analytics 4 gtag.js snippet here -->
+    <!-- End GA4 -->
+
+    <style>
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #1C1C1A;
+            background: #F0F0EC;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* ===== VARIABLES ===== */
+        :root {
+            --orange: #FF3D02;
+            --orange-hover: #E03500;
+            --golden: #F0AA00;
+            --white: #FFFFFF;
+            --light-bg: #F0F0EC;
+            --near-black: #1C1C1A;
+            --dark-bg: #111111;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --radius: 8px;
+            --radius-lg: 12px;
+            --section-pad-mobile: 56px 0;
+            --section-pad-desktop: 100px 0;
+        }
+
+        /* ===== TYPOGRAPHY ===== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Inter', sans-serif;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+        }
+
+        .accent {
+            color: var(--orange);
+        }
+
+        .section-label {
+            display: inline-block;
+            background: var(--orange);
+            color: var(--white);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 100px;
+            margin-bottom: 20px;
+        }
+
+        .section-label--dark {
+            background: rgba(255, 61, 2, 0.15);
+            color: var(--orange);
+        }
+
+        /* ===== CONTAINER ===== */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== BUTTONS ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            padding: 16px 32px;
+            border-radius: var(--radius);
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .btn--primary {
+            background: var(--orange);
+            color: var(--white);
+        }
+
+        .btn--primary:hover {
+            background: var(--orange-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px rgba(255, 61, 2, 0.3);
+        }
+
+        .btn--secondary {
+            background: var(--near-black);
+            color: var(--white);
+        }
+
+        .btn--secondary:hover {
+            background: #333;
+            transform: translateY(-1px);
+        }
+
+        .btn--outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn--outline:hover {
+            border-color: var(--white);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .btn--full {
+            width: 100%;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+
+        /* ===== PROOF BAR ===== */
+        .proof-bar {
+            background: var(--near-black);
+            padding: 12px 0;
+            overflow: hidden;
+        }
+
+        .proof-bar__inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .proof-bar__item {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .proof-bar__dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--orange);
+            flex-shrink: 0;
+        }
+
+        /* ===== LOGO BAR ===== */
+        .logo-bar {
+            padding: 16px 0;
+            background: var(--light-bg);
+            border-bottom: 1px solid rgba(28, 28, 26, 0.06);
+        }
+
+        .logo-bar__inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo__mark {
+            width: 42px;
+            height: 42px;
+            flex-shrink: 0;
+        }
+
+        .logo__text {
+            font-size: 13px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--near-black);
+            line-height: 1.15;
+        }
+
+        .logo__text span {
+            display: block;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            color: rgba(28, 28, 26, 0.5);
+        }
+
+        .logo-bar__phone {
+            display: none;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--near-black);
+        }
+
+        .logo-bar__phone svg {
+            width: 18px;
+            height: 18px;
+            color: var(--orange);
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            background: var(--light-bg);
+            padding: 48px 0 56px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -200px;
+            right: -200px;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 61, 2, 0.04) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero__grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .hero__content {
+            max-width: 600px;
+        }
+
+        .hero__badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 61, 2, 0.08);
+            border: 1px solid rgba(255, 61, 2, 0.15);
+            color: var(--orange);
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 8px 16px;
+            border-radius: 100px;
+            margin-bottom: 24px;
+        }
+
+        .hero__badge svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 7vw, 56px);
+            letter-spacing: -0.04em;
+            margin-bottom: 20px;
+            color: var(--near-black);
+        }
+
+        .hero__sub {
+            font-size: 18px;
+            line-height: 1.6;
+            color: rgba(28, 28, 26, 0.7);
+            margin-bottom: 32px;
+            max-width: 520px;
+        }
+
+        .hero__proof {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-bottom: 32px;
+        }
+
+        .hero__proof-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--near-black);
+        }
+
+        .hero__proof-item svg {
+            width: 18px;
+            height: 18px;
+            color: var(--orange);
+            flex-shrink: 0;
+        }
+
+        .hero__cta-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* ===== FORM ===== */
+        .form-card {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            padding: 32px 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04), 0 16px 48px rgba(0, 0, 0, 0.06);
+            border-top: 4px solid var(--orange);
+            position: relative;
+        }
+
+        .form-card__title {
+            font-size: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            margin-bottom: 4px;
+            color: var(--near-black);
+        }
+
+        .form-card__subtitle {
+            font-size: 14px;
+            color: rgba(28, 28, 26, 0.6);
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--near-black);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .form-group label .required {
+            color: var(--orange);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            color: var(--near-black);
+            background: var(--light-bg);
+            border: 2px solid transparent;
+            border-radius: var(--radius);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            outline: none;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(28, 28, 26, 0.35);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--orange);
+            box-shadow: 0 0 0 3px rgba(255, 61, 2, 0.1);
+            background: var(--white);
+        }
+
+        .form-group--url input {
+            font-size: 16px;
+            font-weight: 600;
+            padding: 16px;
+            background: var(--white);
+            border: 2px solid var(--near-black);
+        }
+
+        .form-group--url input:focus {
+            border-color: var(--orange);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        .form-card .btn {
+            margin-top: 8px;
+        }
+
+        .form-card__trust {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 12px;
+            font-size: 12px;
+            color: rgba(28, 28, 26, 0.5);
+        }
+
+        .form-card__trust svg {
+            width: 14px;
+            height: 14px;
+            color: rgba(28, 28, 26, 0.35);
+            flex-shrink: 0;
+        }
+
+        /* Thank you state */
+        .form-thankyou {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .form-thankyou.active {
+            display: block;
+        }
+
+        .form-thankyou__icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(255, 61, 2, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .form-thankyou__icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--orange);
+        }
+
+        .form-thankyou h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .form-thankyou p {
+            font-size: 15px;
+            color: rgba(28, 28, 26, 0.65);
+            line-height: 1.6;
+        }
+
+        /* ===== 5 MISTAKES ===== */
+        .mistakes {
+            padding: var(--section-pad-mobile);
+            background: var(--white);
+        }
+
+        .mistakes__header {
+            text-align: center;
+            max-width: 640px;
+            margin: 0 auto 48px;
+        }
+
+        .mistakes__header h2 {
+            font-size: clamp(26px, 5vw, 42px);
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        .mistakes__header p {
+            font-size: 17px;
+            color: rgba(28, 28, 26, 0.65);
+            line-height: 1.6;
+        }
+
+        .mistakes__list {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .mistake-card {
+            display: grid;
+            grid-template-columns: 56px 1fr;
+            gap: 20px;
+            align-items: start;
+            padding: 28px 24px;
+            background: var(--light-bg);
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--orange);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .mistake-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .mistake-card__num {
+            width: 56px;
+            height: 56px;
+            background: var(--orange);
+            color: var(--white);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            font-weight: 900;
+            flex-shrink: 0;
+        }
+
+        .mistake-card__content h3 {
+            font-size: 16px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            margin-bottom: 8px;
+            color: var(--near-black);
+            line-height: 1.3;
+        }
+
+        .mistake-card__mistake {
+            font-size: 14px;
+            color: rgba(28, 28, 26, 0.6);
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .mistake-card__fix {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--near-black);
+            background: var(--white);
+            padding: 10px 14px;
+            border-radius: 6px;
+            line-height: 1.4;
+        }
+
+        .mistake-card__fix svg {
+            width: 18px;
+            height: 18px;
+            color: var(--orange);
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+
+        /* ===== WHAT YOU GET ===== */
+        .audit-get {
+            padding: var(--section-pad-mobile);
+            background: var(--near-black);
+            color: var(--white);
+        }
+
+        .audit-get__header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 48px;
+        }
+
+        .audit-get__header h2 {
+            font-size: clamp(26px, 5vw, 42px);
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        .audit-get__header p {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+        }
+
+        .audit-get__grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 20px 24px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius);
+            transition: background 0.2s ease;
+        }
+
+        .checklist-item:hover {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .checklist-item__icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 61, 2, 0.15);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .checklist-item__icon svg {
+            width: 20px;
+            height: 20px;
+            color: var(--orange);
+        }
+
+        .checklist-item span {
+            font-size: 16px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* ===== SAMPLE AUDIT ===== */
+        .sample-audit {
+            padding: var(--section-pad-mobile);
+            background: var(--light-bg);
+        }
+
+        .sample-audit__header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 48px;
+        }
+
+        .sample-audit__header h2 {
+            font-size: clamp(26px, 5vw, 42px);
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        .sample-audit__header p {
+            font-size: 17px;
+            color: rgba(28, 28, 26, 0.65);
+            line-height: 1.6;
+        }
+
+        .sample-audit__comparison {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .sample-audit__panel {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        .sample-audit__panel-header {
+            padding: 14px 20px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .sample-audit__panel--before .sample-audit__panel-header {
+            background: #DC2626;
+            color: var(--white);
+        }
+
+        .sample-audit__panel--after .sample-audit__panel-header {
+            background: #16A34A;
+            color: var(--white);
+        }
+
+        .sample-audit__panel-body {
+            background: var(--white);
+            padding: 24px 20px;
+        }
+
+        /* Before panel content */
+        .mock-site--before {
+            font-size: 13px;
+            color: rgba(28, 28, 26, 0.6);
+        }
+
+        .mock-site--before .mock-nav {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .mock-site--before .mock-nav span {
+            background: #e5e5e5;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            color: #999;
+        }
+
+        .mock-site--before .mock-hero-block {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .mock-site--before .mock-hero-block h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #888;
+            text-transform: none;
+            letter-spacing: 0;
+            margin-bottom: 4px;
+        }
+
+        .mock-site--before .mock-hero-block p {
+            font-size: 11px;
+            color: #aaa;
+        }
+
+        .mock-site--before .mock-issues {
+            list-style: none;
+            padding: 0;
+        }
+
+        .mock-site--before .mock-issues li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 0;
+            font-size: 12px;
+            color: #DC2626;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .mock-site--before .mock-issues li svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+
+        /* After panel content */
+        .mock-site--after {
+            font-size: 13px;
+        }
+
+        .mock-site--after .mock-hero-block {
+            background: linear-gradient(135deg, #1C1C1A 0%, #2a2a28 100%);
+            padding: 24px 20px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        .mock-site--after .mock-hero-block h4 {
+            font-size: 16px;
+            font-weight: 800;
+            color: var(--white);
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            margin-bottom: 8px;
+        }
+
+        .mock-site--after .mock-hero-block h4 span {
+            color: var(--orange);
+        }
+
+        .mock-site--after .mock-hero-block p {
+            font-size: 12px;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 12px;
+        }
+
+        .mock-site--after .mock-hero-block .mock-btn {
+            display: inline-block;
+            background: var(--orange);
+            color: white;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 8px 20px;
+            border-radius: 6px;
+        }
+
+        .mock-site--after .mock-hero-block .mock-phone {
+            display: block;
+            margin-top: 8px;
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .mock-site--after .mock-wins {
+            list-style: none;
+            padding: 0;
+        }
+
+        .mock-site--after .mock-wins li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 0;
+            font-size: 12px;
+            color: #16A34A;
+            font-weight: 500;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .mock-site--after .mock-wins li svg {
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+        }
+
+        /* ===== RESULTS / CASE STUDIES ===== */
+        .results {
+            padding: var(--section-pad-mobile);
+            background: var(--white);
+        }
+
+        .results__header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 48px;
+        }
+
+        .results__header h2 {
+            font-size: clamp(26px, 5vw, 42px);
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        .results__header p {
+            font-size: 17px;
+            color: rgba(28, 28, 26, 0.65);
+            line-height: 1.6;
+        }
+
+        .results__grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .result-card {
+            background: var(--light-bg);
+            border-radius: var(--radius-lg);
+            padding: 32px 24px;
+            border-top: 4px solid var(--orange);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .result-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .result-card__client {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--orange);
+            margin-bottom: 8px;
+        }
+
+        .result-card__stat {
+            font-size: clamp(36px, 6vw, 48px);
+            font-weight: 900;
+            letter-spacing: -0.03em;
+            color: var(--near-black);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .result-card__label {
+            font-size: 15px;
+            font-weight: 600;
+            color: rgba(28, 28, 26, 0.65);
+            margin-bottom: 16px;
+        }
+
+        .result-card__desc {
+            font-size: 14px;
+            color: rgba(28, 28, 26, 0.55);
+            line-height: 1.6;
+        }
+
+        /* ===== GUARANTEES ===== */
+        .guarantees {
+            padding: var(--section-pad-mobile);
+            background: var(--near-black);
+            color: var(--white);
+        }
+
+        .guarantees__header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 48px;
+        }
+
+        .guarantees__header h2 {
+            font-size: clamp(26px, 5vw, 42px);
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        .guarantees__header p {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+        }
+
+        .guarantees__grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .guarantee-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-top: 3px solid var(--orange);
+            border-radius: var(--radius-lg);
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        .guarantee-card__icon {
+            width: 56px;
+            height: 56px;
+            background: rgba(255, 61, 2, 0.12);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .guarantee-card__icon svg {
+            width: 28px;
+            height: 28px;
+            color: var(--orange);
+        }
+
+        .guarantee-card h3 {
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            margin-bottom: 12px;
+        }
+
+        .guarantee-card p {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+        }
+
+        /* ===== FAQ ===== */
+        .faq {
+            padding: var(--section-pad-mobile);
+            background: var(--light-bg);
+        }
+
+        .faq__header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 48px;
+        }
+
+        .faq__header h2 {
+            font-size: clamp(26px, 5vw, 42px);
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        .faq__list {
+            max-width: 740px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(28, 28, 26, 0.1);
+        }
+
+        .faq-item:first-child {
+            border-top: 1px solid rgba(28, 28, 26, 0.1);
+        }
+
+        .faq-item__question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 20px 0;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--near-black);
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            transition: color 0.2s ease;
+        }
+
+        .faq-item__question:hover {
+            color: var(--orange);
+        }
+
+        .faq-item__question svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            transition: transform 0.3s ease;
+            color: var(--orange);
+        }
+
+        .faq-item.active .faq-item__question svg {
+            transform: rotate(45deg);
+        }
+
+        .faq-item__answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+        }
+
+        .faq-item.active .faq-item__answer {
+            max-height: 300px;
+            padding-bottom: 20px;
+        }
+
+        .faq-item__answer p {
+            font-size: 15px;
+            color: rgba(28, 28, 26, 0.65);
+            line-height: 1.7;
+        }
+
+        /* ===== FINAL CTA ===== */
+        .final-cta {
+            padding: var(--section-pad-mobile);
+            background: var(--near-black);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .final-cta__inner {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .final-cta h2 {
+            font-size: clamp(28px, 6vw, 48px);
+            letter-spacing: -0.04em;
+            margin-bottom: 16px;
+        }
+
+        .final-cta p {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .final-cta .form-card {
+            text-align: left;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--near-black);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 32px 0;
+            padding-bottom: calc(32px + 72px); /* space for sticky bar on mobile */
+        }
+
+        .footer__inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+            text-align: center;
+        }
+
+        .footer__links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .footer__links a {
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.4);
+            transition: color 0.2s ease;
+        }
+
+        .footer__links a:hover {
+            color: var(--white);
+        }
+
+        .footer__copy {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* ===== STICKY MOBILE BAR ===== */
+        .sticky-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: var(--near-black);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .sticky-bar__call {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--white);
+            color: var(--near-black);
+            font-size: 14px;
+            font-weight: 700;
+            padding: 14px 16px;
+            border-radius: var(--radius);
+            flex: 0 0 auto;
+            text-decoration: none;
+        }
+
+        .sticky-bar__call svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .sticky-bar__cta {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--orange);
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            padding: 14px 16px;
+            border-radius: var(--radius);
+            text-decoration: none;
+        }
+
+        /* ===== DESKTOP BREAKPOINTS ===== */
+
+        @media (min-width: 768px) {
+            .proof-bar__inner {
+                gap: 20px;
+            }
+
+            .proof-bar__item {
+                font-size: 13px;
+            }
+
+            .logo-bar__phone {
+                display: flex;
+            }
+
+            .hero {
+                padding: 64px 0 80px;
+            }
+
+            .hero__grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 48px;
+                align-items: center;
+            }
+
+            .hero h1 {
+                margin-bottom: 24px;
+            }
+
+            .form-card {
+                padding: 36px 28px;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .mistakes {
+                padding: 80px 0;
+            }
+
+            .mistake-card {
+                padding: 32px 28px;
+            }
+
+            .audit-get {
+                padding: 80px 0;
+            }
+
+            .audit-get__grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .sample-audit {
+                padding: 80px 0;
+            }
+
+            .sample-audit__comparison {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .results {
+                padding: 80px 0;
+            }
+
+            .results__grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .guarantees {
+                padding: 80px 0;
+            }
+
+            .guarantees__grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .faq {
+                padding: 80px 0;
+            }
+
+            .final-cta {
+                padding: 80px 0;
+            }
+
+            .footer {
+                padding-bottom: 32px;
+            }
+
+            .sticky-bar {
+                display: none;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 40px;
+            }
+
+            .hero {
+                padding: 80px 0 100px;
+            }
+
+            .hero__grid {
+                gap: 64px;
+            }
+
+            .hero__sub {
+                font-size: 19px;
+            }
+
+            .form-card {
+                padding: 40px 32px;
+            }
+
+            .mistakes {
+                padding: var(--section-pad-desktop);
+            }
+
+            .mistake-card {
+                grid-template-columns: 64px 1fr;
+                gap: 24px;
+                padding: 32px;
+            }
+
+            .mistake-card__num {
+                width: 64px;
+                height: 64px;
+                font-size: 26px;
+            }
+
+            .audit-get {
+                padding: var(--section-pad-desktop);
+            }
+
+            .sample-audit {
+                padding: var(--section-pad-desktop);
+            }
+
+            .results {
+                padding: var(--section-pad-desktop);
+            }
+
+            .guarantees {
+                padding: var(--section-pad-desktop);
+            }
+
+            .faq {
+                padding: var(--section-pad-desktop);
+            }
+
+            .final-cta {
+                padding: 100px 0 120px;
+            }
+
+            .faq-item__question {
+                font-size: 17px;
+            }
+
+            .footer__inner {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== PROOF BAR ===== -->
+    <div class="proof-bar">
+        <div class="container">
+            <div class="proof-bar__inner">
+                <span class="proof-bar__item">Only Mechanics</span>
+                <span class="proof-bar__dot"></span>
+                <span class="proof-bar__item">4.2x Avg Return</span>
+                <span class="proof-bar__dot"></span>
+                <span class="proof-bar__item">Month-to-Month</span>
+                <span class="proof-bar__dot"></span>
+                <span class="proof-bar__item">Australian-Owned</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== LOGO BAR ===== -->
+    <div class="logo-bar">
+        <div class="container">
+            <div class="logo-bar__inner">
+                <a href="#" class="logo">
+                    <img src="/assets/logo/MM-LogoInline-Black.svg" alt="Mechanic Marketing" style="height: 36px; width: auto;"><div class="logo__text">
+                        Mechanic<br>Marketing
+                        <span>For Workshops Only</span>
+                    </div>
+                </a>
+                <a href="tel:1300632426" class="logo-bar__phone">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    1300 MECHANIC
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero__grid">
+                <div class="hero__content">
+                    <div class="hero__badge">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                        Free Website Audit
+                    </div>
+                    <h1>Is your website quietly <span class="accent">costing you jobs?</span></h1>
+                    <p class="hero__sub">We checked 50 Aussie workshop sites. Most made the same 5 mistakes. Get yours checked free in 30 minutes.</p>
+                    <div class="hero__proof">
+                        <div class="hero__proof-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                            Free
+                        </div>
+                        <div class="hero__proof-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                            30 Minutes
+                        </div>
+                        <div class="hero__proof-item">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                            No Pitch
+                        </div>
+                    </div>
+                    <div class="hero__cta-row">
+                        <a href="#audit-form" class="btn btn--primary">Audit My Website Free</a>
+                    </div>
+                </div>
+
+                <!-- Hero Form -->
+                <div class="form-card" id="hero-form">
+                    <div id="hero-form-content">
+                        <h3 class="form-card__title">Get Your Free Audit</h3>
+                        <p class="form-card__subtitle">Takes 2 minutes. No spam, no pitch &mdash; just honest feedback.</p>
+                        <form id="heroAuditForm" novalidate>
+                            <div class="form-group form-group--url">
+                                <label for="hero-url">Website URL <span class="required">*</span></label>
+                                <input type="url" id="hero-url" name="website_url" placeholder="www.yourworkshop.com.au" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="hero-name">First Name <span class="required">*</span></label>
+                                    <input type="text" id="hero-name" name="first_name" placeholder="e.g. Matt" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="hero-workshop">Workshop Name <span class="required">*</span></label>
+                                    <input type="text" id="hero-workshop" name="workshop_name" placeholder="e.g. Matt's Motors" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="hero-mobile">Mobile <span class="required">*</span></label>
+                                <input type="tel" id="hero-mobile" name="mobile" placeholder="04XX XXX XXX" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="hero-frustration">Biggest Frustration <span style="font-weight:400;text-transform:none;letter-spacing:0;color:rgba(28,28,26,0.4)">(optional)</span></label>
+                                <textarea id="hero-frustration" name="frustration" placeholder="e.g. My website doesn't bring in any leads..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn--primary btn--full">Audit My Website Free</button>
+                        </form>
+                        <div class="form-card__trust">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            Your details stay private. No spam, ever.
+                        </div>
+                    </div>
+                    <div class="form-thankyou" id="hero-thankyou">
+                        <div class="form-thankyou__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                        </div>
+                        <h3>You're In!</h3>
+                        <p>We'll review your website and send your personalised audit within 24 hours. Keep an eye on your inbox (and your phone).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== 5 MISTAKES ===== -->
+    <section class="mistakes" id="mistakes">
+        <div class="container">
+            <div class="mistakes__header reveal">
+                <span class="section-label">The 5 Mistakes &middot; 01</span>
+                <h2>The <span class="accent">5 mistakes</span> killing your website</h2>
+                <p>We audited 50 workshop websites across Australia. These five problems came up again and again.</p>
+            </div>
+            <div class="mistakes__list">
+                <div class="mistake-card reveal reveal-delay-1">
+                    <div class="mistake-card__num">01</div>
+                    <div class="mistake-card__content">
+                        <h3>One page trying to sell ten services</h3>
+                        <p class="mistake-card__mistake">Google can't figure out what you actually do &mdash; so it shows someone else instead.</p>
+                        <div class="mistake-card__fix">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                            Dedicated page per service so Google knows what you do
+                        </div>
+                    </div>
+                </div>
+                <div class="mistake-card reveal reveal-delay-2">
+                    <div class="mistake-card__num">02</div>
+                    <div class="mistake-card__content">
+                        <h3>No tracking on calls or forms</h3>
+                        <p class="mistake-card__mistake">You're spending on ads but have no idea which ones actually bring in work.</p>
+                        <div class="mistake-card__fix">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                            Know exactly which ad brought each job
+                        </div>
+                    </div>
+                </div>
+                <div class="mistake-card reveal reveal-delay-3">
+                    <div class="mistake-card__num">03</div>
+                    <div class="mistake-card__content">
+                        <h3>Painfully slow on mobile</h3>
+                        <p class="mistake-card__mistake">If your site takes more than 3 seconds to load, half your visitors leave before it finishes.</p>
+                        <div class="mistake-card__fix">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                            Under 3 seconds or you lose half your visitors
+                        </div>
+                    </div>
+                </div>
+                <div class="mistake-card reveal reveal-delay-4">
+                    <div class="mistake-card__num">04</div>
+                    <div class="mistake-card__content">
+                        <h3>No clear offer or next step</h3>
+                        <p class="mistake-card__mistake">Visitors land on your site, look around, and leave without doing anything.</p>
+                        <div class="mistake-card__fix">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                            One CTA per page, make it obvious
+                        </div>
+                    </div>
+                </div>
+                <div class="mistake-card reveal reveal-delay-5">
+                    <div class="mistake-card__num">05</div>
+                    <div class="mistake-card__content">
+                        <h3>Phone number buried or missing</h3>
+                        <p class="mistake-card__mistake">People ready to book can't find how to call you &mdash; so they call the next shop.</p>
+                        <div class="mistake-card__fix">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                            Click-to-call, sticky, visible on every page
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHAT YOU GET ===== -->
+    <section class="audit-get" id="what-you-get">
+        <div class="container">
+            <div class="audit-get__header reveal">
+                <span class="section-label">What You Get &middot; 02</span>
+                <h2>What you'll get from <span class="accent">the audit</span></h2>
+                <p>A personalised, no-fluff review of your website &mdash; delivered in plain English with clear next steps.</p>
+            </div>
+            <div class="audit-get__grid">
+                <div class="checklist-item reveal reveal-delay-1">
+                    <div class="checklist-item__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+                    </div>
+                    <span>Load-speed score &amp; mobile performance</span>
+                </div>
+                <div class="checklist-item reveal reveal-delay-2">
+                    <div class="checklist-item__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                    </div>
+                    <span>Conversion leak analysis</span>
+                </div>
+                <div class="checklist-item reveal reveal-delay-3">
+                    <div class="checklist-item__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <span>Tracking health check (calls, forms, bookings)</span>
+                </div>
+                <div class="checklist-item reveal reveal-delay-4">
+                    <div class="checklist-item__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                    </div>
+                    <span>Service-page structure review</span>
+                </div>
+                <div class="checklist-item reveal reveal-delay-5">
+                    <div class="checklist-item__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                    </div>
+                    <span>Priority fixes ranked by impact</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SAMPLE AUDIT ===== -->
+    <section class="sample-audit" id="sample">
+        <div class="container">
+            <div class="sample-audit__header reveal">
+                <span class="section-label">Before &amp; After &middot; 03</span>
+                <h2>See what we <span class="accent">actually fix</span></h2>
+                <p>Here's what a typical workshop website looks like before and after our recommendations.</p>
+            </div>
+            <div class="sample-audit__comparison">
+                <!-- Before -->
+                <div class="sample-audit__panel sample-audit__panel--before reveal reveal-delay-1">
+                    <div class="sample-audit__panel-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                        Before &mdash; Typical Workshop Site
+                    </div>
+                    <div class="sample-audit__panel-body">
+                        <div class="mock-site--before">
+                            <div class="mock-nav">
+                                <span>Home</span>
+                                <span>About</span>
+                                <span>Services</span>
+                                <span>Gallery</span>
+                                <span>Testimonials</span>
+                                <span>Blog</span>
+                                <span>Contact</span>
+                                <span>FAQs</span>
+                            </div>
+                            <div class="mock-hero-block">
+                                <h4>Welcome to Dave's Auto Repairs</h4>
+                                <p>We offer quality service for all makes and models. Call us today!</p>
+                            </div>
+                            <ul class="mock-issues">
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                                    No phone number visible
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                                    8 nav links — no clear next step
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                                    One page for all services
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                                    No call tracking installed
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+                                    Mobile load time: 6.2 seconds
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- After -->
+                <div class="sample-audit__panel sample-audit__panel--after reveal reveal-delay-2">
+                    <div class="sample-audit__panel-header">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M20 6 9 17l-5-5"/></svg>
+                        After &mdash; Optimised for Leads
+                    </div>
+                    <div class="sample-audit__panel-body">
+                        <div class="mock-site--after">
+                            <div class="mock-hero-block">
+                                <h4>Need a <span>logbook service</span> in Perth?</h4>
+                                <p>Factory-backed servicing. Fixed prices. Same-day available.</p>
+                                <span class="mock-btn">Book Online Now</span>
+                                <span class="mock-phone">1300 XXX XXX</span>
+                            </div>
+                            <ul class="mock-wins">
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                    Click-to-call on every page
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                    One clear CTA above the fold
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                    Dedicated service pages for SEO
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                    Full call &amp; form tracking active
+                                </li>
+                                <li>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                                    Mobile load time: 1.8 seconds
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== RESULTS / CASE STUDIES ===== -->
+    <section class="results" id="results">
+        <div class="container">
+            <div class="results__header reveal">
+                <span class="section-label">Results &middot; 04</span>
+                <h2>Real results from <span class="accent">real workshops</span></h2>
+                <p>We only work with mechanics. Here's what that focus delivers.</p>
+            </div>
+            <div class="results__grid">
+                <div class="result-card reveal reveal-delay-1">
+                    <div class="result-card__client">Core Diesel</div>
+                    <div class="result-card__stat">4.45x</div>
+                    <div class="result-card__label">Return on Ad Spend</div>
+                    <p class="result-card__desc">Diesel specialist workshop generating $4.45 back for every $1 spent on advertising. Consistent, trackable, month after month.</p>
+                </div>
+                <div class="result-card reveal reveal-delay-2">
+                    <div class="result-card__client">Busselton Automotive</div>
+                    <div class="result-card__stat">&lt;$30</div>
+                    <div class="result-card__label">Cost Per Lead</div>
+                    <p class="result-card__desc">Regional workshop in WA pulling in qualified leads for under $30 each &mdash; every one tracked back to the exact ad that brought them in.</p>
+                </div>
+                <div class="result-card reveal reveal-delay-3">
+                    <div class="result-card__client">BB Garage</div>
+                    <div class="result-card__stat">3x+</div>
+                    <div class="result-card__label">ROAS Consistently</div>
+                    <p class="result-card__desc">Independent workshop smashing the 3x return-on-ad-spend benchmark with a website and ads built specifically for their services.</p>
+                </div>
+                <div class="result-card reveal reveal-delay-4">
+                    <div class="result-card__client">Accelerate Automotive</div>
+                    <div class="result-card__stat">2x</div>
+                    <div class="result-card__label">Lead Volume Growth</div>
+                    <p class="result-card__desc">Doubled their monthly lead volume within 90 days by fixing their website structure and dialling in targeted Google Ads.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== THREE GUARANTEES ===== -->
+    <section class="guarantees" id="guarantees">
+        <div class="container">
+            <div class="guarantees__header reveal">
+                <span class="section-label">Our Guarantees &middot; 05</span>
+                <h2>Three guarantees. <span class="accent">Zero risk.</span></h2>
+                <p>We put our money where our mouth is. If we don't deliver, you don't pay.</p>
+            </div>
+            <div class="guarantees__grid">
+                <div class="guarantee-card reveal reveal-delay-1">
+                    <div class="guarantee-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <h3>3x ROAS or We Work Free</h3>
+                    <p>If we don't hit a 3x return on your ad spend, we keep working at no charge until we do. That's how confident we are.</p>
+                </div>
+                <div class="guarantee-card reveal reveal-delay-2">
+                    <div class="guarantee-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    </div>
+                    <h3>Month-to-Month</h3>
+                    <p>No lock-in contracts. No exit fees. We earn your business every single month. If you're not happy, you walk. Simple.</p>
+                </div>
+                <div class="guarantee-card reveal reveal-delay-3">
+                    <div class="guarantee-card__icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    </div>
+                    <h3>You Own Everything</h3>
+                    <p>Your website, your ads, your data &mdash; it's all yours. If you ever leave, you take everything with you. No hostage tactics.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="faq__header reveal">
+                <span class="section-label">FAQ &middot; 06</span>
+                <h2>Questions? <span class="accent">Sorted.</span></h2>
+            </div>
+            <div class="faq__list">
+                <div class="faq-item reveal">
+                    <button class="faq-item__question" aria-expanded="false">
+                        What exactly is included in the free audit?
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </button>
+                    <div class="faq-item__answer">
+                        <p>You get a full review covering mobile speed, conversion leaks, tracking health (calls, forms, bookings), service-page structure, and a prioritised list of fixes ranked by impact. It's delivered in plain English &mdash; no jargon, no fluff.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-item__question" aria-expanded="false">
+                        Is there a sales pitch at the end?
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </button>
+                    <div class="faq-item__answer">
+                        <p>No. The audit is genuinely free with no strings attached. If you want help implementing the fixes, we're here. If not, you walk away with a clear action plan at zero cost.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-item__question" aria-expanded="false">
+                        How long does the audit take?
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </button>
+                    <div class="faq-item__answer">
+                        <p>We'll have your audit back within 24 hours. The review itself covers everything in about 30 minutes of analysis &mdash; we just need your website URL and a few details to get started.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-item__question" aria-expanded="false">
+                        Do you only work with mechanics?
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </button>
+                    <div class="faq-item__answer">
+                        <p>Yes. We work exclusively with mechanics and auto repair workshops across Australia. That's all we do. It means we know exactly what works in your industry &mdash; the search terms, the ad angles, the website layouts that convert.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-item__question" aria-expanded="false">
+                        What if I already have a marketing agency?
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </button>
+                    <div class="faq-item__answer">
+                        <p>That's fine. The audit will give you an independent, unbiased look at your website. You can share the results with your current agency or use them to hold them accountable. No pressure from us either way.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <button class="faq-item__question" aria-expanded="false">
+                        What does "3x ROAS or we work free" actually mean?
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </button>
+                    <div class="faq-item__answer">
+                        <p>If you become a client and we don't generate at least $3 in tracked revenue for every $1 you spend on ads, we keep working at no management fee until we hit that number. We track everything so there's no guesswork.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FINAL CTA ===== -->
+    <section class="final-cta" id="audit-form">
+        <div class="container">
+            <div class="final-cta__inner">
+                <div class="reveal">
+                    <span class="section-label">Get Started &middot; 07</span>
+                    <h2>Get your free <span class="accent">website audit</span></h2>
+                    <p>Drop your URL below and we'll send you a personalised audit within 24 hours. Free. No pitch. No obligation.</p>
+                </div>
+                <div class="form-card reveal reveal-delay-1" id="footer-form">
+                    <div id="footer-form-content">
+                        <h3 class="form-card__title">Request Your Audit</h3>
+                        <p class="form-card__subtitle">Takes 2 minutes. We'll be in touch within 24 hours.</p>
+                        <form id="footerAuditForm" novalidate>
+                            <div class="form-group form-group--url">
+                                <label for="footer-url">Website URL <span class="required">*</span></label>
+                                <input type="url" id="footer-url" name="website_url" placeholder="www.yourworkshop.com.au" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="footer-name">First Name <span class="required">*</span></label>
+                                    <input type="text" id="footer-name" name="first_name" placeholder="e.g. Matt" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="footer-workshop">Workshop Name <span class="required">*</span></label>
+                                    <input type="text" id="footer-workshop" name="workshop_name" placeholder="e.g. Matt's Motors" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="footer-mobile">Mobile <span class="required">*</span></label>
+                                <input type="tel" id="footer-mobile" name="mobile" placeholder="04XX XXX XXX" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="footer-frustration">Biggest Frustration <span style="font-weight:400;text-transform:none;letter-spacing:0;color:rgba(255,255,255,0.35)">(optional)</span></label>
+                                <textarea id="footer-frustration" name="frustration" placeholder="e.g. My website doesn't bring in any leads..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn--primary btn--full">Audit My Website Free</button>
+                        </form>
+                        <div class="form-card__trust">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            Your details stay private. No spam, ever.
+                        </div>
+                    </div>
+                    <div class="form-thankyou" id="footer-thankyou">
+                        <div class="form-thankyou__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                        </div>
+                        <h3>You're In!</h3>
+                        <p>We'll review your website and send your personalised audit within 24 hours. Keep an eye on your inbox (and your phone).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div class="footer__copy">&copy; 2026 Mechanic Marketing. All rights reserved.</div>
+                <div class="footer__links">
+                    <a href="/privacy">Privacy Policy</a>
+                    <a href="tel:1300632426">1300 MECHANIC</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== STICKY MOBILE BAR ===== -->
+    <div class="sticky-bar" id="stickyBar">
+        <a href="tel:1300632426" class="sticky-bar__call">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call
+        </a>
+        <a href="#audit-form" class="sticky-bar__cta">Audit My Website Free</a>
+    </div>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ---- Smooth scroll for anchor links ----
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    var offset = 20;
+                    var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: top, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // ---- FAQ Accordion ----
+        document.querySelectorAll('.faq-item__question').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var item = this.closest('.faq-item');
+                var isActive = item.classList.contains('active');
+
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(function(el) {
+                    el.classList.remove('active');
+                    el.querySelector('.faq-item__question').setAttribute('aria-expanded', 'false');
+                });
+
+                // Open clicked (if it wasn't already open)
+                if (!isActive) {
+                    item.classList.add('active');
+                    this.setAttribute('aria-expanded', 'true');
+                }
+            });
+        });
+
+        // ---- Form Handling ----
+        function handleFormSubmit(formId, contentId, thankyouId) {
+            var form = document.getElementById(formId);
+            if (!form) return;
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                // Simple validation
+                var requiredFields = form.querySelectorAll('[required]');
+                var valid = true;
+
+                requiredFields.forEach(function(field) {
+                    field.style.borderColor = '';
+                    if (!field.value.trim()) {
+                        field.style.borderColor = '#DC2626';
+                        valid = false;
+                    }
+                });
+
+                if (!valid) return;
+
+                // Hide form, show thank you
+                document.getElementById(contentId).style.display = 'none';
+                var thankyou = document.getElementById(thankyouId);
+                thankyou.classList.add('active');
+                thankyou.style.display = 'block';
+
+                // Scroll to thank you
+                var card = thankyou.closest('.form-card');
+                if (card) {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+        }
+
+        handleFormSubmit('heroAuditForm', 'hero-form-content', 'hero-thankyou');
+        handleFormSubmit('footerAuditForm', 'footer-form-content', 'footer-thankyou');
+
+        // ---- Scroll Reveal (IntersectionObserver) ----
+        (function() {
+            var reveals = document.querySelectorAll('.reveal');
+            if (!('IntersectionObserver' in window)) {
+                // Fallback: just show everything
+                reveals.forEach(function(el) {
+                    el.classList.add('visible');
+                });
+                return;
+            }
+
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            reveals.forEach(function(el) {
+                observer.observe(el);
+            });
+        })();
+    </script>
+</body>
+</html>

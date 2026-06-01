@@ -1,0 +1,1880 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+    <title>Free Workshop Audit | Mechanic Marketing</title>
+    <meta name="description" content="Find out exactly where your workshop is losing jobs. Free 30-minute audit of your ads and website. We report in booked jobs, calls and revenue.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Meta Pixel Placeholder -->
+    <!-- TODO: Insert Meta Pixel base code here -->
+    <!--
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', 'YOUR_PIXEL_ID');
+      fbq('track', 'PageView');
+    </script>
+    -->
+
+    <!-- GA4 Placeholder -->
+    <!-- TODO: Insert Google Analytics 4 tag here -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
+
+    <style>
+        /* ========================================
+           RESET & BASE
+           ======================================== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --orange: #FF3D02;
+            --orange-hover: #E03500;
+            --golden: #F0AA00;
+            --white: #FFFFFF;
+            --warm-white: #F0F0EC;
+            --near-black: #1C1C1A;
+            --dark-bg: #111111;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --card-border: rgba(255, 255, 255, 0.08);
+            --text-muted: #999999;
+            --text-body: #555555;
+            --text-dark-muted: #AAAAAA;
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+        }
+
+        body {
+            font-family: var(--font);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--near-black);
+            background-color: var(--warm-white);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* ========================================
+           TYPOGRAPHY
+           ======================================== */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            line-height: 1.05;
+        }
+
+        h1 {
+            letter-spacing: -0.04em;
+        }
+
+        .accent {
+            color: var(--orange);
+        }
+
+        /* ========================================
+           UTILITY
+           ======================================== */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--orange);
+            color: var(--white);
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            padding: 6px 14px;
+            border-radius: 100px;
+            margin-bottom: 24px;
+        }
+
+        .section-label--dark {
+            background: rgba(255, 61, 2, 0.15);
+            color: var(--orange);
+        }
+
+        /* ========================================
+           ANIMATIONS
+           ======================================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-on-scroll.delay-1 { transition-delay: 0.1s; }
+        .animate-on-scroll.delay-2 { transition-delay: 0.2s; }
+        .animate-on-scroll.delay-3 { transition-delay: 0.3s; }
+        .animate-on-scroll.delay-4 { transition-delay: 0.4s; }
+        .animate-on-scroll.delay-5 { transition-delay: 0.5s; }
+
+        /* ========================================
+           PROOF BAR
+           ======================================== */
+        .proof-bar {
+            background: var(--near-black);
+            color: var(--white);
+            padding: 12px 0;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            overflow: hidden;
+        }
+
+        .proof-bar__inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+
+        .proof-bar__item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            white-space: nowrap;
+        }
+
+        .proof-bar__dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--orange);
+            flex-shrink: 0;
+        }
+
+        /* ========================================
+           LOGO
+           ======================================== */
+        .logo {
+            padding: 16px 0;
+        }
+
+        .logo svg {
+            height: 36px;
+            width: auto;
+        }
+
+        /* ========================================
+           HERO
+           ======================================== */
+        .hero {
+            background: var(--warm-white);
+            padding: 48px 0 64px;
+            position: relative;
+        }
+
+        .hero__grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+            align-items: start;
+        }
+
+        .hero__content {
+            max-width: 600px;
+        }
+
+        .hero__headline {
+            font-size: clamp(32px, 7vw, 56px);
+            line-height: 1.0;
+            margin-bottom: 20px;
+            color: var(--near-black);
+        }
+
+        .hero__sub {
+            font-size: 17px;
+            line-height: 1.65;
+            color: var(--text-body);
+            margin-bottom: 32px;
+            max-width: 520px;
+        }
+
+        .hero__cta-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* ========================================
+           BUTTONS
+           ======================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: var(--font);
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 16px 32px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            text-decoration: none;
+            line-height: 1;
+        }
+
+        .btn--primary {
+            background: var(--orange);
+            color: var(--white);
+        }
+
+        .btn--primary:hover {
+            background: var(--orange-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(255, 61, 2, 0.3);
+        }
+
+        .btn--secondary {
+            background: var(--near-black);
+            color: var(--white);
+        }
+
+        .btn--secondary:hover {
+            background: #333;
+            transform: translateY(-1px);
+        }
+
+        .btn--outline {
+            background: transparent;
+            color: var(--near-black);
+            border: 2px solid var(--near-black);
+        }
+
+        .btn--outline:hover {
+            background: var(--near-black);
+            color: var(--white);
+        }
+
+        .btn--large {
+            padding: 18px 40px;
+            font-size: 15px;
+        }
+
+        .btn--full {
+            width: 100%;
+        }
+
+        /* ========================================
+           LEAD FORM
+           ======================================== */
+        .form-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 32px 24px;
+            box-shadow: 0 4px 32px rgba(0, 0, 0, 0.08), 0 1px 4px rgba(0, 0, 0, 0.04);
+            position: relative;
+        }
+
+        .form-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 24px;
+            right: 24px;
+            height: 4px;
+            background: var(--orange);
+            border-radius: 0 0 4px 4px;
+        }
+
+        .form-card__title {
+            font-size: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            margin-bottom: 4px;
+            color: var(--near-black);
+        }
+
+        .form-card__subtitle {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--near-black);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 14px;
+            font-family: var(--font);
+            font-size: 15px;
+            border: 2px solid #E0E0DC;
+            border-radius: 8px;
+            background: var(--warm-white);
+            color: var(--near-black);
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--orange);
+            box-shadow: 0 0 0 3px rgba(255, 61, 2, 0.1);
+        }
+
+        .form-group input::placeholder {
+            color: #AAAAAA;
+        }
+
+        .form-group select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 14px center;
+            padding-right: 40px;
+            cursor: pointer;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .form-submit {
+            margin-top: 8px;
+        }
+
+        .form-footer {
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 12px;
+            line-height: 1.5;
+        }
+
+        .form-footer svg {
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 4px;
+        }
+
+        /* Thank you state */
+        .form-thankyou {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .form-thankyou.active {
+            display: block;
+        }
+
+        .form-thankyou__icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: rgba(255, 61, 2, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+        }
+
+        .form-thankyou__title {
+            font-size: 22px;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+            color: var(--near-black);
+        }
+
+        .form-thankyou__text {
+            font-size: 15px;
+            color: var(--text-body);
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           PAIN BLOCK
+           ======================================== */
+        .pain-section {
+            padding: 64px 0;
+            background: var(--white);
+        }
+
+        .pain-section__header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .pain-section__title {
+            font-size: clamp(28px, 5vw, 40px);
+            color: var(--near-black);
+        }
+
+        .pain-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .pain-card {
+            background: var(--warm-white);
+            border-radius: 12px;
+            padding: 28px 24px;
+            border-top: 4px solid var(--orange);
+            position: relative;
+        }
+
+        .pain-card__number {
+            font-size: 48px;
+            font-weight: 900;
+            color: rgba(255, 61, 2, 0.08);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .pain-card__title {
+            font-size: 17px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+            margin-bottom: 12px;
+            color: var(--near-black);
+        }
+
+        .pain-card__text {
+            font-size: 15px;
+            color: var(--text-body);
+            line-height: 1.65;
+        }
+
+        /* ========================================
+           STATS SECTION
+           ======================================== */
+        .stats-section {
+            padding: 64px 0;
+            background: var(--near-black);
+            color: var(--white);
+        }
+
+        .stats-section__header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .stats-section__title {
+            font-size: clamp(28px, 5vw, 40px);
+            color: var(--white);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            text-align: center;
+        }
+
+        .stat-block {
+            padding: 24px;
+        }
+
+        .stat-block__icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: rgba(255, 61, 2, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .stat-block__label {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--orange);
+            margin-bottom: 8px;
+        }
+
+        .stat-block__text {
+            font-size: 14px;
+            color: var(--text-dark-muted);
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           AUDIT COVERS SECTION
+           ======================================== */
+        .audit-section {
+            padding: 64px 0;
+            background: var(--warm-white);
+        }
+
+        .audit-section__header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .audit-section__title {
+            font-size: clamp(28px, 5vw, 40px);
+            color: var(--near-black);
+            margin-bottom: 12px;
+        }
+
+        .audit-section__sub {
+            font-size: 16px;
+            color: var(--text-body);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .audit-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        .audit-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            background: var(--white);
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .audit-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+        }
+
+        .audit-item__icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: rgba(255, 61, 2, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .audit-item__content {
+            flex: 1;
+        }
+
+        .audit-item__title {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--near-black);
+            margin-bottom: 4px;
+        }
+
+        .audit-item__text {
+            font-size: 14px;
+            color: var(--text-body);
+            line-height: 1.55;
+        }
+
+        /* ========================================
+           RESULTS / CASE STUDIES
+           ======================================== */
+        .results-section {
+            padding: 64px 0;
+            background: var(--white);
+        }
+
+        .results-section__header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .results-section__title {
+            font-size: clamp(28px, 5vw, 40px);
+            color: var(--near-black);
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .result-card {
+            background: var(--warm-white);
+            border-radius: 16px;
+            padding: 32px 24px;
+            border-top: 4px solid var(--orange);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-card__stat {
+            font-size: clamp(48px, 8vw, 72px);
+            font-weight: 900;
+            color: var(--orange);
+            line-height: 1;
+            letter-spacing: -0.04em;
+            margin-bottom: 4px;
+        }
+
+        .result-card__stat-label {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .result-card__name {
+            font-size: 20px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            color: var(--near-black);
+            margin-bottom: 8px;
+        }
+
+        .result-card__text {
+            font-size: 15px;
+            color: var(--text-body);
+            line-height: 1.65;
+        }
+
+        .result-card__tag {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            background: rgba(255, 61, 2, 0.08);
+            color: var(--orange);
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-top: 16px;
+        }
+
+        /* ========================================
+           SPECIALIST STRIP
+           ======================================== */
+        .specialist-section {
+            padding: 64px 0;
+            background: var(--near-black);
+            color: var(--white);
+        }
+
+        .specialist-section__inner {
+            max-width: 720px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .specialist-section__title {
+            font-size: clamp(28px, 5vw, 40px);
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+
+        .specialist-section__text {
+            font-size: 16px;
+            color: var(--text-dark-muted);
+            line-height: 1.75;
+            margin-bottom: 16px;
+        }
+
+        .specialist-section__list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 32px;
+        }
+
+        .specialist-tag {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 8px 16px;
+            border-radius: 100px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: var(--white);
+        }
+
+        /* ========================================
+           GUARANTEES
+           ======================================== */
+        .guarantees-section {
+            padding: 64px 0;
+            background: var(--dark-bg);
+            color: var(--white);
+        }
+
+        .guarantees-section__header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .guarantees-section__title {
+            font-size: clamp(28px, 5vw, 40px);
+            color: var(--white);
+        }
+
+        .guarantees-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        .guarantee-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-top: 3px solid var(--orange);
+            border-radius: 12px;
+            padding: 28px 24px;
+            text-align: center;
+        }
+
+        .guarantee-card__icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 12px;
+            background: rgba(255, 61, 2, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 16px;
+        }
+
+        .guarantee-card__title {
+            font-size: 17px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            margin-bottom: 8px;
+            color: var(--white);
+            line-height: 1.2;
+        }
+
+        .guarantee-card__text {
+            font-size: 14px;
+            color: var(--text-dark-muted);
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           FAQ
+           ======================================== */
+        .faq-section {
+            padding: 64px 0;
+            background: var(--warm-white);
+        }
+
+        .faq-section__header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .faq-section__title {
+            font-size: clamp(28px, 5vw, 40px);
+            color: var(--near-black);
+        }
+
+        .faq-list {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #E0E0DC;
+        }
+
+        .faq-item:first-child {
+            border-top: 1px solid #E0E0DC;
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            text-align: left;
+            padding: 20px 0;
+            font-family: var(--font);
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--near-black);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            line-height: 1.4;
+        }
+
+        .faq-question:hover {
+            color: var(--orange);
+        }
+
+        .faq-question__icon {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--warm-white);
+            border: 2px solid #E0E0DC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+        }
+
+        .faq-item.active .faq-question__icon {
+            transform: rotate(45deg);
+            background: var(--orange);
+            border-color: var(--orange);
+        }
+
+        .faq-item.active .faq-question__icon svg path {
+            stroke: var(--white);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-answer__inner {
+            padding: 0 0 20px;
+            font-size: 15px;
+            color: var(--text-body);
+            line-height: 1.7;
+        }
+
+        /* ========================================
+           FINAL CTA
+           ======================================== */
+        .final-cta-section {
+            padding: 80px 0;
+            background: var(--near-black);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .final-cta-section__title {
+            font-size: clamp(28px, 5vw, 44px);
+            color: var(--white);
+            margin-bottom: 16px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .final-cta-section__sub {
+            font-size: 16px;
+            color: var(--text-dark-muted);
+            margin-bottom: 32px;
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .final-cta-section__buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /* ========================================
+           FOOTER
+           ======================================== */
+        .footer {
+            background: var(--dark-bg);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 32px 0;
+            color: var(--text-dark-muted);
+            font-size: 13px;
+        }
+
+        .footer__inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .footer__links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer__link {
+            color: var(--text-dark-muted);
+            transition: color 0.2s ease;
+        }
+
+        .footer__link:hover {
+            color: var(--white);
+        }
+
+        /* ========================================
+           STICKY MOBILE CTA
+           ======================================== */
+        .mobile-cta {
+            display: flex;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--near-black);
+            padding: 12px 16px;
+            gap: 10px;
+            z-index: 1000;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .mobile-cta__call {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex: 1;
+            padding: 14px 16px;
+            background: var(--white);
+            color: var(--near-black);
+            border-radius: 8px;
+            font-family: var(--font);
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+        }
+
+        .mobile-cta__book {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex: 1;
+            padding: 14px 16px;
+            background: var(--orange);
+            color: var(--white);
+            border-radius: 8px;
+            font-family: var(--font);
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Space for sticky bar */
+        body {
+            padding-bottom: 72px;
+        }
+
+        /* ========================================
+           RESPONSIVE — TABLET (768px+)
+           ======================================== */
+        @media (min-width: 768px) {
+            .container {
+                padding: 0 32px;
+            }
+
+            .hero {
+                padding: 64px 0 80px;
+            }
+
+            .hero__grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 48px;
+                align-items: start;
+            }
+
+            .pain-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 24px;
+            }
+
+            .pain-section {
+                padding: 80px 0;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 24px;
+            }
+
+            .stats-section {
+                padding: 80px 0;
+            }
+
+            .audit-section {
+                padding: 80px 0;
+            }
+
+            .results-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .results-section {
+                padding: 80px 0;
+            }
+
+            .specialist-section {
+                padding: 80px 0;
+            }
+
+            .guarantees-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 24px;
+            }
+
+            .guarantees-section {
+                padding: 80px 0;
+            }
+
+            .faq-section {
+                padding: 80px 0;
+            }
+
+            .form-card {
+                padding: 36px 28px;
+            }
+
+            .mobile-cta {
+                display: none;
+            }
+
+            body {
+                padding-bottom: 0;
+            }
+        }
+
+        /* ========================================
+           RESPONSIVE — DESKTOP (1024px+)
+           ======================================== */
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 40px;
+            }
+
+            .hero {
+                padding: 80px 0 100px;
+            }
+
+            .hero__grid {
+                gap: 64px;
+            }
+
+            .hero__headline {
+                font-size: 52px;
+            }
+
+            .pain-section {
+                padding: 100px 0;
+            }
+
+            .stats-section {
+                padding: 100px 0;
+            }
+
+            .audit-section {
+                padding: 100px 0;
+            }
+
+            .audit-grid {
+                max-width: 720px;
+            }
+
+            .results-section {
+                padding: 100px 0;
+            }
+
+            .specialist-section {
+                padding: 100px 0;
+            }
+
+            .guarantees-section {
+                padding: 100px 0;
+            }
+
+            .faq-section {
+                padding: 100px 0;
+            }
+
+            .final-cta-section {
+                padding: 120px 0;
+            }
+
+            .form-card {
+                padding: 40px 32px;
+            }
+        }
+
+        /* ========================================
+           RESPONSIVE — LARGE DESKTOP (1200px+)
+           ======================================== */
+        @media (min-width: 1200px) {
+            .hero__headline {
+                font-size: 56px;
+            }
+        }
+
+        /* ========================================
+           FORM VALIDATION
+           ======================================== */
+        .form-group input.error,
+        .form-group select.error {
+            border-color: #E03500;
+            box-shadow: 0 0 0 3px rgba(224, 53, 0, 0.1);
+        }
+
+        .form-group .error-msg {
+            font-size: 12px;
+            color: #E03500;
+            margin-top: 4px;
+            display: none;
+        }
+
+        .form-group .error-msg.show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========================================
+         PROOF BAR
+         ======================================== -->
+    <div class="proof-bar">
+        <div class="container">
+            <div class="proof-bar__inner">
+                <span class="proof-bar__item">Only mechanics</span>
+                <span class="proof-bar__dot"></span>
+                <span class="proof-bar__item">4.2x avg return</span>
+                <span class="proof-bar__dot"></span>
+                <span class="proof-bar__item">Month-to-month</span>
+                <span class="proof-bar__dot"></span>
+                <span class="proof-bar__item">Australian-owned</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================
+         LOGO
+         ======================================== -->
+    <div class="logo">
+        <div class="container">
+            <a href="#" aria-label="Mechanic Marketing Home">
+                <img src="/assets/logo/MM-LogoInline-Black.svg" alt="Mechanic Marketing" style="height: 36px; width: auto;">
+            </a>
+        </div>
+    </div>
+
+    <!-- ========================================
+         HERO + LEAD FORM
+         ======================================== -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero__grid">
+                <!-- Left: Content -->
+                <div class="hero__content animate-on-scroll">
+                    <h1 class="hero__headline">Find out exactly where your workshop is <span class="accent">losing jobs</span> &mdash; free.</h1>
+                    <p class="hero__sub">A no-fluff 30-minute audit of your ads and website. We report in booked jobs, calls and revenue &mdash; not impressions.</p>
+                    <div class="hero__cta-row">
+                        <a href="#audit-form" class="btn btn--primary btn--large">Book my free audit</a>
+                        <a href="tel:1300632426" class="btn btn--outline btn--large">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            1300 632 426
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right: Form -->
+                <div class="animate-on-scroll delay-2" id="audit-form">
+                    <div class="form-card">
+                        <div id="audit-form-wrapper">
+                            <h3 class="form-card__title">Book your free audit</h3>
+                            <p class="form-card__subtitle">30 minutes. No cost. No obligation.</p>
+                            <form id="leadForm" novalidate>
+                                <div class="form-group">
+                                    <label for="firstName">First name</label>
+                                    <input type="text" id="firstName" name="firstName" placeholder="e.g. Steve" required>
+                                    <span class="error-msg" id="firstNameError">Please enter your first name.</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="workshopName">Workshop name</label>
+                                    <input type="text" id="workshopName" name="workshopName" placeholder="e.g. Smith's Auto" required>
+                                    <span class="error-msg" id="workshopNameError">Please enter your workshop name.</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mobile">Mobile</label>
+                                    <input type="tel" id="mobile" name="mobile" placeholder="04XX XXX XXX" required>
+                                    <span class="error-msg" id="mobileError">Please enter a valid mobile number.</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="websiteUrl">Website URL</label>
+                                    <input type="url" id="websiteUrl" name="websiteUrl" placeholder="www.yourworkshop.com.au">
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="primaryService">Primary service</label>
+                                        <select id="primaryService" name="primaryService" required>
+                                            <option value="" disabled selected>Select&hellip;</option>
+                                            <option value="diesel">Diesel</option>
+                                            <option value="euro">Euro</option>
+                                            <option value="4x4">4x4</option>
+                                            <option value="general">General</option>
+                                            <option value="mobile">Mobile</option>
+                                        </select>
+                                        <span class="error-msg" id="primaryServiceError">Please select a service.</span>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="state">State</label>
+                                        <select id="state" name="state" required>
+                                            <option value="" disabled selected>Select&hellip;</option>
+                                            <option value="NSW">NSW</option>
+                                            <option value="VIC">VIC</option>
+                                            <option value="QLD">QLD</option>
+                                            <option value="SA">SA</option>
+                                            <option value="WA">WA</option>
+                                            <option value="TAS">TAS</option>
+                                            <option value="NT">NT</option>
+                                            <option value="ACT">ACT</option>
+                                        </select>
+                                        <span class="error-msg" id="stateError">Please select your state.</span>
+                                    </div>
+                                </div>
+                                <div class="form-submit">
+                                    <button type="submit" class="btn btn--primary btn--large btn--full">Book my free audit</button>
+                                </div>
+                                <p class="form-footer">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                                    No spam. No obligation. Just a straight-up audit.
+                                </p>
+                            </form>
+                        </div>
+                        <div class="form-thankyou" id="formThankyou">
+                            <div class="form-thankyou__icon">
+                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF3D02" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+                            </div>
+                            <h3 class="form-thankyou__title">You're booked in</h3>
+                            <p class="form-thankyou__text">We'll be in touch within 24 hours to schedule your free 30-minute audit. No fluff, no pressure &mdash; just a clear picture of where the jobs are hiding.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SOUND FAMILIAR? PAIN BLOCK
+         ======================================== -->
+    <section class="pain-section" id="pain">
+        <div class="container">
+            <div class="pain-section__header animate-on-scroll">
+                <span class="section-label">Sound familiar &middot; 01</span>
+                <h2 class="pain-section__title">Any of this <span class="accent">ring a bell?</span></h2>
+            </div>
+            <div class="pain-grid">
+                <div class="pain-card animate-on-scroll delay-1">
+                    <div class="pain-card__number">01</div>
+                    <h3 class="pain-card__title">Quiet Tuesdays, empty bays Wednesday</h3>
+                    <p class="pain-card__text">You're great at fixing cars. But the phone goes quiet and you're left wondering where the next job is coming from.</p>
+                </div>
+                <div class="pain-card animate-on-scroll delay-2">
+                    <div class="pain-card__number">02</div>
+                    <h3 class="pain-card__title">Agency running your ads next to a yoga studio</h3>
+                    <p class="pain-card__text">Most agencies treat every trade the same. They don't understand diesel performance, DPF regen or the jobs that actually pay.</p>
+                </div>
+                <div class="pain-card animate-on-scroll delay-3">
+                    <div class="pain-card__number">03</div>
+                    <h3 class="pain-card__title">Reports full of impressions, zero booked jobs</h3>
+                    <p class="pain-card__text">If your agency's idea of a result is "brand awareness is trending up," you're paying for vibes, not revenue.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         WHAT WE ACTUALLY MEASURE
+         ======================================== -->
+    <section class="stats-section" id="stats">
+        <div class="container">
+            <div class="stats-section__header animate-on-scroll">
+                <span class="section-label">What we measure &middot; 02</span>
+                <h2 class="stats-section__title">We measure what <span class="accent">matters</span></h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-block animate-on-scroll delay-1">
+                    <div class="stat-block__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF3D02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                    </div>
+                    <div class="stat-block__label">Calls tracked</div>
+                    <p class="stat-block__text">Every phone call attributed to the exact ad, keyword and campaign that generated it.</p>
+                </div>
+                <div class="stat-block animate-on-scroll delay-2">
+                    <div class="stat-block__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF3D02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/></svg>
+                    </div>
+                    <div class="stat-block__label">Bookings attributed</div>
+                    <p class="stat-block__text">Form fills, online bookings and enquiries mapped back to the dollar that drove them.</p>
+                </div>
+                <div class="stat-block animate-on-scroll delay-3">
+                    <div class="stat-block__icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FF3D02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                    </div>
+                    <div class="stat-block__label">Revenue per ad dollar</div>
+                    <p class="stat-block__text">The only metric that keeps your bays full and your bank account healthy. We call it ROAS.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         WHAT THE AUDIT COVERS
+         ======================================== -->
+    <section class="audit-section" id="audit-covers">
+        <div class="container">
+            <div class="audit-section__header animate-on-scroll">
+                <span class="section-label">The audit &middot; 03</span>
+                <h2 class="audit-section__title">What the <span class="accent">audit covers</span></h2>
+                <p class="audit-section__sub">In 30 minutes we'll identify the biggest leaks and quick wins in your marketing.</p>
+            </div>
+            <div class="audit-grid">
+                <div class="audit-item animate-on-scroll delay-1">
+                    <div class="audit-item__icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF3D02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    </div>
+                    <div class="audit-item__content">
+                        <div class="audit-item__title">Ad-account waste analysis</div>
+                        <p class="audit-item__text">We'll find wasted spend, poor keywords and campaigns burning cash without delivering jobs.</p>
+                    </div>
+                </div>
+                <div class="audit-item animate-on-scroll delay-2">
+                    <div class="audit-item__icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF3D02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+                    </div>
+                    <div class="audit-item__content">
+                        <div class="audit-item__title">Website conversion leaks</div>
+                        <p class="audit-item__text">Your site might be getting clicks but not converting. We'll show you exactly where visitors drop off.</p>
+                    </div>
+                </div>
+                <div class="audit-item animate-on-scroll delay-3">
+                    <div class="audit-item__icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF3D02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <div class="audit-item__content">
+                        <div class="audit-item__title">Tracking gaps (calls, forms, bookings)</div>
+                        <p class="audit-item__text">If you can't measure it, you can't improve it. We'll flag every tracking gap costing you visibility.</p>
+                    </div>
+                </div>
+                <div class="audit-item animate-on-scroll delay-4">
+                    <div class="audit-item__icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF3D02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                    </div>
+                    <div class="audit-item__content">
+                        <div class="audit-item__title">Competitor snapshot</div>
+                        <p class="audit-item__text">See what the workshops down the road are doing online &mdash; and where they're leaving the door open for you.</p>
+                    </div>
+                </div>
+                <div class="audit-item animate-on-scroll delay-5">
+                    <div class="audit-item__icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF3D02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+                    </div>
+                    <div class="audit-item__content">
+                        <div class="audit-item__title">Priority quick wins</div>
+                        <p class="audit-item__text">The two or three changes you can make this week to start getting more calls and bookings immediately.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         RESULTS / CASE STUDIES
+         ======================================== -->
+    <section class="results-section" id="results">
+        <div class="container">
+            <div class="results-section__header animate-on-scroll">
+                <span class="section-label">Results &middot; 04</span>
+                <h2 class="results-section__title">Real workshops. <span class="accent">Real results.</span></h2>
+            </div>
+            <div class="results-grid">
+                <div class="result-card animate-on-scroll delay-1">
+                    <div class="result-card__stat">4.45x</div>
+                    <div class="result-card__stat-label">Return on ad spend</div>
+                    <h3 class="result-card__name">Core Diesel</h3>
+                    <p class="result-card__text">A specialist diesel workshop that was spending money on ads with no clear picture of return. We rebuilt their campaigns from the ground up, focused on high-margin services and tracked every call to a booked job.</p>
+                    <span class="result-card__tag">Diesel specialist</span>
+                </div>
+                <div class="result-card animate-on-scroll delay-2">
+                    <div class="result-card__stat">&lt;$30</div>
+                    <div class="result-card__stat-label">Cost per lead</div>
+                    <h3 class="result-card__name">Busselton Automotive</h3>
+                    <p class="result-card__text">A regional workshop competing against larger groups with bigger budgets. We honed in on local intent, tightened their targeting and built a pipeline of leads at a cost most agencies would call impossible.</p>
+                    <span class="result-card__tag">General mechanic</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         WHY ONLY MECHANICS
+         ======================================== -->
+    <section class="specialist-section" id="why-mechanics">
+        <div class="container">
+            <div class="specialist-section__inner animate-on-scroll">
+                <span class="section-label">Specialisation &middot; 05</span>
+                <h2 class="specialist-section__title">Why <span class="accent">only</span> mechanics?</h2>
+                <p class="specialist-section__text">We don't do dentists. We don't do cafes. We don't do "a bit of everything." We work exclusively with mechanics and auto repair workshops because the industry has specific problems that generalist agencies don't understand.</p>
+                <p class="specialist-section__text">We know which services have the highest margins. We know how workshop owners think about marketing. We know the difference between a DPF delete enquiry and a basic logbook service &mdash; and we know which one you'd rather book.</p>
+                <div class="specialist-section__list">
+                    <span class="specialist-tag">Diesel</span>
+                    <span class="specialist-tag">Euro</span>
+                    <span class="specialist-tag">4x4 &amp; Off-road</span>
+                    <span class="specialist-tag">General mechanic</span>
+                    <span class="specialist-tag">Mobile mechanic</span>
+                    <span class="specialist-tag">Performance</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         THREE GUARANTEES
+         ======================================== -->
+    <section class="guarantees-section" id="guarantees">
+        <div class="container">
+            <div class="guarantees-section__header animate-on-scroll">
+                <span class="section-label">Guarantees &middot; 06</span>
+                <h2 class="guarantees-section__title">Three guarantees. <span class="accent">No weasel words.</span></h2>
+            </div>
+            <div class="guarantees-grid">
+                <div class="guarantee-card animate-on-scroll delay-1">
+                    <div class="guarantee-card__icon">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FF3D02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                    </div>
+                    <h3 class="guarantee-card__title">3x ROAS or we work for free</h3>
+                    <p class="guarantee-card__text">If we don't deliver at least three dollars back for every dollar of ad spend, we keep working at no cost until we do.</p>
+                </div>
+                <div class="guarantee-card animate-on-scroll delay-2">
+                    <div class="guarantee-card__icon">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FF3D02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    </div>
+                    <h3 class="guarantee-card__title">Month-to-month</h3>
+                    <p class="guarantee-card__text">No lock-in contracts. No 12-month traps. If we're not delivering, you walk. Simple as that.</p>
+                </div>
+                <div class="guarantee-card animate-on-scroll delay-3">
+                    <div class="guarantee-card__icon">
+                        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FF3D02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M12 7v2"/><path d="M12 13h.01"/></svg>
+                    </div>
+                    <h3 class="guarantee-card__title">You own everything</h3>
+                    <p class="guarantee-card__text">Your ad accounts, your data, your website, your creatives. Everything stays yours if you ever leave. No hostage games.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FAQ
+         ======================================== -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <div class="faq-section__header animate-on-scroll">
+                <span class="section-label">FAQ &middot; 07</span>
+                <h2 class="faq-section__title">Questions <span class="accent">answered</span></h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item animate-on-scroll delay-1">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What exactly happens in the free audit?</span>
+                        <span class="faq-question__icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C1C1A" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer__inner">We jump on a 30-minute video call, share our screen and walk you through your Google Ads account, website and tracking setup. You'll leave with a clear list of what's working, what's wasting money and the two or three changes that'll have the biggest impact immediately. No sales pitch &mdash; just straight answers.</div>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll delay-2">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Is there actually no cost?</span>
+                        <span class="faq-question__icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C1C1A" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer__inner">Zero. Nothing. Not a cent. We do the audit because most workshop owners don't know what they don't know. If we can show you real opportunities, some of you will want us to help &mdash; and that's where the business relationship starts. But there's absolutely no obligation.</div>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll delay-3">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What happens after the audit?</span>
+                        <span class="faq-question__icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C1C1A" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer__inner">That's entirely up to you. You can take the recommendations and run with them yourself, hand them to your current agency, or chat to us about managing the whole thing. We'll send you a summary of what we found either way.</div>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll delay-4">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Do I need to be running ads already?</span>
+                        <span class="faq-question__icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C1C1A" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer__inner">No. If you're not running ads yet, we'll focus on your website, your local SEO presence and your Google Business Profile. There's always opportunity to uncover &mdash; ads or no ads.</div>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll delay-5">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How quickly can I book a time?</span>
+                        <span class="faq-question__icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C1C1A" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer__inner">Usually within two business days. Fill in the form, we'll call you to lock in a time that works around your workshop hours &mdash; we know mornings are busy.</div>
+                    </div>
+                </div>
+                <div class="faq-item animate-on-scroll">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Why don't you work with other industries?</span>
+                        <span class="faq-question__icon">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C1C1A" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                        </span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer__inner">Because specialisation is what makes us good. Every campaign we build, every landing page we write, every keyword we target &mdash; it's all tested and refined specifically for auto repair workshops. That industry-specific data is our unfair advantage, and it's what gets our clients results that generalist agencies can't match.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FINAL CTA
+         ======================================== -->
+    <section class="final-cta-section" id="final-cta">
+        <div class="container">
+            <div class="animate-on-scroll">
+                <span class="section-label">Let's go &middot; 08</span>
+                <h2 class="final-cta-section__title">Ready to find out where you're <span class="accent">losing jobs?</span></h2>
+                <p class="final-cta-section__sub">30 minutes. Free. No obligation. Just a straight-up look at what's costing you money.</p>
+                <div class="final-cta-section__buttons">
+                    <a href="#audit-form" class="btn btn--primary btn--large">Book my free audit</a>
+                    <a href="tel:1300632426" class="btn btn--secondary btn--large">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        1300 632 426
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FOOTER
+         ======================================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__inner">
+                <div>&copy; 2025 Mechanic Marketing. All rights reserved.</div>
+                <div class="footer__links">
+                    <a href="#" class="footer__link">Privacy Policy</a>
+                    <a href="tel:1300632426" class="footer__link">1300 632 426</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================
+         STICKY MOBILE CTA BAR
+         ======================================== -->
+    <div class="mobile-cta" id="mobileCta">
+        <a href="tel:1300632426" class="mobile-cta__call">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call now
+        </a>
+        <a href="#audit-form" class="mobile-cta__book">
+            Book free audit
+        </a>
+    </div>
+
+    <!-- ========================================
+         JAVASCRIPT
+         ======================================== -->
+    <script>
+        // ── Scroll Animations (IntersectionObserver) ──
+        (function() {
+            var observer = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.12,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            document.querySelectorAll('.animate-on-scroll').forEach(function(el) {
+                observer.observe(el);
+            });
+        })();
+
+        // ── FAQ Accordion ──
+        (function() {
+            var faqItems = document.querySelectorAll('.faq-item');
+            faqItems.forEach(function(item) {
+                var question = item.querySelector('.faq-question');
+                question.addEventListener('click', function() {
+                    var isActive = item.classList.contains('active');
+
+                    // Close all
+                    faqItems.forEach(function(other) {
+                        other.classList.remove('active');
+                        other.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                    });
+
+                    // Toggle current
+                    if (!isActive) {
+                        item.classList.add('active');
+                        question.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });
+        })();
+
+        // ── Form Validation & Thank You ──
+        (function() {
+            var form = document.getElementById('leadForm');
+            var formWrapper = document.getElementById('audit-form-wrapper');
+            var thankyou = document.getElementById('formThankyou');
+
+            function showError(id) {
+                var el = document.getElementById(id);
+                if (el) el.classList.add('show');
+                var input = el ? el.previousElementSibling : null;
+                if (input) input.classList.add('error');
+            }
+
+            function clearErrors() {
+                document.querySelectorAll('.error-msg').forEach(function(el) {
+                    el.classList.remove('show');
+                });
+                document.querySelectorAll('.error').forEach(function(el) {
+                    el.classList.remove('error');
+                });
+            }
+
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                clearErrors();
+
+                var valid = true;
+                var firstName = document.getElementById('firstName');
+                var workshopName = document.getElementById('workshopName');
+                var mobile = document.getElementById('mobile');
+                var primaryService = document.getElementById('primaryService');
+                var state = document.getElementById('state');
+
+                if (!firstName.value.trim()) {
+                    showError('firstNameError');
+                    valid = false;
+                }
+                if (!workshopName.value.trim()) {
+                    showError('workshopNameError');
+                    valid = false;
+                }
+                if (!mobile.value.trim() || mobile.value.trim().length < 8) {
+                    showError('mobileError');
+                    valid = false;
+                }
+                if (!primaryService.value) {
+                    showError('primaryServiceError');
+                    valid = false;
+                }
+                if (!state.value) {
+                    showError('stateError');
+                    valid = false;
+                }
+
+                if (valid) {
+                    // TODO: Send form data to backend / CRM / webhook
+                    formWrapper.style.display = 'none';
+                    thankyou.classList.add('active');
+
+                    // Scroll to thank you
+                    thankyou.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            });
+
+            // Clear error on input
+            var inputs = form.querySelectorAll('input, select');
+            inputs.forEach(function(input) {
+                input.addEventListener('input', function() {
+                    this.classList.remove('error');
+                    var errorEl = this.nextElementSibling;
+                    if (errorEl && errorEl.classList.contains('error-msg')) {
+                        errorEl.classList.remove('show');
+                    }
+                });
+                input.addEventListener('change', function() {
+                    this.classList.remove('error');
+                    var errorEl = this.nextElementSibling;
+                    if (errorEl && errorEl.classList.contains('error-msg')) {
+                        errorEl.classList.remove('show');
+                    }
+                });
+            });
+        })();
+
+        // ── Smooth scroll for anchor links ──
+        (function() {
+            document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+                anchor.addEventListener('click', function(e) {
+                    var href = this.getAttribute('href');
+                    if (href === '#') return;
+                    var target = document.querySelector(href);
+                    if (target) {
+                        e.preventDefault();
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+        })();
+    </script>
+
+</body>
+</html>
