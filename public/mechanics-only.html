@@ -1052,6 +1052,20 @@
             }
         }
 
+        /* === LP Header Bar === */
+        .lp-header {
+            padding: 16px 0;
+            background: #F0F0EC;
+        }
+
+        /* === Hero Centering === */
+        .hero-content { text-align: center; margin-left: auto; margin-right: auto; }
+        .hero-sub { margin-left: auto; margin-right: auto; }
+        .hero-proof { justify-content: center; }
+
+        /* === Section Header Centering === */
+        .sec-hdr { text-align: center; }
+
         /* === LP Case Studies Carousel === */
         .lp-cases-section { padding: 80px 24px; background: radial-gradient(ellipse 75% 65% at 100% 0%, rgba(255,61,2,0.055) 0%, transparent 70%), radial-gradient(ellipse 45% 50% at 0% 100%, rgba(255,61,2,0.035) 0%, transparent 60%), #ffffff; border-top: 1px solid rgba(0,0,0,0.06); }
         .lp-cases-hdr { margin-bottom: 36px; text-align: center; }
@@ -1108,17 +1122,20 @@
     <!-- ==============================
          2. HERO
          ============================== -->
+    <div class="lp-header">
+        <div class="container">
+            <div class="header-bar">
+                <a href="/" aria-label="Mechanic Marketing Home">
+                    <img src="/assets/logo/MM-LogoInline-Black.svg" alt="Mechanic Marketing" style="height: 36px; width: auto;">
+                </a>
+                <a href="#book-audit" class="btn-primary" style="font-size:14px;padding:12px 20px;">Book My Free Audit</a>
+            </div>
+        </div>
+    </div>
+
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <!-- Logo -->
-                <div class="header-bar">
-                    <div class="logo">
-                        <img src="/assets/logo/MM-LogoInline-Black.svg" alt="Mechanic Marketing" style="height: 36px; width: auto;">
-                    </div>
-                    <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
-                </div>
-
                 <h1>We only do one thing: marketing for <span class="accent">mechanics.</span></h1>
 
                 <p class="hero-sub">Diesel, Euro, 4x4, American trucks and mobile mechanics. No cafes, no chiros, no real estate. Just workshops.</p>
@@ -1142,7 +1159,7 @@
          ============================== -->
     <section class="who-section">
         <div class="container">
-            <div class="animate-on-scroll">
+            <div class="animate-on-scroll sec-hdr">
                 <span class="section-label">Who We Work With &middot; 01</span>
                 <h2>Every type of <span class="accent">workshop.</span></h2>
             </div>
@@ -1238,7 +1255,7 @@
          ============================== -->
     <section class="generalist-section">
         <div class="container">
-            <div class="animate-on-scroll">
+            <div class="animate-on-scroll sec-hdr">
                 <span class="section-label">The Difference &middot; 02</span>
                 <h2>Why a generalist <span class="accent">can't</span> do this</h2>
             </div>
@@ -1302,7 +1319,7 @@
          ============================== -->
     <section class="process-section">
         <div class="container">
-            <div class="animate-on-scroll">
+            <div class="animate-on-scroll sec-hdr">
                 <span class="section-label">How It Works &middot; 03</span>
                 <h2>Three steps. <span class="accent">Seven days.</span></h2>
             </div>
@@ -1429,7 +1446,7 @@
          ============================== -->
     <section class="results-section">
         <div class="container">
-            <div class="animate-on-scroll">
+            <div class="animate-on-scroll sec-hdr">
                 <span class="section-label">Results &middot; 04</span>
                 <h2>Numbers that <span class="accent">matter.</span></h2>
             </div>
@@ -1461,7 +1478,7 @@
          ============================== -->
     <section class="guarantee-section">
         <div class="container">
-            <div class="animate-on-scroll">
+            <div class="animate-on-scroll sec-hdr">
                 <span class="section-label">Guarantees &middot; 05</span>
                 <h2>Zero risk. <span class="accent">Guaranteed.</span></h2>
             </div>
@@ -1509,7 +1526,7 @@
          ============================== -->
     <section class="faq-section">
         <div class="container">
-            <div class="animate-on-scroll">
+            <div class="animate-on-scroll sec-hdr">
                 <span class="section-label">FAQ &middot; 06</span>
                 <h2>Got <span class="accent">questions?</span></h2>
             </div>
