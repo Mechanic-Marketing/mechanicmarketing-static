@@ -2051,17 +2051,44 @@
 
             if (!validateForm(form)) return;
 
-            // Get the card and success elements
-            var card = form.closest('.form-card');
-            var formWrap = card.querySelector('[id$="-form-wrap"]');
-            var successEl = card.querySelector('.form-success');
+            var submitBtn = form.querySelector('button[type="submit"]');
+            if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; }
 
-            // Hide form, show success
-            formWrap.style.display = 'none';
-            successEl.classList.add('is-active');
+            var formData = {};
+            Array.from(form.elements).forEach(function(el) {
+                if (el.name) formData[el.name] = el.value;
+            });
 
-            // Scroll to success message
-            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            fetch('/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    source: 'Book a Call LP',
+                    first_name: formData.first_name || '',
+                    workshop_name: formData.workshop_name || '',
+                    mobile: formData.mobile || '',
+                    primary_service: formData.primary_service || '',
+                    monthly_spend: formData.monthly_spend || ''
+                })
+            })
+            .then(function(res) { return res.json(); })
+            .then(function(result) {
+                var card = form.closest('.form-card');
+                var formWrap = card.querySelector('[id$="-form-wrap"]');
+                var successEl = card.querySelector('.form-success');
+                if (result.success) {
+                    formWrap.style.display = 'none';
+                    successEl.classList.add('is-active');
+                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                } else {
+                    if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Book My Free Call'; }
+                    alert('Something went wrong. Please try again.');
+                }
+            })
+            .catch(function() {
+                if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Book My Free Call'; }
+                alert('Something went wrong. Please try again.');
+            });
         }
 
         // Clear error on input change

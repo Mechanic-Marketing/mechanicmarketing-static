@@ -2215,17 +2215,44 @@
 
                 if (!valid) return;
 
-                // Hide form, show thank you
-                document.getElementById(contentId).style.display = 'none';
-                var thankyou = document.getElementById(thankyouId);
-                thankyou.classList.add('active');
-                thankyou.style.display = 'block';
+                var submitBtn = form.querySelector('button[type="submit"]');
+                if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending...'; }
 
-                // Scroll to thank you
-                var card = thankyou.closest('.form-card');
-                if (card) {
-                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
+                var formData = {};
+                Array.from(form.elements).forEach(function(el) {
+                    if (el.name) formData[el.name] = el.value;
+                });
+
+                fetch('/contact', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        source: 'Website Audit LP',
+                        first_name: formData.first_name || '',
+                        workshop_name: formData.workshop_name || '',
+                        mobile: formData.mobile || '',
+                        website_url: formData.website_url || '',
+                        frustration: formData.frustration || ''
+                    })
+                })
+                .then(function(res) { return res.json(); })
+                .then(function(result) {
+                    if (result.success) {
+                        document.getElementById(contentId).style.display = 'none';
+                        var thankyou = document.getElementById(thankyouId);
+                        thankyou.classList.add('active');
+                        thankyou.style.display = 'block';
+                        var card = thankyou.closest('.form-card');
+                        if (card) { card.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+                    } else {
+                        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Audit My Website Free'; }
+                        alert('Something went wrong. Please try again.');
+                    }
+                })
+                .catch(function() {
+                    if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = 'Audit My Website Free'; }
+                    alert('Something went wrong. Please try again.');
+                });
             });
         }
 

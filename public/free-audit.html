@@ -2032,12 +2032,42 @@
                 }
 
                 if (valid) {
-                    // TODO: Send form data to backend / CRM / webhook
-                    formWrapper.style.display = 'none';
-                    thankyou.classList.add('active');
+                    var submitBtn = form.querySelector('button[type="submit"]');
+                    submitBtn.disabled = true;
+                    submitBtn.textContent = 'Sending...';
 
-                    // Scroll to thank you
-                    thankyou.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    var websiteUrlEl = document.getElementById('websiteUrl');
+
+                    fetch('/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            source: 'Free Audit LP',
+                            first_name: firstName.value.trim(),
+                            workshop_name: workshopName.value.trim(),
+                            mobile: mobile.value.trim(),
+                            website_url: websiteUrlEl ? websiteUrlEl.value.trim() : '',
+                            primary_service: primaryService.value,
+                            state: state.value
+                        })
+                    })
+                    .then(function(res) { return res.json(); })
+                    .then(function(result) {
+                        if (result.success) {
+                            formWrapper.style.display = 'none';
+                            thankyou.classList.add('active');
+                            thankyou.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        } else {
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Book my free audit';
+                            alert('Something went wrong. Please try again.');
+                        }
+                    })
+                    .catch(function() {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Book my free audit';
+                        alert('Something went wrong. Please try again.');
+                    });
                 }
             });
 
