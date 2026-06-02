@@ -39,7 +39,10 @@
             font-size: 16px;
             line-height: 1.6;
             color: #1C1C1A;
-            background: #F0F0EC;
+            background:
+                radial-gradient(ellipse 80% 55% at 100% 0%, rgba(255,61,2,0.065) 0%, transparent 65%),
+                radial-gradient(ellipse 50% 40% at 0% 100%, rgba(255,61,2,0.04) 0%, transparent 60%),
+                #F0F0EC;
             overflow-x: hidden;
         }
 
@@ -930,6 +933,51 @@
             flex-shrink: 0;
         }
 
+        /* ===== TESTIMONIAL ===== */
+        .testimonial-wrap {
+            background: #F5EDE6;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .testimonial-wrap::before,
+        .testimonial-wrap::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 2px dashed rgba(255, 61, 2, 0.35);
+            border-radius: 14px;
+            transform: rotate(18deg);
+            pointer-events: none;
+        }
+        .testimonial-wrap::before { top: -90px; left: -90px; }
+        .testimonial-wrap::after  { bottom: -90px; right: -90px; }
+        .testimonial-card-inner {
+            background: #fff;
+            border-radius: 20px;
+            padding: 56px 40px;
+            text-align: center;
+            max-width: 860px;
+            margin: 0 auto;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.06);
+        }
+        .testimonial-card-inner blockquote {
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin: 16px 0 24px;
+            color: var(--near-black);
+        }
+        .testimonial-attr {
+            font-size: 14px;
+            color: rgba(28,28,26,0.5);
+            margin-bottom: 32px;
+            font-weight: 500;
+        }
+
         /* ===== RESULTS / CASE STUDIES ===== */
         .results {
             padding: var(--section-pad-mobile);
@@ -1445,6 +1493,40 @@
                 justify-content: space-between;
             }
         }
+
+        /* === LP Case Studies Carousel === */
+        .lp-cases-section { padding: 80px 24px; background: radial-gradient(ellipse 75% 65% at 100% 0%, rgba(255,61,2,0.055) 0%, transparent 70%), radial-gradient(ellipse 45% 50% at 0% 100%, rgba(255,61,2,0.035) 0%, transparent 60%), #ffffff; border-top: 1px solid rgba(0,0,0,0.06); }
+        .lp-cases-hdr { margin-bottom: 36px; text-align: center; }
+        .lp-cases-hdr h2 { font-size: clamp(36px, 5vw, 54px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; line-height: 89%; color: #FF3D02; margin-bottom: 16px; }
+        .lp-cases-hdr p { font-size: 16px; line-height: 1.5; color: rgba(28,28,26,0.65); margin: 0; }
+        .lp-cases-carousel-outer { display: flex; align-items: center; gap: 20px; max-width: 1160px; margin: 0 auto; }
+        .lp-cases-carousel-viewport { flex: 1; overflow: hidden; }
+        .lp-cases-carousel-track { display: flex; gap: 36px; transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94); will-change: transform; }
+        .lp-cases-carousel-track .lp-case { flex: 0 0 calc(50% - 18px); border-radius: 12px; overflow: hidden; box-shadow: 0 6px 32px rgba(0,0,0,0.25); background: #1c1c1a; text-decoration: none; display: block; transition: transform 0.25s, box-shadow 0.25s; }
+        .lp-cases-carousel-track .lp-case:hover { transform: translateY(-4px); }
+        .lp-case-img { height: 220px; overflow: hidden; position: relative; }
+        .lp-case-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+        .lp-cases-carousel-track .lp-case:hover .lp-case-img img { transform: scale(1.04); }
+        .lp-case-body { padding: 36px; }
+        .lp-case-body h3 { font-size: 24px; font-weight: 700; text-transform: uppercase; line-height: 100%; color: #F0F0EC; margin-bottom: 11px; margin-top: 0; }
+        .lp-case-body p { font-size: 16px; line-height: 1.5; color: rgba(240,240,236,0.55); margin-bottom: 24px; }
+        .lp-case-lnk { font-size: 16px; font-weight: 700; text-transform: uppercase; color: #FF3D02; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s; }
+        .lp-cases-carousel-track .lp-case:hover .lp-case-lnk { gap: 12px; }
+        .lp-case-lnk svg { width: 16px; height: 16px; }
+        .lp-case-badge { position: absolute; top: 14px; left: 14px; background: #FF3D02; color: #fff; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; padding: 5px 11px; border-radius: 20px; line-height: 1; white-space: nowrap; box-shadow: 0 2px 10px rgba(255,61,2,0.35); z-index: 2; }
+        .lp-carousel-btn { flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%; border: 2px solid #1c1c1a; background: #1c1c1a; color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease; box-sizing: border-box; padding: 0; }
+        .lp-carousel-btn svg { width: 22px; height: 22px; }
+        .lp-carousel-btn:hover { background: #333; transform: scale(1.08); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+        .lp-carousel-btn:disabled { opacity: 0.35; cursor: not-allowed; transform: none !important; box-shadow: none; }
+        @media (max-width: 768px) {
+            .lp-cases-section { padding: 56px 20px; }
+            .lp-cases-carousel-track .lp-case { flex: 0 0 100%; }
+            .lp-cases-carousel-track { gap: 0; }
+            .lp-cases-carousel-outer { position: relative; gap: 0; }
+            .lp-carousel-btn { position: absolute; top: 38%; transform: translateY(-50%); z-index: 10; width: 40px; height: 40px; }
+            .lp-carousel-prev { left: 10px; }
+            .lp-carousel-next { right: 10px; }
+        }
     </style>
 </head>
 <body>
@@ -1457,9 +1539,9 @@
                 <span class="proof-bar__dot"></span>
                 <span class="proof-bar__item">4.2x Avg Return</span>
                 <span class="proof-bar__dot"></span>
-                <span class="proof-bar__item">Month-to-Month</span>
+                <span class="proof-bar__item">Month to Month</span>
                 <span class="proof-bar__dot"></span>
-                <span class="proof-bar__item">Australian-Owned</span>
+                <span class="proof-bar__item">Australian Owned</span>
             </div>
         </div>
     </div>
@@ -1474,10 +1556,7 @@
                         <span>For Workshops Only</span>
                     </div>
                 </a>
-                <a href="tel:1300632426" class="logo-bar__phone">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                    1300 MECHANIC
-                </a>
+                <a href="#audit-form" class="btn btn--primary" style="font-size:14px;padding:12px 20px;">Book My Free Audit</a>
             </div>
         </div>
     </div>
@@ -1516,7 +1595,7 @@
                 <div class="form-card" id="hero-form">
                     <div id="hero-form-content">
                         <h3 class="form-card__title">Get Your Free Audit</h3>
-                        <p class="form-card__subtitle">Takes 2 minutes. No spam, no pitch &mdash; just honest feedback.</p>
+                        <p class="form-card__subtitle">Takes 2 minutes. No spam, no pitch. Just honest feedback.</p>
                         <form id="heroAuditForm" novalidate>
                             <div class="form-group form-group--url">
                                 <label for="hero-url">Website URL <span class="required">*</span></label>
@@ -1572,7 +1651,7 @@
                     <div class="mistake-card__num">01</div>
                     <div class="mistake-card__content">
                         <h3>One page trying to sell ten services</h3>
-                        <p class="mistake-card__mistake">Google can't figure out what you actually do &mdash; so it shows someone else instead.</p>
+                        <p class="mistake-card__mistake">Google can't figure out what you actually do. So it shows someone else instead.</p>
                         <div class="mistake-card__fix">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
                             Dedicated page per service so Google knows what you do
@@ -1616,13 +1695,16 @@
                     <div class="mistake-card__num">05</div>
                     <div class="mistake-card__content">
                         <h3>Phone number buried or missing</h3>
-                        <p class="mistake-card__mistake">People ready to book can't find how to call you &mdash; so they call the next shop.</p>
+                        <p class="mistake-card__mistake">People ready to book can't find how to call you. So they call the next shop.</p>
                         <div class="mistake-card__fix">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
                             Click-to-call, sticky, visible on every page
                         </div>
                     </div>
                 </div>
+            </div>
+            <div style="text-align:center;margin-top:40px;">
+                <a href="#audit-form" class="btn btn--primary">Book My Free Audit</a>
             </div>
         </div>
     </section>
@@ -1633,14 +1715,14 @@
             <div class="audit-get__header reveal">
                 <span class="section-label">What You Get &middot; 02</span>
                 <h2>What you'll get from <span class="accent">the audit</span></h2>
-                <p>A personalised, no-fluff review of your website &mdash; delivered in plain English with clear next steps.</p>
+                <p>A personalised, no nonsense review of your website. Delivered in plain English with clear next steps.</p>
             </div>
             <div class="audit-get__grid">
                 <div class="checklist-item reveal reveal-delay-1">
                     <div class="checklist-item__icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
                     </div>
-                    <span>Load-speed score &amp; mobile performance</span>
+                    <span>Load speed score &amp; mobile performance</span>
                 </div>
                 <div class="checklist-item reveal reveal-delay-2">
                     <div class="checklist-item__icon">
@@ -1658,7 +1740,7 @@
                     <div class="checklist-item__icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
                     </div>
-                    <span>Service-page structure review</span>
+                    <span>Service page structure review</span>
                 </div>
                 <div class="checklist-item reveal reveal-delay-5">
                     <div class="checklist-item__icon">
@@ -1666,6 +1748,9 @@
                     </div>
                     <span>Priority fixes ranked by impact</span>
                 </div>
+            </div>
+            <div style="text-align:center;margin-top:40px;">
+                <a href="#audit-form" class="btn btn--primary">Book My Free Audit</a>
             </div>
         </div>
     </section>
@@ -1683,7 +1768,7 @@
                 <div class="sample-audit__panel sample-audit__panel--before reveal reveal-delay-1">
                     <div class="sample-audit__panel-header">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-                        Before &mdash; Typical Workshop Site
+                        Before: Typical Workshop Site
                     </div>
                     <div class="sample-audit__panel-body">
                         <div class="mock-site--before">
@@ -1708,7 +1793,7 @@
                                 </li>
                                 <li>
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-                                    8 nav links — no clear next step
+                                    8 nav links. No clear next step
                                 </li>
                                 <li>
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
@@ -1731,13 +1816,13 @@
                 <div class="sample-audit__panel sample-audit__panel--after reveal reveal-delay-2">
                     <div class="sample-audit__panel-header">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M20 6 9 17l-5-5"/></svg>
-                        After &mdash; Optimised for Leads
+                        After: Optimised for Leads
                     </div>
                     <div class="sample-audit__panel-body">
                         <div class="mock-site--after">
                             <div class="mock-hero-block">
                                 <h4>Need a <span>logbook service</span> in Perth?</h4>
-                                <p>Factory-backed servicing. Fixed prices. Same-day available.</p>
+                                <p>Factory backed servicing. Fixed prices. Same day available.</p>
                                 <span class="mock-btn">Book Online Now</span>
                                 <span class="mock-phone">1300 XXX XXX</span>
                             </div>
@@ -1767,7 +1852,95 @@
                     </div>
                 </div>
             </div>
+            <div style="text-align:center;margin-top:40px;">
+                <a href="#audit-form" class="btn btn--primary">Book My Free Audit</a>
+            </div>
         </div>
+    </section>
+
+    <!-- ===== TESTIMONIAL ===== -->
+    <section class="testimonial-wrap">
+        <div class="container">
+            <div class="testimonial-card-inner reveal">
+                <span class="section-label">Clients</span>
+                <blockquote>"Josh is a total marketing guru. He gave me more information in our first session than I had managed to self-learn in <span style="color:#FF3D02;">7 years</span> of being in business."</blockquote>
+                <p class="testimonial-attr">Bodie Geck, Co-Founder at BB Garage</p>
+                <a href="#audit-form" class="btn btn--secondary">Book My Free Audit</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CASE STUDIES CAROUSEL -->
+    <section class="lp-cases-section">
+        <div class="lp-cases-hdr">
+            <span class="section-label">Case Studies</span>
+            <h2>Real results for real workshops</h2>
+            <p>Don&#8217;t take our word for it. See what we&#8217;ve done for shops like yours.</p>
+        </div>
+        <div class="lp-cases-carousel-outer" id="lp-carousel">
+            <button class="lp-carousel-btn lp-carousel-prev" aria-label="Previous case study" disabled>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="lp-cases-carousel-viewport">
+                <div class="lp-cases-carousel-track">
+                    <a href="/case-studies/core-diesel" class="lp-case" target="_blank" rel="noopener noreferrer">
+                        <div class="lp-case-img"><img src="/images/f6cd20a907dcb87fbfe8f30df3ba767c.webp" alt="Core Diesel" loading="lazy"><span class="lp-case-badge">4.45&times; ROAS</span></div>
+                        <div class="lp-case-body"><h3>Core Diesel</h3><p>Built for power and engineered for record leads through a full digital overhaul.</p><span class="lp-case-lnk">Read case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+                    </a>
+                    <a href="/case-studies/busselton-automotive" class="lp-case" target="_blank" rel="noopener noreferrer">
+                        <div class="lp-case-img"><img src="/images/Team1-min.jpg" alt="Busselton Automotive" loading="lazy"><span class="lp-case-badge">Under $30/Lead</span></div>
+                        <div class="lp-case-body"><h3>Busselton Automotive</h3><p>Driving trust and traction as the go-to shop for GVM and suspension.</p><span class="lp-case-lnk">Read case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+                    </a>
+                    <a href="/case-studies/bb-garage" class="lp-case" target="_blank" rel="noopener noreferrer">
+                        <div class="lp-case-img"><img src="/images/20250526_BB-Garage_2.jpg" alt="BB Garage" loading="lazy"><span class="lp-case-badge">800% ROAS</span></div>
+                        <div class="lp-case-body"><h3>BB Garage</h3><p>Best month, every month. Dominating diesel performance with smart marketing.</p><span class="lp-case-lnk">Read case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+                    </a>
+                    <a href="/case-studies/accelerate-automotive" class="lp-case" target="_blank" rel="noopener noreferrer">
+                        <div class="lp-case-img"><img src="/images/accelerate_auto_1770588026_3828291752873363961_4128531570.jpg" alt="Accelerate Automotive" loading="lazy"><span class="lp-case-badge">3,714 Leads</span></div>
+                        <div class="lp-case-body"><h3>Accelerate Automotive</h3><p>Tuning for growth through a digital strategy driving record results.</p><span class="lp-case-lnk">Read case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+                    </a>
+                </div>
+            </div>
+            <button class="lp-carousel-btn lp-carousel-next" aria-label="Next case study">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+        </div>
+        <div style="text-align:center;margin-top:54px;">
+            <a href="#audit-form" class="btn btn--primary">Book My Free Audit</a>
+        </div>
+        <script>
+        (function () {
+            var section = document.getElementById('lp-carousel');
+            if (!section) return;
+            var track = section.querySelector('.lp-cases-carousel-track');
+            if (!track) return;
+            var prev = section.querySelector('.lp-carousel-prev');
+            var next = section.querySelector('.lp-carousel-next');
+            var slides = Array.from(track.querySelectorAll('.lp-case'));
+            var current = 0;
+            function getPerPage() { return window.innerWidth <= 768 ? 1 : 2; }
+            function slideWidth() {
+                var vp = track.parentElement;
+                var pp = getPerPage();
+                if (pp === 1) return vp.offsetWidth;
+                return (vp.offsetWidth - 36) / 2 + 36;
+            }
+            function update(animate) {
+                var pp = getPerPage();
+                var max = slides.length - pp;
+                if (current > max) current = max;
+                if (animate === false) { track.style.transition = 'none'; } else { track.style.transition = ''; }
+                track.style.transform = 'translateX(-' + (current * slideWidth()) + 'px)';
+                if (prev) prev.disabled = current <= 0;
+                if (next) next.disabled = current >= max;
+            }
+            if (prev) prev.addEventListener('click', function () { if (current > 0) { current--; update(); } });
+            if (next) next.addEventListener('click', function () { var max = slides.length - getPerPage(); if (current < max) { current++; update(); } });
+            update(false);
+            window.addEventListener('resize', function () { update(false); });
+            requestAnimationFrame(function () { requestAnimationFrame(function () { track.style.transition = ''; }); });
+        })();
+        </script>
     </section>
 
     <!-- ===== RESULTS / CASE STUDIES ===== -->
@@ -1789,13 +1962,13 @@
                     <div class="result-card__client">Busselton Automotive</div>
                     <div class="result-card__stat">&lt;$30</div>
                     <div class="result-card__label">Cost Per Lead</div>
-                    <p class="result-card__desc">Regional workshop in WA pulling in qualified leads for under $30 each &mdash; every one tracked back to the exact ad that brought them in.</p>
+                    <p class="result-card__desc">Regional workshop in WA pulling in qualified leads for under $30 each. Every one tracked back to the exact ad that brought them in.</p>
                 </div>
                 <div class="result-card reveal reveal-delay-3">
                     <div class="result-card__client">BB Garage</div>
                     <div class="result-card__stat">3x+</div>
                     <div class="result-card__label">ROAS Consistently</div>
-                    <p class="result-card__desc">Independent workshop smashing the 3x return-on-ad-spend benchmark with a website and ads built specifically for their services.</p>
+                    <p class="result-card__desc">Independent workshop smashing the 3x return on ad spend benchmark with a website and ads built specifically for their services.</p>
                 </div>
                 <div class="result-card reveal reveal-delay-4">
                     <div class="result-card__client">Accelerate Automotive</div>
@@ -1803,6 +1976,9 @@
                     <div class="result-card__label">Lead Volume Growth</div>
                     <p class="result-card__desc">Doubled their monthly lead volume within 90 days by fixing their website structure and dialling in targeted Google Ads.</p>
                 </div>
+            </div>
+            <div style="text-align:center;margin-top:40px;">
+                <a href="#audit-form" class="btn btn--primary">Book My Free Audit</a>
             </div>
         </div>
     </section>
@@ -1827,16 +2003,19 @@
                     <div class="guarantee-card__icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                     </div>
-                    <h3>Month-to-Month</h3>
-                    <p>No lock-in contracts. No exit fees. We earn your business every single month. If you're not happy, you walk. Simple.</p>
+                    <h3>Month to Month</h3>
+                    <p>No lock in contracts. No exit fees. We earn your business every single month. If you're not happy, you walk. Simple.</p>
                 </div>
                 <div class="guarantee-card reveal reveal-delay-3">
                     <div class="guarantee-card__icon">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                     </div>
                     <h3>You Own Everything</h3>
-                    <p>Your website, your ads, your data &mdash; it's all yours. If you ever leave, you take everything with you. No hostage tactics.</p>
+                    <p>Your website, your ads, your data. It's all yours. If you ever leave, you take everything with you. No hostage tactics.</p>
                 </div>
+            </div>
+            <div style="text-align:center;margin-top:40px;">
+                <a href="#audit-form" class="btn btn--primary" style="color:#fff;">Book My Free Audit</a>
             </div>
         </div>
     </section>
@@ -1855,7 +2034,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                     </button>
                     <div class="faq-item__answer">
-                        <p>You get a full review covering mobile speed, conversion leaks, tracking health (calls, forms, bookings), service-page structure, and a prioritised list of fixes ranked by impact. It's delivered in plain English &mdash; no jargon, no fluff.</p>
+                        <p>You get a full review covering mobile speed, conversion leaks, tracking health (calls, forms, bookings), service page structure, and a prioritised list of fixes ranked by impact. Delivered in plain English. No jargon, no fluff.</p>
                     </div>
                 </div>
                 <div class="faq-item reveal">
@@ -1873,7 +2052,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                     </button>
                     <div class="faq-item__answer">
-                        <p>We'll have your audit back within 24 hours. The review itself covers everything in about 30 minutes of analysis &mdash; we just need your website URL and a few details to get started.</p>
+                        <p>We'll have your audit back within 24 hours. The review itself covers everything in about 30 minutes of analysis. We just need your website URL and a few details to get started.</p>
                     </div>
                 </div>
                 <div class="faq-item reveal">
@@ -1882,7 +2061,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                     </button>
                     <div class="faq-item__answer">
-                        <p>Yes. We work exclusively with mechanics and auto repair workshops across Australia. That's all we do. It means we know exactly what works in your industry &mdash; the search terms, the ad angles, the website layouts that convert.</p>
+                        <p>Yes. We work exclusively with mechanics and auto repair workshops across Australia. That's all we do. It means we know exactly what works in your industry: the search terms, the ad angles, the website layouts that convert.</p>
                     </div>
                 </div>
                 <div class="faq-item reveal">
@@ -1903,6 +2082,9 @@
                         <p>If you become a client and we don't generate at least $3 in tracked revenue for every $1 you spend on ads, we keep working at no management fee until we hit that number. We track everything so there's no guesswork.</p>
                     </div>
                 </div>
+            </div>
+            <div style="text-align:center;margin-top:40px;">
+                <a href="#audit-form" class="btn btn--primary">Book My Free Audit</a>
             </div>
         </div>
     </section>
@@ -1967,21 +2149,13 @@
         <div class="container">
             <div class="footer__inner">
                 <div class="footer__copy">&copy; 2026 Mechanic Marketing. All rights reserved.</div>
-                <div class="footer__links">
-                    <a href="/privacy">Privacy Policy</a>
-                    <a href="tel:1300632426">1300 MECHANIC</a>
-                </div>
             </div>
         </div>
     </footer>
 
     <!-- ===== STICKY MOBILE BAR ===== -->
     <div class="sticky-bar" id="stickyBar">
-        <a href="tel:1300632426" class="sticky-bar__call">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-            Call
-        </a>
-        <a href="#audit-form" class="sticky-bar__cta">Audit My Website Free</a>
+        <a href="#audit-form" class="sticky-bar__cta" style="flex:1;">Audit My Website Free</a>
     </div>
 
     <!-- ===== JAVASCRIPT ===== -->

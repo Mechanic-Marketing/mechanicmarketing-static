@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
     <title>Marketing for Mechanics Only | Mechanic Marketing</title>
-    <meta name="description" content="We only market for mechanics. Diesel, Euro, 4x4, American trucks and mobile mechanics. 4.2x average return. Month-to-month. Australian-owned.">
+    <meta name="description" content="We only market for mechanics. Diesel, Euro, 4x4, American trucks and mobile mechanics. 4.2x average return. Month to month. Australian owned.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,7 +52,10 @@
             font-size: 16px;
             line-height: 1.6;
             color: #1C1C1A;
-            background-color: #F0F0EC;
+            background:
+                radial-gradient(ellipse 80% 55% at 100% 0%, rgba(255,61,2,0.065) 0%, transparent 65%),
+                radial-gradient(ellipse 50% 40% at 0% 100%, rgba(255,61,2,0.04) 0%, transparent 60%),
+                #F0F0EC;
             overflow-x: hidden;
         }
 
@@ -92,6 +95,18 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        /* ===== HEADER BAR & SECTION CTA ===== */
+        .header-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        .section-cta {
+            text-align: center;
+            margin-top: 40px;
         }
 
         /* ===== SECTION LABEL (PILL BADGE) ===== */
@@ -650,6 +665,51 @@
         }
 
 
+        /* ===== TESTIMONIAL ===== */
+        .testimonial-wrap {
+            background: #F5EDE6;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .testimonial-wrap::before,
+        .testimonial-wrap::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 2px dashed rgba(255, 61, 2, 0.35);
+            border-radius: 14px;
+            transform: rotate(18deg);
+            pointer-events: none;
+        }
+        .testimonial-wrap::before { top: -90px; left: -90px; }
+        .testimonial-wrap::after  { bottom: -90px; right: -90px; }
+        .testimonial-card-inner {
+            background: #fff;
+            border-radius: 20px;
+            padding: 56px 40px;
+            text-align: center;
+            max-width: 860px;
+            margin: 0 auto;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.06);
+        }
+        .testimonial-card-inner blockquote {
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin: 16px 0 24px;
+            color: #1C1C1A;
+        }
+        .testimonial-attr {
+            font-size: 14px;
+            color: rgba(28,28,26,0.5);
+            margin-bottom: 32px;
+            font-weight: 500;
+        }
+
         /* ========================================
            9. LEAD FORM SECTION
            ======================================== */
@@ -991,6 +1051,54 @@
                 font-size: 4.2rem;
             }
         }
+
+        /* === LP Header Bar === */
+        .lp-header {
+            padding: 16px 0;
+            background: #F0F0EC;
+        }
+
+        /* === Hero Centering === */
+        .hero-content { text-align: center; margin-left: auto; margin-right: auto; }
+        .hero-sub { margin-left: auto; margin-right: auto; }
+        .hero-proof { justify-content: center; }
+
+        /* === Section Header Centering === */
+        .sec-hdr { text-align: center; }
+
+        /* === LP Case Studies Carousel === */
+        .lp-cases-section { padding: 80px 24px; background: radial-gradient(ellipse 75% 65% at 100% 0%, rgba(255,61,2,0.055) 0%, transparent 70%), radial-gradient(ellipse 45% 50% at 0% 100%, rgba(255,61,2,0.035) 0%, transparent 60%), #ffffff; border-top: 1px solid rgba(0,0,0,0.06); }
+        .lp-cases-hdr { margin-bottom: 36px; text-align: center; }
+        .lp-cases-hdr h2 { font-size: clamp(36px, 5vw, 54px); font-weight: 900; text-transform: uppercase; letter-spacing: -0.03em; line-height: 89%; color: #FF3D02; margin-bottom: 16px; }
+        .lp-cases-hdr p { font-size: 16px; line-height: 1.5; color: rgba(28,28,26,0.65); margin: 0; }
+        .lp-cases-carousel-outer { display: flex; align-items: center; gap: 20px; max-width: 1160px; margin: 0 auto; }
+        .lp-cases-carousel-viewport { flex: 1; overflow: hidden; }
+        .lp-cases-carousel-track { display: flex; gap: 36px; transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94); will-change: transform; }
+        .lp-cases-carousel-track .lp-case { flex: 0 0 calc(50% - 18px); border-radius: 12px; overflow: hidden; box-shadow: 0 6px 32px rgba(0,0,0,0.25); background: #1c1c1a; text-decoration: none; display: block; transition: transform 0.25s, box-shadow 0.25s; }
+        .lp-cases-carousel-track .lp-case:hover { transform: translateY(-4px); }
+        .lp-case-img { height: 220px; overflow: hidden; position: relative; }
+        .lp-case-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+        .lp-cases-carousel-track .lp-case:hover .lp-case-img img { transform: scale(1.04); }
+        .lp-case-body { padding: 36px; }
+        .lp-case-body h3 { font-size: 24px; font-weight: 700; text-transform: uppercase; line-height: 100%; color: #F0F0EC; margin-bottom: 11px; margin-top: 0; }
+        .lp-case-body p { font-size: 16px; line-height: 1.5; color: rgba(240,240,236,0.55); margin-bottom: 24px; }
+        .lp-case-lnk { font-size: 16px; font-weight: 700; text-transform: uppercase; color: #FF3D02; display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s; }
+        .lp-cases-carousel-track .lp-case:hover .lp-case-lnk { gap: 12px; }
+        .lp-case-lnk svg { width: 16px; height: 16px; }
+        .lp-case-badge { position: absolute; top: 14px; left: 14px; background: #FF3D02; color: #fff; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.04em; padding: 5px 11px; border-radius: 20px; line-height: 1; white-space: nowrap; box-shadow: 0 2px 10px rgba(255,61,2,0.35); z-index: 2; }
+        .lp-carousel-btn { flex-shrink: 0; width: 52px; height: 52px; border-radius: 50%; border: 2px solid #1c1c1a; background: #1c1c1a; color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease; box-sizing: border-box; padding: 0; }
+        .lp-carousel-btn svg { width: 22px; height: 22px; }
+        .lp-carousel-btn:hover { background: #333; transform: scale(1.08); box-shadow: 0 6px 20px rgba(0,0,0,0.3); }
+        .lp-carousel-btn:disabled { opacity: 0.35; cursor: not-allowed; transform: none !important; box-shadow: none; }
+        @media (max-width: 768px) {
+            .lp-cases-section { padding: 56px 20px; }
+            .lp-cases-carousel-track .lp-case { flex: 0 0 100%; }
+            .lp-cases-carousel-track { gap: 0; }
+            .lp-cases-carousel-outer { position: relative; gap: 0; }
+            .lp-carousel-btn { position: absolute; top: 38%; transform: translateY(-50%); z-index: 10; width: 40px; height: 40px; }
+            .lp-carousel-prev { left: 10px; }
+            .lp-carousel-next { right: 10px; }
+        }
     </style>
 </head>
 <body>
@@ -1004,9 +1112,9 @@
             <span class="divider">&bull;</span>
             <span>4.2x avg return</span>
             <span class="divider">&bull;</span>
-            <span>Month-to-month</span>
+            <span>Month to month</span>
             <span class="divider">&bull;</span>
-            <span>Australian-owned</span>
+            <span>Australian owned</span>
         </div>
     </div>
 
@@ -1014,14 +1122,20 @@
     <!-- ==============================
          2. HERO
          ============================== -->
+    <div class="lp-header">
+        <div class="container">
+            <div class="header-bar">
+                <a href="/" aria-label="Mechanic Marketing Home">
+                    <img src="/assets/logo/MM-LogoInline-Black.svg" alt="Mechanic Marketing" style="height: 36px; width: auto;">
+                </a>
+                <a href="#book-audit" class="btn-primary" style="font-size:14px;padding:12px 20px;">Book My Free Audit</a>
+            </div>
+        </div>
+    </div>
+
     <section class="hero">
         <div class="container">
             <div class="hero-content">
-                <!-- Logo -->
-                <div class="logo">
-                    <img src="/assets/logo/MM-LogoInline-Black.svg" alt="Mechanic Marketing" style="height: 36px; width: auto;">
-                </div>
-
                 <h1>We only do one thing: marketing for <span class="accent">mechanics.</span></h1>
 
                 <p class="hero-sub">Diesel, Euro, 4x4, American trucks and mobile mechanics. No cafes, no chiros, no real estate. Just workshops.</p>
@@ -1045,7 +1159,7 @@
          ============================== -->
     <section class="who-section">
         <div class="container">
-            <div class="animate-on-scroll">
+            <div class="animate-on-scroll sec-hdr">
                 <span class="section-label">Who We Work With &middot; 01</span>
                 <h2>Every type of <span class="accent">workshop.</span></h2>
             </div>
@@ -1099,7 +1213,7 @@
                     </div>
                     <div>
                         <h3>American Trucks</h3>
-                        <p>RAM, Silverado, F-150 specialists</p>
+                        <p>RAM, Silverado, F150 specialists</p>
                     </div>
                 </div>
 
@@ -1112,7 +1226,7 @@
                     </div>
                     <div>
                         <h3>Mobile Mechanics</h3>
-                        <p>On-site servicing and repairs</p>
+                        <p>On site servicing and repairs</p>
                     </div>
                 </div>
 
@@ -1129,6 +1243,9 @@
                     </div>
                 </div>
             </div>
+            <div class="section-cta">
+                <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
+            </div>
         </div>
     </section>
 
@@ -1138,7 +1255,7 @@
          ============================== -->
     <section class="generalist-section">
         <div class="container">
-            <div class="animate-on-scroll">
+            <div class="animate-on-scroll sec-hdr">
                 <span class="section-label">The Difference &middot; 02</span>
                 <h2>Why a generalist <span class="accent">can't</span> do this</h2>
             </div>
@@ -1169,7 +1286,7 @@
 
                 <div class="compare-card good">
                     <div class="compare-label">The Mechanic Marketing way</div>
-                    <h3>Every campaign built on workshop-specific data</h3>
+                    <h3>Every campaign built on workshop specific data</h3>
                     <ul>
                         <li>
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1190,6 +1307,9 @@
                     </ul>
                 </div>
             </div>
+            <div class="section-cta">
+                <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
+            </div>
         </div>
     </section>
 
@@ -1199,7 +1319,7 @@
          ============================== -->
     <section class="process-section">
         <div class="container">
-            <div class="animate-on-scroll">
+            <div class="animate-on-scroll sec-hdr">
                 <span class="section-label">How It Works &middot; 03</span>
                 <h2>Three steps. <span class="accent">Seven days.</span></h2>
             </div>
@@ -1209,7 +1329,7 @@
                     <div class="step-number">1</div>
                     <div class="step-content">
                         <h3>We Audit</h3>
-                        <p>Free 30-minute deep dive into your ads, website and tracking. We find the leaks, the waste, and the opportunities your current setup is missing.</p>
+                        <p>Free 30 minute deep dive into your ads, website and tracking. We find the leaks, the waste, and the opportunities your current setup is missing.</p>
                     </div>
                 </div>
 
@@ -1217,7 +1337,7 @@
                     <div class="step-number">2</div>
                     <div class="step-content">
                         <h3>We Build</h3>
-                        <p>Landing pages, campaigns, tracking &mdash; all built to convert car owners into booked jobs. Live in 7 days, not 7 weeks.</p>
+                        <p>Landing pages, campaigns, tracking. All built to convert car owners into booked jobs. Live in 7 days, not 7 weeks.</p>
                     </div>
                 </div>
 
@@ -1229,16 +1349,31 @@
                     </div>
                 </div>
             </div>
+            <div class="section-cta">
+                <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
+            </div>
         </div>
     </section>
 
+
+    <!-- ===== TESTIMONIAL ===== -->
+    <section class="testimonial-wrap">
+        <div class="container">
+            <div class="testimonial-card-inner animate-on-scroll">
+                <span class="section-label">Clients</span>
+                <blockquote>"Josh is a total marketing guru. He gave me more information in our first session than I had managed to self-learn in <span style="color:#FF3D02;">7 years</span> of being in business."</blockquote>
+                <p class="testimonial-attr">Bodie Geck, Co-Founder at BB Garage</p>
+                <a href="#book-audit" class="btn-secondary">Book My Free Audit</a>
+            </div>
+        </div>
+    </section>
 
     <!-- ==============================
          6. RESULTS / CASE STUDIES
          ============================== -->
     <section class="results-section">
         <div class="container">
-            <div class="animate-on-scroll">
+            <div class="animate-on-scroll sec-hdr">
                 <span class="section-label">Results &middot; 04</span>
                 <h2>Numbers that <span class="accent">matter.</span></h2>
             </div>
@@ -1248,26 +1383,104 @@
                     <div class="client-name">Core Diesel</div>
                     <div class="result-stat">4.45x</div>
                     <div class="result-stat-label">Return on ad spend</div>
-                    <p>Diesel specialist workshop generating $4.45 for every $1 spent on advertising. High-value jobs like DPF regens and injector replacements driving serious revenue through targeted Google and Meta campaigns.</p>
+                    <p>Diesel specialist workshop generating $4.45 for every $1 spent on advertising. High value jobs like DPF regens and injector replacements driving serious revenue through targeted Google and Meta campaigns.</p>
                 </div>
 
                 <div class="result-card">
                     <div class="client-name">Busselton Automotive</div>
                     <div class="result-stat">&lt;$30</div>
                     <div class="result-stat-label">Cost per qualified lead</div>
-                    <p>Regional workshop in WA pulling in quality leads under $30 each. Consistent pipeline of logbook services, brake jobs, and aircon work from locals who are ready to book &mdash; not just click.</p>
+                    <p>Regional workshop in WA pulling in quality leads under $30 each. Consistent pipeline of logbook services, brake jobs, and aircon work from locals who are ready to book. Not just click.</p>
                 </div>
+            </div>
+            <div class="section-cta">
+                <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
             </div>
         </div>
     </section>
 
+    <!-- CASE STUDIES CAROUSEL -->
+    <section class="lp-cases-section">
+        <div class="lp-cases-hdr">
+            <span class="section-label">Case Studies</span>
+            <h2>Real results for real workshops</h2>
+            <p>Don&#8217;t take our word for it. See what we&#8217;ve done for shops like yours.</p>
+        </div>
+        <div class="lp-cases-carousel-outer" id="lp-carousel">
+            <button class="lp-carousel-btn lp-carousel-prev" aria-label="Previous case study" disabled>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+            </button>
+            <div class="lp-cases-carousel-viewport">
+                <div class="lp-cases-carousel-track">
+                    <a href="/case-studies/core-diesel" class="lp-case" target="_blank" rel="noopener noreferrer">
+                        <div class="lp-case-img"><img src="/images/f6cd20a907dcb87fbfe8f30df3ba767c.webp" alt="Core Diesel" loading="lazy"><span class="lp-case-badge">4.45&times; ROAS</span></div>
+                        <div class="lp-case-body"><h3>Core Diesel</h3><p>Built for power and engineered for record leads through a full digital overhaul.</p><span class="lp-case-lnk">Read case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+                    </a>
+                    <a href="/case-studies/busselton-automotive" class="lp-case" target="_blank" rel="noopener noreferrer">
+                        <div class="lp-case-img"><img src="/images/Team1-min.jpg" alt="Busselton Automotive" loading="lazy"><span class="lp-case-badge">Under $30/Lead</span></div>
+                        <div class="lp-case-body"><h3>Busselton Automotive</h3><p>Driving trust and traction as the go-to shop for GVM and suspension.</p><span class="lp-case-lnk">Read case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+                    </a>
+                    <a href="/case-studies/bb-garage" class="lp-case" target="_blank" rel="noopener noreferrer">
+                        <div class="lp-case-img"><img src="/images/20250526_BB-Garage_2.jpg" alt="BB Garage" loading="lazy"><span class="lp-case-badge">800% ROAS</span></div>
+                        <div class="lp-case-body"><h3>BB Garage</h3><p>Best month, every month. Dominating diesel performance with smart marketing.</p><span class="lp-case-lnk">Read case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+                    </a>
+                    <a href="/case-studies/accelerate-automotive" class="lp-case" target="_blank" rel="noopener noreferrer">
+                        <div class="lp-case-img"><img src="/images/accelerate_auto_1770588026_3828291752873363961_4128531570.jpg" alt="Accelerate Automotive" loading="lazy"><span class="lp-case-badge">3,714 Leads</span></div>
+                        <div class="lp-case-body"><h3>Accelerate Automotive</h3><p>Tuning for growth through a digital strategy driving record results.</p><span class="lp-case-lnk">Read case study <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+                    </a>
+                </div>
+            </div>
+            <button class="lp-carousel-btn lp-carousel-next" aria-label="Next case study">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+            </button>
+        </div>
+        <div style="text-align:center;margin-top:54px;">
+            <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
+        </div>
+        <script>
+        (function () {
+            var section = document.getElementById('lp-carousel');
+            if (!section) return;
+            var track = section.querySelector('.lp-cases-carousel-track');
+            if (!track) return;
+            var prev = section.querySelector('.lp-carousel-prev');
+            var next = section.querySelector('.lp-carousel-next');
+            var slides = Array.from(track.querySelectorAll('.lp-case'));
+            var current = 0;
+            function getPerPage() { return window.innerWidth <= 768 ? 1 : 2; }
+            function slideWidth() {
+                var vp = track.parentElement;
+                var pp = getPerPage();
+                if (pp === 1) return vp.offsetWidth;
+                return (vp.offsetWidth - 36) / 2 + 36;
+            }
+            function update(animate) {
+                var pp = getPerPage();
+                var max = slides.length - pp;
+                if (current > max) current = max;
+                if (animate === false) { track.style.transition = 'none'; } else { track.style.transition = ''; }
+                track.style.transform = 'translateX(-' + (current * slideWidth()) + 'px)';
+                if (prev) prev.disabled = current <= 0;
+                if (next) next.disabled = current >= max;
+            }
+            if (prev) prev.addEventListener('click', function () { if (current > 0) { current--; update(); } });
+            if (next) next.addEventListener('click', function () { var max = slides.length - getPerPage(); if (current < max) { current++; update(); } });
+            update(false);
+            window.addEventListener('resize', function () { update(false); });
+            requestAnimationFrame(function () { requestAnimationFrame(function () { track.style.transition = ''; }); });
+        })();
+        </script>
+    </section>
 
+    <!-- ==============================
+         6. RESULTS / CASE STUDIES
+         ============================== -->
     <!-- ==============================
          7. THREE GUARANTEES
          ============================== -->
     <section class="guarantee-section">
         <div class="container">
-            <div class="animate-on-scroll">
+            <div class="animate-on-scroll sec-hdr">
                 <span class="section-label">Guarantees &middot; 05</span>
                 <h2>Zero risk. <span class="accent">Guaranteed.</span></h2>
             </div>
@@ -1280,7 +1493,7 @@
                         </svg>
                     </div>
                     <h3>3x ROAS or we work for free</h3>
-                    <p>If we don't hit 3x return on your ad spend within 90 days, we keep working until we do &mdash; at no extra charge.</p>
+                    <p>If we don't hit 3x return on your ad spend within 90 days, we keep working until we do. At no extra charge.</p>
                 </div>
 
                 <div class="guarantee-card">
@@ -1289,8 +1502,8 @@
                             <path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z" fill="#FF3D02"/>
                         </svg>
                     </div>
-                    <h3>Month-to-month. Always.</h3>
-                    <p>No lock-in contracts. No exit fees. No cancellation penalties. If you want to leave, you leave. We earn your business every month.</p>
+                    <h3>Month to month. Always.</h3>
+                    <p>No lock in contracts. No exit fees. No cancellation penalties. If you want to leave, you leave. We earn your business every month.</p>
                 </div>
 
                 <div class="guarantee-card">
@@ -1303,6 +1516,9 @@
                     <p>Your ad accounts, your landing pages, your data. If you leave, it all stays with you. We never hold your assets hostage.</p>
                 </div>
             </div>
+            <div class="section-cta">
+                <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
+            </div>
         </div>
     </section>
 
@@ -1312,7 +1528,7 @@
          ============================== -->
     <section class="faq-section">
         <div class="container">
-            <div class="animate-on-scroll">
+            <div class="animate-on-scroll sec-hdr">
                 <span class="section-label">FAQ &middot; 06</span>
                 <h2>Got <span class="accent">questions?</span></h2>
             </div>
@@ -1326,7 +1542,7 @@
                         </svg>
                     </button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">Yes. Month-to-month, always. No exit fees. No cancellation penalties. Give us 30 days notice and you're free. We don't believe in trapping clients &mdash; we believe in earning your business every single month.</div>
+                        <div class="faq-answer-inner">Yes. Month to month, always. No exit fees. No cancellation penalties. Give us 30 days notice and you're free. We believe in earning your business every single month.</div>
                     </div>
                 </div>
 
@@ -1350,7 +1566,7 @@
                         </svg>
                     </button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">A 30-minute deep dive into your current Google Ads, Facebook Ads, website and tracking setup. We'll identify wasted spend, missed opportunities, and exactly where you're losing leads. You'll walk away with a clear action plan &mdash; whether you work with us or not.</div>
+                        <div class="faq-answer-inner">A 30 minute deep dive into your current Google Ads, Facebook Ads, website and tracking setup. We'll identify wasted spend, missed opportunities, and exactly where you're losing leads. You'll walk away with a clear action plan whether you work with us or not.</div>
                     </div>
                 </div>
 
@@ -1386,7 +1602,7 @@
                         </svg>
                     </button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">Pricing depends on your goals, location, and the services you want to promote. We'll give you a clear, transparent quote after the free audit &mdash; no hidden fees, no surprises. Most workshops invest between $1,500 and $4,000 per month in management fees, plus ad spend.</div>
+                        <div class="faq-answer-inner">Pricing depends on your goals, location, and the services you want to promote. We'll give you a clear, transparent quote after the free audit. No hidden fees, no surprises. Most workshops invest between $1,500 and $4,000 per month in management fees, plus ad spend.</div>
                     </div>
                 </div>
 
@@ -1401,6 +1617,9 @@
                         <div class="faq-answer-inner">Yes. Your ad accounts, landing pages, tracking setup, and all creative assets belong to you. If you ever decide to leave, everything stays with you. We never hold your data hostage.</div>
                     </div>
                 </div>
+            </div>
+            <div class="section-cta">
+                <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
             </div>
         </div>
     </section>
@@ -1502,11 +1721,7 @@
                     <span>Marketing</span>
                 </div>
             </div>
-            <div class="footer-links">
-                <a href="tel:1300632426">1300 MECHANIC (1300 632 426)</a>
-                <a href="#">Privacy Policy</a>
-            </div>
-            <p>&copy; 2026 Mechanic Marketing. Australian-owned. ABN placeholder.</p>
+            <p>&copy; 2026 Mechanic Marketing. All rights reserved.</p>
         </div>
     </footer>
 
@@ -1515,13 +1730,7 @@
          11. STICKY MOBILE CALL BAR
          ============================== -->
     <div class="mobile-cta-bar">
-        <a href="tel:1300632426" class="cta-call">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6.62 10.79c1.44 2.83 3.76 5.15 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" fill="#1C1C1A"/>
-            </svg>
-            Call Now
-        </a>
-        <a href="#book-audit" class="cta-form">
+        <a href="#book-audit" class="cta-form" style="flex:1;">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H5V8l7 5 7-5v10zm-7-7L5 6h14l-7 5z" fill="white"/>
             </svg>
