@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
     <title>Marketing for Mechanics Only | Mechanic Marketing</title>
-    <meta name="description" content="We only market for mechanics. Diesel, Euro, 4x4, American trucks and mobile mechanics. 4.2x average return. Month-to-month. Australian-owned.">
+    <meta name="description" content="We only market for mechanics. Diesel, Euro, 4x4, American trucks and mobile mechanics. 4.2x average return. Month to month. Australian owned.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -92,6 +92,18 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+        }
+
+        /* ===== HEADER BAR & SECTION CTA ===== */
+        .header-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+        .section-cta {
+            text-align: center;
+            margin-top: 40px;
         }
 
         /* ===== SECTION LABEL (PILL BADGE) ===== */
@@ -650,6 +662,51 @@
         }
 
 
+        /* ===== TESTIMONIAL ===== */
+        .testimonial-wrap {
+            background: #F5EDE6;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .testimonial-wrap::before,
+        .testimonial-wrap::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 2px dashed rgba(255, 61, 2, 0.35);
+            border-radius: 14px;
+            transform: rotate(18deg);
+            pointer-events: none;
+        }
+        .testimonial-wrap::before { top: -90px; left: -90px; }
+        .testimonial-wrap::after  { bottom: -90px; right: -90px; }
+        .testimonial-card-inner {
+            background: #fff;
+            border-radius: 20px;
+            padding: 56px 40px;
+            text-align: center;
+            max-width: 860px;
+            margin: 0 auto;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.06);
+        }
+        .testimonial-card-inner blockquote {
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin: 16px 0 24px;
+            color: #1C1C1A;
+        }
+        .testimonial-attr {
+            font-size: 14px;
+            color: rgba(28,28,26,0.5);
+            margin-bottom: 32px;
+            font-weight: 500;
+        }
+
         /* ========================================
            9. LEAD FORM SECTION
            ======================================== */
@@ -1004,9 +1061,9 @@
             <span class="divider">&bull;</span>
             <span>4.2x avg return</span>
             <span class="divider">&bull;</span>
-            <span>Month-to-month</span>
+            <span>Month to month</span>
             <span class="divider">&bull;</span>
-            <span>Australian-owned</span>
+            <span>Australian owned</span>
         </div>
     </div>
 
@@ -1018,8 +1075,11 @@
         <div class="container">
             <div class="hero-content">
                 <!-- Logo -->
-                <div class="logo">
-                    <img src="/assets/logo/MM-LogoInline-Black.svg" alt="Mechanic Marketing" style="height: 36px; width: auto;">
+                <div class="header-bar">
+                    <div class="logo">
+                        <img src="/assets/logo/MM-LogoInline-Black.svg" alt="Mechanic Marketing" style="height: 36px; width: auto;">
+                    </div>
+                    <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
                 </div>
 
                 <h1>We only do one thing: marketing for <span class="accent">mechanics.</span></h1>
@@ -1099,7 +1159,7 @@
                     </div>
                     <div>
                         <h3>American Trucks</h3>
-                        <p>RAM, Silverado, F-150 specialists</p>
+                        <p>RAM, Silverado, F150 specialists</p>
                     </div>
                 </div>
 
@@ -1112,7 +1172,7 @@
                     </div>
                     <div>
                         <h3>Mobile Mechanics</h3>
-                        <p>On-site servicing and repairs</p>
+                        <p>On site servicing and repairs</p>
                     </div>
                 </div>
 
@@ -1128,6 +1188,9 @@
                         <p>Logbook servicing, brakes, tyres, aircon</p>
                     </div>
                 </div>
+            </div>
+            <div class="section-cta">
+                <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
             </div>
         </div>
     </section>
@@ -1169,7 +1232,7 @@
 
                 <div class="compare-card good">
                     <div class="compare-label">The Mechanic Marketing way</div>
-                    <h3>Every campaign built on workshop-specific data</h3>
+                    <h3>Every campaign built on workshop specific data</h3>
                     <ul>
                         <li>
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8.5l3.5 3.5L13 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1190,6 +1253,9 @@
                     </ul>
                 </div>
             </div>
+            <div class="section-cta">
+                <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
+            </div>
         </div>
     </section>
 
@@ -1209,7 +1275,7 @@
                     <div class="step-number">1</div>
                     <div class="step-content">
                         <h3>We Audit</h3>
-                        <p>Free 30-minute deep dive into your ads, website and tracking. We find the leaks, the waste, and the opportunities your current setup is missing.</p>
+                        <p>Free 30 minute deep dive into your ads, website and tracking. We find the leaks, the waste, and the opportunities your current setup is missing.</p>
                     </div>
                 </div>
 
@@ -1217,7 +1283,7 @@
                     <div class="step-number">2</div>
                     <div class="step-content">
                         <h3>We Build</h3>
-                        <p>Landing pages, campaigns, tracking &mdash; all built to convert car owners into booked jobs. Live in 7 days, not 7 weeks.</p>
+                        <p>Landing pages, campaigns, tracking. All built to convert car owners into booked jobs. Live in 7 days, not 7 weeks.</p>
                     </div>
                 </div>
 
@@ -1229,9 +1295,24 @@
                     </div>
                 </div>
             </div>
+            <div class="section-cta">
+                <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
+            </div>
         </div>
     </section>
 
+
+    <!-- ===== TESTIMONIAL ===== -->
+    <section class="testimonial-wrap">
+        <div class="container">
+            <div class="testimonial-card-inner animate-on-scroll">
+                <span class="section-label">Clients</span>
+                <blockquote>"Josh is a total marketing guru. He gave me more information in our first session than I had managed to self-learn in <span style="color:#FF3D02;">7 years</span> of being in business."</blockquote>
+                <p class="testimonial-attr">Bodie Geck, Co-Founder at BB Garage</p>
+                <a href="#book-audit" class="btn-secondary">Book My Free Audit</a>
+            </div>
+        </div>
+    </section>
 
     <!-- ==============================
          6. RESULTS / CASE STUDIES
@@ -1248,15 +1329,18 @@
                     <div class="client-name">Core Diesel</div>
                     <div class="result-stat">4.45x</div>
                     <div class="result-stat-label">Return on ad spend</div>
-                    <p>Diesel specialist workshop generating $4.45 for every $1 spent on advertising. High-value jobs like DPF regens and injector replacements driving serious revenue through targeted Google and Meta campaigns.</p>
+                    <p>Diesel specialist workshop generating $4.45 for every $1 spent on advertising. High value jobs like DPF regens and injector replacements driving serious revenue through targeted Google and Meta campaigns.</p>
                 </div>
 
                 <div class="result-card">
                     <div class="client-name">Busselton Automotive</div>
                     <div class="result-stat">&lt;$30</div>
                     <div class="result-stat-label">Cost per qualified lead</div>
-                    <p>Regional workshop in WA pulling in quality leads under $30 each. Consistent pipeline of logbook services, brake jobs, and aircon work from locals who are ready to book &mdash; not just click.</p>
+                    <p>Regional workshop in WA pulling in quality leads under $30 each. Consistent pipeline of logbook services, brake jobs, and aircon work from locals who are ready to book. Not just click.</p>
                 </div>
+            </div>
+            <div class="section-cta">
+                <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
             </div>
         </div>
     </section>
@@ -1280,7 +1364,7 @@
                         </svg>
                     </div>
                     <h3>3x ROAS or we work for free</h3>
-                    <p>If we don't hit 3x return on your ad spend within 90 days, we keep working until we do &mdash; at no extra charge.</p>
+                    <p>If we don't hit 3x return on your ad spend within 90 days, we keep working until we do. At no extra charge.</p>
                 </div>
 
                 <div class="guarantee-card">
@@ -1289,8 +1373,8 @@
                             <path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z" fill="#FF3D02"/>
                         </svg>
                     </div>
-                    <h3>Month-to-month. Always.</h3>
-                    <p>No lock-in contracts. No exit fees. No cancellation penalties. If you want to leave, you leave. We earn your business every month.</p>
+                    <h3>Month to month. Always.</h3>
+                    <p>No lock in contracts. No exit fees. No cancellation penalties. If you want to leave, you leave. We earn your business every month.</p>
                 </div>
 
                 <div class="guarantee-card">
@@ -1302,6 +1386,9 @@
                     <h3>You own everything</h3>
                     <p>Your ad accounts, your landing pages, your data. If you leave, it all stays with you. We never hold your assets hostage.</p>
                 </div>
+            </div>
+            <div class="section-cta">
+                <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
             </div>
         </div>
     </section>
@@ -1326,7 +1413,7 @@
                         </svg>
                     </button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">Yes. Month-to-month, always. No exit fees. No cancellation penalties. Give us 30 days notice and you're free. We don't believe in trapping clients &mdash; we believe in earning your business every single month.</div>
+                        <div class="faq-answer-inner">Yes. Month to month, always. No exit fees. No cancellation penalties. Give us 30 days notice and you're free. We believe in earning your business every single month.</div>
                     </div>
                 </div>
 
@@ -1350,7 +1437,7 @@
                         </svg>
                     </button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">A 30-minute deep dive into your current Google Ads, Facebook Ads, website and tracking setup. We'll identify wasted spend, missed opportunities, and exactly where you're losing leads. You'll walk away with a clear action plan &mdash; whether you work with us or not.</div>
+                        <div class="faq-answer-inner">A 30 minute deep dive into your current Google Ads, Facebook Ads, website and tracking setup. We'll identify wasted spend, missed opportunities, and exactly where you're losing leads. You'll walk away with a clear action plan whether you work with us or not.</div>
                     </div>
                 </div>
 
@@ -1386,7 +1473,7 @@
                         </svg>
                     </button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">Pricing depends on your goals, location, and the services you want to promote. We'll give you a clear, transparent quote after the free audit &mdash; no hidden fees, no surprises. Most workshops invest between $1,500 and $4,000 per month in management fees, plus ad spend.</div>
+                        <div class="faq-answer-inner">Pricing depends on your goals, location, and the services you want to promote. We'll give you a clear, transparent quote after the free audit. No hidden fees, no surprises. Most workshops invest between $1,500 and $4,000 per month in management fees, plus ad spend.</div>
                     </div>
                 </div>
 
@@ -1401,6 +1488,9 @@
                         <div class="faq-answer-inner">Yes. Your ad accounts, landing pages, tracking setup, and all creative assets belong to you. If you ever decide to leave, everything stays with you. We never hold your data hostage.</div>
                     </div>
                 </div>
+            </div>
+            <div class="section-cta">
+                <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
             </div>
         </div>
     </section>
@@ -1506,7 +1596,7 @@
                 <a href="tel:1300632426">1300 MECHANIC (1300 632 426)</a>
                 <a href="#">Privacy Policy</a>
             </div>
-            <p>&copy; 2026 Mechanic Marketing. Australian-owned. ABN placeholder.</p>
+            <p>&copy; 2026 Mechanic Marketing. Australian owned. ABN placeholder.</p>
         </div>
     </footer>
 

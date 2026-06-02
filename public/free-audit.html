@@ -1027,6 +1027,51 @@
             flex-wrap: wrap;
         }
 
+        /* ===== TESTIMONIAL ===== */
+        .testimonial-wrap {
+            background: #F5EDE6;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .testimonial-wrap::before,
+        .testimonial-wrap::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 2px dashed rgba(255, 61, 2, 0.35);
+            border-radius: 14px;
+            transform: rotate(18deg);
+            pointer-events: none;
+        }
+        .testimonial-wrap::before { top: -90px; left: -90px; }
+        .testimonial-wrap::after  { bottom: -90px; right: -90px; }
+        .testimonial-card-inner {
+            background: #fff;
+            border-radius: 20px;
+            padding: 56px 40px;
+            text-align: center;
+            max-width: 860px;
+            margin: 0 auto;
+            box-shadow: 0 4px 32px rgba(0,0,0,0.06);
+        }
+        .testimonial-card-inner blockquote {
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+            margin: 16px 0 24px;
+            color: var(--near-black);
+        }
+        .testimonial-attr {
+            font-size: 14px;
+            color: rgba(28,28,26,0.5);
+            margin-bottom: 32px;
+            font-weight: 500;
+        }
+
         /* ========================================
            FOOTER
            ======================================== */
@@ -1331,8 +1376,8 @@
             <div class="hero__grid">
                 <!-- Left: Content -->
                 <div class="hero__content animate-on-scroll">
-                    <h1 class="hero__headline">Find out exactly where your workshop is <span class="accent">losing jobs</span> &mdash; free.</h1>
-                    <p class="hero__sub">A no nonsense 30 minute audit of your ads and website. We report in booked jobs, calls and revenue &mdash; not impressions.</p>
+                    <h1 class="hero__headline">Find out exactly where your workshop is <span class="accent">losing jobs.</span> Free.</h1>
+                    <p class="hero__sub">A no nonsense 30 minute audit of your ads and website. We report in booked jobs, calls and revenue. Not impressions.</p>
                     <div class="hero__cta-row">
                         <a href="#audit-form" class="btn btn--primary btn--large">Book my free audit</a>
                         <a href="tel:1300632426" class="btn btn--outline btn--large">
@@ -1411,7 +1456,7 @@
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF3D02" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
                             </div>
                             <h3 class="form-thankyou__title">You're booked in</h3>
-                            <p class="form-thankyou__text">We'll be in touch within 24 hours to schedule your free 30 minute audit. No fluff, no pressure &mdash; just a clear picture of where the jobs are hiding.</p>
+                            <p class="form-thankyou__text">We'll be in touch within 24 hours to schedule your free 30 minute audit. No fluff, no pressure. Just a clear picture of where the jobs are hiding.</p>
                         </div>
                     </div>
                 </div>
@@ -1533,7 +1578,7 @@
                     </div>
                     <div class="audit-item__content">
                         <div class="audit-item__title">Competitor snapshot</div>
-                        <p class="audit-item__text">See what the workshops down the road are doing online &mdash; and where they're leaving the door open for you.</p>
+                        <p class="audit-item__text">See what the workshops down the road are doing online and where they're leaving the door open for you.</p>
                     </div>
                 </div>
                 <div class="audit-item animate-on-scroll delay-5">
@@ -1548,6 +1593,18 @@
             </div>
             <div class="section-cta animate-on-scroll">
                 <a href="#audit-form" class="btn btn--primary btn--large">Book My Free Audit</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIAL ===== -->
+    <section class="testimonial-wrap">
+        <div class="container">
+            <div class="testimonial-card-inner animate-on-scroll">
+                <span class="section-label">Clients</span>
+                <blockquote>"Josh is a total marketing guru. He gave me more information in our first session than I had managed to self-learn in <span style="color:#FF3D02;">7 years</span> of being in business."</blockquote>
+                <p class="testimonial-attr">Bodie Geck, Co-Founder at BB Garage</p>
+                <a href="#audit-form" class="btn btn--secondary">Book My Free Audit</a>
             </div>
         </div>
     </section>
@@ -1592,7 +1649,7 @@
                 <span class="section-label">Specialisation &middot; 05</span>
                 <h2 class="specialist-section__title">Why <span class="accent">only</span> mechanics?</h2>
                 <p class="specialist-section__text">We don't do dentists. We don't do cafes. We don't do "a bit of everything." We work exclusively with mechanics and auto repair workshops because the industry has specific problems that generalist agencies don't understand.</p>
-                <p class="specialist-section__text">We know which services have the highest margins. We know how workshop owners think about marketing. We know the difference between a DPF delete enquiry and a basic logbook service &mdash; and we know which one you'd rather book.</p>
+                <p class="specialist-section__text">We know which services have the highest margins. We know how workshop owners think about marketing. We know the difference between a DPF delete enquiry and a basic logbook service. We know which one you'd rather book.</p>
                 <div class="specialist-section__list">
                     <span class="specialist-tag">Diesel</span>
                     <span class="specialist-tag">Euro</span>
@@ -1664,7 +1721,7 @@
                         </span>
                     </button>
                     <div class="faq-answer">
-                        <div class="faq-answer__inner">We jump on a 30 minute video call, share our screen and walk you through your Google Ads account, website and tracking setup. You'll leave with a clear list of what's working, what's wasting money and the two or three changes that'll have the biggest impact immediately. No sales pitch &mdash; just straight answers.</div>
+                        <div class="faq-answer__inner">We jump on a 30 minute video call, share our screen and walk you through your Google Ads account, website and tracking setup. You'll leave with a clear list of what's working, what's wasting money and the two or three changes that'll have the biggest impact immediately. No sales pitch. Just straight answers.</div>
                     </div>
                 </div>
                 <div class="faq-item animate-on-scroll delay-2">
@@ -1675,7 +1732,7 @@
                         </span>
                     </button>
                     <div class="faq-answer">
-                        <div class="faq-answer__inner">Zero. Nothing. Not a cent. We do the audit because most workshop owners don't know what they don't know. If we can show you real opportunities, some of you will want us to help &mdash; and that's where the business relationship starts. But there's absolutely no obligation.</div>
+                        <div class="faq-answer__inner">Zero. Nothing. Not a cent. We do the audit because most workshop owners don't know what they don't know. If we can show you real opportunities, some of you will want us to help. That's where the business relationship starts. But there's absolutely no obligation.</div>
                     </div>
                 </div>
                 <div class="faq-item animate-on-scroll delay-3">
@@ -1697,7 +1754,7 @@
                         </span>
                     </button>
                     <div class="faq-answer">
-                        <div class="faq-answer__inner">No. If you're not running ads yet, we'll focus on your website, your local SEO presence and your Google Business Profile. There's always opportunity to uncover &mdash; ads or no ads.</div>
+                        <div class="faq-answer__inner">No. If you're not running ads yet, we'll focus on your website, your local SEO presence and your Google Business Profile. There's always opportunity to uncover, ads or no ads.</div>
                     </div>
                 </div>
                 <div class="faq-item animate-on-scroll delay-5">
@@ -1708,7 +1765,7 @@
                         </span>
                     </button>
                     <div class="faq-answer">
-                        <div class="faq-answer__inner">Usually within two business days. Fill in the form, we'll call you to lock in a time that works around your workshop hours &mdash; we know mornings are busy.</div>
+                        <div class="faq-answer__inner">Usually within two business days. Fill in the form, we'll call you to lock in a time that works around your workshop hours. We know mornings are busy.</div>
                     </div>
                 </div>
                 <div class="faq-item animate-on-scroll">
@@ -1719,7 +1776,7 @@
                         </span>
                     </button>
                     <div class="faq-answer">
-                        <div class="faq-answer__inner">Because specialisation is what makes us good. Every campaign we build, every landing page we write, every keyword we target &mdash; it's all tested and refined specifically for auto repair workshops. That industry specific data is our unfair advantage, and it's what gets our clients results that generalist agencies can't match.</div>
+                        <div class="faq-answer__inner">Because specialisation is what makes us good. Every campaign we build, every landing page we write, every keyword we target. It's all tested and refined specifically for auto repair workshops. That industry specific data is our unfair advantage, and it's what gets our clients results that generalist agencies can't match.</div>
                     </div>
                 </div>
             </div>
