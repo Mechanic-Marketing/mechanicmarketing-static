@@ -1335,6 +1335,10 @@
             margin-top: 0;
         }
 
+        /* === LP Header Bar === */
+        .lp-header { padding: 16px 0; background: var(--warm-white); }
+        .lp-header .header-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+
         /* === Hero left column centring === */
         .hero-content { text-align: center; margin-left: auto; margin-right: auto; }
         .hero-proof { justify-content: center; }
@@ -1396,16 +1400,19 @@
     <!-- ============================================
          HERO
          ============================================ -->
-    <section class="hero" id="hero">
+    <div class="lp-header">
         <div class="container">
-            <!-- Logo -->
-            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;">
-                <div class="logo" style="margin-bottom:0;">
+            <div class="header-bar">
+                <a href="/" aria-label="Mechanic Marketing Home">
                     <img src="/assets/logo/MM-LogoInline-Black.svg" alt="Mechanic Marketing" style="height: 36px; width: auto;">
-                </div>
+                </a>
                 <a href="#book" class="btn btn-primary" style="font-size:14px;padding:12px 20px;">Book My Free Audit</a>
             </div>
+        </div>
+    </div>
 
+    <section class="hero" id="hero">
+        <div class="container">
             <div class="hero-grid">
                 <div class="hero-content">
                     <h1>Marketing isn't an expense. <span class="accent">Here's the maths.</span></h1>
