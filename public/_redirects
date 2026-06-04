@@ -1,0 +1,28 @@
+# Old service URLs
+/services/auto-repair-seo-services/ /services/seo 301
+/services/auto-repair-seo-services /services/seo 301
+/services/mechanic-marketing-consultant/ /services/consultant 301
+/services/mechanic-marketing-consultant /services/consultant 301
+/services/google-ads-for-mechanics/ /services/google-ads 301
+/services/google-ads-for-mechanics /services/google-ads 301
+/services/lead-generation-for-mechanics/ /services/lead-generation 301
+/services/lead-generation-for-mechanics /services/lead-generation 301
+
+# Old top-level pages
+/about-us/ /about 301
+/about-us /about 301
+/contact/ /contact 301
+/service-agreement/ / 301
+/service-agreement / 301
+/privacy-policy/ / 301
+/privacy-policy / 301
+
+# Old blog category pages
+/blog/category/case-studies/ /case-studies 301
+/blog/category/case-studies /case-studies 301
+/blog/category/ /blog 301
+/blog/category /blog 301
+
+# Ranking old blog post slugs → case study equivalents
+/blog/how-core-diesel-engineered-record-leads-with-a-digital-overhaul /case-studies/core-diesel 301
+/blog/driving-trust-traction-how-busselton-automotive-became-the-go-to-for-gvm-suspension /case-studies/busselton-automotive 301
