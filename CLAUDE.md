@@ -4,14 +4,45 @@
 
 ---
 
+## Session state — last updated 2026-06-04
+
+### What's live
+- **Production:** `mechanicmarketing.co` — domain cutover to Cloudflare Pages is done (June 2026)
+- **Deployment:** Cloudflare Pages auto-deploys from `main` on push. No GitHub Actions workflow — `deploy.yml` was removed. Do NOT recreate it.
+- **Old Cloudways hosting:** retired. The `mechanicmarketing` Worker at `calm-thunder-d72d.workers.dev` is also stale — ignore it.
+
+### Contact form
+- `functions/contact.js` sends via **Resend API** (replaced MailChannels, which was deprecated)
+- Requires `RESEND_API_KEY` set in Cloudflare Pages → Settings → Environment variables → Production
+- `onRequestPost` only — GET requests fall through to `contact.html` (do NOT add an `onRequest` handler)
+- Resend sending domain `mechanicmarketing.co` must be verified in Resend dashboard for emails to deliver
+
+### Outstanding items
+- **GTM `generate_lead` tag** — brief exists (`brief-mm-gtm-form-submission-tag.md`). All code is live (dataLayer push in `main.js`). Still needs manual setup in GTM UI (container `GTM-KVCKK93P`, GA4 ID `G-DNK8STLEH3`). Prerequisite is `fix/contact-form-endpoint` ✅ already merged.
+- **Blog post missing** — `blog/index.html` links to `/blog/the-complete-guide-to-automotive-workshop-marketing-in-2026` but the file doesn't exist yet. Link is future-ready.
+- **Resend domain verification** — if emails aren't arriving, check Resend dashboard for `mechanicmarketing.co` domain status.
+
+### Merged this session (PRs #28–#31 + hotfixes)
+| PR | Branch | What |
+|---|---|---|
+| #27 | `new-feature` | Guy's homepage redesign (conflict-resolved with clean-URL fixes) |
+| #28 | `fix/blog-featured-link` | Fixed `href="#"` on blog featured article CTA |
+| #29 | `fix/contact-form-endpoint` | Replaced placeholder endpoint + added GA4 dataLayer push |
+| #30 | `fix/clean-url-links` | Stripped `.html` from 496 internal `href` attributes across 37 files |
+| #31 | `fix/contact-form-resend` | Replaced MailChannels with Resend in `functions/contact.js` |
+
+### Internal link convention
+All internal `href` values now use clean URLs (no `.html` extension). Keep this consistent in any new pages or edits. Nav links in the header still use `.html` — do not change those without updating all pages.
+
+---
+
 ## What this repo is
 
-The Mechanic Marketing website (`mechanicmarketing.co`) rebuilt as static HTML on Cloudflare Pages.
+The Mechanic Marketing website (`mechanicmarketing.co`) — static HTML served via Cloudflare Pages.
 No framework, no build step, no npm. Plain HTML + CSS + a `functions/` directory for Cloudflare
-Pages Functions (contact form, etc.).
+Pages Functions (contact form).
 
-**Live preview:** mechanicmarketing.calm-thunder-d72d.workers.dev
-**Production (post-cutover):** mechanicmarketing.co
+**Production:** mechanicmarketing.co
 **Owner:** Teddi Russell
 
 ---
