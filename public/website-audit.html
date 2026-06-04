@@ -1054,6 +1054,67 @@
             line-height: 1.6;
         }
 
+        /* ===== TEAM SECTION ===== */
+        .team-section {
+            padding: var(--section-pad-mobile);
+            background: var(--near-black);
+            color: var(--white);
+        }
+
+        .team-section__header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 48px;
+        }
+
+        .team-section__header h2 {
+            font-size: clamp(26px, 5vw, 42px);
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        .team-section__header p {
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.6;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            text-align: center;
+        }
+
+        .team-card__photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 4px solid rgba(255, 61, 2, 0.3);
+        }
+
+        .team-card__name {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0;
+            margin-bottom: 4px;
+            color: var(--white);
+        }
+
+        .team-card__title {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 500;
+        }
+
         /* ===== GUARANTEES ===== */
         .guarantees {
             padding: var(--section-pad-mobile);
@@ -1124,6 +1185,38 @@
             font-size: 15px;
             color: rgba(255, 255, 255, 0.6);
             line-height: 1.6;
+        }
+
+        /* ===== BOOKING SECTION ===== */
+        .booking-section {
+            padding: var(--section-pad-mobile);
+            background: var(--light-bg);
+        }
+
+        .booking-section__header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .booking-section__header h2 {
+            font-size: clamp(26px, 5vw, 42px);
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+        }
+
+        .booking-section__header p {
+            font-size: 17px;
+            color: rgba(28, 28, 26, 0.65);
+            line-height: 1.6;
+        }
+
+        .booking-section__iframe-wrap {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
         }
 
         /* ===== FAQ ===== */
@@ -1398,12 +1491,24 @@
                 grid-template-columns: 1fr 1fr;
             }
 
+            .team-section {
+                padding: 80px 0;
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
             .guarantees {
                 padding: 80px 0;
             }
 
             .guarantees__grid {
                 grid-template-columns: repeat(3, 1fr);
+            }
+
+            .booking-section {
+                padding: 80px 0;
             }
 
             .faq {
@@ -1472,7 +1577,15 @@
                 padding: var(--section-pad-desktop);
             }
 
+            .team-section {
+                padding: var(--section-pad-desktop);
+            }
+
             .guarantees {
+                padding: var(--section-pad-desktop);
+            }
+
+            .booking-section {
                 padding: var(--section-pad-desktop);
             }
 
@@ -1535,7 +1648,7 @@
     <div class="proof-bar">
         <div class="container">
             <div class="proof-bar__inner">
-                <span class="proof-bar__item">Only Mechanics</span>
+                <span class="proof-bar__item">Workshops Only</span>
                 <span class="proof-bar__dot"></span>
                 <span class="proof-bar__item">4.2x Avg Return</span>
                 <span class="proof-bar__dot"></span>
@@ -1556,7 +1669,7 @@
                         <span>For Workshops Only</span>
                     </div>
                 </a>
-                <a href="#audit-form" class="btn btn--primary" style="font-size:14px;padding:12px 20px;">Book My Free Audit</a>
+                <a href="#audit-form" class="btn btn--primary" style="font-size:14px;padding:12px 20px;">Book My Website Review</a>
             </div>
         </div>
     </div>
@@ -1587,7 +1700,7 @@
                         </div>
                     </div>
                     <div class="hero__cta-row">
-                        <a href="#audit-form" class="btn btn--primary">Audit My Website Free</a>
+                        <a href="#audit-form" class="btn btn--primary">Book My Website Review</a>
                     </div>
                 </div>
 
@@ -1619,7 +1732,7 @@
                                 <label for="hero-frustration">Biggest Frustration <span style="font-weight:400;text-transform:none;letter-spacing:0;color:rgba(28,28,26,0.4)">(optional)</span></label>
                                 <textarea id="hero-frustration" name="frustration" placeholder="e.g. My website doesn't bring in any leads..."></textarea>
                             </div>
-                            <button type="submit" class="btn btn--primary btn--full">Audit My Website Free</button>
+                            <button type="submit" class="btn btn--primary btn--full">Book My Website Review</button>
                         </form>
                         <div class="form-card__trust">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
@@ -1630,8 +1743,8 @@
                         <div class="form-thankyou__icon">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
                         </div>
-                        <h3>You're In!</h3>
-                        <p>We'll review your website and send your personalised audit within 24 hours. Keep an eye on your inbox (and your phone).</p>
+                        <h3>Thanks!</h3>
+                        <p>Redirecting you to book your meeting with Josh...</p>
                     </div>
                 </div>
             </div>
@@ -1704,7 +1817,7 @@
                 </div>
             </div>
             <div style="text-align:center;margin-top:40px;">
-                <a href="#audit-form" class="btn btn--primary">Book My Free Audit</a>
+                <a href="#audit-form" class="btn btn--primary">Book My Website Review</a>
             </div>
         </div>
     </section>
@@ -1750,7 +1863,7 @@
                 </div>
             </div>
             <div style="text-align:center;margin-top:40px;">
-                <a href="#audit-form" class="btn btn--primary">Book My Free Audit</a>
+                <a href="#audit-form" class="btn btn--primary">Book My Website Review</a>
             </div>
         </div>
     </section>
@@ -1853,7 +1966,7 @@
                 </div>
             </div>
             <div style="text-align:center;margin-top:40px;">
-                <a href="#audit-form" class="btn btn--primary">Book My Free Audit</a>
+                <a href="#audit-form" class="btn btn--primary">Book My Website Review</a>
             </div>
         </div>
     </section>
@@ -1865,7 +1978,7 @@
                 <span class="section-label">Clients</span>
                 <blockquote>"Josh is a total marketing guru. He gave me more information in our first session than I had managed to self-learn in <span style="color:#FF3D02;">7 years</span> of being in business."</blockquote>
                 <p class="testimonial-attr">Bodie Geck, Co-Founder at BB Garage</p>
-                <a href="#audit-form" class="btn btn--secondary">Book My Free Audit</a>
+                <a href="#audit-form" class="btn btn--secondary">Book My Website Review</a>
             </div>
         </div>
     </section>
@@ -1875,7 +1988,7 @@
         <div class="lp-cases-hdr">
             <span class="section-label">Case Studies</span>
             <h2>Real results for real workshops</h2>
-            <p>Don&#8217;t take our word for it. See what we&#8217;ve done for shops like yours.</p>
+            <p>Don't take our word for it. See what we've done for shops like yours.</p>
         </div>
         <div class="lp-cases-carousel-outer" id="lp-carousel">
             <button class="lp-carousel-btn lp-carousel-prev" aria-label="Previous case study" disabled>
@@ -1906,7 +2019,7 @@
             </button>
         </div>
         <div style="text-align:center;margin-top:54px;">
-            <a href="#audit-form" class="btn btn--primary">Book My Free Audit</a>
+            <a href="#audit-form" class="btn btn--primary">Book My Website Review</a>
         </div>
         <script>
         (function () {
@@ -1949,7 +2062,7 @@
             <div class="results__header reveal">
                 <span class="section-label">Results &middot; 04</span>
                 <h2>Real results from <span class="accent">real workshops</span></h2>
-                <p>We only work with mechanics. Here's what that focus delivers.</p>
+                <p>We work with every type of workshop across Australia. Here's what that focus delivers.</p>
             </div>
             <div class="results__grid">
                 <div class="result-card reveal reveal-delay-1">
@@ -1978,7 +2091,35 @@
                 </div>
             </div>
             <div style="text-align:center;margin-top:40px;">
-                <a href="#audit-form" class="btn btn--primary">Book My Free Audit</a>
+                <a href="#audit-form" class="btn btn--primary">Book My Website Review</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MEET THE TEAM ===== -->
+    <section class="team-section" id="team">
+        <div class="container">
+            <div class="team-section__header reveal">
+                <span class="section-label">Who You'll Work With</span>
+                <h2>Meet <span class="accent">the team</span></h2>
+                <p>Real people who know workshops inside and out. No account managers reading from a script.</p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card reveal reveal-delay-1">
+                    <img src="https://mechanicmarketing.co/images/josh-photo.jpg" alt="Josh - Founder of Mechanic Marketing" class="team-card__photo" loading="lazy">
+                    <div class="team-card__name">Josh</div>
+                    <div class="team-card__title">Founder</div>
+                </div>
+                <div class="team-card reveal reveal-delay-2">
+                    <img src="https://mechanicmarketing.co/images/teddi-photo.webp" alt="Teddi - Head of Implementation at Mechanic Marketing" class="team-card__photo" loading="lazy">
+                    <div class="team-card__name">Teddi</div>
+                    <div class="team-card__title">Head of Implementation</div>
+                </div>
+                <div class="team-card reveal reveal-delay-3">
+                    <img src="https://mechanicmarketing.co/images/Guy-headshot.jpg" alt="Guy - Account Manager at Mechanic Marketing" class="team-card__photo" loading="lazy">
+                    <div class="team-card__name">Guy</div>
+                    <div class="team-card__title">Account Manager</div>
+                </div>
             </div>
         </div>
     </section>
@@ -2015,7 +2156,76 @@
                 </div>
             </div>
             <div style="text-align:center;margin-top:40px;">
-                <a href="#audit-form" class="btn btn--primary" style="color:#fff;">Book My Free Audit</a>
+                <a href="#audit-form" class="btn btn--primary" style="color:#fff;">Book My Website Review</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FINAL CTA ===== -->
+    <section class="final-cta" id="audit-form">
+        <div class="container">
+            <div class="final-cta__inner">
+                <div class="reveal">
+                    <span class="section-label">Get Started &middot; 06</span>
+                    <h2>Get your free <span class="accent">website audit</span></h2>
+                    <p>Drop your URL below and we'll send you a personalised audit within 24 hours. Free. No pitch. No obligation.</p>
+                </div>
+                <div class="form-card reveal reveal-delay-1" id="footer-form">
+                    <div id="footer-form-content">
+                        <h3 class="form-card__title">Book Your Website Review</h3>
+                        <p class="form-card__subtitle">Takes 2 minutes. We'll be in touch within 24 hours.</p>
+                        <form id="footerAuditForm" novalidate>
+                            <div class="form-group form-group--url">
+                                <label for="footer-url">Website URL <span class="required">*</span></label>
+                                <input type="url" id="footer-url" name="website_url" placeholder="www.yourworkshop.com.au" required>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="footer-name">First Name <span class="required">*</span></label>
+                                    <input type="text" id="footer-name" name="first_name" placeholder="e.g. Matt" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="footer-workshop">Workshop Name <span class="required">*</span></label>
+                                    <input type="text" id="footer-workshop" name="workshop_name" placeholder="e.g. Matt's Motors" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="footer-mobile">Mobile <span class="required">*</span></label>
+                                <input type="tel" id="footer-mobile" name="mobile" placeholder="04XX XXX XXX" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="footer-frustration">Biggest Frustration <span style="font-weight:400;text-transform:none;letter-spacing:0;color:rgba(255,255,255,0.35)">(optional)</span></label>
+                                <textarea id="footer-frustration" name="frustration" placeholder="e.g. My website doesn't bring in any leads..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn--primary btn--full">Book My Website Review</button>
+                        </form>
+                        <div class="form-card__trust">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                            Your details stay private. No spam, ever.
+                        </div>
+                    </div>
+                    <div class="form-thankyou" id="footer-thankyou">
+                        <div class="form-thankyou__icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                        </div>
+                        <h3>Thanks!</h3>
+                        <p>Redirecting you to book your meeting with Josh...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== BOOK YOUR MEETING ===== -->
+    <section class="booking-section" id="book-meeting">
+        <div class="container">
+            <div class="booking-section__header reveal">
+                <span class="section-label">Pick a Time</span>
+                <h2>Book your <span class="accent">meeting</span></h2>
+                <p>Choose a time that works for you. We'll walk through your website and show you exactly what to fix.</p>
+            </div>
+            <div class="booking-section__iframe-wrap reveal reveal-delay-1">
+                <iframe src="https://meet.reclaimai.com/e/686c0900-a513-4c74-8e6c-c728c72145e7" width="100%" height="700px" style="outline:none;border:none;border-radius:12px;" loading="lazy"></iframe>
             </div>
         </div>
     </section>
@@ -2024,7 +2234,7 @@
     <section class="faq" id="faq">
         <div class="container">
             <div class="faq__header reveal">
-                <span class="section-label">FAQ &middot; 06</span>
+                <span class="section-label">FAQ &middot; 07</span>
                 <h2>Questions? <span class="accent">Sorted.</span></h2>
             </div>
             <div class="faq__list">
@@ -2057,11 +2267,11 @@
                 </div>
                 <div class="faq-item reveal">
                     <button class="faq-item__question" aria-expanded="false">
-                        Do you only work with mechanics?
+                        What types of workshops do you work with?
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                     </button>
                     <div class="faq-item__answer">
-                        <p>Yes. We work exclusively with mechanics and auto repair workshops across Australia. That's all we do. It means we know exactly what works in your industry: the search terms, the ad angles, the website layouts that convert.</p>
+                        <p>We work with every type of mechanic and auto repair workshop across Australia. From general servicing shops to diesel specialists, Euro workshops, 4x4 outfitters, mobile mechanics and everything in between. If you run a workshop, we know how to market it.</p>
                     </div>
                 </div>
                 <div class="faq-item reveal">
@@ -2084,62 +2294,7 @@
                 </div>
             </div>
             <div style="text-align:center;margin-top:40px;">
-                <a href="#audit-form" class="btn btn--primary">Book My Free Audit</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== FINAL CTA ===== -->
-    <section class="final-cta" id="audit-form">
-        <div class="container">
-            <div class="final-cta__inner">
-                <div class="reveal">
-                    <span class="section-label">Get Started &middot; 07</span>
-                    <h2>Get your free <span class="accent">website audit</span></h2>
-                    <p>Drop your URL below and we'll send you a personalised audit within 24 hours. Free. No pitch. No obligation.</p>
-                </div>
-                <div class="form-card reveal reveal-delay-1" id="footer-form">
-                    <div id="footer-form-content">
-                        <h3 class="form-card__title">Request Your Audit</h3>
-                        <p class="form-card__subtitle">Takes 2 minutes. We'll be in touch within 24 hours.</p>
-                        <form id="footerAuditForm" novalidate>
-                            <div class="form-group form-group--url">
-                                <label for="footer-url">Website URL <span class="required">*</span></label>
-                                <input type="url" id="footer-url" name="website_url" placeholder="www.yourworkshop.com.au" required>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="footer-name">First Name <span class="required">*</span></label>
-                                    <input type="text" id="footer-name" name="first_name" placeholder="e.g. Matt" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="footer-workshop">Workshop Name <span class="required">*</span></label>
-                                    <input type="text" id="footer-workshop" name="workshop_name" placeholder="e.g. Matt's Motors" required>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label for="footer-mobile">Mobile <span class="required">*</span></label>
-                                <input type="tel" id="footer-mobile" name="mobile" placeholder="04XX XXX XXX" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="footer-frustration">Biggest Frustration <span style="font-weight:400;text-transform:none;letter-spacing:0;color:rgba(255,255,255,0.35)">(optional)</span></label>
-                                <textarea id="footer-frustration" name="frustration" placeholder="e.g. My website doesn't bring in any leads..."></textarea>
-                            </div>
-                            <button type="submit" class="btn btn--primary btn--full">Audit My Website Free</button>
-                        </form>
-                        <div class="form-card__trust">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                            Your details stay private. No spam, ever.
-                        </div>
-                    </div>
-                    <div class="form-thankyou" id="footer-thankyou">
-                        <div class="form-thankyou__icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
-                        </div>
-                        <h3>You're In!</h3>
-                        <p>We'll review your website and send your personalised audit within 24 hours. Keep an eye on your inbox (and your phone).</p>
-                    </div>
-                </div>
+                <a href="#audit-form" class="btn btn--primary">Book My Website Review</a>
             </div>
         </div>
     </section>
@@ -2155,7 +2310,7 @@
 
     <!-- ===== STICKY MOBILE BAR ===== -->
     <div class="sticky-bar" id="stickyBar">
-        <a href="#audit-form" class="sticky-bar__cta" style="flex:1;">Audit My Website Free</a>
+        <a href="#audit-form" class="sticky-bar__cta" style="flex:1;">Book My Website Review</a>
     </div>
 
     <!-- ===== JAVASCRIPT ===== -->
@@ -2226,6 +2381,11 @@
                 if (card) {
                     card.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
+
+                // Redirect to Reclaim booking after brief delay
+                setTimeout(function() {
+                    window.location.href = 'https://app.reclaim.ai/m/mechanic-marketing/mechanic-marketing-introduction';
+                }, 1500);
             });
         }
 

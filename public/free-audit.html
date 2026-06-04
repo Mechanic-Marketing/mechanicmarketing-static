@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-    <title>Free Workshop Audit | Mechanic Marketing</title>
-    <meta name="description" content="Find out exactly where your workshop is losing jobs. Free 30-minute audit of your ads and website. We report in booked jobs, calls and revenue.">
+    <title>Free Workshop Meeting | Mechanic Marketing</title>
+    <meta name="description" content="Find out exactly where your workshop is losing jobs. Free 30-minute meeting to review your ads and website. We report in booked jobs, calls and revenue.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -839,6 +839,98 @@
         }
 
         /* ========================================
+           TEAM SECTION
+           ======================================== */
+        .team-section {
+            padding: 64px 0;
+            background: var(--near-black);
+            color: var(--white);
+        }
+
+        .team-section__header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .team-section__title {
+            font-size: clamp(28px, 5vw, 40px);
+            color: var(--white);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .team-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .team-card__photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid rgba(255, 61, 2, 0.3);
+            margin-bottom: 16px;
+        }
+
+        .team-card__name {
+            font-size: 18px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.01em;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .team-card__role {
+            font-size: 14px;
+            color: var(--text-dark-muted);
+            font-weight: 500;
+        }
+
+        /* ========================================
+           BOOKING SECTION
+           ======================================== */
+        .booking-section {
+            padding: 64px 0;
+            background: var(--warm-white);
+        }
+
+        .booking-section__header {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+
+        .booking-section__title {
+            font-size: clamp(28px, 5vw, 40px);
+            color: var(--near-black);
+            margin-bottom: 12px;
+        }
+
+        .booking-section__sub {
+            font-size: 16px;
+            color: var(--text-body);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .booking-iframe-wrap {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 32px rgba(0, 0, 0, 0.08);
+        }
+
+        /* ========================================
            GUARANTEES
            ======================================== */
         .guarantees-section {
@@ -1169,7 +1261,7 @@
         }
 
         /* ========================================
-           RESPONSIVE — TABLET (768px+)
+           RESPONSIVE -- TABLET (768px+)
            ======================================== */
         @media (min-width: 768px) {
             .container {
@@ -1220,6 +1312,19 @@
                 padding: 80px 0;
             }
 
+            .team-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 40px;
+            }
+
+            .team-section {
+                padding: 80px 0;
+            }
+
+            .booking-section {
+                padding: 80px 0;
+            }
+
             .guarantees-grid {
                 grid-template-columns: repeat(3, 1fr);
                 gap: 24px;
@@ -1247,7 +1352,7 @@
         }
 
         /* ========================================
-           RESPONSIVE — DESKTOP (1024px+)
+           RESPONSIVE -- DESKTOP (1024px+)
            ======================================== */
         @media (min-width: 1024px) {
             .container {
@@ -1290,6 +1395,14 @@
                 padding: 100px 0;
             }
 
+            .team-section {
+                padding: 100px 0;
+            }
+
+            .booking-section {
+                padding: 100px 0;
+            }
+
             .guarantees-section {
                 padding: 100px 0;
             }
@@ -1308,7 +1421,7 @@
         }
 
         /* ========================================
-           RESPONSIVE — LARGE DESKTOP (1200px+)
+           RESPONSIVE -- LARGE DESKTOP (1200px+)
            ======================================== */
         @media (min-width: 1200px) {
             .hero__headline {
@@ -1403,7 +1516,7 @@
                 <a href="#" aria-label="Mechanic Marketing Home">
                     <img src="/assets/logo/MM-LogoInline-Black.svg" alt="Mechanic Marketing" style="height: 36px; width: auto;">
                 </a>
-                <a href="#audit-form" class="btn btn--primary">Book My Free Audit</a>
+                <a href="#audit-form" class="btn btn--primary">Book My Free Meeting</a>
             </div>
         </div>
     </div>
@@ -1417,9 +1530,9 @@
                 <!-- Left: Content -->
                 <div class="hero__content animate-on-scroll">
                     <h1 class="hero__headline">Find out exactly where your workshop is <span class="accent">losing jobs.</span> Free.</h1>
-                    <p class="hero__sub">A no nonsense 30 minute audit of your ads and website. We report in booked jobs, calls and revenue. Not impressions.</p>
+                    <p class="hero__sub">A no nonsense 30 minute meeting to review your ads and website. We report in booked jobs, calls and revenue. Not impressions.</p>
                     <div class="hero__cta-row">
-                        <a href="#audit-form" class="btn btn--primary btn--large">Book my free audit</a>
+                        <a href="#audit-form" class="btn btn--primary btn--large">Book my free meeting</a>
                     </div>
                 </div>
 
@@ -1427,7 +1540,7 @@
                 <div class="animate-on-scroll delay-2" id="audit-form">
                     <div class="form-card">
                         <div id="audit-form-wrapper">
-                            <h3 class="form-card__title">Book your free audit</h3>
+                            <h3 class="form-card__title">Book your free meeting</h3>
                             <p class="form-card__subtitle">30 minutes. No cost. No obligation.</p>
                             <form id="leadForm" novalidate>
                                 <div class="form-group">
@@ -1479,11 +1592,11 @@
                                     </div>
                                 </div>
                                 <div class="form-submit">
-                                    <button type="submit" class="btn btn--primary btn--large btn--full">Book my free audit</button>
+                                    <button type="submit" class="btn btn--primary btn--large btn--full">Book my free meeting</button>
                                 </div>
                                 <p class="form-footer">
                                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                                    No spam. No obligation. Just a straightforward audit.
+                                    No spam. No obligation. Just a straightforward conversation.
                                 </p>
                             </form>
                         </div>
@@ -1491,8 +1604,8 @@
                             <div class="form-thankyou__icon">
                                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FF3D02" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
                             </div>
-                            <h3 class="form-thankyou__title">You're booked in</h3>
-                            <p class="form-thankyou__text">We'll be in touch within 24 hours to schedule your free 30 minute audit. No fluff, no pressure. Just a clear picture of where the jobs are hiding.</p>
+                            <h3 class="form-thankyou__title">Thanks! Redirecting you now.</h3>
+                            <p class="form-thankyou__text">Redirecting you to book your meeting with Josh. One moment...</p>
                         </div>
                     </div>
                 </div>
@@ -1527,7 +1640,7 @@
                 </div>
             </div>
             <div class="section-cta animate-on-scroll">
-                <a href="#audit-form" class="btn btn--primary btn--large">Book My Free Audit</a>
+                <a href="#audit-form" class="btn btn--primary btn--large">Book My Free Meeting</a>
             </div>
         </div>
     </section>
@@ -1565,7 +1678,7 @@
                 </div>
             </div>
             <div class="section-cta animate-on-scroll">
-                <a href="#audit-form" class="btn btn--primary btn--large">Book My Free Audit</a>
+                <a href="#audit-form" class="btn btn--primary btn--large">Book My Free Meeting</a>
             </div>
         </div>
     </section>
@@ -1628,7 +1741,7 @@
                 </div>
             </div>
             <div class="section-cta animate-on-scroll">
-                <a href="#audit-form" class="btn btn--primary btn--large">Book My Free Audit</a>
+                <a href="#audit-form" class="btn btn--primary btn--large">Book My Free Meeting</a>
             </div>
         </div>
     </section>
@@ -1640,7 +1753,7 @@
                 <span class="section-label">Clients</span>
                 <blockquote>"Josh is a total marketing guru. He gave me more information in our first session than I had managed to self-learn in <span style="color:#FF3D02;">7 years</span> of being in business."</blockquote>
                 <p class="testimonial-attr">Bodie Geck, Co-Founder at BB Garage</p>
-                <a href="#audit-form" class="btn btn--secondary">Book My Free Audit</a>
+                <a href="#audit-form" class="btn btn--secondary">Book My Free Meeting</a>
             </div>
         </div>
     </section>
@@ -1681,7 +1794,7 @@
             </button>
         </div>
         <div style="text-align:center;margin-top:54px;">
-            <a href="#audit-form" class="btn btn--primary">Book My Free Audit</a>
+            <a href="#audit-form" class="btn btn--primary">Book My Free Meeting</a>
         </div>
         <script>
         (function () {
@@ -1744,20 +1857,20 @@
                 </div>
             </div>
             <div class="section-cta animate-on-scroll">
-                <a href="#audit-form" class="btn btn--primary btn--large">Book My Free Audit</a>
+                <a href="#audit-form" class="btn btn--primary btn--large">Book My Free Meeting</a>
             </div>
         </div>
     </section>
 
     <!-- ========================================
-         WHY ONLY MECHANICS
+         EXPERIENCE ACROSS EVERY WORKSHOP TYPE
          ======================================== -->
     <section class="specialist-section" id="why-mechanics">
         <div class="container">
             <div class="specialist-section__inner animate-on-scroll">
                 <span class="section-label">Specialisation &middot; 05</span>
-                <h2 class="specialist-section__title">Why <span class="accent">only</span> mechanics?</h2>
-                <p class="specialist-section__text">We don't do dentists. We don't do cafes. We don't do "a bit of everything." We work exclusively with mechanics and auto repair workshops because the industry has specific problems that generalist agencies don't understand.</p>
+                <h2 class="specialist-section__title">We work with <span class="accent">every type</span> of workshop</h2>
+                <p class="specialist-section__text">From diesel workshops to Euro specialists, 4x4 shops to mobile mechanics. We work with every type of workshop across Australia. The industry has specific problems that generalist agencies don't understand, and that's why we exist.</p>
                 <p class="specialist-section__text">We know which services have the highest margins. We know how workshop owners think about marketing. We know the difference between a DPF delete enquiry and a basic logbook service. We know which one you'd rather book.</p>
                 <div class="specialist-section__list">
                     <span class="specialist-tag">Diesel</span>
@@ -1766,9 +1879,41 @@
                     <span class="specialist-tag">General mechanic</span>
                     <span class="specialist-tag">Mobile mechanic</span>
                     <span class="specialist-tag">Performance</span>
+                    <span class="specialist-tag">Truck &amp; Fleet</span>
+                    <span class="specialist-tag">Auto electrical</span>
+                    <span class="specialist-tag">Transmission</span>
                 </div>
                 <div class="section-cta animate-on-scroll" style="margin-top: 40px;">
-                    <a href="#audit-form" class="btn btn--primary btn--large">Book My Free Audit</a>
+                    <a href="#audit-form" class="btn btn--primary btn--large">Book My Free Meeting</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         MEET THE TEAM
+         ======================================== -->
+    <section class="team-section" id="team">
+        <div class="container">
+            <div class="team-section__header animate-on-scroll">
+                <span class="section-label">Who you'll work with</span>
+                <h2 class="team-section__title">Meet the <span class="accent">team</span></h2>
+            </div>
+            <div class="team-grid">
+                <div class="team-card animate-on-scroll delay-1">
+                    <img src="https://mechanicmarketing.co/images/josh-photo.jpg" alt="Josh, Founder of Mechanic Marketing" class="team-card__photo" loading="lazy">
+                    <div class="team-card__name">Josh</div>
+                    <div class="team-card__role">Founder</div>
+                </div>
+                <div class="team-card animate-on-scroll delay-2">
+                    <img src="https://mechanicmarketing.co/images/teddi-photo.webp" alt="Teddi, Head of Implementation at Mechanic Marketing" class="team-card__photo" loading="lazy">
+                    <div class="team-card__name">Teddi</div>
+                    <div class="team-card__role">Head of Implementation</div>
+                </div>
+                <div class="team-card animate-on-scroll delay-3">
+                    <img src="https://mechanicmarketing.co/images/Guy-headshot.jpg" alt="Guy, Account Manager at Mechanic Marketing" class="team-card__photo" loading="lazy">
+                    <div class="team-card__name">Guy</div>
+                    <div class="team-card__role">Account Manager</div>
                 </div>
             </div>
         </div>
@@ -1807,7 +1952,23 @@
                 </div>
             </div>
             <div class="section-cta animate-on-scroll">
-                <a href="#audit-form" class="btn btn--primary btn--large">Book My Free Audit</a>
+                <a href="#audit-form" class="btn btn--primary btn--large">Book My Free Meeting</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         BOOK YOUR MEETING (Reclaim embed)
+         ======================================== -->
+    <section class="booking-section" id="book-meeting">
+        <div class="container">
+            <div class="booking-section__header animate-on-scroll">
+                <span class="section-label">Book a time</span>
+                <h2 class="booking-section__title">Pick a time <span class="accent">that works</span></h2>
+                <p class="booking-section__sub">Choose a 30-minute slot below and lock in your free meeting with Josh.</p>
+            </div>
+            <div class="booking-iframe-wrap animate-on-scroll">
+                <iframe src="https://meet.reclaimai.com/e/686c0900-a513-4c74-8e6c-c728c72145e7" width="100%" height="700px" style="outline:none;border:none;border-radius:12px;" loading="lazy"></iframe>
             </div>
         </div>
     </section>
@@ -1824,7 +1985,7 @@
             <div class="faq-list">
                 <div class="faq-item animate-on-scroll delay-1">
                     <button class="faq-question" aria-expanded="false">
-                        <span>What exactly happens in the free audit?</span>
+                        <span>What exactly happens in the free meeting?</span>
                         <span class="faq-question__icon">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C1C1A" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                         </span>
@@ -1846,7 +2007,7 @@
                 </div>
                 <div class="faq-item animate-on-scroll delay-3">
                     <button class="faq-question" aria-expanded="false">
-                        <span>What happens after the audit?</span>
+                        <span>What happens after the meeting?</span>
                         <span class="faq-question__icon">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C1C1A" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                         </span>
@@ -1874,23 +2035,23 @@
                         </span>
                     </button>
                     <div class="faq-answer">
-                        <div class="faq-answer__inner">Usually within two business days. Fill in the form, we'll call you to lock in a time that works around your workshop hours. We know mornings are busy.</div>
+                        <div class="faq-answer__inner">Usually within two business days. Fill in the form or pick a time from the calendar below and we'll lock in your meeting around your workshop hours. We know mornings are busy.</div>
                     </div>
                 </div>
                 <div class="faq-item animate-on-scroll">
                     <button class="faq-question" aria-expanded="false">
-                        <span>Why don't you work with other industries?</span>
+                        <span>Do you only work with certain types of workshops?</span>
                         <span class="faq-question__icon">
                             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1C1C1A" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
                         </span>
                     </button>
                     <div class="faq-answer">
-                        <div class="faq-answer__inner">Because specialisation is what makes us good. Every campaign we build, every landing page we write, every keyword we target. It's all tested and refined specifically for auto repair workshops. That industry specific data is our unfair advantage, and it's what gets our clients results that generalist agencies can't match.</div>
+                        <div class="faq-answer__inner">No. We work with every type of mechanic and auto repair workshop across Australia. From general mechanics to diesel specialists, Euro shops, 4x4, mobile mechanics, performance, fleet and more. Our specialisation is the automotive repair industry itself. Every campaign we build, every landing page we write, every keyword we target is tested and refined specifically for workshops. That industry-specific data is our unfair advantage, and it's what gets our clients results that generalist agencies can't match.</div>
                     </div>
                 </div>
             </div>
             <div class="section-cta animate-on-scroll">
-                <a href="#audit-form" class="btn btn--primary btn--large">Book My Free Audit</a>
+                <a href="#audit-form" class="btn btn--primary btn--large">Book My Free Meeting</a>
             </div>
         </div>
     </section>
@@ -1905,7 +2066,7 @@
                 <h2 class="final-cta-section__title">Ready to find out where you're <span class="accent">losing jobs?</span></h2>
                 <p class="final-cta-section__sub">30 minutes. Free. No obligation. Just a straightforward look at what's costing you money.</p>
                 <div class="final-cta-section__buttons">
-                    <a href="#audit-form" class="btn btn--primary btn--large">Book my free audit</a>
+                    <a href="#audit-form" class="btn btn--primary btn--large">Book my free meeting</a>
                 </div>
             </div>
         </div>
@@ -1927,7 +2088,7 @@
          ======================================== -->
     <div class="mobile-cta" id="mobileCta">
         <a href="#audit-form" class="mobile-cta__book" style="flex:1;">
-            Book free audit
+            Book free meeting
         </a>
     </div>
 
@@ -1935,7 +2096,7 @@
          JAVASCRIPT
          ======================================== -->
     <script>
-        // ── Scroll Animations (IntersectionObserver) ──
+        // Scroll Animations (IntersectionObserver)
         (function() {
             var observer = new IntersectionObserver(function(entries) {
                 entries.forEach(function(entry) {
@@ -1954,7 +2115,7 @@
             });
         })();
 
-        // ── FAQ Accordion ──
+        // FAQ Accordion
         (function() {
             var faqItems = document.querySelectorAll('.faq-item');
             faqItems.forEach(function(item) {
@@ -1977,7 +2138,7 @@
             });
         })();
 
-        // ── Form Validation & Thank You ──
+        // Form Validation, Thank You & Redirect to Reclaim
         (function() {
             var form = document.getElementById('leadForm');
             var formWrapper = document.getElementById('audit-form-wrapper');
@@ -2038,6 +2199,11 @@
 
                     // Scroll to thank you
                     thankyou.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+                    // Redirect to Reclaim booking after 1.5 seconds
+                    setTimeout(function() {
+                        window.location.href = 'https://app.reclaim.ai/m/mechanic-marketing/mechanic-marketing-introduction';
+                    }, 1500);
                 }
             });
 
@@ -2061,7 +2227,7 @@
             });
         })();
 
-        // ── Smooth scroll for anchor links ──
+        // Smooth scroll for anchor links
         (function() {
             document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
                 anchor.addEventListener('click', function(e) {
