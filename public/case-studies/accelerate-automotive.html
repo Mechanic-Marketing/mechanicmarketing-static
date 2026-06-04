@@ -12,8 +12,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Accelerate Automotive — Mechanic Marketing Case Study</title>
   <meta name="description" content="How Mechanic Marketing generated 3,714 conversions and 550% more Facebook leads for Accelerate Automotive.">
-  <link rel="stylesheet" href="/css/global.css">
-  <link rel="stylesheet" href="/css/components.css">
+  <link rel="preload" href="/css/global.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/css/global.css"></noscript>
+  <link rel="preload" href="/css/components.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/css/components.css"></noscript>
   <link rel="icon" type="image/svg+xml" href="/assets/mm-icon.svg">
   <link rel="icon" type="image/png" sizes="200x200" href="/assets/favicon.png">
   <link rel="apple-touch-icon" href="/assets/favicon.png">
@@ -155,9 +157,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 
   <div class="cs-hero-image" style="max-width: 1100px; margin: 0 auto; padding: 0 40px;">
-    <img src="/images/accelerate_auto_1770588026_3828291752873363961_4128531570.jpg"
+    <picture>
+  <source srcset="/images/accelerate_auto_1770588026_3828291752873363961_4128531570.webp" type="image/webp">
+  <img src="/images/accelerate_auto_1770588026_3828291752873363961_4128531570.jpg"
          alt="Accelerate Automotive workshop"
          style="width: 100%; border-radius: 8px; margin-top: -40px; box-shadow: 0 12px 48px rgba(0,0,0,0.15); display: block;">
+</picture>
   </div>
 
   <section class="cs-content">
@@ -306,7 +311,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </footer>
 
-  <script src="/js/main.js"></script>
+  <script src="/js/main.js" defer></script>
 <!-- Event Tracking -->
 <script>
 (function() {

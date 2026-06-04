@@ -12,8 +12,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About — Mechanic Marketing</title>
   <meta name="description" content="Australia's workshop marketing specialists. A focused team working directly with every mechanic shop we partner with.">
-  <link rel="stylesheet" href="/css/global.css">
-  <link rel="stylesheet" href="/css/components.css">
+  <link rel="preload" href="/css/global.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/css/global.css"></noscript>
+  <link rel="preload" href="/css/components.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/css/components.css"></noscript>
   <style>
     .team-photo-placeholder { background: var(--b); height: 280px; border-radius: 8px; }
   </style>
@@ -180,7 +182,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="cs-grid" style="grid-template-columns: 1fr 1fr;">
         <div class="cs-card">
           <div class="cs-card-img">
-            <img src="/images/20250526_BB-Garage_2.jpg" alt="BB Garage workshop" loading="lazy" style="object-position:center top;">
+            <picture>
+  <source srcset="/images/20250526_BB-Garage_2.webp" type="image/webp">
+  <img src="/images/20250526_BB-Garage_2.jpg" alt="BB Garage workshop" loading="lazy" style="object-position:center top;">
+</picture>
             <div class="cs-stat-badge">800%+ ROAS</div>
           </div>
           <div class="cs-card-body">
@@ -192,7 +197,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
         <div class="cs-card">
           <div class="cs-card-img">
-            <img src="/images/accelerate_auto_1770588026_3828291752873363961_4128531570.jpg" alt="Accelerate Automotive workshop" loading="lazy" style="object-position:center center;">
+            <picture>
+  <source srcset="/images/accelerate_auto_1770588026_3828291752873363961_4128531570.webp" type="image/webp">
+  <img src="/images/accelerate_auto_1770588026_3828291752873363961_4128531570.jpg" alt="Accelerate Automotive workshop" loading="lazy" style="object-position:center center;">
+</picture>
             <div class="cs-stat-badge">312 LEADS</div>
           </div>
           <div class="cs-card-body">
@@ -261,7 +269,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </footer>
 
-  <script src="/js/main.js"></script>
+  <script src="/js/main.js" defer></script>
 <!-- Event Tracking -->
 <script>
 (function() {
