@@ -13,8 +13,7 @@
 /about-us /about 301
 /contact/ /contact 301
 /service-agreement/ /service-agreement 301
-/privacy-policy/ / 301
-/privacy-policy / 301
+/privacy-policy/ /privacy-policy 301
 
 # Old blog category pages
 /blog/category/case-studies/ /case-studies 301
