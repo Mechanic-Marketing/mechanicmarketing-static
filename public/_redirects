@@ -7,6 +7,14 @@
 /services/google-ads-for-mechanics /services/google-ads 301
 /services/lead-generation-for-mechanics/ /services/lead-generation 301
 /services/lead-generation-for-mechanics /services/lead-generation 301
+/services/google-ads-management /services/google-ads 301
+/services/auto-repair-lead-generation-service /services/lead-generation 301
+
+# Old industry URLs
+/diesel-mechanic-marketing /industries/diesel 301
+/industries/4x4-mechanic-marketing /industries/4x4 301
+/industries/american-truck-mechanic-marketing /industries/american-trucks 301
+/industries/marketing-for-european-speciality /industries/european 301
 
 # Old top-level pages
 /about-us/ /about 301
