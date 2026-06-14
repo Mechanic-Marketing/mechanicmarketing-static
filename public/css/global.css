@@ -187,6 +187,11 @@ img {
   to   { opacity: 1; transform: translateY(0); }
 }
 
+@keyframes slideUpTransform {
+  from { transform: translateY(24px); }
+  to   { transform: translateY(0); }
+}
+
 /* ==========================================================================
    Nav
    ========================================================================== */
