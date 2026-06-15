@@ -1367,11 +1367,10 @@ a.blog-card:hover {
   color: #fff !important;
 }
 
-/* On mobile: shrink CTA padding so logo + CTA + toggle all fit */
+/* On mobile: hide inline CTA — it lives in the hamburger menu instead */
 @media (max-width: 768px) {
   .mm-nav-cta {
-    padding: 10px 16px !important;
-    font-size: 12px !important;
+    display: none !important;
   }
 }
 
