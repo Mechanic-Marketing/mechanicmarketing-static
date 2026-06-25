@@ -1130,7 +1130,7 @@
                 <a href="/" aria-label="Mechanic Marketing Home">
                     <img src="/assets/logo/MM-LogoInline-Black.svg" alt="Mechanic Marketing" style="height: 36px; width: auto;" width="2516" height="388">
                 </a>
-                <a href="#book-audit" class="btn-primary" style="font-size:14px;padding:12px 20px;">Book a Free Consultation</a>
+                <a href="#book-audit" class="btn-primary" style="font-size:14px;padding:12px 20px;">Book My Free Audit</a>
             </div>
         </div>
     </div>
@@ -1142,7 +1142,7 @@
 
                 <p class="hero-sub">Every type of workshop, from diesel and Euro specialists to general repair and mobile mechanics. No cafes, no chiros, no real estate. Just workshops.</p>
 
-                <a href="#book-audit" class="btn-primary">Book a Free Consultation</a>
+                <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
 
                 <div class="hero-proof">
                     <span>4.2x avg return</span>
@@ -1246,7 +1246,7 @@
                 </div>
             </div>
             <div class="section-cta">
-                <a href="#book-audit" class="btn-primary">Book a Free Consultation</a>
+                <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
             </div>
         </div>
     </section>
@@ -1310,7 +1310,7 @@
                 </div>
             </div>
             <div class="section-cta">
-                <a href="#book-audit" class="btn-primary">Book a Free Consultation</a>
+                <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
             </div>
         </div>
     </section>
@@ -1352,7 +1352,7 @@
                 </div>
             </div>
             <div class="section-cta">
-                <a href="#book-audit" class="btn-primary">Book a Free Consultation</a>
+                <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
             </div>
         </div>
     </section>
@@ -1365,7 +1365,7 @@
                 <span class="section-label">Clients</span>
                 <blockquote>"Josh is a total marketing guru. He gave me more information in our first session than I had managed to self-learn in <span style="color:#FF3D02;">7 years</span> of being in business."</blockquote>
                 <p class="testimonial-attr">Bodie Geck, Co-Founder at BB Garage</p>
-                <a href="#book-audit" class="btn-secondary">Book a Free Consultation</a>
+                <a href="#book-audit" class="btn-secondary">Book My Free Audit</a>
             </div>
         </div>
     </section>
@@ -1396,7 +1396,7 @@
                 </div>
             </div>
             <div class="section-cta">
-                <a href="#book-audit" class="btn-primary">Book a Free Consultation</a>
+                <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
             </div>
         </div>
     </section>
@@ -1446,7 +1446,7 @@
             </button>
         </div>
         <div style="text-align:center;margin-top:54px;">
-            <a href="#book-audit" class="btn-primary">Book a Free Consultation</a>
+            <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
         </div>
         <script>
         (function () {
@@ -1505,9 +1505,7 @@
             <p style="color: rgba(240,240,236,0.6); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px;">Head of Implementation</p>
           </div>
           <div style="display: flex; flex-direction: column; align-items: center;">
-            <img src="/images/Guy-headshot.jpg" alt="Guy - Account Manager" style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; margin-bottom: 16px; border: 3px solid #FF3D02;" width="512" height="368">
-            <h3 style="font-family: Inter, sans-serif; font-weight: 800; font-size: 18px; text-transform: uppercase; margin: 0; color: #F0F0EC;">Guy</h3>
-            <p style="color: rgba(240,240,236,0.6); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px;">Account Manager</p>
+
           </div>
         </div>
       </div>
@@ -1555,7 +1553,7 @@
                 </div>
             </div>
             <div class="section-cta">
-                <a href="#book-audit" class="btn-primary">Book a Free Consultation</a>
+                <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
             </div>
         </div>
     </section>
@@ -1673,7 +1671,7 @@
                 </div>
             </div>
             <div class="section-cta">
-                <a href="#book-audit" class="btn-primary">Book a Free Consultation</a>
+                <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
             </div>
         </div>
     </section>
@@ -1789,7 +1787,7 @@
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H5V8l7 5 7-5v10zm-7-7L5 6h14l-7 5z" fill="white"/>
             </svg>
-            Book a Free Consultation
+            Book My Free Audit
         </a>
     </div>
 
@@ -1900,6 +1898,7 @@
                             form.style.display = 'none';
                             thankYou.classList.add('visible');
                             thankYou.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            fbq('track', 'Lead');
                             setTimeout(function() { window.location.href = 'https://app.reclaim.ai/m/mechanic-marketing/mechanic-marketing-introduction'; }, 1500);
                         } else {
                             submitBtn.disabled = false;
