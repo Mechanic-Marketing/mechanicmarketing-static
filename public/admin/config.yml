@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: teddi-coder/mechanicmarketing-static
+  repo: Mechanic-Marketing/mechanicmarketing-static
   branch: main
 
 media_folder: assets/images/uploads
