@@ -16,6 +16,7 @@
 - Requires `RESEND_API_KEY` set in Cloudflare Pages → Settings → Environment variables → Production
 - `onRequestPost` only — GET requests fall through to `contact.html` (do NOT add an `onRequest` handler)
 - Resend sending domain `mechanicmarketing.co` must be verified in Resend dashboard for emails to deliver
+- Also creates a ClickUp task per lead in the **MM Pipeline** list (`901606822314`, status `lead`) — requires `CLICKUP_API_TOKEN` in Cloudflare Pages → Settings → Environment variables → Production. ClickUp failure never blocks the form response; the visitor only sees an error if both Resend and ClickUp fail.
 
 ### Outstanding items
 - **GTM `generate_lead` tag** — brief exists (`brief-mm-gtm-form-submission-tag.md`). All code is live (dataLayer push in `main.js`). Still needs manual setup in GTM UI (container `GTM-KVCKK93P`, GA4 ID `G-DNK8STLEH3`). Prerequisite is `fix/contact-form-endpoint` ✅ already merged.
