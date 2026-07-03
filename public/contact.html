@@ -306,9 +306,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           if (result.success) {
             form.style.display = 'none';
             if (success) success.style.display = 'block';
-            if (typeof gtag === 'function') {
-              gtag('event', 'form_submission', {'event_category': 'Contact', 'event_label': 'Contact Form'});
-            }
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({ event: 'form_submission', form_name: 'contact' });
           } else {
             alert(result.error || 'Something went wrong. Please try again.');
             if (btn) {
