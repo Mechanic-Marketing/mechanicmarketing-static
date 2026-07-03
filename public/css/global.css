@@ -1352,8 +1352,11 @@ a.blog-card:hover {
   justify-self: center;
 }
 
-/* Right column: CTA button + mobile toggle live together here */
+/* Right column: phone + CTA button + mobile toggle live together here.
+   grid-column:3 pins it to the right even when .mm-nav-links is display:none
+   on mobile (otherwise auto-placement drops it into the centre column). */
 .mm-nav .mm-nav-right {
+  grid-column: 3;
   justify-self: end;
   display: flex;
   align-items: center;
@@ -1376,6 +1379,21 @@ a.blog-card:hover {
 @media (max-width: 768px) {
   .mm-nav-cta {
     display: none !important;
+  }
+}
+
+/* Nav phone number (0480 800 644) — hover needs !important to beat the inline colour */
+.mm-nav-phone:hover {
+  color: #FF3D02 !important;
+}
+
+/* On mobile: keep the phone icon tappable next to the hamburger, hide the number */
+@media (max-width: 768px) {
+  .mm-nav-phone {
+    padding: 8px;
+  }
+  .mm-nav-phone .mm-nav-phone-num {
+    display: none;
   }
 }
 
