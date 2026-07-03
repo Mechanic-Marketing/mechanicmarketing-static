@@ -1450,6 +1450,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <span class="error-msg">Please enter a valid mobile number.</span>
                             </div>
                             <div class="form-group">
+                                <label for="hero-email">Email</label>
+                                <input type="email" id="hero-email" name="email" placeholder="dave@yourworkshop.com.au" required>
+                                <span class="error-msg">Please enter a valid email address.</span>
+                            </div>
+                            <div class="form-group">
                                 <label for="hero-spend">Monthly ad spend</label>
                                 <select id="hero-spend" name="monthly_spend" required>
                                     <option value="" disabled selected>Select your spend</option>
@@ -1926,6 +1931,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     <span class="error-msg">Please enter a valid mobile number.</span>
                                 </div>
                                 <div class="form-group">
+                                    <label for="footer-email">Email</label>
+                                    <input type="email" id="footer-email" name="email" placeholder="dave@yourworkshop.com.au" required>
+                                    <span class="error-msg">Please enter a valid email address.</span>
+                                </div>
+                                <div class="form-group">
                                     <label for="footer-spend">Monthly ad spend</label>
                                     <select id="footer-spend" name="monthly_spend" required>
                                         <option value="" disabled selected>Select your spend</option>
@@ -2067,6 +2077,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             group.classList.add('has-error');
                             isValid = false;
                         }
+                    } else if (input.type === 'email') {
+                        if (!/^\S+@\S+\.\S+$/.test(input.value.trim())) {
+                            group.classList.add('has-error');
+                            isValid = false;
+                        }
                     } else {
                         if (!input.value.trim()) {
                             group.classList.add('has-error');
@@ -2101,6 +2116,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     first_name: formData.first_name || '',
                     workshop_name: formData.workshop_name || '',
                     mobile: formData.mobile || '',
+                    email: formData.email || '',
                     primary_service: formData.primary_service || '',
                     monthly_spend: formData.monthly_spend || ''
                 })

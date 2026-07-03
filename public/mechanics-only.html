@@ -1707,6 +1707,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
 
                     <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" placeholder="e.g. steve@yourworkshop.com.au" required>
+                    </div>
+
+                    <div class="form-group">
                         <label for="website">Website URL</label>
                         <input type="url" id="website" name="website" placeholder="e.g. www.yourworkshop.com.au">
                     </div>
@@ -1858,10 +1863,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     var firstName = document.getElementById('firstName');
                     var workshopName = document.getElementById('workshopName');
                     var mobile = document.getElementById('mobile');
+                    var email = document.getElementById('email');
                     var primaryService = document.getElementById('primaryService');
                     var state = document.getElementById('state');
 
-                    var requiredFields = [firstName, workshopName, mobile, primaryService, state];
+                    var requiredFields = [firstName, workshopName, mobile, email, primaryService, state];
                     var isValid = true;
 
                     requiredFields.forEach(function(field) {
@@ -1873,6 +1879,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             isValid = false;
                         }
                     });
+
+                    if (email.value.trim() && !/^\S+@\S+\.\S+$/.test(email.value.trim())) {
+                        email.style.borderColor = '#FF3D02';
+                        isValid = false;
+                    }
 
                     if (!isValid) return;
 
@@ -1890,6 +1901,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             first_name: firstName.value.trim(),
                             workshop_name: workshopName.value.trim(),
                             mobile: mobile.value.trim(),
+                            email: email.value.trim(),
                             website_url: websiteEl ? websiteEl.value.trim() : '',
                             primary_service: primaryService.value,
                             state: state.value

@@ -1635,6 +1635,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <input type="tel" id="hero-mobile" name="mobile" placeholder="04XX XXX XXX" required>
                             </div>
                             <div class="form-group">
+                                <label for="hero-email">Email <span class="required">*</span></label>
+                                <input type="email" id="hero-email" name="email" placeholder="matt@yourworkshop.com.au" required>
+                            </div>
+                            <div class="form-group">
                                 <label for="hero-frustration">Biggest Frustration <span style="font-weight:400;text-transform:none;letter-spacing:0;color:rgba(28,28,26,0.4)">(optional)</span></label>
                                 <textarea id="hero-frustration" name="frustration" placeholder="e.g. My website doesn't bring in any leads..."></textarea>
                             </div>
@@ -2190,6 +2194,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <input type="tel" id="footer-mobile" name="mobile" placeholder="04XX XXX XXX" required>
                             </div>
                             <div class="form-group">
+                                <label for="footer-email">Email <span class="required">*</span></label>
+                                <input type="email" id="footer-email" name="email" placeholder="matt@yourworkshop.com.au" required>
+                            </div>
+                            <div class="form-group">
                                 <label for="footer-frustration">Biggest Frustration <span style="font-weight:400;text-transform:none;letter-spacing:0;color:rgba(255,255,255,0.35)">(optional)</span></label>
                                 <textarea id="footer-frustration" name="frustration" placeholder="e.g. My website doesn't bring in any leads..."></textarea>
                             </div>
@@ -2279,6 +2287,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     if (!field.value.trim()) {
                         field.style.borderColor = '#DC2626';
                         valid = false;
+                    } else if (field.type === 'email' && !/^\S+@\S+\.\S+$/.test(field.value.trim())) {
+                        field.style.borderColor = '#DC2626';
+                        valid = false;
                     }
                 });
 
@@ -2300,6 +2311,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         first_name: formData.first_name || '',
                         workshop_name: formData.workshop_name || '',
                         mobile: formData.mobile || '',
+                        email: formData.email || '',
                         website_url: formData.website_url || '',
                         frustration: formData.frustration || ''
                     })

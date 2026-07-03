@@ -1452,6 +1452,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     <span class="error-msg" id="mobileError">Please enter a valid mobile number.</span>
                                 </div>
                                 <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" name="email" placeholder="steve@yourworkshop.com.au" required>
+                                    <span class="error-msg" id="emailError">Please enter a valid email address.</span>
+                                </div>
+                                <div class="form-group">
                                     <label for="websiteUrl">Website URL</label>
                                     <input type="url" id="websiteUrl" name="websiteUrl" placeholder="www.yourworkshop.com.au">
                                 </div>
@@ -2084,6 +2089,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 var firstName = document.getElementById('firstName');
                 var workshopName = document.getElementById('workshopName');
                 var mobile = document.getElementById('mobile');
+                var email = document.getElementById('email');
                 var primaryService = document.getElementById('primaryService');
                 var state = document.getElementById('state');
 
@@ -2097,6 +2103,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 }
                 if (!mobile.value.trim() || mobile.value.trim().length < 8) {
                     showError('mobileError');
+                    valid = false;
+                }
+                if (!email.value.trim() || !/^\S+@\S+\.\S+$/.test(email.value.trim())) {
+                    showError('emailError');
                     valid = false;
                 }
                 if (!primaryService.value) {
@@ -2123,6 +2133,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             first_name: firstName.value.trim(),
                             workshop_name: workshopName.value.trim(),
                             mobile: mobile.value.trim(),
+                            email: email.value.trim(),
                             website_url: websiteUrlEl ? websiteUrlEl.value.trim() : '',
                             primary_service: primaryService.value,
                             state: state.value

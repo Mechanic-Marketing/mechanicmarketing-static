@@ -10,6 +10,19 @@ const CF_COMPANY = '0c3c1daa-bc0f-41d8-8322-3dda27c9f7b8';        // Company/web
 const CF_CHANNEL = 'd82f6771-a73a-4e30-8e82-fb4180fc85d9';        // Channel (dropdown)
 const CF_CHANNEL_ONLINE = '4b6d2547-2409-4563-b764-f5e34806dd93'; // Channel → "Online"
 
+// Everyone who should be notified of a new lead by email.
+const LEAD_RECIPIENTS = ['hello@mechanicmarketing.co', 'guy@mechanicmarketing.co'];
+
+// Maps each form's `source` value to a plain-English description of what
+// the visitor actually asked for, so the email and ClickUp task are clear.
+const SOURCE_REQUESTS = {
+  'Free Audit LP':      'Free marketing audit (requested a 30-min audit call)',
+  'Mechanics Only LP':  'Free marketing audit (requested a 30-min audit call)',
+  'Website Audit LP':   'Free website audit of their workshop site',
+  'Book a Call LP':     'Requested a free strategy call',
+  'Contact page':       'General enquiry via the contact form',
+};
+
 export async function onRequestPost(context) {
   const { request } = context;
 
@@ -39,10 +52,13 @@ export async function onRequestPost(context) {
     return Response.json({ success: false, error: 'Email or phone is required.' }, { status: 400 });
   }
 
+  const requested = SOURCE_REQUESTS[source] || `Enquiry via ${source}`;
+
   // Build email body including all available fields
   const lines = [
     `New enquiry from mechanicmarketing.co`,
     `Source: ${source}`,
+    `They requested: ${requested}`,
     ``,
     `Name: ${fullName}`,
     email        ? `Email: ${email}`                                                                  : null,
@@ -59,8 +75,8 @@ export async function onRequestPost(context) {
 
   const mailPayload = {
     from: 'Mechanic Marketing Website <noreply@mechanicmarketing.co>',
-    to: ['hello@mechanicmarketing.co'],
-    subject: `New enquiry: ${workshopName || fullName} (${source})`,
+    to: LEAD_RECIPIENTS,
+    subject: `New lead: ${workshopName || fullName} — ${requested}`,
     text: lines,
   };
 
@@ -91,7 +107,7 @@ export async function onRequestPost(context) {
   let clickupOk = false;
   try {
     clickupOk = await createClickUpLead(context.env, {
-      fullName, email, phone, workshopName, websiteUrl, source,
+      fullName, email, phone, workshopName, websiteUrl, source, requested,
       primaryService: data.primaryService || data.primary_service || '',
       state: data.state || '',
       monthlySpend: data.monthly_spend || '',
@@ -123,6 +139,7 @@ async function createClickUpLead(env, lead) {
   }
 
   const description = [
+    `They requested: ${lead.requested}`,
     `Source: ${lead.source}`,
     lead.workshopName ? `Workshop: ${lead.workshopName}` : null,
     lead.email ? `Email: ${lead.email}` : null,
