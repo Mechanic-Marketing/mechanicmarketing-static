@@ -7,10 +7,9 @@
     <title>Marketing for Mechanics Only | Mechanic Marketing</title>
     <meta name="description" content="We only market for mechanics. From diesel and Euro specialists to general repair and mobile workshops. 4.2x average return. Month to month. Australian owned.">
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Brand fonts: TT Commons Pro (self-hosted, same as homepage) -->
+    <link rel="preload" href="/assets/fonts/TT_Commons_Pro_ExtraBlack.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="/assets/fonts/TT_Commons_Pro_Regular.woff2" as="font" type="font/woff2" crossorigin>
 
     <!-- Meta Pixel Code -->
     <script>
@@ -34,6 +33,20 @@
     <!-- End Google Tag Manager -->
 
     <style>
+        /* ===== BRAND FONTS ===== */
+        @font-face{font-family:'TT Commons Pro';src:url('/assets/fonts/TT_Commons_Pro_Regular.woff2') format('woff2'),url('/assets/fonts/TT_Commons_Pro_Regular.woff') format('woff');font-weight:400;font-style:normal;font-display:swap}
+        @font-face{font-family:'TT Commons Pro';src:url('/assets/fonts/TT_Commons_Pro_Bold.woff2') format('woff2'),url('/assets/fonts/TT_Commons_Pro_Bold.woff') format('woff');font-weight:700;font-style:normal;font-display:swap}
+        @font-face{font-family:'TT Commons Pro';src:url('/assets/fonts/TT_Commons_Pro_ExtraBlack.woff2') format('woff2'),url('/assets/fonts/TT_Commons_Pro_ExtraBlack.woff') format('woff');font-weight:900;font-style:normal;font-display:swap}
+
+        :root{
+            --mm-orange:#FF3D02;
+            --mm-warm-white:#F0F0EC;
+            --mm-dark:#1c1c1a;
+            --mm-golden:#F0AA00;
+            --font-display:'TT Commons Pro','Helvetica Neue',Arial,sans-serif;
+            --font-body:'TT Commons Pro','Helvetica Neue',Arial,sans-serif;
+        }
+
         /* ===== RESET & BASE ===== */
         *, *::before, *::after {
             margin: 0;
@@ -47,7 +60,7 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-family: var(--font-body);
             font-weight: 400;
             font-size: 16px;
             line-height: 1.6;
@@ -64,7 +77,7 @@
 
         /* ===== TYPOGRAPHY ===== */
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-display);
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: -0.02em;
@@ -72,17 +85,19 @@
         }
 
         h1 {
-            font-size: 2.4rem;
-            letter-spacing: -0.04em;
+            font-size: clamp(3rem, 7.5vw, 5.4rem);
+            letter-spacing: -0.015em;
+            line-height: 0.9;
         }
 
         h2 {
-            font-size: 1.8rem;
-            letter-spacing: -0.03em;
+            font-size: clamp(2.1rem, 4.5vw, 3.4rem);
+            letter-spacing: -0.015em;
+            line-height: 0.92;
         }
 
         h3 {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
         }
 
         .accent {
@@ -114,12 +129,13 @@
             display: inline-block;
             background: #FF3D02;
             color: #fff;
-            font-size: 0.7rem;
-            font-weight: 700;
+            font-family: var(--font-display);
+            font-size: 0.72rem;
+            font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            padding: 6px 16px;
-            border-radius: 100px;
+            letter-spacing: 0.12em;
+            padding: 7px 14px;
+            border-radius: 4px;
             margin-bottom: 24px;
         }
 
@@ -128,29 +144,30 @@
             display: inline-block;
             background: #FF3D02;
             color: #fff;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 700;
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 900;
             text-transform: uppercase;
-            letter-spacing: 0.04em;
-            padding: 16px 36px;
-            border-radius: 8px;
+            letter-spacing: 0.06em;
+            padding: 18px 40px;
+            border-radius: 6px;
             border: none;
             cursor: pointer;
-            transition: background 0.2s ease, transform 0.15s ease;
+            transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease;
             text-align: center;
         }
 
         .btn-primary:hover {
             background: #E03500;
-            transform: translateY(-1px);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 28px rgba(255, 61, 2, 0.35);
         }
 
         .btn-secondary {
             display: inline-block;
             background: #1C1C1A;
             color: #fff;
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-display);
             font-size: 0.95rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -206,25 +223,84 @@
         .proof-bar {
             background: #1C1C1A;
             color: #fff;
-            padding: 12px 0;
-            font-size: 0.78rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
+            padding: 11px 0;
+            overflow: hidden;
         }
 
-        .proof-bar .container {
+        .ticker-track {
             display: flex;
-            justify-content: center;
             align-items: center;
-            gap: 8px;
-            flex-wrap: wrap;
-            text-align: center;
+            width: max-content;
+            will-change: transform;
+            animation: marquee 24s linear infinite;
         }
 
-        .proof-bar .divider {
+        .ticker-group {
+            display: inline-flex;
+            align-items: center;
+            gap: 28px;
+            padding-right: 28px;
+            flex-shrink: 0;
+        }
+
+        .ticker-group span {
+            font-family: var(--font-display);
+            font-size: 0.78rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            white-space: nowrap;
+        }
+
+        .ticker-group .divider {
             color: #FF3D02;
-            font-weight: 400;
+            font-size: 0.6rem;
+        }
+
+        @keyframes marquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(-25%); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .ticker-track { animation-play-state: paused; }
+        }
+
+        /* Animated tyre-print strip (brand motif, same asset as homepage) */
+        .tire-strip {
+            background: #1C1C1A;
+            height: 40px;
+            overflow: hidden;
+        }
+
+        .tire-strip::before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-image: url('/images/MM-TirePrint-Strip.svg');
+            background-repeat: repeat-x;
+            background-size: 927px 40px;
+            background-position: 0 center;
+            opacity: 0.22;
+            animation: tireScroll 40s linear infinite;
+        }
+
+        .tire-strip--light {
+            background: #FF3D02;
+        }
+
+        .tire-strip--light::before {
+            opacity: 0.55;
+        }
+
+        @keyframes tireScroll {
+            from { background-position-x: 0; }
+            to { background-position-x: -927px; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .tire-strip::before { animation: none; }
         }
 
 
@@ -232,13 +308,13 @@
            2. HERO
            ======================================== */
         .hero {
-            padding: 64px 0 56px;
+            padding: 72px 0 80px;
             background: #F0F0EC;
             position: relative;
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
         }
 
         .hero .logo {
@@ -260,14 +336,14 @@
             background: #FF3D02;
             border-radius: 8px;
             color: #fff;
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-display);
             font-weight: 900;
             font-size: 1.3rem;
             letter-spacing: -0.04em;
         }
 
         .logo-text {
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-display);
             font-weight: 800;
             font-size: 0.85rem;
             text-transform: uppercase;
@@ -285,11 +361,12 @@
         }
 
         .hero-sub {
-            font-size: 1.05rem;
-            color: #555;
-            line-height: 1.6;
-            margin-bottom: 32px;
-            max-width: 600px;
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: #3a3a38;
+            line-height: 1.5;
+            margin-bottom: 36px;
+            max-width: 640px;
         }
 
         .hero-proof {
@@ -314,7 +391,7 @@
            3. EXPERIENCE ACROSS EVERY WORKSHOP TYPE
            ======================================== */
         .who-section {
-            padding: 56px 0;
+            padding: 72px 0;
             background: #fff;
         }
 
@@ -374,7 +451,7 @@
            4. WHY A GENERALIST CAN'T DO THIS
            ======================================== */
         .generalist-section {
-            padding: 56px 0;
+            padding: 72px 0;
             background: #F0F0EC;
         }
 
@@ -445,7 +522,7 @@
            5. HOW IT WORKS
            ======================================== */
         .process-section {
-            padding: 56px 0;
+            padding: 72px 0;
             background: #fff;
         }
 
@@ -469,7 +546,7 @@
             border-radius: 50%;
             background: #FF3D02;
             color: #fff;
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-display);
             font-weight: 900;
             font-size: 1.3rem;
             display: flex;
@@ -494,7 +571,7 @@
            6. RESULTS / CASE STUDIES
            ======================================== */
         .results-section {
-            padding: 56px 0;
+            padding: 72px 0;
             background: #1C1C1A;
             color: #fff;
         }
@@ -523,12 +600,12 @@
         }
 
         .result-stat {
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-display);
             font-weight: 900;
-            font-size: 2.8rem;
-            letter-spacing: -0.04em;
-            color: #fff;
-            line-height: 1;
+            font-size: clamp(3rem, 5vw, 4.2rem);
+            letter-spacing: -0.02em;
+            color: #FF3D02;
+            line-height: 0.9;
             margin-bottom: 8px;
         }
 
@@ -550,7 +627,7 @@
            7. THREE GUARANTEES
            ======================================== */
         .guarantee-section {
-            padding: 56px 0;
+            padding: 72px 0;
             background: #111111;
             color: #fff;
         }
@@ -603,7 +680,7 @@
            8. FAQ ACCORDION
            ======================================== */
         .faq-section {
-            padding: 56px 0;
+            padding: 72px 0;
             background: #F0F0EC;
         }
 
@@ -620,7 +697,7 @@
             background: none;
             border: none;
             padding: 20px 0;
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-display);
             font-size: 0.95rem;
             font-weight: 700;
             text-align: left;
@@ -714,7 +791,7 @@
            9. LEAD FORM SECTION
            ======================================== */
         .form-section {
-            padding: 56px 0;
+            padding: 72px 0;
             background: #1C1C1A;
             color: #fff;
         }
@@ -762,7 +839,7 @@
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 8px;
             padding: 14px 16px;
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-display);
             font-size: 0.95rem;
             color: #fff;
             transition: border-color 0.2s ease;
@@ -891,7 +968,7 @@
             gap: 8px;
             padding: 14px 12px;
             border-radius: 8px;
-            font-family: 'Inter', sans-serif;
+            font-family: var(--font-display);
             font-size: 0.82rem;
             font-weight: 700;
             text-transform: uppercase;
@@ -935,14 +1012,6 @@
 
             .container {
                 padding: 0 40px;
-            }
-
-            h1 {
-                font-size: 3.2rem;
-            }
-
-            h2 {
-                font-size: 2.4rem;
             }
 
             .hero {
@@ -1004,14 +1073,6 @@
         }
 
         @media (min-width: 1024px) {
-            h1 {
-                font-size: 3.8rem;
-            }
-
-            h2 {
-                font-size: 2.8rem;
-            }
-
             .hero {
                 padding: 100px 0 88px;
             }
@@ -1037,19 +1098,6 @@
                 gap: 56px;
             }
 
-            .hero-sub {
-                font-size: 1.15rem;
-            }
-
-            .proof-bar .container {
-                gap: 12px;
-            }
-        }
-
-        @media (min-width: 1200px) {
-            h1 {
-                font-size: 4.2rem;
-            }
         }
 
         /* === LP Header Bar === */
@@ -1111,14 +1159,36 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
          1. PROOF BAR
          ============================== -->
     <div class="proof-bar">
-        <div class="container">
-            <span>Only mechanics</span>
-            <span class="divider">&bull;</span>
-            <span>4.2x avg return</span>
-            <span class="divider">&bull;</span>
-            <span>Month to month</span>
-            <span class="divider">&bull;</span>
-            <span>Australian owned</span>
+        <!-- Seamless marquee: 4 identical groups so translateX(-25%) = exactly one group width -->
+        <div class="ticker-track" aria-hidden="false">
+            <div class="ticker-group">
+                <span>Only mechanics</span><span class="divider">&bull;</span>
+                <span>4.2x avg return</span><span class="divider">&bull;</span>
+                <span>Month to month</span><span class="divider">&bull;</span>
+                <span>Australian owned</span><span class="divider">&bull;</span>
+                <span>Campaigns live in 7 days</span><span class="divider">&bull;</span>
+            </div>
+            <div class="ticker-group" aria-hidden="true">
+                <span>Only mechanics</span><span class="divider">&bull;</span>
+                <span>4.2x avg return</span><span class="divider">&bull;</span>
+                <span>Month to month</span><span class="divider">&bull;</span>
+                <span>Australian owned</span><span class="divider">&bull;</span>
+                <span>Campaigns live in 7 days</span><span class="divider">&bull;</span>
+            </div>
+            <div class="ticker-group" aria-hidden="true">
+                <span>Only mechanics</span><span class="divider">&bull;</span>
+                <span>4.2x avg return</span><span class="divider">&bull;</span>
+                <span>Month to month</span><span class="divider">&bull;</span>
+                <span>Australian owned</span><span class="divider">&bull;</span>
+                <span>Campaigns live in 7 days</span><span class="divider">&bull;</span>
+            </div>
+            <div class="ticker-group" aria-hidden="true">
+                <span>Only mechanics</span><span class="divider">&bull;</span>
+                <span>4.2x avg return</span><span class="divider">&bull;</span>
+                <span>Month to month</span><span class="divider">&bull;</span>
+                <span>Australian owned</span><span class="divider">&bull;</span>
+                <span>Campaigns live in 7 days</span><span class="divider">&bull;</span>
+            </div>
         </div>
     </div>
 
@@ -1156,6 +1226,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </div>
     </section>
+
+    <div class="tire-strip" aria-hidden="true"></div>
 
 
     <!-- ==============================
@@ -1492,18 +1564,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 24px;">
         <div style="text-align: center; margin-bottom: 48px;">
           <span style="display: inline-block; background: #FF3D02; color: white; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 16px; border-radius: 99px; margin-bottom: 16px;">YOUR TEAM</span>
-          <h2 style="font-family: Inter, sans-serif; font-weight: 900; font-size: 36px; text-transform: uppercase; letter-spacing: -0.02em; color: #F0F0EC; margin: 0;">WHO YOU'LL <span style="color: #FF3D02;">WORK WITH</span></h2>
+          <h2 style="font-family: 'TT Commons Pro','Helvetica Neue',sans-serif; font-weight: 900; font-size: 36px; text-transform: uppercase; letter-spacing: -0.02em; color: #F0F0EC; margin: 0;">WHO YOU'LL <span style="color: #FF3D02;">WORK WITH</span></h2>
           <p style="color: rgba(240,240,236,0.7); margin-top: 16px; font-size: 17px;">A small, focused team. No account managers, no runarounds. You deal with the people doing the work.</p>
         </div>
         <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; text-align: center; align-items: start;">
           <div style="display: flex; flex-direction: column; align-items: center;">
             <img src="/images/josh-photo.jpg" alt="Josh - Founder" style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; margin-bottom: 16px; border: 3px solid #FF3D02;" width="400" height="400">
-            <h3 style="font-family: Inter, sans-serif; font-weight: 800; font-size: 18px; text-transform: uppercase; margin: 0; color: #F0F0EC;">Josh</h3>
+            <h3 style="font-family: 'TT Commons Pro','Helvetica Neue',sans-serif; font-weight: 800; font-size: 18px; text-transform: uppercase; margin: 0; color: #F0F0EC;">Josh</h3>
             <p style="color: rgba(240,240,236,0.6); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px;">Founder & Principal Consultant</p>
           </div>
           <div style="display: flex; flex-direction: column; align-items: center;">
             <img src="/images/teddi-photo.webp" alt="Teddi - Head of Implementation" style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; margin-bottom: 16px; border: 3px solid #FF3D02;" width="800" height="581">
-            <h3 style="font-family: Inter, sans-serif; font-weight: 800; font-size: 18px; text-transform: uppercase; margin: 0; color: #F0F0EC;">Teddi</h3>
+            <h3 style="font-family: 'TT Commons Pro','Helvetica Neue',sans-serif; font-weight: 800; font-size: 18px; text-transform: uppercase; margin: 0; color: #F0F0EC;">Teddi</h3>
             <p style="color: rgba(240,240,236,0.6); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px;">Head of Implementation</p>
           </div>
           <div style="display: flex; flex-direction: column; align-items: center;">
@@ -1568,7 +1640,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="container" style="max-width: 900px; margin: 0 auto; padding: 0 24px;">
         <div style="text-align: center; margin-bottom: 40px;">
           <span style="display: inline-block; background: #FF3D02; color: white; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 16px; border-radius: 99px; margin-bottom: 16px;">BOOK YOUR MEETING</span>
-          <h2 style="font-family: Inter, sans-serif; font-weight: 900; font-size: 36px; text-transform: uppercase; letter-spacing: -0.02em; color: #1C1C1A; margin: 0;">PICK A TIME <span style="color: #FF3D02;">THAT WORKS</span></h2>
+          <h2 style="font-family: 'TT Commons Pro','Helvetica Neue',sans-serif; font-weight: 900; font-size: 36px; text-transform: uppercase; letter-spacing: -0.02em; color: #1C1C1A; margin: 0;">PICK A TIME <span style="color: #FF3D02;">THAT WORKS</span></h2>
         </div>
         <div style="background: white; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.08);">
           <iframe src="https://meet.reclaimai.com/e/686c0900-a513-4c74-8e6c-c728c72145e7" width="100%" height="700px" style="outline:none;border:none;" loading="lazy"></iframe>
@@ -1682,6 +1754,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ==============================
          9. LEAD FORM SECTION
          ============================== -->
+    <div class="tire-strip tire-strip--light" aria-hidden="true"></div>
+
     <section class="form-section" id="book-audit">
         <div class="container">
             <div class="form-wrapper">
