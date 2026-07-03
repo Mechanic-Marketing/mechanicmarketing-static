@@ -526,6 +526,58 @@
             aspect-ratio: 4 / 3;
         }
 
+        /* Workshop stage: Josh + Teddi cutout on a dark, tyre-printed backdrop */
+        .hero__photo--stage {
+            aspect-ratio: 10 / 9;
+            background:
+                radial-gradient(ellipse 75% 55% at 50% 34%, rgba(255,61,2,0.38) 0%, rgba(255,61,2,0.08) 55%, transparent 75%),
+                linear-gradient(180deg, #232320 0%, #1c1c1a 60%, #151513 100%);
+        }
+
+        .hero__photo--stage::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 42px;
+            background: url('/images/MM-TirePrint-Strip.svg') repeat-x 0 center / 500px auto;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .hero__photo--stage .hero__cutout {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: auto;
+            height: 96%;
+            object-fit: contain;
+            object-position: bottom center;
+            filter: drop-shadow(0 18px 30px rgba(0,0,0,0.55));
+        }
+
+        .hero__stage-caption {
+            position: absolute;
+            left: 14px;
+            bottom: 14px;
+            z-index: 2;
+            max-width: 62%;
+            background: rgba(240,240,236,0.96);
+            color: #1C1C1A;
+            font-family: var(--font-display);
+            font-size: 0.72rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            line-height: 1.25;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 2px solid #1C1C1A;
+            box-shadow: 3px 3px 0 rgba(28,28,26,0.85);
+        }
+
         .hero__badge {
             position: absolute;
             z-index: 2;
@@ -1683,12 +1735,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </a>
                     </div>
 
-                    <div class="hero__tags" aria-label="Workshop types we work with">
-                        <span class="hero__tag hero__tag--accent">Diesel</span>
-                        <span class="hero__tag">Euro</span>
-                        <span class="hero__tag">4x4</span>
-                        <span class="hero__tag">General repair</span>
-                        <span class="hero__tag">Mobile</span>
+                    <div class="hero__tags" aria-label="What we do">
+                        <span class="hero__tag hero__tag--accent">Every workshop, big or small</span>
+                        <span class="hero__tag">Google Ads</span>
+                        <span class="hero__tag">Meta Ads</span>
+                        <span class="hero__tag">SEO</span>
+                        <span class="hero__tag">Websites</span>
                     </div>
                 </div>
 
@@ -1697,11 +1749,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <span class="big">4.2&times;</span>
                         <span class="small">Avg return</span>
                     </div>
-                    <div class="hero__photo">
-                        <picture>
-                            <source srcset="/images/20250526_BB-Garage_2.webp" type="image/webp">
-                            <img src="/images/20250526_BB-Garage_2.jpg" alt="BB Garage — a Mechanic Marketing client workshop" width="1600" height="1067" fetchpriority="high">
-                        </picture>
+                    <div class="hero__photo hero__photo--stage">
+                        <img class="hero__cutout" src="/images/josh-teddi-cutout.webp" alt="Josh and Teddi from Mechanic Marketing" width="1150" height="1040" fetchpriority="high">
+                        <span class="hero__stage-caption">Josh &amp; Teddi &mdash; the team you'll actually work with</span>
                     </div>
                     <div class="hero__badge hero__badge--days">
                         <span class="big">7 days</span>
@@ -1809,6 +1859,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
                 </div>
             </div>
+            <p style="text-align:center; margin-top:28px; font-size:1rem; color:rgba(28,28,26,0.6);">If you fix cars, we can market you. These are just some of the workshops we've worked with &mdash; every general workshop is right at home here too.</p>
             <div class="section-cta">
                 <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
             </div>
@@ -2281,19 +2332,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
 
                     <div class="form-group">
-                        <label for="primaryService">Primary Service *</label>
-                        <select id="primaryService" name="primaryService" required>
-                            <option value="" disabled selected>Select your specialty</option>
-                            <option value="diesel">Diesel</option>
-                            <option value="euro">Euro</option>
-                            <option value="4x4">4x4</option>
-                            <option value="american-trucks">American trucks</option>
-                            <option value="mobile">Mobile</option>
-                            <option value="general-repair">General repair</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
                         <label for="state">State *</label>
                         <select id="state" name="state" required>
                             <option value="" disabled selected>Select your state</option>
@@ -2494,10 +2532,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     var workshopName = document.getElementById('workshopName');
                     var mobile = document.getElementById('mobile');
                     var email = document.getElementById('email');
-                    var primaryService = document.getElementById('primaryService');
                     var state = document.getElementById('state');
 
-                    var requiredFields = [firstName, workshopName, mobile, email, primaryService, state];
+                    var requiredFields = [firstName, workshopName, mobile, email, state];
                     var isValid = true;
 
                     requiredFields.forEach(function(field) {
@@ -2533,7 +2570,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             mobile: mobile.value.trim(),
                             email: email.value.trim(),
                             website_url: websiteEl ? websiteEl.value.trim() : '',
-                            primary_service: primaryService.value,
                             state: state.value
                         })
                     })
