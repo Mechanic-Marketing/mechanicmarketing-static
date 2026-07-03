@@ -1468,7 +1468,8 @@
         .hero-proof { justify-content: flex-start; }
 
         /* === Section Header Centering === */
-        .sec-hdr { text-align: center; }
+        .sec-hdr { text-align: center; margin-bottom: 44px; }
+        .sec-hdr h2 { margin-bottom: 0; }
 
         /* === LP Case Studies Carousel === */
         .lp-cases-section { padding: 80px 24px; background: radial-gradient(ellipse 75% 65% at 100% 0%, rgba(255,61,2,0.055) 0%, transparent 70%), radial-gradient(ellipse 45% 50% at 0% 100%, rgba(255,61,2,0.035) 0%, transparent 60%), #ffffff; border-top: 1px solid rgba(0,0,0,0.06); }
@@ -1646,6 +1647,144 @@
 
         /* Buttons: press feel */
         .btn-primary:active { transform: translateY(0) scale(0.98); }
+
+        /* ============================================
+           JOURNEY ROAD — three steps as a timeline
+           ============================================ */
+        .journey-road {
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 36px;
+        }
+
+        .journey-road::before {
+            content: '';
+            position: absolute;
+            top: 28px;
+            left: 9%;
+            right: 9%;
+            border-top: 3px dashed rgba(255, 61, 2, 0.55);
+        }
+
+        .j-stop {
+            position: relative;
+            text-align: center;
+        }
+
+        .j-marker {
+            position: relative;
+            z-index: 1;
+            width: 58px;
+            height: 58px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            background: #1C1C1A;
+            border: 3px solid #FF3D02;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 4px 4px 0 rgba(28, 28, 26, 0.85);
+            transition: transform 0.3s var(--spring);
+        }
+
+        .j-stop:hover .j-marker { transform: scale(1.12) rotate(-8deg); }
+
+        .j-marker svg { width: 28px; height: 28px; }
+
+        .j-day {
+            display: inline-block;
+            font-family: var(--font-display);
+            background: #FF3D02;
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.11em;
+            padding: 5px 12px;
+            border-radius: 4px;
+            margin-bottom: 14px;
+        }
+
+        .j-stop h3 {
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .j-stop p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .journey-road {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .journey-road::before {
+                top: 8%;
+                bottom: 8%;
+                left: 28px;
+                right: auto;
+                border-top: none;
+                border-left: 3px dashed rgba(255, 61, 2, 0.55);
+            }
+
+            .j-stop {
+                text-align: left;
+                padding-left: 84px;
+                min-height: 58px;
+            }
+
+            .j-marker {
+                position: absolute;
+                left: 0;
+                top: 0;
+                margin: 0;
+            }
+
+            .j-stop p { margin: 0; max-width: none; }
+        }
+
+        /* ============================================
+           MOBILE POLISH
+           ============================================ */
+        @media (max-width: 560px) {
+            .who-section, .generalist-section, .process-section,
+            .results-section, .guarantee-section, .faq-section, .form-section {
+                padding: 56px 0;
+            }
+
+            .hero { padding: 40px 0 64px; }
+            .hero__grid { gap: 40px; }
+            .hero h1 { font-size: clamp(2.6rem, 12vw, 3rem); }
+            .hero-sub { font-size: 1.1rem; }
+            .sec-hdr { margin-bottom: 32px; }
+
+            .hero__cta-row { gap: 16px; }
+            .hero__cta-row .btn-primary {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero__badge--roas .big { font-size: 1.35rem; }
+            .hero__badge--days .big { font-size: 1.1rem; }
+            .hero__badge { padding: 10px 14px; }
+
+            .hero__stage-caption {
+                font-size: 0.62rem;
+                max-width: 70%;
+                left: 10px;
+                bottom: 10px;
+            }
+
+            .section-cta { margin-top: 32px; }
+        }
     </style>
 </head>
 <body>
@@ -1750,7 +1889,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <span class="small">Avg return</span>
                     </div>
                     <div class="hero__photo hero__photo--stage">
-                        <img class="hero__cutout" src="/images/josh-teddi-cutout.webp" alt="Josh and Teddi from Mechanic Marketing" width="1150" height="1040" fetchpriority="high">
+                        <img class="hero__cutout" src="/images/josh-teddi-cutout.webp" alt="Josh and Teddi from Mechanic Marketing" width="1024" height="1024" fetchpriority="high">
                         <span class="hero__stage-caption">Josh &amp; Teddi &mdash; the team you'll actually work with</span>
                     </div>
                     <div class="hero__badge hero__badge--days">
@@ -1941,29 +2080,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <h2>Three steps. <span class="accent">Seven days.</span></h2>
             </div>
 
-            <div class="steps-grid animate-on-scroll">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>We Audit</h3>
-                        <p>Free 30 minute deep dive into your ads, website and tracking. We find the leaks, the waste, and the opportunities your current setup is missing.</p>
+            <div class="journey-road animate-on-scroll">
+                <div class="j-stop">
+                    <div class="j-marker" aria-hidden="true">
+                        <!-- Magnifier / audit -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#FF3D02" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg>
                     </div>
+                    <span class="j-day">Day 0</span>
+                    <h3>We Audit</h3>
+                    <p>Free 30 minute deep dive into your ads, website and tracking. We find the leaks, the waste, and the opportunities your current setup is missing.</p>
                 </div>
 
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>We Build</h3>
-                        <p>Landing pages, campaigns, tracking. All built to convert car owners into booked jobs. Live in 7 days, not 7 weeks.</p>
+                <div class="j-stop">
+                    <div class="j-marker" aria-hidden="true">
+                        <!-- Spanner / build -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#FF3D02" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4.5 4.5 0 0 0-6.02 5.42L3 17.4V21h3.6l5.68-5.68A4.5 4.5 0 0 0 17.7 9.3l-2.6 2.6-2.4-.6-.6-2.4 2.6-2.6z"/></svg>
                     </div>
+                    <span class="j-day">Days 1&ndash;7</span>
+                    <h3>We Build</h3>
+                    <p>Landing pages, campaigns, tracking. All built to convert car owners into booked jobs. Live in 7 days, not 7 weeks.</p>
                 </div>
 
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>You Grow</h3>
-                        <p>Monthly optimisation, transparent reporting, and results you can bank. We keep pushing the numbers so you can focus on the workshop floor.</p>
+                <div class="j-stop">
+                    <div class="j-marker" aria-hidden="true">
+                        <!-- Chequered flag / grow -->
+                        <svg viewBox="0 0 24 24" fill="none" stroke="#FF3D02" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V4"/><path d="M5 4c4-2 7 2 14 0v10c-7 2-10-2-14 0"/><path d="M5 9c4-2 7 2 14 0" opacity="0.55"/></svg>
                     </div>
+                    <span class="j-day">Day 8+</span>
+                    <h3>You Grow</h3>
+                    <p>Monthly optimisation, transparent reporting, and results you can bank. We keep pushing the numbers so you can focus on the workshop floor.</p>
                 </div>
             </div>
             <div class="section-cta">
@@ -2101,7 +2246,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ==============================
          TEAM PHOTOS
          ============================== -->
-    <section style="padding: 80px 0; background: #1C1C1A; color: #F0F0EC;">
+    <section class="team-section" style="padding: 80px 0; background: #1C1C1A; color: #F0F0EC;">
       <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 24px;">
         <div style="text-align: center; margin-bottom: 48px;">
           <span style="display: inline-block; background: #FF3D02; color: white; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 16px; border-radius: 99px; margin-bottom: 16px;">YOUR TEAM</span>
@@ -2614,6 +2759,430 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         })();
     </script>
 
+
+
+<style>
+  #road-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+  #sc-car { position: fixed; top: 0; left: 0; width: 100px; pointer-events: none; z-index: 3; opacity: 0; transition: opacity 0.65s ease; will-change: transform; }
+  #sc-car.sc-visible { opacity: 1; }
+  #sc-car-svg { width: 100px; height: auto; display: block; transform-origin: 50% 50%; filter: drop-shadow(0 4px 24px rgba(255,61,2,0.20)) drop-shadow(0 0 48px rgba(255,61,2,0.09)); }
+  @media (max-width: 1439px) { #road-canvas, #sc-car { display: none !important; } }
+  @media (prefers-reduced-motion: reduce) { #road-canvas, #sc-car { display: none !important; } }
+</style>
+
+<!-- ── Road Journey System: canvas road + path-following car ── -->
+<canvas id="road-canvas" aria-hidden="true"></canvas>
+
+<div id="sc-car" aria-hidden="true">
+  <svg id="sc-car-svg" viewBox="0 0 175 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="sc-glow" x="-80%" y="-80%" width="260%" height="260%" color-interpolation-filters="sRGB">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur"/>
+        <feColorMatrix in="blur" type="matrix"
+          values="1 0 0 0 0.4  0 0.1 0 0 0  0 0 0 0 0  0 0 0 18 -8" result="glow"/>
+        <feMerge><feMergeNode in="glow"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+    <!-- Ambient glow under car -->
+    <ellipse cx="88" cy="106" rx="72" ry="7" fill="#FF3D02" opacity="0.09"/>
+    <!-- Front face -->
+    <line x1="8" y1="66" x2="8" y2="88" stroke="#FF3D02" stroke-width="2" stroke-linecap="round"/>
+    <!-- Grille box -->
+    <rect x="8" y="54" width="15" height="13" fill="#1c1c1a" stroke="#FF3D02" stroke-width="1.5" stroke-linejoin="round"/>
+    <!-- Hood -->
+    <line x1="8" y1="64" x2="78" y2="60" stroke="#FF3D02" stroke-width="2" stroke-linecap="round"/>
+    <!-- Windshield + roof + rear cabin -->
+    <path d="M 78 60 L 82 53 L 93 37 L 142 37 L 148 53 L 157 62 C 161 71 163 83 161 88"
+          stroke="#FF3D02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    <!-- Cabin side window -->
+    <path d="M 96 41 L 128 41 L 137 59 L 94 59 Z"
+          fill="rgba(255,61,2,0.06)" stroke="#FF3D02" stroke-width="1.2" stroke-linejoin="round"/>
+    <!-- Front fender arch -->
+    <path d="M 8 78 C 11 85 26 90 45 90 C 60 90 64 90 65 90"
+          stroke="#FF3D02" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <!-- Body sill -->
+    <line x1="65" y1="90" x2="118" y2="90" stroke="#FF3D02" stroke-width="1.8"/>
+    <!-- Rear fender arch -->
+    <path d="M 118 90 C 120 90 125 90 140 90 C 155 90 161 85 161 90"
+          stroke="#FF3D02" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+    <!-- Front bumper bar -->
+    <line x1="4" y1="92" x2="27" y2="92" stroke="#FF3D02" stroke-width="2" stroke-linecap="round"/>
+    <!-- Rear bumper bar -->
+    <line x1="159" y1="92" x2="173" y2="92" stroke="#FF3D02" stroke-width="2" stroke-linecap="round"/>
+    <!-- Door split -->
+    <line x1="100" y1="60" x2="100" y2="90" stroke="#FF3D02" stroke-width="1" opacity="0.5" stroke-linecap="round"/>
+    <!-- Belt line -->
+    <line x1="66" y1="75" x2="115" y2="75" stroke="#FF3D02" stroke-width="0.7" opacity="0.4"/>
+    <!-- Hood louvres -->
+    <line x1="48" y1="62" x2="48" y2="70" stroke="#FF3D02" stroke-width="0.8" opacity="0.45"/>
+    <line x1="54" y1="62" x2="54" y2="70" stroke="#FF3D02" stroke-width="0.8" opacity="0.45"/>
+    <line x1="60" y1="61" x2="60" y2="69" stroke="#FF3D02" stroke-width="0.8" opacity="0.45"/>
+    <line x1="66" y1="61" x2="66" y2="69" stroke="#FF3D02" stroke-width="0.8" opacity="0.45"/>
+    <!-- Headlight -->
+    <circle cx="28" cy="64" r="6" fill="#1c1c1a" stroke="#FF3D02" stroke-width="1.5"/>
+    <circle cx="28" cy="64" r="2.5" fill="#FF3D02" filter="url(#sc-glow)"/>
+    <!-- Taillight -->
+    <circle cx="162" cy="82" r="3" fill="#FF3D02" filter="url(#sc-glow)"/>
+    <!-- Spare wheel -->
+    <circle cx="167" cy="73" r="8" fill="#1c1c1a" stroke="#FF3D02" stroke-width="1.4"/>
+    <circle cx="167" cy="73" r="3.5" fill="none" stroke="#FF3D02" stroke-width="0.7"/>
+    <!-- Front splash apron -->
+    <line x1="23" y1="64" x2="23" y2="88" stroke="#FF3D02" stroke-width="1" opacity="0.4" stroke-linecap="round"/>
+    <!-- Front wheel (rotation via JS) -->
+    <g class="sc-fw">
+      <circle cx="45" cy="90" r="18" fill="none" stroke="#FF3D02" stroke-width="2"/>
+      <circle cx="45" cy="90" r="7" fill="#FF3D02"/>
+      <g stroke="#FF3D02" stroke-width="0.9" stroke-linecap="round">
+        <line x1="52" y1="90" x2="63" y2="90"/><line x1="50" y1="85" x2="58" y2="77"/>
+        <line x1="45" y1="83" x2="45" y2="72"/><line x1="40" y1="85" x2="32" y2="77"/>
+        <line x1="38" y1="90" x2="27" y2="90"/><line x1="40" y1="95" x2="32" y2="103"/>
+        <line x1="45" y1="97" x2="45" y2="108"/><line x1="50" y1="95" x2="58" y2="103"/>
+      </g>
+    </g>
+    <!-- Rear wheel (rotation via JS) -->
+    <g class="sc-rw">
+      <circle cx="140" cy="90" r="18" fill="none" stroke="#FF3D02" stroke-width="2"/>
+      <circle cx="140" cy="90" r="7" fill="#FF3D02"/>
+      <g stroke="#FF3D02" stroke-width="0.9" stroke-linecap="round">
+        <line x1="147" y1="90" x2="158" y2="90"/><line x1="145" y1="85" x2="153" y2="77"/>
+        <line x1="140" y1="83" x2="140" y2="72"/><line x1="135" y1="85" x2="127" y2="77"/>
+        <line x1="133" y1="90" x2="122" y2="90"/><line x1="135" y1="95" x2="127" y2="103"/>
+        <line x1="140" y1="97" x2="140" y2="108"/><line x1="145" y1="95" x2="153" y2="103"/>
+      </g>
+    </g>
+  </svg>
+</div>
+
+<script>
+/* ============================================================
+   Road Journey System
+   - Canvas draws a purple Catmull-Rom road progressively
+   - Car follows the same path via getPointAtLength sampling
+   - Only active on viewports ≥ 1440 px
+   ============================================================ */
+(function () {
+  'use strict';
+  if (window.innerWidth < 1440) return;
+
+  var roadCanvas = document.getElementById('road-canvas');
+  var scCar      = document.getElementById('sc-car');
+  var scSvg      = document.getElementById('sc-car-svg');
+  if (!roadCanvas || !scCar || !scSvg) return;
+
+  var fw = scSvg.querySelector('.sc-fw');
+  var rw = scSvg.querySelector('.sc-rw');
+  var ctx = roadCanvas.getContext('2d');
+
+  /* ── Constants ── */
+  var CAR_W   = 100;
+  var CAR_H   = 63;   /* rendered height of 175×110 viewBox at 100px width */
+  var GAP     = 40;   /* px from viewport edge to car outer edge — increased for clearance from content */
+  var WHEEL_R = 18 * (CAR_W / 175);
+  var CIRC    = 2 * Math.PI * WHEEL_R;
+  var N_PTS   = 700;  /* path sample resolution */
+
+  /* ── State ── */
+  var pathPts    = [];   /* [{x,y}] sampled path, document coordinates */
+  var maxProg    = 0;    /* furthest scroll progress ever reached */
+  var wheelRot   = 0;
+  var lastScroll = window.scrollY;
+  var dirty      = true;
+  var built      = false;
+
+  /* ── Absolute document-top helper ── */
+  function docTop(sel) {
+    var el = document.querySelector(sel);
+    if (!el) return 0;
+    var t = 0, n = el;
+    while (n) { t += n.offsetTop; n = n.offsetParent; }
+    return t;
+  }
+
+  /* ── Build Catmull-Rom path string ── */
+  function makeSvgPath(pts) {
+    var d = 'M' + pts[0].x.toFixed(2) + ' ' + pts[0].y.toFixed(2);
+    for (var i = 0; i < pts.length - 1; i++) {
+      var p0 = pts[Math.max(0, i - 1)];
+      var p1 = pts[i];
+      var p2 = pts[i + 1];
+      var p3 = pts[Math.min(pts.length - 1, i + 2)];
+      var c1x = (p1.x + (p2.x - p0.x) / 6).toFixed(2);
+      var c1y = (p1.y + (p2.y - p0.y) / 6).toFixed(2);
+      var c2x = (p2.x - (p3.x - p1.x) / 6).toFixed(2);
+      var c2y = (p2.y - (p3.y - p1.y) / 6).toFixed(2);
+      d += ' C' + c1x + ' ' + c1y + ',' + c2x + ' ' + c2y + ',' + p2.x.toFixed(2) + ' ' + p2.y.toFixed(2);
+    }
+    return d;
+  }
+
+  /* ── Sample path into flat array for fast per-frame lookup ── */
+  function samplePath(waypoints) {
+    /* Temporarily attach a hidden SVG to the DOM for getTotalLength */
+    var NS = 'http://www.w3.org/2000/svg';
+    var svg = document.createElementNS(NS, 'svg');
+    svg.style.cssText = 'position:absolute;visibility:hidden;top:-9999px;left:-9999px;width:0;height:0;overflow:hidden;';
+    var el  = document.createElementNS(NS, 'path');
+    el.setAttribute('d', makeSvgPath(waypoints));
+    svg.appendChild(el);
+    document.body.appendChild(svg);
+    var len = el.getTotalLength();
+    var pts = [];
+    for (var i = 0; i <= N_PTS; i++) {
+      var p = el.getPointAtLength(i / N_PTS * len);
+      pts.push({ x: p.x, y: p.y });
+    }
+    document.body.removeChild(svg);
+    return pts;
+  }
+
+  /* ── Compute waypoints from section positions (mechanics-only LP) ── */
+  function buildWaypoints() {
+    var vw = window.innerWidth;
+    var lx = GAP + CAR_W / 2;
+    var rx = vw - GAP - CAR_W / 2;
+
+    var heroEl  = document.querySelector('.hero');
+    var heroH   = heroEl ? heroEl.offsetHeight : 720;
+    var who     = docTop('.who-section');
+    var gen     = docTop('.generalist-section');
+    var proc    = docTop('.process-section');
+    var testi   = docTop('.testimonial-wrap');
+    var res     = docTop('.results-section');
+    var cases   = docTop('.lp-cases-section');
+    var team    = docTop('.team-section');
+    var guar    = docTop('.guarantee-section');
+    var booking = docTop('.booking-section');
+    var faq     = docTop('.faq-section');
+    var form    = docTop('.form-section');
+
+    function mid(a, b, f) { return a + (b - a) * f; }
+
+    return [
+      /* Hero — start right gutter (car hidden while hero on screen) */
+      { x: rx, y: heroH * 0.50 },
+      { x: rx, y: heroH * 0.85 },
+
+      /* Workshops we've helped — right */
+      { x: rx, y: mid(who, gen, 0.30) },
+      { x: rx, y: mid(who, gen, 0.70) },
+
+      /* Generalist comparison — curve to left */
+      { x: lx, y: mid(gen, proc, 0.15) },
+      { x: lx, y: mid(gen, proc, 0.55) },
+      { x: lx, y: mid(gen, proc, 0.85) },
+
+      /* Journey / process — curve to right */
+      { x: rx, y: mid(proc, testi, 0.15) },
+      { x: rx, y: mid(proc, testi, 0.60) },
+
+      /* Testimonial + results — curve to left */
+      { x: lx, y: mid(testi, res, 0.40) },
+      { x: lx, y: mid(res, cases, 0.40) },
+      { x: lx, y: mid(res, cases, 0.80) },
+
+      /* Case studies — curve to right */
+      { x: rx, y: mid(cases, team, 0.20) },
+      { x: rx, y: mid(cases, team, 0.65) },
+
+      /* Team — curve to left */
+      { x: lx, y: mid(team, guar, 0.25) },
+      { x: lx, y: mid(team, guar, 0.70) },
+
+      /* Guarantees — curve to right */
+      { x: rx, y: mid(guar, booking, 0.20) },
+      { x: rx, y: mid(guar, booking, 0.65) },
+
+      /* Booking — curve to left */
+      { x: lx, y: mid(booking, faq, 0.25) },
+      { x: lx, y: mid(booking, faq, 0.70) },
+
+      /* FAQ — curve to right */
+      { x: rx, y: mid(faq, form, 0.25) },
+      { x: rx, y: mid(faq, form, 0.65) },
+
+      /* Form — glide left and park */
+      { x: lx, y: form + 60 },
+    ];
+  }
+
+  /* ── Initialise / rebuild path ── */
+  function build() {
+    var waypoints = buildWaypoints();
+    pathPts = samplePath(waypoints);
+    built   = true;
+    dirty   = true;
+  }
+
+  /* ── Resize canvas to viewport ── */
+  function resizeCanvas() {
+    roadCanvas.width  = window.innerWidth;
+    roadCanvas.height = window.innerHeight;
+    dirty = true;
+  }
+
+  /* ── Interpolate path at progress 0-1 ── */
+  function getState(progress) {
+    var fi  = progress * N_PTS;
+    var i0  = Math.max(0, Math.min(N_PTS - 1, Math.floor(fi)));
+    var i1  = Math.min(i0 + 1, N_PTS);
+    var f   = fi - i0;
+    var x   = pathPts[i0].x + f * (pathPts[i1].x - pathPts[i0].x);
+    var y   = pathPts[i0].y + f * (pathPts[i1].y - pathPts[i0].y);
+    /* Tangent: look 12 samples ahead for stable direction */
+    var fwd = Math.min(i0 + 12, N_PTS);
+    var dx  = pathPts[fwd].x - pathPts[i0].x;
+    var dy  = pathPts[fwd].y - pathPts[i0].y;
+    return { x: x, y: y, angle: Math.atan2(dy, dx) * 180 / Math.PI };
+  }
+
+  /* ── Draw road on canvas ── */
+  function drawRoad(scrollY, heroVisible) {
+    var vw = roadCanvas.width;
+    var vh = roadCanvas.height;
+    ctx.clearRect(0, 0, vw, vh);
+
+    /* Road hidden while hero is in view */
+    if (!built || pathPts.length === 0 || heroVisible) return;
+
+    var drawIdx = Math.floor(maxProg * N_PTS);
+    if (drawIdx < 1) return;
+
+    /* Build the visible path segment */
+    ctx.beginPath();
+    var mv = false;
+    for (var j = 0; j <= drawIdx; j++) {
+      var vy = pathPts[j].y - scrollY;
+      if (!mv) { ctx.moveTo(pathPts[j].x, vy); mv = true; }
+      else       ctx.lineTo(pathPts[j].x, vy);
+    }
+
+    /* Layer 1: wide soft glow for dimensional depth */
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255,61,2,0.10)';
+    ctx.lineWidth   = 9;
+    ctx.lineCap     = 'round';
+    ctx.lineJoin    = 'round';
+    ctx.setLineDash([8, 14]);
+    ctx.shadowColor = 'rgba(255,61,2,0.22)';
+    ctx.shadowBlur  = 14;
+    ctx.stroke();
+    ctx.restore();
+
+    /* Layer 2: main orange dotted road line */
+    ctx.save();
+    ctx.strokeStyle = 'rgba(255,61,2,0.72)';
+    ctx.lineWidth   = 2.8;
+    ctx.lineCap     = 'round';
+    ctx.lineJoin    = 'round';
+    ctx.setLineDash([8, 14]);
+    ctx.shadowColor = 'rgba(255,61,2,0.40)';
+    ctx.shadowBlur  = 5;
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  /* ── Position car at scroll progress ── */
+  function positionCar(scrollY, st) {
+    /* Convert document Y → viewport Y */
+    var vx = st.x - CAR_W / 2;
+    var vy = st.y - scrollY - CAR_H / 2;
+    scCar.style.transform = 'translate(' + vx.toFixed(1) + 'px,' + vy.toFixed(1) + 'px)';
+
+    /* Facing: car SVG front (headlight) is at LEFT side by default.
+       Moving RIGHT → flip (scaleX -1) so headlight faces right.
+       Moving LEFT  → no flip. */
+    var ang = st.angle;
+    var goingRight = (ang > -90 && ang < 90);
+
+    /* Subtle pitch tilt: sin component of travel angle, clamped ±5° */
+    var tilt = Math.sin(ang * Math.PI / 180) * 5;
+    if (!goingRight) tilt = -tilt;
+    tilt = Math.max(-5, Math.min(5, tilt));
+
+    var flip = goingRight ? 'scaleX(-1) ' : '';
+    var rot  = Math.abs(tilt) > 0.4 ? 'rotate(' + tilt.toFixed(1) + 'deg)' : '';
+    scSvg.style.transform = flip + rot;
+  }
+
+  /* ── Main update ── */
+  function update() {
+    var sy  = window.scrollY;
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    if (max <= 0 || !built) return;
+
+    var progress = Math.max(0, Math.min(1, sy / max));
+
+    /* Hero visibility — road & car both hide while hero is still on screen */
+    var heroEl      = document.querySelector('.hero');
+    var heroBottom  = heroEl ? heroEl.getBoundingClientRect().bottom : 0;
+    var heroVisible = heroBottom > window.innerHeight * 0.18;
+
+    /* Road tracks exact scroll position — reverses as user scrolls back up */
+    maxProg = heroVisible ? 0 : progress;
+
+    /* Show/hide car: hero must be gone, CTA not yet close */
+    var ctaEl = document.querySelector('.form-section');
+    var ctaFar = !ctaEl  || ctaEl.getBoundingClientRect().top > window.innerHeight * 0.80;
+
+    if (!heroVisible && ctaFar) scCar.classList.add('sc-visible');
+    else scCar.classList.remove('sc-visible');
+
+    /* Wheel rotation proportional to scroll delta */
+    var delta = sy - lastScroll;
+    lastScroll = sy;
+    if (Math.abs(delta) > 0.5) {
+      wheelRot += (delta / CIRC) * 360;
+      var rot = wheelRot.toFixed(1);
+      if (fw) fw.setAttribute('transform', 'rotate(' + rot + ',45,90)');
+      if (rw) rw.setAttribute('transform', 'rotate(' + rot + ',140,90)');
+    }
+
+    /* Car position & orientation */
+    positionCar(sy, getState(progress));
+    dirty = true;
+  }
+
+  /* ── RAF render loop ── */
+  function loop() {
+    if (dirty) {
+      var heroEl      = document.querySelector('.hero');
+      var heroVisible = heroEl ? heroEl.getBoundingClientRect().bottom > window.innerHeight * 0.18 : false;
+      drawRoad(window.scrollY, heroVisible);
+      dirty = false;
+    }
+    requestAnimationFrame(loop);
+  }
+
+  /* ── Event listeners ── */
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', function () {
+    if (window.innerWidth < 1440) {
+      roadCanvas.style.display = 'none';
+      scCar.style.display = 'none';
+      return;
+    }
+    roadCanvas.style.display = '';
+    scCar.style.display = '';
+    resizeCanvas();
+    maxProg = 0;
+    setTimeout(function () { build(); update(); }, 50);
+  }, { passive: true });
+
+  /* ── Boot: wait for full page layout ── */
+  function init() {
+    resizeCanvas();
+    build();
+    update();
+    requestAnimationFrame(loop);
+  }
+
+  if (document.readyState === 'complete') {
+    init();
+  } else {
+    window.addEventListener('load', init);
+  }
+})();
+</script>
 
 <!-- Floating SMS bubble -->
 <a href="sms:+61480800644" class="mm-sms-bubble" aria-label="Text Mechanic Marketing on 0480 800 644" onclick="window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'sms_click',phone_number:'0480800644'})">
