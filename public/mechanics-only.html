@@ -374,7 +374,8 @@
 
         @media (max-width: 900px) {
             .hero__grid { grid-template-columns: 1fr; gap: 48px; }
-            .hero__visual { max-width: 380px; justify-self: center; }
+            /* Explicit width (not just max-width) so the aspect-ratio photo can size + centre */
+            .hero__visual { width: min(340px, 78vw); justify-self: center; margin-top: 8px; }
         }
 
         /* Staged hero entrance - everything hidden, then springs in on .hero-loaded */
@@ -580,7 +581,7 @@
             left: 50%;
             transform: translateX(-50%);
             width: auto;
-            height: 96%;
+            height: 84%;
             object-fit: contain;
             object-position: bottom center;
             filter: drop-shadow(0 18px 30px rgba(0,0,0,0.55));
@@ -1218,7 +1219,8 @@
         }
 
         .form-group input,
-        .form-group select {
+        .form-group select,
+        .form-group textarea {
             background: rgba(255, 255, 255, 0.08);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 8px;
@@ -1238,12 +1240,14 @@
             padding-right: 40px;
         }
 
-        .form-group input::placeholder {
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
             color: rgba(255, 255, 255, 0.35);
         }
 
         .form-group input:focus,
-        .form-group select:focus {
+        .form-group select:focus,
+        .form-group textarea:focus {
             outline: none;
             border-color: #FF3D02;
         }
@@ -1803,18 +1807,30 @@
                 text-align: center;
             }
 
-            .hero__badge--roas .big { font-size: 1.35rem; }
-            .hero__badge--days .big { font-size: 1.1rem; }
-            .hero__badge { padding: 10px 14px; }
+            /* Tighter, non-colliding badges on mobile */
+            .hero__badge { padding: 8px 12px; box-shadow: 3px 3px 0 rgba(28,28,26,0.9); }
+            .hero__badge--roas .big { font-size: 1.2rem; }
+            .hero__badge--roas .small { font-size: 0.6rem; }
+            .hero__badge--roas { top: -14px; left: -8px; }
+            .hero__badge--days .big { font-size: 0.95rem; }
+            .hero__badge--days .small { font-size: 0.58rem; }
+            .hero__badge--days { bottom: -14px; right: -8px; }
 
-            .hero__stage-caption {
-                font-size: 0.62rem;
-                max-width: 70%;
-                left: 10px;
-                bottom: 10px;
-            }
+            /* Caption truncates/collides on narrow screens — hide it (it's also in the team section) */
+            .hero__stage-caption { display: none; }
 
             .section-cta { margin-top: 32px; }
+        }
+
+        /* Team headshots stack on mobile (override the inline 3-col grid) */
+        @media (max-width: 640px) {
+            .team-grid {
+                grid-template-columns: 1fr !important;
+                gap: 32px !important;
+                max-width: 300px;
+                margin-left: auto;
+                margin-right: auto;
+            }
         }
     </style>
 </head>
@@ -2007,7 +2023,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="quiz-panel animate-on-scroll" id="quizPanel">
                 <span class="quiz-panel__eyebrow"><span class="dot"></span>60-second fit check</span>
                 <h2>Are we the right fit for your workshop?</h2>
-                <p class="quiz-panel__sub">Answer 4 quick questions. If we're a fit, we'll be in touch. If we're not, we'll tell you straight.</p>
+                <p class="quiz-panel__sub">Answer a few quick questions. If we're a fit, we'll be in touch. If we're not, we'll tell you straight.</p>
 
                 <div class="quiz-progress">
                     <div class="quiz-dot" id="qd0"></div>
@@ -2068,6 +2084,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <button type="button" class="quiz-back" data-back="2">&larr; Back</button>
                 </div>
 
+                <div class="quiz-step" id="mmq-s4">
+                    <div class="quiz-q">What's your monthly revenue range?</div>
+                    <div class="quiz-opts">
+                        <label class="quiz-opt" data-q="4" data-v="10-30k"><span class="qr"></span>$10,000 &ndash; $30,000</label>
+                        <label class="quiz-opt" data-q="4" data-v="30-50k"><span class="qr"></span>$30,000 &ndash; $50,000</label>
+                        <label class="quiz-opt" data-q="4" data-v="50-100k"><span class="qr"></span>$50,000 &ndash; $100,000</label>
+                        <label class="quiz-opt" data-q="4" data-v="100k-plus"><span class="qr"></span>$100,000+</label>
+                    </div>
+                    <button type="button" class="quiz-back" data-back="3">&larr; Back</button>
+                </div>
+
                 <div class="quiz-step" id="mmq-contact">
                     <div class="quiz-q">Last step: how do we get in touch with you?</div>
                     <p class="quiz-panel__sub" style="margin-bottom: 18px;">Pop your details in and one of the team will reach out about your workshop.</p>
@@ -2079,7 +2106,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <button type="submit" class="btn-primary quiz-btn" id="qzBtn">Send &rarr;</button>
                     </form>
                     <p class="quiz-err" id="qzErr">Please enter your name, mobile and a valid email.</p>
-                    <button type="button" class="quiz-back" data-back="3">&larr; Back</button>
+                    <button type="button" class="quiz-back" data-back="4">&larr; Back</button>
                 </div>
 
                 <div class="quiz-step" id="mmq-thanks" style="text-align: center;">
@@ -2452,19 +2479,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <h2 style="font-family: 'TT Commons Pro','Helvetica Neue',sans-serif; font-weight: 900; font-size: 36px; text-transform: uppercase; letter-spacing: -0.02em; color: #F0F0EC; margin: 0;">WHO YOU'LL <span style="color: #FF3D02;">WORK WITH</span></h2>
           <p style="color: rgba(240,240,236,0.7); margin-top: 16px; font-size: 17px;">A small, focused team. No account managers, no runarounds. You deal with the people doing the work.</p>
         </div>
-        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; text-align: center; align-items: start;">
+        <div class="team-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; text-align: center; align-items: start;">
           <div style="display: flex; flex-direction: column; align-items: center;">
-            <img src="/images/josh-headshot.webp" alt="Josh - Founder" style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; margin-bottom: 16px; border: 3px solid #FF3D02;" width="620" height="620">
+            <img src="/images/josh-headshot.webp" alt="Josh - Founder" style="width: 100%; max-width: 160px; aspect-ratio: 1 / 1; height: auto; border-radius: 50%; object-fit: cover; margin-bottom: 16px; border: 3px solid #FF3D02;" width="620" height="620">
             <h3 style="font-family: 'TT Commons Pro','Helvetica Neue',sans-serif; font-weight: 800; font-size: 18px; text-transform: uppercase; margin: 0; color: #F0F0EC;">Josh</h3>
             <p style="color: rgba(240,240,236,0.6); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px;">Founder & Principal Consultant</p>
           </div>
           <div style="display: flex; flex-direction: column; align-items: center;">
-            <img src="/images/teddi-headshot.webp" alt="Teddi - Head of Implementation" style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; margin-bottom: 16px; border: 3px solid #FF3D02;" width="560" height="560">
+            <img src="/images/teddi-headshot.webp" alt="Teddi - Head of Implementation" style="width: 100%; max-width: 160px; aspect-ratio: 1 / 1; height: auto; border-radius: 50%; object-fit: cover; margin-bottom: 16px; border: 3px solid #FF3D02;" width="560" height="560">
             <h3 style="font-family: 'TT Commons Pro','Helvetica Neue',sans-serif; font-weight: 800; font-size: 18px; text-transform: uppercase; margin: 0; color: #F0F0EC;">Teddi</h3>
             <p style="color: rgba(240,240,236,0.6); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px;">Head of Implementation</p>
           </div>
           <div style="display: flex; flex-direction: column; align-items: center;">
-            <img src="/images/Guy-headshot.jpg" alt="Guy - Growth Consultant" style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; object-position: center; margin-bottom: 16px; border: 3px solid #FF3D02;" width="512" height="368">
+            <img src="/images/Guy-headshot.jpg" alt="Guy - Growth Consultant" style="width: 100%; max-width: 160px; aspect-ratio: 1 / 1; height: auto; border-radius: 50%; object-fit: cover; object-position: center; margin-bottom: 16px; border: 3px solid #FF3D02;" width="512" height="368">
             <h3 style="font-family: 'TT Commons Pro','Helvetica Neue',sans-serif; font-weight: 800; font-size: 18px; text-transform: uppercase; margin: 0; color: #F0F0EC;">Guy</h3>
             <p style="color: rgba(240,240,236,0.6); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px;">Growth Consultant</p>
           </div>
@@ -2837,7 +2864,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         (function() {
             var answers = {};      // q0, q2, q3 = string; q1 = array (multi-select)
             answers[1] = [];
-            var TOTAL_Q = 4;
+            var TOTAL_Q = 5;
 
             var advTimer = null;   // pending auto-advance timer
             var done = false;      // locked once the thank-you screen is shown
@@ -2950,13 +2977,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         role: { 'workshop':'Mechanical/general workshop','auto-electrical':'Auto electrical','panel-paint':'Panel/paint/body','mobile':'Mobile mechanic','other':'Not automotive' },
                         want: { 'leads':'More leads & booked jobs','busier':'Busier workshop','stop-waste':'Stop wasting ad spend','website':'Better website','google':'Rank higher on Google','advice':'Needs advice' },
                         budget: { 'under1k':'Under $1,000','1k-3k':'$1,000-$3,000','3k-5k':'$3,000-$5,000','5k-plus':'$5,000+' },
-                        timing: { 'asap':'ASAP','next-month':'Next month','few-months':'Next few months','exploring':'Just exploring' }
+                        timing: { 'asap':'ASAP','next-month':'Next month','few-months':'Next few months','exploring':'Just exploring' },
+                        revenue: { '10-30k':'$10k-$30k/mo','30-50k':'$30k-$50k/mo','50-100k':'$50k-$100k/mo','100k-plus':'$100k+/mo' }
                     };
                     var wants = (answers[1] || []).map(function(v){ return labels.want[v] || v; }).join(', ') || '-';
                     var msg = 'Quiz answers - Workshop type: ' + (labels.role[answers[0]] || '-') +
                               '; Looking for: ' + wants +
                               '; Budget: ' + (labels.budget[answers[2]] || '-') +
-                              '; Timing: ' + (labels.timing[answers[3]] || '-');
+                              '; Timing: ' + (labels.timing[answers[3]] || '-') +
+                              '; Monthly revenue: ' + (labels.revenue[answers[4]] || '-');
 
                     // Show the thank-you immediately - never leave the visitor stuck waiting on the network
                     setDots(TOTAL_Q);
