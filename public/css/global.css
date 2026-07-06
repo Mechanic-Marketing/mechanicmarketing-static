@@ -1352,6 +1352,19 @@ a.blog-card:hover {
   justify-self: center;
 }
 
+/* Mobile: each page's inline style block turns .mm-nav-links into an
+   absolutely-positioned dropdown (top:100%; left:0; right:0). Because .mm-nav
+   is its containing block AND a grid container, the justify-self:center above
+   also applies to the abspos box — it shrink-wraps and centres instead of
+   stretching between left/right. Stretch it back to full nav width here.
+   gap needs !important to beat the element's inline style="...gap:48px". */
+@media (max-width: 768px) {
+  .mm-nav .mm-nav-links {
+    justify-self: stretch;
+    gap: 20px !important;
+  }
+}
+
 /* Right column: phone + CTA button + mobile toggle live together here.
    grid-column:3 pins it to the right even when .mm-nav-links is display:none
    on mobile (otherwise auto-placement drops it into the centre column). */
