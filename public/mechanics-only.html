@@ -2074,7 +2074,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <input type="text" class="quiz-field" id="qzWorkshop" name="workshop" placeholder="Workshop name" autocomplete="organization">
                         <input type="tel" class="quiz-field" id="qzMobile" name="mobile" placeholder="Mobile *" autocomplete="tel" required>
                         <input type="email" class="quiz-field" id="qzEmail" name="email" placeholder="Email *" autocomplete="email" required>
-                        <input type="text" class="quiz-hp" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true">
                         <button type="submit" class="btn-primary quiz-btn" id="qzBtn">Send &rarr;</button>
                     </form>
                     <p class="quiz-err" id="qzErr">Please enter your name, mobile and a valid email.</p>
@@ -2934,9 +2933,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     var nm = (nameEl.value || '').trim();
                     var mb = (mobileEl.value || '').trim();
                     var em = (emailEl.value || '').trim();
-                    if (!nm || !mb || !/^\S+@\S+\.\S+$/.test(em)) { errEl.style.display = 'block'; return; }
-                    // Honeypot
-                    if ((quizForm.elements['company_website'] && quizForm.elements['company_website'].value)) { return; }
+                    // Validate; flag any missing/invalid field with a red border so it's obvious
+                    var bad = false;
+                    [nameEl, mobileEl, emailEl].forEach(function(el){ el.style.borderColor = 'rgba(240,240,236,0.18)'; });
+                    if (!nm) { nameEl.style.borderColor = '#FF3D02'; bad = true; }
+                    if (!mb) { mobileEl.style.borderColor = '#FF3D02'; bad = true; }
+                    if (!/^\S+@\S+\.\S+$/.test(em)) { emailEl.style.borderColor = '#FF3D02'; bad = true; }
+                    if (bad) { errEl.style.display = 'block'; return; }
                     errEl.style.display = 'none';
                     clearTimeout(advTimer); done = true;
                     btn.disabled = true; btn.textContent = 'Sending...';
