@@ -304,6 +304,33 @@
             .tire-strip::before { animation: none; }
         }
 
+        /* Faint tyre-tread texture watermark for dark sections */
+        .has-tread { position: relative; }
+        .has-tread > .container { position: relative; z-index: 1; }
+        .has-tread::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url('/images/MM-TirePrint-Strip.svg');
+            background-repeat: repeat;
+            background-size: 780px auto;
+            opacity: 0.05;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Tyre-tread accent under a heading */
+        .tread-accent {
+            width: 96px;
+            height: 12px;
+            margin: 16px auto 0;
+            background-image: url('/images/MM-TirePrint-Strip.svg');
+            background-repeat: repeat-x;
+            background-size: auto 100%;
+            opacity: 0.55;
+        }
+        .tread-accent--left { margin-left: 0; margin-right: auto; }
+
 
         /* ========================================
            2. HERO
@@ -2245,6 +2272,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="animate-on-scroll sec-hdr">
                 <span class="section-label">How It Works &middot; 03</span>
                 <h2>Three steps. <span class="accent">Seven days.</span></h2>
+                <div class="tread-accent" aria-hidden="true"></div>
             </div>
 
             <div class="journey-road animate-on-scroll">
@@ -2297,14 +2325,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 
+    <div class="tire-strip" aria-hidden="true"></div>
+
     <!-- ==============================
          6. RESULTS / CASE STUDIES
          ============================== -->
-    <section class="results-section">
+    <section class="results-section has-tread">
         <div class="container">
             <div class="animate-on-scroll sec-hdr">
                 <span class="section-label">Results &middot; 04</span>
                 <h2>Numbers that <span class="accent">matter.</span></h2>
+                <div class="tread-accent" aria-hidden="true"></div>
             </div>
 
             <div class="results-grid animate-on-scroll">
@@ -2413,7 +2444,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ==============================
          TEAM PHOTOS
          ============================== -->
-    <section class="team-section" style="padding: 80px 0; background: #1C1C1A; color: #F0F0EC;">
+    <section class="team-section has-tread" style="padding: 80px 0; background: #1C1C1A; color: #F0F0EC;">
       <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 24px;">
         <div style="text-align: center; margin-bottom: 48px;">
           <span style="display: inline-block; background: #FF3D02; color: white; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 6px 16px; border-radius: 99px; margin-bottom: 16px;">YOUR TEAM</span>
@@ -2443,11 +2474,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ==============================
          7. THREE GUARANTEES
          ============================== -->
-    <section class="guarantee-section">
+    <section class="guarantee-section has-tread">
         <div class="container">
             <div class="animate-on-scroll sec-hdr">
                 <span class="section-label">Guarantees &middot; 05</span>
                 <h2>Zero risk. <span class="accent">Guaranteed.</span></h2>
+                <div class="tread-accent" aria-hidden="true"></div>
             </div>
 
             <div class="guarantee-grid animate-on-scroll">
@@ -2493,6 +2525,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
     </section>
 
+
+    <div class="tire-strip tire-strip--light" aria-hidden="true"></div>
 
     <!-- ==============================
          8. FAQ ACCORDION
