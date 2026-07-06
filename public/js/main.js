@@ -98,7 +98,7 @@ if (form) {
       if (res.ok) {
         form.innerHTML = '<p class="form-success">Thanks — we\'ll be in touch within 1 business day.</p>';
         window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ event: 'form_submission', form_name: 'contact' });
+        window.dataLayer.push({ event: 'generate_lead', form_name: 'contact' });
       } else {
         throw new Error('Server error');
       }
