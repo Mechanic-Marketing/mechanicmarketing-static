@@ -307,7 +307,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             form.style.display = 'none';
             if (success) success.style.display = 'block';
             window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({ event: 'form_submission', form_name: 'contact' });
+            window.dataLayer.push({ event: 'generate_lead', form_name: 'contact' });
           } else {
             alert(result.error || 'Something went wrong. Please try again.');
             if (btn) {
