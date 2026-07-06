@@ -1414,8 +1414,11 @@
             }
 
             .guarantee-grid {
-                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-columns: 1fr 1fr;
                 gap: 20px;
+                max-width: 760px;
+                margin-left: auto;
+                margin-right: auto;
             }
 
             .lead-form {
@@ -1842,7 +1845,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <a href="/" aria-label="Mechanic Marketing Home">
                     <img src="/assets/logo/MM-LogoInline-Black.svg" alt="Mechanic Marketing" style="height: 36px; width: auto;" width="2516" height="388">
                 </a>
-                <div style="display:flex;align-items:center;gap:20px;"><a href="tel:+61480800644" class="lp-header-phone" aria-label="Call Mechanic Marketing on 0480 800 644" style="display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;color:#1C1C1A;text-decoration:none;white-space:nowrap;"><svg style="width:18px;height:18px;flex-shrink:0;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF3D02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="lp-header-phone-num">0480 800 644</span></a><a href="#book-audit" class="btn-primary" style="font-size:14px;padding:12px 20px;">Book My Free Audit</a></div><style>@media(max-width:640px){.lp-header-phone-num{display:none}}</style>
+                <div style="display:flex;align-items:center;gap:20px;"><a href="tel:+61480800644" class="lp-header-phone" aria-label="Call Mechanic Marketing on 0480 800 644" style="display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;color:#1C1C1A;text-decoration:none;white-space:nowrap;"><svg style="width:18px;height:18px;flex-shrink:0;" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#FF3D02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span class="lp-header-phone-num">0480 800 644</span></a><a href="#quiz" class="btn-primary lp-header-cta" style="font-size:14px;padding:12px 20px;">Enquire</a></div><style>@media(max-width:640px){.lp-header-phone-num{display:none}}@media(max-width:768px){.lp-header-cta{display:none}}</style>
             </div>
         </div>
     </div>
@@ -1867,7 +1870,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <p class="hero-sub">Every type of workshop, from diesel and Euro specialists to general repair and mobile mechanics. No cafes, no chiros, no real estate. Just workshops.</p>
 
                     <div class="hero__cta-row">
-                        <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
+                        <a href="#quiz" class="btn-primary">See If We're A Fit</a>
                         <a href="tel:+61480800644" class="hero__phone" aria-label="Call Mechanic Marketing on 0480 800 644">
                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FF3D02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
                             0480 800 644
@@ -1903,6 +1906,168 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="hero__scroll" aria-hidden="true">
             <span>Scroll</span>
             <div class="hero__scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- ==============================
+         QUIZ — primary enquiry
+         ============================== -->
+    <style>
+        .quiz-wrap { padding: 72px 0; background: #F0F0EC; }
+        .quiz-panel {
+            max-width: 640px;
+            margin: 0 auto;
+            background: #1C1C1A;
+            border-radius: 20px;
+            padding: 44px 40px;
+            color: #F0F0EC;
+            border-top: 5px solid #FF3D02;
+            box-shadow: 0 24px 60px rgba(28,28,26,0.28);
+        }
+        .quiz-panel__eyebrow {
+            display: inline-flex; align-items: center; gap: 8px;
+            font-family: var(--font-display); font-size: 0.72rem; font-weight: 900;
+            text-transform: uppercase; letter-spacing: 0.12em; color: #FF3D02;
+            margin-bottom: 14px;
+        }
+        .quiz-panel__eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: #FF3D02; animation: dot-pulse 1.6s ease-in-out infinite; }
+        .quiz-panel h2 { color: #F0F0EC; font-size: clamp(1.7rem, 4vw, 2.4rem); margin-bottom: 8px; line-height: 0.95; }
+        .quiz-panel__sub { color: rgba(240,240,236,0.6); font-size: 1rem; margin-bottom: 28px; }
+        .quiz-progress { display: flex; gap: 8px; margin-bottom: 26px; }
+        .quiz-dot { flex: 1; height: 5px; border-radius: 3px; background: rgba(240,240,236,0.14); transition: background 0.3s ease; }
+        .quiz-dot.done { background: #FF3D02; }
+        .quiz-step { display: none; animation: quizIn 0.35s var(--spring); }
+        .quiz-step.active { display: block; }
+        @keyframes quizIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+        .quiz-q { font-family: var(--font-display); font-size: 1.4rem; font-weight: 900; text-transform: uppercase; letter-spacing: -0.01em; margin-bottom: 20px; line-height: 1; }
+        .quiz-opts { display: flex; flex-direction: column; gap: 12px; }
+        .quiz-opt {
+            display: flex; align-items: center; gap: 14px;
+            padding: 16px 20px; border: 2px solid rgba(240,240,236,0.18);
+            border-radius: 12px; cursor: pointer; font-size: 1rem; font-weight: 600;
+            background: rgba(240,240,236,0.03); color: #F0F0EC;
+            transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s var(--spring);
+        }
+        .quiz-opt:hover { border-color: #FF3D02; background: rgba(255,61,2,0.08); transform: translateX(4px); }
+        .quiz-opt.selected { border-color: #FF3D02; background: rgba(255,61,2,0.14); }
+        .quiz-opt .qr { width: 22px; height: 22px; border-radius: 50%; border: 2px solid rgba(240,240,236,0.35); flex-shrink: 0; position: relative; transition: border-color 0.18s ease; }
+        .quiz-opt.selected .qr { border-color: #FF3D02; }
+        .quiz-opt.selected .qr::after { content: ''; position: absolute; top: 4px; left: 4px; width: 10px; height: 10px; border-radius: 50%; background: #FF3D02; }
+        .quiz-field { width: 100%; padding: 15px 18px; border: 2px solid rgba(240,240,236,0.18); border-radius: 12px; font-size: 1rem; font-family: inherit; background: rgba(240,240,236,0.03); color: #F0F0EC; margin-bottom: 12px; }
+        .quiz-field::placeholder { color: rgba(240,240,236,0.4); }
+        .quiz-field:focus { outline: none; border-color: #FF3D02; box-shadow: 0 0 0 3px rgba(255,61,2,0.22); }
+        .quiz-hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+        .quiz-back { background: none; border: none; cursor: pointer; font-family: var(--font-display); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(240,240,236,0.5); margin-top: 18px; padding: 4px 0; }
+        .quiz-back:hover { color: #FF3D02; }
+        .quiz-restart { background: none; border: none; cursor: pointer; font-family: var(--font-display); font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: rgba(240,240,236,0.5); margin-top: 18px; padding: 4px 0; }
+        .quiz-restart:hover { color: #FF3D02; }
+        .quiz-btn { width: 100%; margin-top: 4px; }
+        .quiz-result-icon { width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; font-size: 30px; }
+        .quiz-err { display: none; color: #ff8a6f; font-size: 0.85rem; margin-top: 10px; }
+        @media (max-width: 560px) {
+            .quiz-wrap { padding: 48px 0; }
+            .quiz-panel { padding: 32px 22px; border-radius: 16px; }
+            .quiz-opt { padding: 14px 16px; font-size: 0.95rem; }
+        }
+    </style>
+
+    <section class="quiz-wrap" id="quiz">
+        <div class="container">
+            <div class="quiz-panel animate-on-scroll" id="quizPanel">
+                <span class="quiz-panel__eyebrow"><span class="dot"></span>60-second fit check</span>
+                <h2>Are we the right fit for your workshop?</h2>
+                <p class="quiz-panel__sub">Answer 4 quick questions. If we're a fit, we'll be in touch &mdash; if we're not, we'll tell you straight.</p>
+
+                <div class="quiz-progress">
+                    <div class="quiz-dot" id="qd0"></div>
+                    <div class="quiz-dot" id="qd1"></div>
+                    <div class="quiz-dot" id="qd2"></div>
+                    <div class="quiz-dot" id="qd3"></div>
+                </div>
+
+                <div class="quiz-step active" id="mmq-s0">
+                    <div class="quiz-q">First up &mdash; what kind of workshop are you?</div>
+                    <div class="quiz-opts">
+                        <label class="quiz-opt" data-q="0" data-v="workshop"><span class="qr"></span>Mechanical / general workshop</label>
+                        <label class="quiz-opt" data-q="0" data-v="auto-electrical"><span class="qr"></span>Auto electrical or diagnostics</label>
+                        <label class="quiz-opt" data-q="0" data-v="panel-paint"><span class="qr"></span>Panel, paint or body shop</label>
+                        <label class="quiz-opt" data-q="0" data-v="mobile"><span class="qr"></span>Mobile mechanic</label>
+                        <label class="quiz-opt" data-q="0" data-v="other"><span class="qr"></span>Not an automotive workshop</label>
+                    </div>
+                </div>
+
+                <div class="quiz-step" id="mmq-s1">
+                    <div class="quiz-q">What do you want more of?</div>
+                    <div class="quiz-opts">
+                        <label class="quiz-opt" data-q="1" data-v="leads"><span class="qr"></span>More leads &amp; booked jobs</label>
+                        <label class="quiz-opt" data-q="1" data-v="busier"><span class="qr"></span>A consistently busier workshop</label>
+                        <label class="quiz-opt" data-q="1" data-v="stop-waste"><span class="qr"></span>To stop wasting money on ads</label>
+                        <label class="quiz-opt" data-q="1" data-v="unsure"><span class="qr"></span>Not sure yet &mdash; need advice</label>
+                    </div>
+                    <button type="button" class="quiz-back" data-back="0">&larr; Back</button>
+                </div>
+
+                <div class="quiz-step" id="mmq-s2">
+                    <div class="quiz-q">Roughly what could you invest in marketing each month?</div>
+                    <div class="quiz-opts">
+                        <label class="quiz-opt" data-q="2" data-v="under1k"><span class="qr"></span>Under $1,000</label>
+                        <label class="quiz-opt" data-q="2" data-v="1k-3k"><span class="qr"></span>$1,000 &ndash; $3,000</label>
+                        <label class="quiz-opt" data-q="2" data-v="3k-5k"><span class="qr"></span>$3,000 &ndash; $5,000</label>
+                        <label class="quiz-opt" data-q="2" data-v="5k-plus"><span class="qr"></span>$5,000+</label>
+                    </div>
+                    <button type="button" class="quiz-back" data-back="1">&larr; Back</button>
+                </div>
+
+                <div class="quiz-step" id="mmq-s3">
+                    <div class="quiz-q">When are you looking to get started?</div>
+                    <div class="quiz-opts">
+                        <label class="quiz-opt" data-q="3" data-v="asap"><span class="qr"></span>As soon as possible</label>
+                        <label class="quiz-opt" data-q="3" data-v="next-month"><span class="qr"></span>In the next month</label>
+                        <label class="quiz-opt" data-q="3" data-v="few-months"><span class="qr"></span>In the next few months</label>
+                        <label class="quiz-opt" data-q="3" data-v="exploring"><span class="qr"></span>Just exploring for now</label>
+                    </div>
+                    <button type="button" class="quiz-back" data-back="2">&larr; Back</button>
+                </div>
+
+                <div class="quiz-step" id="mmq-contact">
+                    <div class="quiz-q">Last step &mdash; where do we send your results?</div>
+                    <p class="quiz-panel__sub" style="margin-bottom: 18px;">We'll review your answers and come back with exactly how we'd help your workshop.</p>
+                    <form id="quizForm" novalidate>
+                        <input type="text" class="quiz-field" id="qzName" name="name" placeholder="Your name *" autocomplete="name" required>
+                        <input type="text" class="quiz-field" id="qzWorkshop" name="workshop" placeholder="Workshop name" autocomplete="organization">
+                        <input type="tel" class="quiz-field" id="qzMobile" name="mobile" placeholder="Mobile *" autocomplete="tel" required>
+                        <input type="email" class="quiz-field" id="qzEmail" name="email" placeholder="Email *" autocomplete="email" required>
+                        <input type="text" class="quiz-hp" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true">
+                        <button type="submit" class="btn-primary quiz-btn" id="qzBtn">See My Result &rarr;</button>
+                    </form>
+                    <p class="quiz-err" id="qzErr">Please enter your name, mobile and a valid email.</p>
+                    <button type="button" class="quiz-back" data-back="3">&larr; Back</button>
+                </div>
+
+                <div class="quiz-step" id="mmq-fit" style="text-align: center;">
+                    <div class="quiz-result-icon" style="background: #FF3D02; color: #fff;">&#10003;</div>
+                    <div class="quiz-q" style="justify-content: center;">You're exactly who we help.</div>
+                    <p style="color: rgba(240,240,236,0.75); margin-bottom: 24px; line-height: 1.6;">Perfect &mdash; workshops like yours are our whole world. We've got your details and one of the team will be in touch within one business day. Want to skip the wait?</p>
+                    <a href="https://app.reclaim.ai/m/mechanic-marketing/mechanic-marketing-introduction" class="btn-primary quiz-btn" target="_blank" rel="noopener">Book a call now &rarr;</a>
+                    <button type="button" class="quiz-restart">Start again</button>
+                </div>
+
+                <div class="quiz-step" id="mmq-notyet" style="text-align: center;">
+                    <div class="quiz-result-icon" style="background: #F0AA00; color: #1C1C1A;">&#9203;</div>
+                    <div class="quiz-q" style="justify-content: center;">Honestly? Maybe not yet.</div>
+                    <p style="color: rgba(240,240,236,0.75); margin-bottom: 24px; line-height: 1.6;">We said we'd tell you straight. Under $1,000 a month, paid ads usually can't do enough to be worth it. We've saved your details &mdash; and if you'd still like a chat about the best next step, we're happy to talk.</p>
+                    <a href="https://app.reclaim.ai/m/mechanic-marketing/mechanic-marketing-introduction" class="btn-primary quiz-btn" target="_blank" rel="noopener">Book a chat anyway &rarr;</a>
+                    <button type="button" class="quiz-restart">Start again</button>
+                </div>
+
+                <div class="quiz-step" id="mmq-notafit" style="text-align: center;">
+                    <div class="quiz-result-icon" style="background: rgba(240,240,236,0.12); color: #F0F0EC;">&#128075;</div>
+                    <div class="quiz-q" style="justify-content: center;">We're mechanics-only.</div>
+                    <p style="color: rgba(240,240,236,0.75); margin-bottom: 24px; line-height: 1.6;">We only market for automotive workshops &mdash; it's the one thing we do, and we do it properly. If that's not you, we're probably not the right fit. If you think we've got it wrong, get in touch and set us straight.</p>
+                    <a href="#contact" class="btn-primary quiz-btn">Contact us anyway &rarr;</a>
+                    <button type="button" class="quiz-restart">Start again</button>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -2000,7 +2165,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
             <p style="text-align:center; margin-top:28px; font-size:1rem; color:rgba(28,28,26,0.6);">If you fix cars, we can market you. These are just some of the workshops we've worked with &mdash; every general workshop is right at home here too.</p>
             <div class="section-cta">
-                <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
+                <a href="#quiz" class="btn-primary">See If We're A Fit</a>
             </div>
         </div>
     </section>
@@ -2064,7 +2229,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </div>
             <div class="section-cta">
-                <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
+                <a href="#quiz" class="btn-primary">See If We're A Fit</a>
             </div>
         </div>
     </section>
@@ -2112,7 +2277,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </div>
             <div class="section-cta">
-                <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
+                <a href="#quiz" class="btn-primary">See If We're A Fit</a>
             </div>
         </div>
     </section>
@@ -2125,7 +2290,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <span class="section-label">Clients</span>
                 <blockquote>"Josh is a total marketing guru. He gave me more information in our first session than I had managed to self-learn in <span style="color:#FF3D02;">7 years</span> of being in business."</blockquote>
                 <p class="testimonial-attr">Bodie Geck, Co-Founder at BB Garage</p>
-                <a href="#book-audit" class="btn-secondary">Book My Free Audit</a>
+                <a href="#quiz" class="btn-secondary">See If We're A Fit</a>
             </div>
         </div>
     </section>
@@ -2156,7 +2321,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </div>
             <div class="section-cta">
-                <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
+                <a href="#quiz" class="btn-primary">See If We're A Fit</a>
             </div>
         </div>
     </section>
@@ -2206,7 +2371,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </button>
         </div>
         <div style="text-align:center;margin-top:54px;">
-            <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
+            <a href="#quiz" class="btn-primary">See If We're A Fit</a>
         </div>
         <script>
         (function () {
@@ -2265,7 +2430,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <p style="color: rgba(240,240,236,0.6); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px;">Head of Implementation</p>
           </div>
           <div style="display: flex; flex-direction: column; align-items: center;">
-
+            <img src="/images/Guy-headshot.jpg" alt="Guy - Growth Consultant" style="width: 160px; height: 160px; border-radius: 50%; object-fit: cover; object-position: center; margin-bottom: 16px; border: 3px solid #FF3D02;" width="512" height="368">
+            <h3 style="font-family: 'TT Commons Pro','Helvetica Neue',sans-serif; font-weight: 800; font-size: 18px; text-transform: uppercase; margin: 0; color: #F0F0EC;">Guy</h3>
+            <p style="color: rgba(240,240,236,0.6); font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px;">Growth Consultant</p>
           </div>
         </div>
       </div>
@@ -2282,16 +2449,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <div class="guarantee-grid animate-on-scroll">
-                <div class="guarantee-card">
-                    <div class="guarantee-icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z" fill="#FF3D02"/>
-                        </svg>
-                    </div>
-                    <h3>3x ROAS or we work for free</h3>
-                    <p>If we don't hit 3x return on your ad spend within 90 days, we keep working until we do. At no extra charge.</p>
-                </div>
-
                 <div class="guarantee-card">
                     <div class="guarantee-icon">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2313,7 +2470,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </div>
             <div class="section-cta">
-                <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
+                <a href="#quiz" class="btn-primary">See If We're A Fit</a>
             </div>
         </div>
     </section>
@@ -2431,7 +2588,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
             </div>
             <div class="section-cta">
-                <a href="#book-audit" class="btn-primary">Book My Free Audit</a>
+                <a href="#quiz" class="btn-primary">See If We're A Fit</a>
             </div>
         </div>
     </section>
@@ -2442,23 +2599,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
          ============================== -->
     <div class="tire-strip tire-strip--light" aria-hidden="true"></div>
 
-    <section class="form-section" id="book-audit">
+    <section class="form-section" id="contact">
         <div class="container">
             <div class="form-wrapper">
                 <div class="animate-on-scroll">
-                    <h2>Book your free <span class="accent">audit.</span></h2>
-                    <p class="form-sub">30 minutes. Zero obligation. We'll show you exactly where you're leaving money on the table.</p>
+                    <h2>Get in <span class="accent">touch.</span></h2>
+                    <p class="form-sub">Prefer to just reach out? Drop us a line and we'll get back to you. No obligation, no hard sell.</p>
                 </div>
 
-                <form class="lead-form animate-on-scroll" id="auditForm" novalidate>
+                <form class="lead-form animate-on-scroll" id="contactForm" novalidate>
                     <div class="form-group">
                         <label for="firstName">First Name *</label>
                         <input type="text" id="firstName" name="firstName" placeholder="e.g. Steve" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="workshopName">Workshop Name *</label>
-                        <input type="text" id="workshopName" name="workshopName" placeholder="e.g. Core Diesel" required>
+                        <label for="workshopName">Workshop / Business Name</label>
+                        <input type="text" id="workshopName" name="workshopName" placeholder="e.g. Core Diesel">
                     </div>
 
                     <div class="form-group">
@@ -2471,28 +2628,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <input type="email" id="email" name="email" placeholder="e.g. steve@yourworkshop.com.au" required>
                     </div>
 
-                    <div class="form-group">
-                        <label for="website">Website URL</label>
-                        <input type="url" id="website" name="website" placeholder="e.g. www.yourworkshop.com.au">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="state">State *</label>
-                        <select id="state" name="state" required>
-                            <option value="" disabled selected>Select your state</option>
-                            <option value="NSW">NSW</option>
-                            <option value="VIC">VIC</option>
-                            <option value="QLD">QLD</option>
-                            <option value="WA">WA</option>
-                            <option value="SA">SA</option>
-                            <option value="TAS">TAS</option>
-                            <option value="ACT">ACT</option>
-                            <option value="NT">NT</option>
-                        </select>
+                    <div class="form-group full-width">
+                        <label for="message">How can we help?</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Tell us a bit about your workshop and what you're after." style="width:100%;resize:vertical;"></textarea>
                     </div>
 
                     <div class="form-group full-width">
-                        <button type="submit" class="btn-primary form-submit-btn">Book My Free Audit</button>
+                        <button type="submit" class="btn-primary form-submit-btn">Send Enquiry</button>
                     </div>
                 </form>
 
@@ -2502,8 +2644,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z" fill="#FF3D02"/>
                         </svg>
                     </div>
-                    <h3>Thanks! Redirecting you to book your meeting with Josh...</h3>
-                    <p>You'll be redirected to pick a time that works for you.</p>
+                    <h3>Thanks &mdash; we've got your enquiry.</h3>
+                    <p>One of the team will be in touch shortly.</p>
                 </div>
             </div>
         </div>
@@ -2515,18 +2657,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
          ============================== -->
     <footer class="footer">
         <div class="container">
-            <div class="logo-mark" style="gap: 8px;">
-                <div class="logo-mm" style="width: 32px; height: 32px; font-size: 0.9rem; border-radius: 6px;">
-                    <svg width="24" height="18" viewBox="0 0 36 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 28V0H6.8L11.5 14.5L16.2 0H23V28H17.8V8L13 22H10L5.2 8V28H0Z" fill="white"/>
-                        <path d="M13 28V0H19.8L24.5 14.5L29.2 0H36V28H30.8V8L26 22H23L18.2 8V28H13Z" fill="white" opacity="0.6"/>
-                    </svg>
-                </div>
-                <div class="logo-text" style="font-size: 0.7rem; color: rgba(255,255,255,0.5);">
-                    <span>Mechanic</span>
-                    <span>Marketing</span>
-                </div>
-            </div>
+            <a href="/" aria-label="Mechanic Marketing home">
+                <img src="/images/MM-LogoInline-WarmWhite.svg" alt="Mechanic Marketing" style="height: 30px; width: auto; display: block;" width="2516" height="388" loading="lazy">
+            </a>
             <p>&copy; 2026 Mechanic Marketing. All rights reserved.</p>
             <p><a href="/privacy-policy/">Privacy Policy</a> &middot; <a href="/service-agreement/">Service Agreement</a></p>
         </div>
@@ -2538,11 +2671,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
          ============================== -->
     <div class="mobile-cta-bar">
         <a href="tel:+61480800644" class="cta-call"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> Call Us</a>
-        <a href="#book-audit" class="cta-form" style="flex:1;">
+        <a href="#quiz" class="cta-form" style="flex:1;">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19 4H5c-1.11 0-2 .9-2 2v12c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H5V8l7 5 7-5v10zm-7-7L5 6h14l-7 5z" fill="white"/>
             </svg>
-            Book My Free Audit
+            Enquire
         </a>
     </div>
 
@@ -2663,29 +2796,142 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         })();
 
 
-        // ===== Form Submission: Thank You State =====
+        // ===== Multi-step Quiz (primary enquiry) =====
         (function() {
-            var form = document.getElementById('auditForm');
+            var answers = {};
+            var TOTAL_Q = 4;
+
+            function showStep(id) {
+                document.querySelectorAll('.quiz-step').forEach(function(s){ s.classList.remove('active'); });
+                var t = document.getElementById(id);
+                if (t) t.classList.add('active');
+            }
+            function setDots(n) {
+                for (var i = 0; i < TOTAL_Q; i++) {
+                    var d = document.getElementById('qd' + i);
+                    if (d) { i < n ? d.classList.add('done') : d.classList.remove('done'); }
+                }
+            }
+            function result() { return answers[2] === 'under1k' ? 'notyet' : 'fit'; }
+
+            document.querySelectorAll('.quiz-opt').forEach(function(opt) {
+                opt.addEventListener('click', function() {
+                    var q = parseInt(opt.dataset.q, 10), v = opt.dataset.v;
+                    answers[q] = v;
+                    opt.parentNode.querySelectorAll('.quiz-opt').forEach(function(s){ s.classList.remove('selected'); });
+                    opt.classList.add('selected');
+                    setTimeout(function() {
+                        // Not an automotive workshop → short-circuit, no contact capture
+                        if (q === 0 && v === 'other') { setDots(TOTAL_Q); showStep('mmq-notafit'); return; }
+                        if (q < TOTAL_Q - 1) { setDots(q + 1); showStep('mmq-s' + (q + 1)); }
+                        else { setDots(TOTAL_Q); showStep('mmq-contact'); }
+                    }, 260);
+                });
+            });
+
+            document.querySelectorAll('.quiz-back').forEach(function(b) {
+                b.addEventListener('click', function() {
+                    var n = parseInt(b.dataset.back, 10);
+                    setDots(n);
+                    showStep('mmq-s' + n);
+                });
+            });
+
+            document.querySelectorAll('.quiz-restart').forEach(function(b) {
+                b.addEventListener('click', function() {
+                    answers = {};
+                    document.querySelectorAll('.quiz-opt').forEach(function(s){ s.classList.remove('selected'); });
+                    var qf = document.getElementById('quizForm');
+                    if (qf) { qf.reset(); var qb = document.getElementById('qzBtn'); qb.disabled = false; qb.innerHTML = 'See My Result &rarr;'; }
+                    document.getElementById('qzErr').style.display = 'none';
+                    setDots(0);
+                    showStep('mmq-s0');
+                });
+            });
+
+            var quizForm = document.getElementById('quizForm');
+            if (quizForm) {
+                quizForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    var nameEl = document.getElementById('qzName');
+                    var workshopEl = document.getElementById('qzWorkshop');
+                    var mobileEl = document.getElementById('qzMobile');
+                    var emailEl = document.getElementById('qzEmail');
+                    var errEl = document.getElementById('qzErr');
+                    var btn = document.getElementById('qzBtn');
+
+                    var nm = (nameEl.value || '').trim();
+                    var mb = (mobileEl.value || '').trim();
+                    var em = (emailEl.value || '').trim();
+                    if (!nm || !mb || !/^\S+@\S+\.\S+$/.test(em)) { errEl.style.display = 'block'; return; }
+                    // Honeypot
+                    if ((quizForm.elements['company_website'] && quizForm.elements['company_website'].value)) { return; }
+                    errEl.style.display = 'none';
+                    btn.disabled = true; btn.textContent = 'One sec...';
+
+                    var res = result();
+                    var labels = {
+                        role: { 'workshop':'Mechanical/general workshop','auto-electrical':'Auto electrical','panel-paint':'Panel/paint/body','mobile':'Mobile mechanic','other':'Not automotive' },
+                        goal: { 'leads':'More leads & booked jobs','busier':'Busier workshop','stop-waste':'Stop wasting ad spend','unsure':'Needs advice' },
+                        budget: { 'under1k':'Under $1,000','1k-3k':'$1,000-$3,000','3k-5k':'$3,000-$5,000','5k-plus':'$5,000+' },
+                        timing: { 'asap':'ASAP','next-month':'Next month','few-months':'Next few months','exploring':'Just exploring' }
+                    };
+                    var msg = 'Quiz answers — Workshop type: ' + (labels.role[answers[0]] || '-') +
+                              '; Wants: ' + (labels.goal[answers[1]] || '-') +
+                              '; Budget: ' + (labels.budget[answers[2]] || '-') +
+                              '; Timing: ' + (labels.timing[answers[3]] || '-') +
+                              '; Fit result: ' + res;
+
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({ event: 'quiz_lead', quiz_result: res, quiz_budget: answers[2] || '', quiz_type: answers[0] || '' });
+                    if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'mechanics_quiz' });
+
+                    var shown = false;
+                    function showOutcome() {
+                        if (shown) return; shown = true;
+                        setDots(TOTAL_Q);
+                        showStep(res === 'notyet' ? 'mmq-notyet' : 'mmq-fit');
+                    }
+
+                    fetch('/contact', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            source: 'Mechanics Only LP - Quiz',
+                            first_name: nm,
+                            workshop_name: (workshopEl.value || '').trim(),
+                            mobile: mb,
+                            email: em,
+                            message: msg
+                        })
+                    }).then(showOutcome).catch(showOutcome);
+                    setTimeout(showOutcome, 2500);
+                });
+            }
+        })();
+
+
+        // ===== Contact Form Submission =====
+        (function() {
+            var form = document.getElementById('contactForm');
             var thankYou = document.getElementById('thankYou');
 
             if (form && thankYou) {
                 form.addEventListener('submit', function(e) {
                     e.preventDefault();
 
-                    // Basic validation
+                    // Basic validation — name, mobile and a valid email required
                     var firstName = document.getElementById('firstName');
                     var workshopName = document.getElementById('workshopName');
                     var mobile = document.getElementById('mobile');
                     var email = document.getElementById('email');
-                    var state = document.getElementById('state');
+                    var message = document.getElementById('message');
 
-                    var requiredFields = [firstName, workshopName, mobile, email, state];
+                    var requiredFields = [firstName, mobile, email];
                     var isValid = true;
 
                     requiredFields.forEach(function(field) {
-                        // Reset styles
                         field.style.borderColor = 'rgba(255, 255, 255, 0.15)';
-
                         if (!field.value || field.value.trim() === '') {
                             field.style.borderColor = '#FF3D02';
                             isValid = false;
@@ -2703,19 +2949,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     submitBtn.disabled = true;
                     submitBtn.textContent = 'Sending...';
 
-                    var websiteEl = document.getElementById('website');
-
                     fetch('/contact', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({
-                            source: 'Mechanics Only LP',
+                            source: 'Mechanics Only LP - Contact form',
                             first_name: firstName.value.trim(),
                             workshop_name: workshopName.value.trim(),
                             mobile: mobile.value.trim(),
                             email: email.value.trim(),
-                            website_url: websiteEl ? websiteEl.value.trim() : '',
-                            state: state.value
+                            message: message ? message.value.trim() : ''
                         })
                     })
                     .then(function(res) { return res.json(); })
@@ -2724,17 +2967,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             form.style.display = 'none';
                             thankYou.classList.add('visible');
                             thankYou.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                            fbq('track', 'Lead');
-                            setTimeout(function() { window.location.href = 'https://app.reclaim.ai/m/mechanic-marketing/mechanic-marketing-introduction'; }, 1500);
+                            if (typeof fbq === 'function') fbq('track', 'Lead');
                         } else {
                             submitBtn.disabled = false;
-                            submitBtn.textContent = 'Book My Free Audit';
+                            submitBtn.textContent = 'Send Enquiry';
                             alert('Something went wrong. Please try again.');
                         }
                     })
                     .catch(function() {
                         submitBtn.disabled = false;
-                        submitBtn.textContent = 'Book My Free Audit';
+                        submitBtn.textContent = 'Send Enquiry';
                         alert('Something went wrong. Please try again.');
                     });
                 });
@@ -2766,7 +3008,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   #sc-car { position: fixed; top: 0; left: 0; width: 100px; pointer-events: none; z-index: 3; opacity: 0; transition: opacity 0.65s ease; will-change: transform; }
   #sc-car.sc-visible { opacity: 1; }
   #sc-car-svg { width: 100px; height: auto; display: block; transform-origin: 50% 50%; filter: drop-shadow(0 4px 24px rgba(255,61,2,0.20)) drop-shadow(0 0 48px rgba(255,61,2,0.09)); }
-  @media (max-width: 1439px) { #road-canvas, #sc-car { display: none !important; } }
+  @media (max-width: 1199px) { #road-canvas, #sc-car { display: none !important; } }
   @media (prefers-reduced-motion: reduce) { #road-canvas, #sc-car { display: none !important; } }
 </style>
 
@@ -2862,7 +3104,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
    ============================================================ */
 (function () {
   'use strict';
-  if (window.innerWidth < 1440) return;
+  if (window.innerWidth < 1200) return;
 
   var roadCanvas = document.getElementById('road-canvas');
   var scCar      = document.getElementById('sc-car');
@@ -3156,7 +3398,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   /* ── Event listeners ── */
   window.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', function () {
-    if (window.innerWidth < 1440) {
+    if (window.innerWidth < 1200) {
       roadCanvas.style.display = 'none';
       scCar.style.display = 'none';
       return;
