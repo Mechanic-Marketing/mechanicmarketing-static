@@ -1953,6 +1953,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         .quiz-opt .qr { width: 22px; height: 22px; border-radius: 50%; border: 2px solid rgba(240,240,236,0.35); flex-shrink: 0; position: relative; transition: border-color 0.18s ease; }
         .quiz-opt.selected .qr { border-color: #FF3D02; }
         .quiz-opt.selected .qr::after { content: ''; position: absolute; top: 4px; left: 4px; width: 10px; height: 10px; border-radius: 50%; background: #FF3D02; }
+        .quiz-opt .qr--check { border-radius: 6px; }
+        .quiz-opt.selected .qr--check { background: #FF3D02; }
+        .quiz-opt.selected .qr--check::after { content: ''; position: absolute; top: 3px; left: 7px; width: 5px; height: 10px; border: solid #1C1C1A; border-width: 0 3px 3px 0; border-radius: 0; background: none; transform: rotate(45deg); }
         .quiz-field { width: 100%; padding: 15px 18px; border: 2px solid rgba(240,240,236,0.18); border-radius: 12px; font-size: 1rem; font-family: inherit; background: rgba(240,240,236,0.03); color: #F0F0EC; margin-bottom: 12px; }
         .quiz-field::placeholder { color: rgba(240,240,236,0.4); }
         .quiz-field:focus { outline: none; border-color: #FF3D02; box-shadow: 0 0 0 3px rgba(255,61,2,0.22); }
@@ -1997,14 +2000,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div class="quiz-step" id="mmq-s1">
-                    <div class="quiz-q">What do you want more of?</div>
+                    <div class="quiz-q">What are you looking for?</div>
+                    <p class="quiz-panel__sub" style="margin: -12px 0 18px;">Pick as many as you like.</p>
                     <div class="quiz-opts">
-                        <label class="quiz-opt" data-q="1" data-v="leads"><span class="qr"></span>More leads &amp; booked jobs</label>
-                        <label class="quiz-opt" data-q="1" data-v="busier"><span class="qr"></span>A consistently busier workshop</label>
-                        <label class="quiz-opt" data-q="1" data-v="stop-waste"><span class="qr"></span>To stop wasting money on ads</label>
-                        <label class="quiz-opt" data-q="1" data-v="unsure"><span class="qr"></span>Not sure yet &mdash; need advice</label>
+                        <label class="quiz-opt" data-multi="1" data-q="1" data-v="leads"><span class="qr qr--check"></span>More leads &amp; booked jobs</label>
+                        <label class="quiz-opt" data-multi="1" data-q="1" data-v="busier"><span class="qr qr--check"></span>A consistently busier workshop</label>
+                        <label class="quiz-opt" data-multi="1" data-q="1" data-v="stop-waste"><span class="qr qr--check"></span>Stop wasting money on ads</label>
+                        <label class="quiz-opt" data-multi="1" data-q="1" data-v="website"><span class="qr qr--check"></span>A better website</label>
+                        <label class="quiz-opt" data-multi="1" data-q="1" data-v="google"><span class="qr qr--check"></span>Rank higher on Google</label>
+                        <label class="quiz-opt" data-multi="1" data-q="1" data-v="advice"><span class="qr qr--check"></span>Not sure yet &mdash; need advice</label>
                     </div>
-                    <button type="button" class="quiz-back" data-back="0">&larr; Back</button>
+                    <p class="quiz-err" id="qzErr1" style="margin-top: 12px;">Pick at least one to continue.</p>
+                    <div style="display:flex; align-items:center; justify-content:space-between; gap:16px; margin-top:18px;">
+                        <button type="button" class="quiz-back" data-back="0" style="margin-top:0;">&larr; Back</button>
+                        <button type="button" class="btn-primary quiz-next" data-next="2" style="padding:12px 28px;">Continue &rarr;</button>
+                    </div>
                 </div>
 
                 <div class="quiz-step" id="mmq-s2">
@@ -2030,33 +2040,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div class="quiz-step" id="mmq-contact">
-                    <div class="quiz-q">Last step &mdash; where do we send your results?</div>
-                    <p class="quiz-panel__sub" style="margin-bottom: 18px;">We'll review your answers and come back with exactly how we'd help your workshop.</p>
+                    <div class="quiz-q">Last step &mdash; how do we get in touch with you?</div>
+                    <p class="quiz-panel__sub" style="margin-bottom: 18px;">Pop your details in and one of the team will reach out about your workshop.</p>
                     <form id="quizForm" novalidate>
                         <input type="text" class="quiz-field" id="qzName" name="name" placeholder="Your name *" autocomplete="name" required>
                         <input type="text" class="quiz-field" id="qzWorkshop" name="workshop" placeholder="Workshop name" autocomplete="organization">
                         <input type="tel" class="quiz-field" id="qzMobile" name="mobile" placeholder="Mobile *" autocomplete="tel" required>
                         <input type="email" class="quiz-field" id="qzEmail" name="email" placeholder="Email *" autocomplete="email" required>
                         <input type="text" class="quiz-hp" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true">
-                        <button type="submit" class="btn-primary quiz-btn" id="qzBtn">See My Result &rarr;</button>
+                        <button type="submit" class="btn-primary quiz-btn" id="qzBtn">Send &rarr;</button>
                     </form>
                     <p class="quiz-err" id="qzErr">Please enter your name, mobile and a valid email.</p>
                     <button type="button" class="quiz-back" data-back="3">&larr; Back</button>
                 </div>
 
-                <div class="quiz-step" id="mmq-fit" style="text-align: center;">
+                <div class="quiz-step" id="mmq-thanks" style="text-align: center;">
                     <div class="quiz-result-icon" style="background: #FF3D02; color: #fff;">&#10003;</div>
-                    <div class="quiz-q" style="justify-content: center;">You're exactly who we help.</div>
-                    <p style="color: rgba(240,240,236,0.75); margin-bottom: 24px; line-height: 1.6;">Perfect &mdash; workshops like yours are our whole world. We've got your details and one of the team will be in touch within one business day. Want to skip the wait?</p>
+                    <div class="quiz-q" style="justify-content: center;">Thanks &mdash; we've got your details.</div>
+                    <p style="color: rgba(240,240,236,0.75); margin-bottom: 24px; line-height: 1.6;">One of the team will be in touch within one business day. Want to skip the wait? Book a quick call now.</p>
                     <a href="https://app.reclaim.ai/m/mechanic-marketing/mechanic-marketing-introduction" class="btn-primary quiz-btn" target="_blank" rel="noopener">Book a call now &rarr;</a>
-                    <button type="button" class="quiz-restart">Start again</button>
-                </div>
-
-                <div class="quiz-step" id="mmq-notyet" style="text-align: center;">
-                    <div class="quiz-result-icon" style="background: #F0AA00; color: #1C1C1A;">&#9203;</div>
-                    <div class="quiz-q" style="justify-content: center;">Honestly? Maybe not yet.</div>
-                    <p style="color: rgba(240,240,236,0.75); margin-bottom: 24px; line-height: 1.6;">We said we'd tell you straight. Under $1,000 a month, paid ads usually can't do enough to be worth it. We've saved your details &mdash; and if you'd still like a chat about the best next step, we're happy to talk.</p>
-                    <a href="https://app.reclaim.ai/m/mechanic-marketing/mechanic-marketing-introduction" class="btn-primary quiz-btn" target="_blank" rel="noopener">Book a chat anyway &rarr;</a>
                     <button type="button" class="quiz-restart">Start again</button>
                 </div>
 
@@ -2798,7 +2800,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         // ===== Multi-step Quiz (primary enquiry) =====
         (function() {
-            var answers = {};
+            var answers = {};      // q0, q2, q3 = string; q1 = array (multi-select)
+            answers[1] = [];
             var TOTAL_Q = 4;
 
             function showStep(id) {
@@ -2812,11 +2815,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     if (d) { i < n ? d.classList.add('done') : d.classList.remove('done'); }
                 }
             }
-            function result() { return answers[2] === 'under1k' ? 'notyet' : 'fit'; }
 
             document.querySelectorAll('.quiz-opt').forEach(function(opt) {
                 opt.addEventListener('click', function() {
                     var q = parseInt(opt.dataset.q, 10), v = opt.dataset.v;
+
+                    // Multi-select question (outcomes) — toggle, no auto-advance
+                    if (opt.dataset.multi) {
+                        opt.classList.toggle('selected');
+                        var arr = answers[q] || [];
+                        var idx = arr.indexOf(v);
+                        if (idx === -1) arr.push(v); else arr.splice(idx, 1);
+                        answers[q] = arr;
+                        var e1 = document.getElementById('qzErr1'); if (e1) e1.style.display = 'none';
+                        return;
+                    }
+
+                    // Single-select — record and auto-advance
                     answers[q] = v;
                     opt.parentNode.querySelectorAll('.quiz-opt').forEach(function(s){ s.classList.remove('selected'); });
                     opt.classList.add('selected');
@@ -2826,6 +2841,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         if (q < TOTAL_Q - 1) { setDots(q + 1); showStep('mmq-s' + (q + 1)); }
                         else { setDots(TOTAL_Q); showStep('mmq-contact'); }
                     }, 260);
+                });
+            });
+
+            // "Continue" button on the multi-select step
+            document.querySelectorAll('.quiz-next').forEach(function(b) {
+                b.addEventListener('click', function() {
+                    if (!answers[1] || answers[1].length === 0) {
+                        var e1 = document.getElementById('qzErr1'); if (e1) e1.style.display = 'block';
+                        return;
+                    }
+                    var n = parseInt(b.dataset.next, 10);
+                    setDots(n);
+                    showStep('mmq-s' + n);
                 });
             });
 
@@ -2839,11 +2867,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             document.querySelectorAll('.quiz-restart').forEach(function(b) {
                 b.addEventListener('click', function() {
-                    answers = {};
+                    answers = {}; answers[1] = [];
                     document.querySelectorAll('.quiz-opt').forEach(function(s){ s.classList.remove('selected'); });
                     var qf = document.getElementById('quizForm');
-                    if (qf) { qf.reset(); var qb = document.getElementById('qzBtn'); qb.disabled = false; qb.innerHTML = 'See My Result &rarr;'; }
-                    document.getElementById('qzErr').style.display = 'none';
+                    if (qf) { qf.reset(); var qb = document.getElementById('qzBtn'); qb.disabled = false; qb.innerHTML = 'Send &rarr;'; }
+                    var qe = document.getElementById('qzErr'); if (qe) qe.style.display = 'none';
+                    var qe1 = document.getElementById('qzErr1'); if (qe1) qe1.style.display = 'none';
                     setDots(0);
                     showStep('mmq-s0');
                 });
@@ -2867,31 +2896,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     // Honeypot
                     if ((quizForm.elements['company_website'] && quizForm.elements['company_website'].value)) { return; }
                     errEl.style.display = 'none';
-                    btn.disabled = true; btn.textContent = 'One sec...';
+                    btn.disabled = true; btn.textContent = 'Sending...';
 
-                    var res = result();
                     var labels = {
                         role: { 'workshop':'Mechanical/general workshop','auto-electrical':'Auto electrical','panel-paint':'Panel/paint/body','mobile':'Mobile mechanic','other':'Not automotive' },
-                        goal: { 'leads':'More leads & booked jobs','busier':'Busier workshop','stop-waste':'Stop wasting ad spend','unsure':'Needs advice' },
+                        want: { 'leads':'More leads & booked jobs','busier':'Busier workshop','stop-waste':'Stop wasting ad spend','website':'Better website','google':'Rank higher on Google','advice':'Needs advice' },
                         budget: { 'under1k':'Under $1,000','1k-3k':'$1,000-$3,000','3k-5k':'$3,000-$5,000','5k-plus':'$5,000+' },
                         timing: { 'asap':'ASAP','next-month':'Next month','few-months':'Next few months','exploring':'Just exploring' }
                     };
+                    var wants = (answers[1] || []).map(function(v){ return labels.want[v] || v; }).join(', ') || '-';
                     var msg = 'Quiz answers — Workshop type: ' + (labels.role[answers[0]] || '-') +
-                              '; Wants: ' + (labels.goal[answers[1]] || '-') +
+                              '; Looking for: ' + wants +
                               '; Budget: ' + (labels.budget[answers[2]] || '-') +
-                              '; Timing: ' + (labels.timing[answers[3]] || '-') +
-                              '; Fit result: ' + res;
+                              '; Timing: ' + (labels.timing[answers[3]] || '-');
+
+                    // Show the thank-you immediately — never leave the visitor stuck waiting on the network
+                    setDots(TOTAL_Q);
+                    showStep('mmq-thanks');
 
                     window.dataLayer = window.dataLayer || [];
-                    window.dataLayer.push({ event: 'quiz_lead', quiz_result: res, quiz_budget: answers[2] || '', quiz_type: answers[0] || '' });
+                    window.dataLayer.push({ event: 'quiz_lead', quiz_budget: answers[2] || '', quiz_type: answers[0] || '' });
                     if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'mechanics_quiz' });
-
-                    var shown = false;
-                    function showOutcome() {
-                        if (shown) return; shown = true;
-                        setDots(TOTAL_Q);
-                        showStep(res === 'notyet' ? 'mmq-notyet' : 'mmq-fit');
-                    }
 
                     fetch('/contact', {
                         method: 'POST',
@@ -2904,8 +2929,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             email: em,
                             message: msg
                         })
-                    }).then(showOutcome).catch(showOutcome);
-                    setTimeout(showOutcome, 2500);
+                    }).catch(function(){});
                 });
             }
         })();
@@ -3197,53 +3221,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     var faq     = docTop('.faq-section');
     var form    = docTop('.form-section');
 
-    function mid(a, b, f) { return a + (b - a) * f; }
-
+    // Car drives straight down the right-hand gutter (Hedgehog-style) — x stays at rx throughout.
     return [
-      /* Hero — start right gutter (car hidden while hero on screen) */
-      { x: rx, y: heroH * 0.50 },
-      { x: rx, y: heroH * 0.85 },
-
-      /* Workshops we've helped — right */
-      { x: rx, y: mid(who, gen, 0.30) },
-      { x: rx, y: mid(who, gen, 0.70) },
-
-      /* Generalist comparison — curve to left */
-      { x: lx, y: mid(gen, proc, 0.15) },
-      { x: lx, y: mid(gen, proc, 0.55) },
-      { x: lx, y: mid(gen, proc, 0.85) },
-
-      /* Journey / process — curve to right */
-      { x: rx, y: mid(proc, testi, 0.15) },
-      { x: rx, y: mid(proc, testi, 0.60) },
-
-      /* Testimonial + results — curve to left */
-      { x: lx, y: mid(testi, res, 0.40) },
-      { x: lx, y: mid(res, cases, 0.40) },
-      { x: lx, y: mid(res, cases, 0.80) },
-
-      /* Case studies — curve to right */
-      { x: rx, y: mid(cases, team, 0.20) },
-      { x: rx, y: mid(cases, team, 0.65) },
-
-      /* Team — curve to left */
-      { x: lx, y: mid(team, guar, 0.25) },
-      { x: lx, y: mid(team, guar, 0.70) },
-
-      /* Guarantees — curve to right */
-      { x: rx, y: mid(guar, booking, 0.20) },
-      { x: rx, y: mid(guar, booking, 0.65) },
-
-      /* Booking — curve to left */
-      { x: lx, y: mid(booking, faq, 0.25) },
-      { x: lx, y: mid(booking, faq, 0.70) },
-
-      /* FAQ — curve to right */
-      { x: rx, y: mid(faq, form, 0.25) },
-      { x: rx, y: mid(faq, form, 0.65) },
-
-      /* Form — glide left and park */
-      { x: lx, y: form + 60 },
+      { x: rx, y: heroH * 0.55 },
+      { x: rx, y: heroH * 0.9 },
+      { x: rx, y: who },
+      { x: rx, y: gen },
+      { x: rx, y: proc },
+      { x: rx, y: testi },
+      { x: rx, y: res },
+      { x: rx, y: cases },
+      { x: rx, y: team },
+      { x: rx, y: guar },
+      { x: rx, y: booking },
+      { x: rx, y: faq },
+      { x: rx, y: form + 60 },
     ];
   }
 
