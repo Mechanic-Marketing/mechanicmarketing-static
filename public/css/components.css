@@ -207,8 +207,7 @@
   letter-spacing: -0.03em;
   color: var(--mm-dark);
   margin-bottom: 24px;
-  opacity: 0;
-  animation: slideUp 0.7s 0.35s ease forwards;
+  animation: slideUpTransform 0.7s ease forwards;
 }
 
 .hero h1 em {
