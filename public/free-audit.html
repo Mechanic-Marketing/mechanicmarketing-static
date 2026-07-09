@@ -2986,6 +2986,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                     window.dataLayer = window.dataLayer || [];
                     window.dataLayer.push({ event: 'quiz_lead', quiz_budget: answers[2] || '', quiz_type: answers[0] || '' });
+                    window.dataLayer.push({ event: 'generate_lead', form_name: 'free_audit_quiz' });
                     if (typeof fbq === 'function') fbq('track', 'Lead', { content_name: 'free_audit_quiz' });
 
                     fetch('/contact', {
@@ -3061,6 +3062,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             form.style.display = 'none';
                             thankYou.classList.add('visible');
                             thankYou.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            window.dataLayer = window.dataLayer || [];
+                            window.dataLayer.push({ event: 'generate_lead', form_name: 'free_audit_contact' });
                             if (typeof fbq === 'function') fbq('track', 'Lead');
                         } else {
                             submitBtn.disabled = false;
