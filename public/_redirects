@@ -32,3 +32,7 @@
 # Ranking old blog post slugs → case study equivalents
 /blog/how-core-diesel-engineered-record-leads-with-a-digital-overhaul /case-studies/core-diesel 301
 /blog/driving-trust-traction-how-busselton-automotive-became-the-go-to-for-gvm-suspension /case-studies/busselton-automotive 301
+
+# Retired ad landing page → free audit
+/website-audit /free-audit 301
+/website-audit.html /free-audit 301
