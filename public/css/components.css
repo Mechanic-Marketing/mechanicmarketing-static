@@ -432,7 +432,7 @@
 
 .trust-stats {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   max-width: 880px;
   margin: 0 auto 40px;
@@ -2107,7 +2107,7 @@
   .hero-actions .btn { width: 100%; justify-content: center; }
 
   .trust-section { padding: 48px 24px 40px; }
-  .trust-stats { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
+  .trust-stats { grid-template-columns: 1fr; max-width: 420px; }
   .trust-stat-num { font-size: 34px; }
   .ticker { padding: 0 24px; }
   .ticker-inner { grid-template-columns: repeat(2, 1fr); }
