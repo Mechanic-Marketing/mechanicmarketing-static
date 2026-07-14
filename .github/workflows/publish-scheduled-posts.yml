@@ -1,0 +1,126 @@
+name: Publish scheduled blog posts
+
+on:
+  schedule:
+    # Runs at 08:00 AEST (22:00 UTC previous day) every Tuesday
+    - cron: '0 22 * * 1'
+  workflow_dispatch: # allow manual trigger from GitHub UI
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Publish due posts
+        id: publish
+        run: |
+          TODAY=$(date -u '+%Y-%m-%d')
+          echo "Today: $TODAY"
+
+          PUBLISHED=0
+
+          while IFS= read -r line; do
+            SLUG=$(echo "$line" | python3 -c "import sys,json; d=json.loads(sys.stdin.read()); print(d['slug'])")
+            DATE=$(echo "$line" | python3 -c "import sys,json; d=json.loads(sys.stdin.read()); print(d['date'])")
+
+            # Skip if not yet due
+            if [[ "$DATE" > "$TODAY" ]]; then
+              continue
+            fi
+
+            # Skip if already published
+            if [[ -f "public/blog/${SLUG}.html" ]]; then
+              continue
+            fi
+
+            # Skip if source files are missing (already cleaned up or not found)
+            if [[ ! -f "_scheduled/blog/${SLUG}.html" ]]; then
+              echo "WARNING: _scheduled/blog/${SLUG}.html not found — skipping"
+              continue
+            fi
+
+            echo "Publishing: $SLUG (scheduled $DATE)"
+
+            # Copy post HTML and hero image
+            cp "_scheduled/blog/${SLUG}.html" "public/blog/${SLUG}.html"
+            cp "_scheduled/images/blog/${SLUG}.svg" "public/images/blog/${SLUG}.svg"
+
+            # Insert card at top of blog grid in public/blog/index.html
+            # Finds the line "      <div class="blog-grid">" and inserts the card after it + a blank line
+            CARD=$(cat "_scheduled/cards/${SLUG}.html")
+            python3 - "$SLUG" << 'PYEOF'
+          import sys
+
+          slug = sys.argv[1]
+          with open('public/blog/index.html', 'r') as f:
+              content = f.read()
+
+          with open(f'_scheduled/cards/{slug}.html', 'r') as f:
+              card = f.read().rstrip('\n')
+
+          marker = '      <div class="blog-grid">'
+          insert_after = marker + '\n\n'
+          replacement = marker + '\n\n        ' + card.replace('\n', '\n        ').rstrip() + '\n\n'
+
+          if marker not in content:
+              print(f"ERROR: blog-grid marker not found in index.html", file=sys.stderr)
+              sys.exit(1)
+
+          # Only insert if card not already present
+          if f'href="/blog/{slug}"' in content:
+              print(f"Card for {slug} already in index.html — skipping insert")
+          else:
+              content = content.replace(insert_after, replacement, 1)
+              with open('public/blog/index.html', 'w') as f:
+                  f.write(content)
+              print(f"Inserted card for {slug}")
+          PYEOF
+
+            # Append sitemap entry before </urlset>
+            SITEMAP_ENTRY=$(cat "_scheduled/sitemap/${SLUG}.xml")
+            python3 - "$SLUG" << 'PYEOF'
+          import sys
+
+          slug = sys.argv[1]
+          with open('public/sitemap.xml', 'r') as f:
+              content = f.read()
+
+          with open(f'_scheduled/sitemap/{slug}.xml', 'r') as f:
+              entry = f.read().strip()
+
+          if f'/blog/{slug}' in content:
+              print(f"Sitemap entry for {slug} already present — skipping")
+          else:
+              content = content.replace('</urlset>', entry + '\n</urlset>')
+              with open('public/sitemap.xml', 'w') as f:
+                  f.write(content)
+              print(f"Added sitemap entry for {slug}")
+          PYEOF
+
+            PUBLISHED=$((PUBLISHED + 1))
+
+          done < <(python3 -c "
+          import json
+          with open('_scheduled/schedule.json') as f:
+              posts = json.load(f)
+          for p in posts:
+              print(json.dumps(p))
+          ")
+
+          echo "published=$PUBLISHED" >> "$GITHUB_OUTPUT"
+          echo "Published $PUBLISHED post(s)"
+
+      - name: Commit and push
+        if: steps.publish.outputs.published != '0'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/blog/ public/images/blog/ public/sitemap.xml
+          git commit -m "Publish scheduled blog post(s) for $(date -u '+%Y-%m-%d')"
+          git push
