@@ -1,8 +1,0 @@
-<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
-<rect width="1200" height="630" fill="#F0F0EC"/>
-<rect x="0" y="0" width="1200" height="14" fill="#FF3D02"/>
-<line x1="620" y1="300" x2="810" y2="300" stroke="#000000" stroke-width="3" stroke-opacity="0.5"/><circle cx="810" cy="300" r="34" fill="#FF3D02"/><line x1="620" y1="300" x2="715" y2="465" stroke="#000000" stroke-width="3" stroke-opacity="0.5"/><circle cx="715" cy="465" r="34" fill="#F0AA00"/><line x1="620" y1="300" x2="525" y2="465" stroke="#000000" stroke-width="3" stroke-opacity="0.5"/><circle cx="525" cy="465" r="34" fill="#FF3D02"/><line x1="620" y1="300" x2="430" y2="300" stroke="#000000" stroke-width="3" stroke-opacity="0.5"/><circle cx="430" cy="300" r="34" fill="#F0AA00"/><line x1="620" y1="300" x2="525" y2="135" stroke="#000000" stroke-width="3" stroke-opacity="0.5"/><circle cx="525" cy="135" r="34" fill="#FF3D02"/><line x1="620" y1="300" x2="715" y2="135" stroke="#000000" stroke-width="3" stroke-opacity="0.5"/><circle cx="715" cy="135" r="34" fill="#F0AA00"/>
-<circle cx="620" cy="300" r="70" fill="#000000"/>
-<text x="590" y="314" font-family="'TT Commons Condensed','Helvetica Neue',Arial,sans-serif" font-weight="900" font-size="34" fill="#F0F0EC">MM</text>
-<text x="40" y="590" font-family="'TT Commons Condensed','Helvetica Neue',Arial,sans-serif" font-size="12" letter-spacing="2" fill="#000000" fill-opacity="0.5">MECHANICMARKETING.CO</text>
-</svg>
