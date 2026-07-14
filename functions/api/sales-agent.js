@@ -8,10 +8,7 @@
 //
 // Env vars (all optional except ANTHROPIC_API_KEY; each integration no-ops if
 // its vars aren't set): ANTHROPIC_API_KEY, SALES_AGENT_MODEL, ALLOWED_ORIGINS,
-// RESEND_API_KEY, CLICKUP_API_TOKEN, SLACK_WEBHOOK_URL, HIGHLEVEL_API_TOKEN
-// (Private Integration token, scopes contacts.write + opportunities.write),
-// and optionally HIGHLEVEL_LOCATION_ID / HIGHLEVEL_PIPELINE_ID /
-// HIGHLEVEL_STAGE_ID to override the baked-in MM sub-account defaults.
+// RESEND_API_KEY, CLICKUP_API_TOKEN, SLACK_WEBHOOK_URL.
 
 import { SKILL } from './_lib/sales-agent/skill.js';
 import { KNOWLEDGE } from './_lib/sales-agent/knowledge.js';
@@ -29,20 +26,6 @@ const CF_CHANNEL = 'd82f6771-a73a-4e30-8e82-fb4180fc85d9';        // Channel (dr
 const CF_CHANNEL_ONLINE = '4b6d2547-2409-4563-b764-f5e34806dd93'; // Channel -> "Online"
 
 const LEAD_RECIPIENTS = ['hello@mechanicmarketing.co', 'guy@mechanicmarketing.co'];
-
-// GoHighLevel (LeadConnector) - MM sub-account. A lead upserts a contact and
-// drops an opportunity into the Marketing Pipeline's "New Lead" stage, so the
-// sales agent feeds the GHL CRM alongside ClickUp. All of this no-ops unless
-// HIGHLEVEL_API_TOKEN (a Private Integration token with contacts.write +
-// opportunities.write) is set in Cloudflare env vars. Location and pipeline
-// default to the live MM sub-account but can be overridden per-env.
-const HL_API_BASE = 'https://services.leadconnectorhq.com';
-const HL_VERSION = '2021-07-28';
-const HL_DEFAULT_LOCATION_ID = '0VR8ysbpzoGC6kdzWYKi';        // Mechanic Marketing
-const HL_DEFAULT_PIPELINE_ID = 'iSY3cnUPYTlpEv5HnG6i';        // Marketing Pipeline
-const HL_DEFAULT_STAGE_ID = '3bb4f964-b4c1-4183-be9d-e573e6d4230b'; // "New Lead"
-const HL_LEAD_SOURCE = 'Sales agent (website chat)';
-const HL_LEAD_TAGS = ['sales-agent', 'website-chat'];
 
 const RECOMMEND_TOOL = {
   name: 'recommend_plan',
@@ -266,73 +249,8 @@ async function addClickUpTranscriptComment(env, taskId, { userMessage, replyText
   }
 }
 
-function hlFetch(env, pathname, body) {
-  return fetch(`${HL_API_BASE}${pathname}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-      'Authorization': `Bearer ${env.HIGHLEVEL_API_TOKEN}`,
-      'Version': HL_VERSION,
-    },
-    body: JSON.stringify(body),
-  });
-}
-
-// Upserts a GHL contact (dedupes on email/phone per the sub-account's unique
-// identifiers) and creates a "New Lead" opportunity in the Marketing Pipeline.
-// Opportunity creation is best-effort: if it fails, the contact still lands.
-async function createHighLevelLead(env, lead) {
-  const locationId = env.HIGHLEVEL_LOCATION_ID || HL_DEFAULT_LOCATION_ID;
-
-  const first = (lead.name || '').trim().split(/\s+/)[0] || '';
-  const contactBody = {
-    locationId,
-    name: lead.name || lead.email,
-    firstName: first,
-    email: lead.email,
-    source: HL_LEAD_SOURCE,
-    tags: HL_LEAD_TAGS,
-  };
-  if (lead.website) contactBody.website = lead.website;
-
-  const res = await hlFetch(env, '/contacts/upsert', contactBody);
-  if (!res.ok) {
-    const errText = await res.text();
-    throw new Error(`HighLevel upsert ${res.status}: ${errText}`);
-  }
-  const data = await res.json();
-  const contactId = data.contact?.id || data.id;
-  if (!contactId) return;
-
-  // Best-effort opportunity in the Marketing Pipeline -> New Lead stage.
-  try {
-    const oppRes = await hlFetch(env, '/opportunities/', {
-      locationId,
-      pipelineId: env.HIGHLEVEL_PIPELINE_ID || HL_DEFAULT_PIPELINE_ID,
-      pipelineStageId: env.HIGHLEVEL_STAGE_ID || HL_DEFAULT_STAGE_ID,
-      name: `${lead.name || lead.email} - Sales agent`,
-      status: 'open',
-      contactId,
-      source: HL_LEAD_SOURCE,
-    });
-    if (!oppRes.ok) {
-      console.error('SALES_AGENT_LEAD_HL_OPP_FAIL', oppRes.status, await oppRes.text());
-    }
-  } catch (err) {
-    console.error('SALES_AGENT_LEAD_HL_OPP_FAIL', err.message);
-  }
-}
-
 async function captureLead(env, lead) {
   const promises = [];
-
-  if (env.HIGHLEVEL_API_TOKEN) {
-    promises.push(
-      createHighLevelLead(env, lead)
-        .catch((err) => console.error('SALES_AGENT_LEAD_HL_FAIL', err.message))
-    );
-  }
 
   if (env.SLACK_WEBHOOK_URL) {
     const slackText = [
