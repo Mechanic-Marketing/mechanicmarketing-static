@@ -1999,6 +1999,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         .quiz-btn { width: 100%; margin-top: 4px; }
         .quiz-result-icon { width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 18px; display: flex; align-items: center; justify-content: center; font-size: 30px; }
         .quiz-err { display: none; color: #ff8a6f; font-size: 0.85rem; margin-top: 10px; }
+        /* End-of-quiz self-serve offer */
+        .quiz-offer { border: 2px solid #FF3D02; border-radius: 16px; background: rgba(255,61,2,0.07); padding: 26px 22px 20px; margin-bottom: 22px; }
+        .quiz-offer__plan { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: 1.05rem; letter-spacing: 0.05em; color: #FF3D02; margin-bottom: 6px; }
+        .quiz-offer__price { display: flex; align-items: baseline; justify-content: center; gap: 12px; margin-bottom: 14px; }
+        .quiz-offer__was { color: rgba(240,240,236,0.45); text-decoration: line-through; font-size: 1.05rem; font-weight: 600; }
+        .quiz-offer__now { font-family: var(--font-display); font-weight: 900; font-size: 2.3rem; color: #F0F0EC; line-height: 1; }
+        .quiz-offer__now span { font-size: 1.1rem; font-weight: 700; color: rgba(240,240,236,0.6); }
+        .quiz-offer__hook { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: 1.05rem; line-height: 1.15; color: #F0F0EC; margin-bottom: 10px; }
+        .quiz-offer__sub { color: rgba(240,240,236,0.7); font-size: 0.92rem; line-height: 1.55; margin-bottom: 16px; }
+        .quiz-offer__micro { color: rgba(240,240,236,0.55); font-size: 0.8rem; margin-top: 10px; }
+        .quiz-offer__alt { color: rgba(240,240,236,0.7); font-size: 0.92rem; line-height: 1.5; margin-bottom: 10px; }
+        .quiz-offer__altbtn { display: inline-block; padding: 11px 26px; border: 2px solid rgba(240,240,236,0.35); border-radius: 999px; color: #F0F0EC; text-decoration: none; font-weight: 700; font-size: 0.92rem; transition: border-color 0.18s ease, background 0.18s ease; }
+        .quiz-offer__altbtn:hover { border-color: #FF3D02; background: rgba(255,61,2,0.08); }
+        .quiz-offer__pdf { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 20px auto 0; color: rgba(240,240,236,0.75); font-size: 0.88rem; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+        .quiz-offer__pdf:hover { color: #FF3D02; }
         @media (max-width: 560px) {
             .quiz-wrap { padding: 48px 0; }
             .quiz-panel { padding: 32px 22px; border-radius: 16px; }
@@ -2100,8 +2115,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="quiz-step" id="mmq-thanks" style="text-align: center;">
                     <div class="quiz-result-icon" style="background: #FF3D02; color: #fff;">&#10003;</div>
                     <div class="quiz-q" style="justify-content: center;">You're a great fit.</div>
-                    <p style="color: rgba(240,240,236,0.75); margin-bottom: 24px; line-height: 1.6;">Thanks, we've got your details. Workshops like yours are exactly who we help. Book a meeting with Josh now and we'll map out how to bring you more work.</p>
-                    <a href="https://meet.reclaimai.com/e/686c0900-a513-4c74-8e6c-c728c72145e7" class="btn-primary quiz-btn" target="_blank" rel="noopener">Book a meeting with Josh &rarr;</a>
+                    <p style="color: rgba(240,240,236,0.75); margin-bottom: 18px; line-height: 1.6;">Thanks, we've got your details. Based on your answers, here's the plan we'd put you on:</p>
+
+                    <div class="quiz-offer">
+                        <div class="quiz-offer__plan" id="qzPlanName">Accelerate</div>
+                        <div class="quiz-offer__price">
+                            <span class="quiz-offer__was" id="qzPlanWas">$2,500/m</span>
+                            <span class="quiz-offer__now" id="qzPlanNow">$2,000<span>/m</span></span>
+                        </div>
+                        <p class="quiz-offer__hook">Sign up now, skip the queue, save 20% &mdash; ads live in 7 days.</p>
+                        <p class="quiz-offer__sub">Lock in your spot today and we start building your campaigns immediately. Wait for a call and you lose the discount and the queue skip.</p>
+                        <button type="button" class="btn-primary quiz-btn" id="qzCheckout">Claim my 20% off &rarr;</button>
+                        <p class="quiz-offer__micro">No lock-in. Month-to-month. Cancel any time.</p>
+                        <p class="quiz-err" id="qzCheckoutErr">Online sign-up isn't available right now &mdash; book a call below and we'll sort you out.</p>
+                    </div>
+
+                    <p class="quiz-offer__alt">Prefer to talk it through first? Book a call with the team &mdash; standard pricing applies.</p>
+                    <a href="https://meet.reclaimai.com/e/686c0900-a513-4c74-8e6c-c728c72145e7" class="quiz-offer__altbtn" target="_blank" rel="noopener">Book a call instead</a>
+
+                    <a href="/assets/mm-curriculum.pdf" download class="quiz-offer__pdf" id="qzCurriculum">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/></svg>
+                        Download your curriculum (PDF)
+                    </a>
                     <button type="button" class="quiz-restart">Start again</button>
                 </div>
 
@@ -2850,6 +2885,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             var advTimer = null;   // pending auto-advance timer
             var done = false;      // locked once the thank-you screen is shown
+            var selfServeLead = null; // captured on submit, sent to /checkout on "Claim my 20% off"
 
             function showStep(id) {
                 document.querySelectorAll('.quiz-step').forEach(function(s){ s.classList.remove('active'); });
@@ -2920,6 +2956,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 b.addEventListener('click', function() {
                     clearTimeout(advTimer); done = false;
                     answers = {}; answers[1] = [];
+                    selfServeLead = null;
+                    var cb = document.getElementById('qzCheckout');
+                    if (cb) { cb.disabled = false; cb.innerHTML = 'Claim my 20% off &rarr;'; }
+                    var ce = document.getElementById('qzCheckoutErr');
+                    if (ce) ce.style.display = 'none';
                     document.querySelectorAll('.quiz-opt').forEach(function(s){ s.classList.remove('selected'); });
                     var qf = document.getElementById('quizForm');
                     if (qf) { qf.reset(); var qb = document.getElementById('qzBtn'); qb.disabled = false; qb.innerHTML = 'Send &rarr;'; }
@@ -2969,9 +3010,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                               '; Timing: ' + (labels.timing[answers[3]] || '-') +
                               '; Monthly revenue: ' + (labels.revenue[answers[4]] || '-');
 
+                    // Reveal the recommended plan + self-serve 20% offer.
+                    // Display prices only - the checkout function prices server-side.
+                    var plan = (answers[2] === '3k-5k' || answers[2] === '5k-plus') ? 'accelerate' : 'ignite';
+                    var planInfo = {
+                        ignite:     { label: 'Ignite',     was: '$1,500/m', now: '$1,200' },
+                        accelerate: { label: 'Accelerate', was: '$2,500/m', now: '$2,000' }
+                    };
+                    document.getElementById('qzPlanName').textContent = planInfo[plan].label;
+                    document.getElementById('qzPlanWas').textContent = planInfo[plan].was;
+                    document.getElementById('qzPlanNow').innerHTML = planInfo[plan].now + '<span>/m</span>';
+                    selfServeLead = { plan: plan, name: nm, workshop: (workshopEl.value || '').trim(), mobile: mb, email: em };
+
                     // Show the thank-you immediately - never leave the visitor stuck waiting on the network
                     setDots(TOTAL_Q);
                     showStep('mmq-thanks');
+
+                    // Curriculum PDF - fire the download straight away; the visible link stays as backup
+                    var pdfLink = document.getElementById('qzCurriculum');
+                    if (pdfLink) { setTimeout(function(){ pdfLink.click(); }, 600); }
 
                     window.dataLayer = window.dataLayer || [];
                     window.dataLayer.push({ event: 'quiz_lead', quiz_budget: answers[2] || '', quiz_type: answers[0] || '' });
@@ -2989,6 +3046,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             message: msg
                         })
                     }).catch(function(){});
+                });
+            }
+
+            // Self-serve checkout: the server prices the plan, applies the 20%
+            // discount, and returns an Airwallex payment URL. If checkout isn't
+            // available (e.g. keys not configured), fall back to book-a-call.
+            var checkoutBtn = document.getElementById('qzCheckout');
+            if (checkoutBtn) {
+                checkoutBtn.addEventListener('click', function() {
+                    if (!selfServeLead) return;
+                    var cErr = document.getElementById('qzCheckoutErr');
+                    if (cErr) cErr.style.display = 'none';
+                    checkoutBtn.disabled = true;
+                    checkoutBtn.textContent = 'One sec...';
+
+                    window.dataLayer = window.dataLayer || [];
+                    window.dataLayer.push({ event: 'begin_checkout', quiz_plan: selfServeLead.plan });
+                    if (typeof fbq === 'function') fbq('track', 'InitiateCheckout', { content_name: 'mechanics_quiz_selfserve' });
+
+                    fetch('/checkout', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(selfServeLead)
+                    })
+                    .then(function(r) { return r.json(); })
+                    .then(function(res) {
+                        if (res && res.url) { window.location.href = res.url; return; }
+                        throw new Error('checkout unavailable');
+                    })
+                    .catch(function() {
+                        checkoutBtn.disabled = false;
+                        checkoutBtn.innerHTML = 'Claim my 20% off &rarr;';
+                        if (cErr) cErr.style.display = 'block';
+                    });
                 });
             }
         })();
