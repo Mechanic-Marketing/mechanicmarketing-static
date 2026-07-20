@@ -2107,11 +2107,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <div class="quiz-step" id="mmq-s5">
-                    <div class="quiz-q">Nearly there: how much of what you do should we promote?</div>
+                    <div class="quiz-q">Nearly there: what best describes your services?</div>
                     <div class="quiz-opts">
-                        <label class="quiz-opt" data-q="5" data-v="single"><span class="qr"></span>Just one specialty (e.g. DPF, tyres, aircon)</label>
-                        <label class="quiz-opt" data-q="5" data-v="few"><span class="qr"></span>A few key services</label>
-                        <label class="quiz-opt" data-q="5" data-v="all"><span class="qr"></span>Everything we do</label>
+                        <label class="quiz-opt" data-q="5" data-v="single"><span class="qr"></span>We do one thing (e.g. mobile servicing, paint jobs, tyres)</label>
+                        <label class="quiz-opt" data-q="5" data-v="few"><span class="qr"></span>A handful of core services</label>
+                        <label class="quiz-opt" data-q="5" data-v="all"><span class="qr"></span>General workshop &mdash; a bit of everything</label>
                     </div>
                     <button type="button" class="quiz-back" data-back="4">&larr; Back</button>
                 </div>
@@ -3039,7 +3039,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         budget: { 'under1k':'Under $1,000','1k-3k':'$1,000-$3,000','3k-5k':'$3,000-$5,000','5k-plus':'$5,000+' },
                         timing: { 'asap':'ASAP','next-month':'Next month','few-months':'Next few months','exploring':'Just exploring' },
                         revenue: { '10-30k':'$10k-$30k/mo','30-50k':'$30k-$50k/mo','50-100k':'$50k-$100k/mo','100k-plus':'$100k+/mo' },
-                        promote: { 'single':'One specialty service','few':'A few key services','all':'Everything they do' }
+                        promote: { 'single':'One-service shop','few':'A handful of core services','all':'General workshop - bit of everything' }
                     };
                     var wants = (answers[1] || []).map(function(v){ return labels.want[v] || v; }).join(', ') || '-';
                     var msg = 'Quiz answers - Workshop type: ' + (labels.role[answers[0]] || '-') +
