@@ -2,175 +2,103 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>The Mechanic Marketing Curriculum</title>
+<title>Your First 3 Months | Mechanic Marketing</title>
 <style>
   @font-face{font-family:'TT Commons Pro';src:url('file:///Users/josh/mechanicmarketing-static/public/assets/fonts/TT_Commons_Pro_Regular.woff2') format('woff2');font-weight:400}
   @font-face{font-family:'TT Commons Pro';src:url('file:///Users/josh/mechanicmarketing-static/public/assets/fonts/TT_Commons_Pro_Bold.woff2') format('woff2');font-weight:700}
   @font-face{font-family:'TT Commons Pro';src:url('file:///Users/josh/mechanicmarketing-static/public/assets/fonts/TT_Commons_Pro_ExtraBlack.woff2') format('woff2');font-weight:900}
-  @page { size: A4; margin: 0; }
+  @page { size: A4 landscape; margin: 0; }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { width: 210mm; }
   body {
     font-family: 'TT Commons Pro','Helvetica Neue',Arial,sans-serif;
     background: #1C1C1A; color: #F0F0EC;
     -webkit-print-color-adjust: exact; print-color-adjust: exact;
   }
-  .page { width: 210mm; height: 297mm; padding: 16mm 15mm 12mm; position: relative; overflow: hidden; page-break-after: always; background: #1C1C1A; }
-  .page:last-child { page-break-after: auto; }
-  .glow { position: absolute; top: -60mm; right: -50mm; width: 140mm; height: 120mm; background: radial-gradient(ellipse at center, rgba(255,61,2,0.22) 0%, transparent 65%); }
-  .eyebrow { display: inline-block; font-weight: 700; font-size: 8.5pt; letter-spacing: 2.5px; text-transform: uppercase; color: #FF3D02; border: 1.2pt solid rgba(255,61,2,0.5); border-radius: 999px; padding: 5px 14px 4px; margin-bottom: 9mm; }
-  h1 { font-weight: 900; font-size: 33pt; line-height: 0.95; text-transform: uppercase; letter-spacing: -0.5px; margin-bottom: 5mm; }
+  .page { width: 297mm; height: 210mm; padding: 14mm 16mm 11mm; position: relative; overflow: hidden; background: #1C1C1A; }
+  .glow { position: absolute; top: -55mm; right: -45mm; width: 130mm; height: 110mm; background: radial-gradient(ellipse at center, rgba(255,61,2,0.22) 0%, transparent 65%); }
+  .glow2 { position: absolute; bottom: -60mm; left: -50mm; width: 130mm; height: 110mm; background: radial-gradient(ellipse at center, rgba(255,61,2,0.10) 0%, transparent 65%); }
+  .eyebrow { display: inline-block; font-weight: 700; font-size: 8.5pt; letter-spacing: 2.5px; text-transform: uppercase; color: #FF3D02; border: 1.2pt solid rgba(255,61,2,0.5); border-radius: 999px; padding: 5px 14px 4px; margin-bottom: 6mm; }
+  h1 { font-weight: 900; font-size: 27pt; line-height: 0.95; text-transform: uppercase; letter-spacing: -0.5px; margin-bottom: 3mm; }
   h1 .accent { color: #FF3D02; }
-  .intro { font-size: 11.5pt; line-height: 1.55; color: rgba(240,240,236,0.78); max-width: 155mm; margin-bottom: 10mm; }
-  .steps { display: flex; flex-direction: column; gap: 5mm; margin-bottom: 10mm; }
-  .step { display: flex; gap: 6mm; background: rgba(240,240,236,0.045); border: 1pt solid rgba(240,240,236,0.12); border-radius: 5mm; padding: 6mm 7mm; }
-  .step .day { flex-shrink: 0; width: 24mm; font-weight: 900; text-transform: uppercase; color: #FF3D02; font-size: 12pt; line-height: 1.1; padding-top: 1mm; }
-  .step h3 { font-weight: 900; text-transform: uppercase; font-size: 14pt; margin-bottom: 1.5mm; }
-  .step p { font-size: 10.5pt; line-height: 1.5; color: rgba(240,240,236,0.75); }
-  .results { display: flex; gap: 5mm; margin-bottom: 10mm; }
-  .rcard { flex: 1; text-align: center; background: rgba(255,61,2,0.08); border: 1.2pt solid rgba(255,61,2,0.4); border-radius: 5mm; padding: 6mm 4mm 5mm; }
-  .rcard .stat { font-weight: 900; font-size: 24pt; color: #FF3D02; line-height: 1; margin-bottom: 1.5mm; }
-  .rcard .lbl { font-size: 9pt; text-transform: uppercase; letter-spacing: 1px; color: rgba(240,240,236,0.7); }
-  .footer { position: absolute; left: 15mm; right: 15mm; bottom: 10mm; display: flex; justify-content: space-between; align-items: center; border-top: 1pt solid rgba(240,240,236,0.15); padding-top: 4mm; font-size: 9pt; color: rgba(240,240,236,0.55); }
+  .intro { font-size: 10.5pt; line-height: 1.5; color: rgba(240,240,236,0.75); max-width: 190mm; margin-bottom: 10mm; }
+
+  .timeline { position: relative; display: flex; gap: 8mm; margin-bottom: 9mm; }
+  .timeline::before { content: ''; position: absolute; top: 5.5mm; left: 12mm; right: 12mm; height: 1.6pt; background: repeating-linear-gradient(90deg, rgba(255,61,2,0.65) 0 6mm, transparent 6mm 10mm); }
+  .stop { flex: 1; position: relative; padding-top: 12mm; }
+  .stop .marker { position: absolute; top: 0; left: 0; width: 11mm; height: 11mm; border-radius: 50%; background: #1C1C1A; border: 2pt solid #FF3D02; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 11pt; color: #FF3D02; }
+  .stop .when { font-weight: 900; text-transform: uppercase; color: #FF3D02; font-size: 12.5pt; margin-bottom: 1.5mm; }
+  .stop h3 { font-weight: 900; text-transform: uppercase; font-size: 16pt; line-height: 1; margin-bottom: 3mm; }
+  .stop .card { background: rgba(240,240,236,0.045); border: 1pt solid rgba(240,240,236,0.12); border-radius: 4.5mm; padding: 5.5mm 6mm; min-height: 62mm; }
+  .stop ul { list-style: none; }
+  .stop li { font-size: 10pt; line-height: 1.45; color: rgba(240,240,236,0.82); padding: 1.6mm 0 1.6mm 6mm; position: relative; }
+  .stop li::before { content: '✓'; position: absolute; left: 0; color: #FF3D02; font-weight: 700; }
+  .stop .sum { font-size: 9.5pt; line-height: 1.5; color: rgba(240,240,236,0.6); margin-top: 3mm; padding-top: 3mm; border-top: 0.5pt solid rgba(240,240,236,0.12); }
+
+  .footer { position: absolute; left: 16mm; right: 16mm; bottom: 9mm; display: flex; justify-content: space-between; align-items: center; border-top: 1pt solid rgba(240,240,236,0.15); padding-top: 3.5mm; font-size: 9pt; color: rgba(240,240,236,0.55); }
   .footer .brand { font-weight: 900; text-transform: uppercase; font-size: 10.5pt; color: #F0F0EC; }
   .footer .brand span { color: #FF3D02; }
-  h2 { font-weight: 900; font-size: 21pt; text-transform: uppercase; line-height: 1; margin-bottom: 6mm; }
-  h2 .accent { color: #FF3D02; }
-  .plans { display: flex; gap: 6mm; margin-bottom: 9mm; }
-  .plan { flex: 1; border: 1pt solid rgba(240,240,236,0.15); border-radius: 5mm; padding: 7mm; background: rgba(240,240,236,0.04); }
-  .plan.feat { border: 1.5pt solid #FF3D02; background: rgba(255,61,2,0.07); }
-  .plan .pname { font-weight: 900; text-transform: uppercase; font-size: 15pt; margin-bottom: 1mm; }
-  .plan .pamt { font-weight: 900; font-size: 20pt; color: #FF3D02; margin-bottom: 3mm; }
-  .plan .pamt span { font-size: 10pt; color: rgba(240,240,236,0.6); font-weight: 700; }
-  .plan p.pdesc { font-size: 9.5pt; line-height: 1.45; color: rgba(240,240,236,0.7); margin-bottom: 4mm; }
-  .plan ul { list-style: none; }
-  .plan li { font-size: 9.5pt; line-height: 1.4; color: rgba(240,240,236,0.82); padding: 1.4mm 0 1.4mm 6mm; position: relative; border-bottom: 0.5pt solid rgba(240,240,236,0.08); }
-  .plan li:last-child { border-bottom: none; }
-  .plan li::before { content: '✓'; position: absolute; left: 0; color: #FF3D02; font-weight: 700; }
-  .promise { background: rgba(240,240,236,0.045); border: 1pt solid rgba(240,240,236,0.12); border-radius: 5mm; padding: 6mm 7mm; margin-bottom: 9mm; }
-  .promise h3 { font-weight: 900; text-transform: uppercase; font-size: 13pt; margin-bottom: 3mm; }
-  .promise ul { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 2mm 8mm; }
-  .promise li { font-size: 10pt; color: rgba(240,240,236,0.8); padding-left: 6mm; position: relative; line-height: 1.45; }
-  .promise li::before { content: '✓'; position: absolute; left: 0; color: #FF3D02; font-weight: 700; }
-  .cta { text-align: center; background: #FF3D02; border-radius: 5mm; padding: 8mm 10mm; }
-  .cta h3 { font-weight: 900; text-transform: uppercase; font-size: 16pt; color: #fff; margin-bottom: 2mm; }
-  .cta p { font-size: 10.5pt; color: rgba(255,255,255,0.92); line-height: 1.5; }
-  .cta p strong { font-weight: 700; }
-  .note { font-size: 8.5pt; color: rgba(240,240,236,0.45); margin-top: 4mm; text-align: center; }
+  .footer .tag { font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: rgba(240,240,236,0.45); }
 </style>
 </head>
 <body>
 
 <div class="page">
   <div class="glow"></div>
+  <div class="glow2"></div>
   <span class="eyebrow">Mechanics only &middot; Australian owned</span>
-  <h1>The Mechanic Marketing <span class="accent">curriculum.</span></h1>
-  <p class="intro">We only market for automotive workshops — diesel and Euro specialists, panel shops, mobile mechanics and everything in between. It's the one thing we do, and we do it properly. Here's exactly what happens when you come on board.</p>
+  <h1>What your first 3 months <span class="accent">look like.</span></h1>
+  <p class="intro">No mystery, no waiting around. Here's exactly what happens from the day you sign up to the day it's all running on rails.</p>
 
-  <div class="steps">
-    <div class="step">
-      <div class="day">Day 0</div>
-      <div>
-        <h3>We audit</h3>
-        <p>A deep dive into your ads, website and tracking. We find the leaks, the waste, and the opportunities your current setup is missing — so we build on facts, not guesses.</p>
+  <div class="timeline">
+    <div class="stop">
+      <div class="marker">1</div>
+      <div class="when">Week 1</div>
+      <h3>We build</h3>
+      <div class="card">
+        <ul>
+          <li>Briefing &amp; alignment call &mdash; your services, your area, what makes your workshop different</li>
+          <li>Landing pages built to turn car owners into booked jobs</li>
+          <li>Google &amp; Facebook ad campaigns set up</li>
+          <li>Tracking wired in so every lead is counted</li>
+        </ul>
+        <p class="sum">Ads live by day 7. Not week 7.</p>
       </div>
     </div>
-    <div class="step">
-      <div class="day">Days 1&ndash;7</div>
-      <div>
-        <h3>We build</h3>
-        <p>Landing pages, campaigns, tracking. All built to convert car owners into booked jobs. Live in 7 days, not 7 weeks — and you own every piece of it.</p>
-      </div>
-    </div>
-    <div class="step">
-      <div class="day">Day 8+</div>
-      <div>
-        <h3>You grow</h3>
-        <p>Monthly optimisation, transparent reporting, and results you can bank. We keep pushing the numbers so you can focus on the workshop floor.</p>
-      </div>
-    </div>
-  </div>
 
-  <div class="results">
-    <div class="rcard">
-      <div class="stat">4.45x</div>
-      <div class="lbl">Return on ad spend</div>
+    <div class="stop">
+      <div class="marker">2</div>
+      <div class="when">Month 1</div>
+      <h3>Up &amp; running</h3>
+      <div class="card">
+        <ul>
+          <li>Campaigns live and bringing in leads</li>
+          <li>Learning phase: the platforms gather data on what converts</li>
+          <li>We tune targeting, bids and copy as results come in</li>
+          <li>You see everything &mdash; live dashboard, no smoke and mirrors</li>
+        </ul>
+        <p class="sum">Expect movement, not perfection &mdash; this month is about feeding the machine good data.</p>
+      </div>
     </div>
-    <div class="rcard">
-      <div class="stat">&lt;$30</div>
-      <div class="lbl">Cost per qualified lead</div>
-    </div>
-    <div class="rcard">
-      <div class="stat">7 days</div>
-      <div class="lbl">From sign-up to ads live</div>
+
+    <div class="stop">
+      <div class="marker">3</div>
+      <div class="when">Month 3</div>
+      <h3>Smooth sailing</h3>
+      <div class="card">
+        <ul>
+          <li>Campaigns dialled in on what actually books jobs</li>
+          <li>Steadier lead flow at a cost per lead that makes sense</li>
+          <li>Monthly reporting rhythm &mdash; what we did, what it returned, what's next</li>
+          <li>You focus on the workshop floor, we keep pushing the numbers</li>
+        </ul>
+        <p class="sum">Month-to-month the whole way. We earn your business every month.</p>
+      </div>
     </div>
   </div>
 
   <div class="footer">
     <div class="brand">Mechanic<span>Marketing</span></div>
-    <div>mechanicmarketing.co &middot; hello@mechanicmarketing.co</div>
-  </div>
-</div>
-
-<div class="page">
-  <div class="glow"></div>
-  <h2>What's <span class="accent">included.</span></h2>
-
-  <div class="plans">
-    <div class="plan">
-      <div class="pname">Ignite</div>
-      <div class="pamt">$1,500<span>/month</span></div>
-      <p class="pdesc">Google Ads and Facebook Ads for workshops getting started with online marketing.</p>
-      <ul>
-        <li>Landing page</li>
-        <li>Google Ads management</li>
-        <li>Facebook Ads management</li>
-        <li>Job tracking system</li>
-        <li>Monthly performance reports</li>
-        <li>Live dashboard</li>
-        <li>Full ownership of everything</li>
-        <li>No lock-in contract</li>
-      </ul>
-    </div>
-    <div class="plan feat">
-      <div class="pname">Accelerate</div>
-      <div class="pamt">$2,500<span>/month</span></div>
-      <p class="pdesc">Full service digital marketing for your workshop. SEO, Google Ads, Facebook Ads, landing pages and transparent reports.</p>
-      <ul>
-        <li>Multiple landing pages</li>
-        <li>Google Ads management</li>
-        <li>Facebook Ads management</li>
-        <li>SEO &mdash; blogs + optimised pages</li>
-        <li>Google Business Profile optimisation</li>
-        <li>Job tracking system</li>
-        <li>Monthly performance reports</li>
-        <li>Live dashboard</li>
-        <li>Full ownership of everything</li>
-        <li>No lock-in contract</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="promise">
-    <h3>The deal, straight up</h3>
-    <ul>
-      <li>Month-to-month — no lock-in contracts</li>
-      <li>Cancel any time, no penalty</li>
-      <li>You own everything we build</li>
-      <li>Transparent reporting, every month</li>
-      <li>Mechanics only — it's all we do</li>
-      <li>Ad spend is separate and always yours</li>
-    </ul>
-  </div>
-
-  <div class="cta">
-    <h3>Ready when you are.</h3>
-    <p>Finish the quiz at <strong>mechanicmarketing.co/mechanics-only</strong> to see your plan,<br>or email <strong>hello@mechanicmarketing.co</strong> and we'll take it from there.</p>
-  </div>
-  <p class="note">Pricing correct at July 2026. Both plans are month-to-month; ad spend is additional.</p>
-
-  <div class="footer">
-    <div class="brand">Mechanic<span>Marketing</span></div>
+    <div class="tag">Built for the pit lane</div>
     <div>mechanicmarketing.co &middot; hello@mechanicmarketing.co</div>
   </div>
 </div>
