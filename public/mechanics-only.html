@@ -2041,6 +2041,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="quiz-dot" id="qd2"></div>
                     <div class="quiz-dot" id="qd3"></div>
                     <div class="quiz-dot" id="qd4"></div>
+                    <div class="quiz-dot" id="qd5"></div>
                 </div>
 
                 <div class="quiz-step active" id="mmq-s0">
@@ -2105,6 +2106,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <button type="button" class="quiz-back" data-back="3">&larr; Back</button>
                 </div>
 
+                <div class="quiz-step" id="mmq-s5">
+                    <div class="quiz-q">Nearly there: how much of what you do should we promote?</div>
+                    <div class="quiz-opts">
+                        <label class="quiz-opt" data-q="5" data-v="single"><span class="qr"></span>Just one specialty (e.g. DPF, tyres, aircon)</label>
+                        <label class="quiz-opt" data-q="5" data-v="few"><span class="qr"></span>A few key services</label>
+                        <label class="quiz-opt" data-q="5" data-v="all"><span class="qr"></span>Everything we do</label>
+                    </div>
+                    <button type="button" class="quiz-back" data-back="4">&larr; Back</button>
+                </div>
+
                 <div class="quiz-step" id="mmq-contact">
                     <div class="quiz-q">Last step: how do we get in touch with you?</div>
                     <p class="quiz-panel__sub" style="margin-bottom: 18px;">Pop your details in and one of the team will reach out about your workshop.</p>
@@ -2116,7 +2127,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <button type="submit" class="btn-primary quiz-btn" id="qzBtn">Send &rarr;</button>
                     </form>
                     <p class="quiz-err" id="qzErr">Please enter your name, mobile and a valid email.</p>
-                    <button type="button" class="quiz-back" data-back="4">&larr; Back</button>
+                    <button type="button" class="quiz-back" data-back="5">&larr; Back</button>
                 </div>
 
                 <div class="quiz-step" id="mmq-thanks" style="text-align: center;">
@@ -2907,7 +2918,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         (function() {
             var answers = {};      // q0, q2, q3 = string; q1 = array (multi-select)
             answers[1] = [];
-            var TOTAL_Q = 5;
+            var TOTAL_Q = 6;
 
             var advTimer = null;   // pending auto-advance timer
             var done = false;      // locked once the thank-you screen is shown
@@ -3027,18 +3038,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         want: { 'leads':'More leads & booked jobs','busier':'Busier workshop','stop-waste':'Stop wasting ad spend','website':'Better website','google':'Rank higher on Google','advice':'Needs advice' },
                         budget: { 'under1k':'Under $1,000','1k-3k':'$1,000-$3,000','3k-5k':'$3,000-$5,000','5k-plus':'$5,000+' },
                         timing: { 'asap':'ASAP','next-month':'Next month','few-months':'Next few months','exploring':'Just exploring' },
-                        revenue: { '10-30k':'$10k-$30k/mo','30-50k':'$30k-$50k/mo','50-100k':'$50k-$100k/mo','100k-plus':'$100k+/mo' }
+                        revenue: { '10-30k':'$10k-$30k/mo','30-50k':'$30k-$50k/mo','50-100k':'$50k-$100k/mo','100k-plus':'$100k+/mo' },
+                        promote: { 'single':'One specialty service','few':'A few key services','all':'Everything they do' }
                     };
                     var wants = (answers[1] || []).map(function(v){ return labels.want[v] || v; }).join(', ') || '-';
                     var msg = 'Quiz answers - Workshop type: ' + (labels.role[answers[0]] || '-') +
                               '; Looking for: ' + wants +
                               '; Budget: ' + (labels.budget[answers[2]] || '-') +
                               '; Timing: ' + (labels.timing[answers[3]] || '-') +
-                              '; Monthly revenue: ' + (labels.revenue[answers[4]] || '-');
+                              '; Monthly revenue: ' + (labels.revenue[answers[4]] || '-') +
+                              '; Promoting: ' + (labels.promote[answers[5]] || '-');
 
                     // Reveal the recommended plan + self-serve 20% offer.
+                    // Ignite: promoting a single service, or budget under $1k/m.
+                    // Accelerate: multiple services AND $1k+/m budget.
                     // Display prices only - the checkout function prices server-side.
-                    var plan = (answers[2] === '3k-5k' || answers[2] === '5k-plus') ? 'accelerate' : 'ignite';
+                    var plan = (answers[5] === 'single' || answers[2] === 'under1k') ? 'ignite' : 'accelerate';
                     var planInfo = {
                         ignite:     { label: 'Ignite',     was: '$1,500/m', now: '$1,200' },
                         accelerate: { label: 'Accelerate', was: '$2,500/m', now: '$2,000' }
