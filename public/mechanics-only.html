@@ -2012,8 +2012,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         .quiz-offer__alt { color: rgba(240,240,236,0.7); font-size: 0.92rem; line-height: 1.5; margin-bottom: 10px; }
         .quiz-offer__altbtn { display: inline-block; padding: 11px 26px; border: 2px solid rgba(240,240,236,0.35); border-radius: 999px; color: #F0F0EC; text-decoration: none; font-weight: 700; font-size: 0.92rem; transition: border-color 0.18s ease, background 0.18s ease; }
         .quiz-offer__altbtn:hover { border-color: #FF3D02; background: rgba(255,61,2,0.08); }
-        .quiz-offer__pdf { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 20px auto 0; color: rgba(240,240,236,0.75); font-size: 0.88rem; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
-        .quiz-offer__pdf:hover { color: #FF3D02; }
+        .quiz-roadmap { margin: 22px 0; text-align: left; }
+        .quiz-roadmap__title { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: 0.95rem; letter-spacing: 0.03em; color: #F0F0EC; text-align: center; margin-bottom: 14px; }
+        .quiz-roadmap__row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+        .quiz-roadmap__stop { background: rgba(240,240,236,0.04); border: 1px solid rgba(240,240,236,0.12); border-radius: 12px; padding: 14px 12px; position: relative; }
+        .qrm-num { width: 24px; height: 24px; border-radius: 50%; border: 2px solid #FF3D02; color: #FF3D02; font-family: var(--font-display); font-weight: 900; font-size: 0.8rem; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; }
+        .qrm-when { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: 0.78rem; letter-spacing: 0.05em; color: #FF3D02; margin-bottom: 2px; }
+        .qrm-name { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: 0.95rem; color: #F0F0EC; margin-bottom: 6px; line-height: 1.05; }
+        .quiz-roadmap__stop p { font-size: 0.8rem; line-height: 1.45; color: rgba(240,240,236,0.68); margin: 0; }
+        @media (max-width: 560px) { .quiz-roadmap__row { grid-template-columns: 1fr; } }
         @media (max-width: 560px) {
             .quiz-wrap { padding: 48px 0; }
             .quiz-panel { padding: 32px 22px; border-radius: 16px; }
@@ -2130,13 +2137,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <p class="quiz-err" id="qzCheckoutErr">Online sign-up isn't available right now &mdash; book a call below and we'll sort you out.</p>
                     </div>
 
+                    <div class="quiz-roadmap">
+                        <div class="quiz-roadmap__title">What your first 3 months look like</div>
+                        <div class="quiz-roadmap__row">
+                            <div class="quiz-roadmap__stop">
+                                <div class="qrm-num">1</div>
+                                <div class="qrm-when">Week 1</div>
+                                <div class="qrm-name">We build</div>
+                                <p>Briefing &amp; alignment call, then landing pages, campaigns and tracking. Ads live by day 7.</p>
+                            </div>
+                            <div class="quiz-roadmap__stop">
+                                <div class="qrm-num">2</div>
+                                <div class="qrm-when">Month 1</div>
+                                <div class="qrm-name">Up &amp; running</div>
+                                <p>Campaigns live and in learning mode &mdash; we tune targeting, bids and copy as the data comes in.</p>
+                            </div>
+                            <div class="quiz-roadmap__stop">
+                                <div class="qrm-num">3</div>
+                                <div class="qrm-when">Month 3</div>
+                                <div class="qrm-name">Smooth sailing</div>
+                                <p>Dialled in on what books jobs: steadier lead flow, sensible cost per lead, monthly reporting rhythm.</p>
+                            </div>
+                        </div>
+                    </div>
+
                     <p class="quiz-offer__alt">Prefer to talk it through first? Book a call with the team &mdash; standard pricing applies.</p>
                     <a href="https://meet.reclaimai.com/e/686c0900-a513-4c74-8e6c-c728c72145e7" class="quiz-offer__altbtn" target="_blank" rel="noopener">Book a call instead</a>
-
-                    <a href="/assets/mm-curriculum.pdf" download class="quiz-offer__pdf" id="qzCurriculum">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="M7 11l5 5 5-5"/><path d="M4 20h16"/></svg>
-                        Download your first 3 months (PDF)
-                    </a>
                     <button type="button" class="quiz-restart">Start again</button>
                 </div>
 
@@ -3025,10 +3051,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     // Show the thank-you immediately - never leave the visitor stuck waiting on the network
                     setDots(TOTAL_Q);
                     showStep('mmq-thanks');
-
-                    // Curriculum PDF - fire the download straight away; the visible link stays as backup
-                    var pdfLink = document.getElementById('qzCurriculum');
-                    if (pdfLink) { setTimeout(function(){ pdfLink.click(); }, 600); }
 
                     window.dataLayer = window.dataLayer || [];
                     window.dataLayer.push({ event: 'quiz_lead', quiz_budget: answers[2] || '', quiz_type: answers[0] || '' });
