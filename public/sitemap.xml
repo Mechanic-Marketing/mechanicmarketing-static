@@ -291,4 +291,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+<url>
+    <loc>https://mechanicmarketing.co/blog/missed-calls-killing-your-marketing-roi</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
