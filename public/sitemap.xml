@@ -311,4 +311,14 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+<url>
+    <loc>https://mechanicmarketing.co/blog/the-digital-logbook-marketing-service-history</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+<url>
+    <loc>https://mechanicmarketing.co/blog/likes-dont-pay-the-rent</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
