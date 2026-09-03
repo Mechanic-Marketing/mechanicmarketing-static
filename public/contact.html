@@ -155,6 +155,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <!-- RIGHT: FORM -->
         <div>
           <form class="contact-form" id="contact-form" action="/contact" method="POST" novalidate>
+            <input type="text" name="hp_website" id="hp_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+            <input type="hidden" name="ts" id="contact_ts" value="">
             <div class="form-group">
               <label for="full_name">Full Name <span aria-hidden="true">*</span></label>
               <input type="text" id="full_name" name="full_name" placeholder="Your full name" required>
@@ -285,6 +287,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       var form = document.getElementById('contact-form');
       var success = document.getElementById('form-success');
       if (!form) return;
+
+      var tsField = document.getElementById('contact_ts');
+      if (tsField) tsField.value = Date.now();
 
       form.addEventListener('submit', async function(e) {
         e.preventDefault();
