@@ -1430,6 +1430,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <h3>BOOK YOUR FREE CALL</h3>
                         <p class="form-sub">We'll run your numbers. No obligation.</p>
                         <form id="hero-form" novalidate>
+                            <input type="text" name="hp_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+                            <input type="hidden" name="ts" value="">
                             <div class="form-group">
                                 <label for="hero-name">First name</label>
                                 <input type="text" id="hero-name" name="first_name" placeholder="e.g. Dave" required>
@@ -1895,6 +1897,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <h3>BOOK YOUR FREE CALL</h3>
                             <p class="form-sub">We'll be in touch within 1 business day.</p>
                             <form id="footer-form" novalidate>
+                                <input type="text" name="hp_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+                                <input type="hidden" name="ts" value="">
                                 <div class="form-group">
                                     <label for="footer-name">First name</label>
                                     <input type="text" id="footer-name" name="first_name" placeholder="e.g. Dave" required>
@@ -2097,7 +2101,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     mobile: formData.mobile || '',
                     email: formData.email || '',
                     primary_service: formData.primary_service || '',
-                    monthly_spend: formData.monthly_spend || ''
+                    monthly_spend: formData.monthly_spend || '',
+                    hp_website: formData.hp_website || '',
+                    ts: formData.ts || ''
                 })
             })
             .then(function(res) { return res.json(); })
@@ -2135,15 +2141,22 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             });
         }
 
+        function stampFormTime(form) {
+            var tsField = form.querySelector('input[name="ts"]');
+            if (tsField) tsField.value = Date.now();
+        }
+
         var heroForm = document.getElementById('hero-form');
         var footerForm = document.getElementById('footer-form');
 
         if (heroForm) {
+            stampFormTime(heroForm);
             heroForm.addEventListener('submit', handleFormSubmit);
             clearErrorOnInput(heroForm);
         }
 
         if (footerForm) {
+            stampFormTime(footerForm);
             footerForm.addEventListener('submit', handleFormSubmit);
             clearErrorOnInput(footerForm);
         }

@@ -36,6 +36,27 @@ export async function onRequestPost(context) {
     data = Object.fromEntries(formData.entries());
   }
 
+  // --- Spam defenses --------------------------------------------------
+  // These fail "successfully" (200, { success: true }) rather than with
+  // an error. Real visitors never notice either check exists; bots that
+  // get a fake success have no signal to tell them to adapt and retry.
+
+  // Honeypot — a field every real form carries but hides from view.
+  // Bots that auto-fill every input on the page trip this; humans never
+  // see or touch it.
+  if (data.hp_website) {
+    return Response.json({ success: true });
+  }
+
+  // Time trap — `ts` is set client-side to the page-load timestamp. A
+  // human takes at least a second or two to fill the form; a script
+  // posting straight to this endpoint either omits `ts` entirely or
+  // submits within milliseconds of "loading" it.
+  const submittedAt = Number(data.ts);
+  if (!submittedAt || Number.isNaN(submittedAt) || Date.now() - submittedAt < 1500) {
+    return Response.json({ success: true });
+  }
+
   // Normalise field names — handle both the main contact page and all 4 LP forms
   const fullName     = data.full_name || data.first_name || data.firstName || '';
   const email        = data.email || '';
@@ -50,6 +71,14 @@ export async function onRequestPost(context) {
   }
   if (!email && !phone) {
     return Response.json({ success: false, error: 'Email or phone is required.' }, { status: 400 });
+  }
+
+  // Link-stuffed message — classic SEO/backlink spam pads the free-text
+  // fields with several URLs. Legitimate enquiries essentially never do.
+  const freeText = `${data.message || ''} ${data.frustration || ''}`;
+  const linkCount = (freeText.match(/https?:\/\//gi) || []).length;
+  if (linkCount >= 3) {
+    return Response.json({ success: true });
   }
 
   const requested = SOURCE_REQUESTS[source] || `Enquiry via ${source}`;

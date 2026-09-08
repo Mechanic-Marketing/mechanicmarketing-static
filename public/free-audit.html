@@ -2088,6 +2088,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="quiz-q">Last step: how do we get in touch with you?</div>
                     <p class="quiz-panel__sub" style="margin-bottom: 18px;">Pop your details in and we'll lock in your free 30-minute audit.</p>
                     <form id="quizForm" novalidate>
+                        <input type="text" name="hp_website" id="qz_hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
                         <input type="text" class="quiz-field" id="qzName" name="name" placeholder="Your name *" autocomplete="name" required>
                         <input type="text" class="quiz-field" id="qzWorkshop" name="workshop" placeholder="Workshop name" autocomplete="organization">
                         <input type="tel" class="quiz-field" id="qzMobile" name="mobile" placeholder="Mobile *" autocomplete="tel" required>
@@ -2656,6 +2657,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 </div>
 
                 <form class="lead-form animate-on-scroll" id="contactForm" novalidate>
+                    <input type="text" name="hp_website" id="cf_hp" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
                     <div class="form-group">
                         <label for="firstName">First Name *</label>
                         <input type="text" id="firstName" name="firstName" placeholder="e.g. Steve" required>
@@ -2931,6 +2933,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 });
             });
 
+            var quizLoadedAt = Date.now();
             var quizForm = document.getElementById('quizForm');
             if (quizForm) {
                 quizForm.addEventListener('submit', function(e) {
@@ -2988,7 +2991,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             workshop_name: (workshopEl.value || '').trim(),
                             mobile: mb,
                             email: em,
-                            message: msg
+                            message: msg,
+                            hp_website: (document.getElementById('qz_hp') || {}).value || '',
+                            ts: quizLoadedAt
                         })
                     }).catch(function(){});
                 });
@@ -2998,6 +3003,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
         // ===== Contact Form Submission =====
         (function() {
+            var contactFormLoadedAt = Date.now();
             var form = document.getElementById('contactForm');
             var thankYou = document.getElementById('thankYou');
 
@@ -3043,7 +3049,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             workshop_name: workshopName.value.trim(),
                             mobile: mobile.value.trim(),
                             email: email.value.trim(),
-                            message: message ? message.value.trim() : ''
+                            message: message ? message.value.trim() : '',
+                            hp_website: (document.getElementById('cf_hp') || {}).value || '',
+                            ts: contactFormLoadedAt
                         })
                     })
                     .then(function(res) { return res.json(); })
