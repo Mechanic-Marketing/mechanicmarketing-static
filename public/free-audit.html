@@ -2093,6 +2093,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <input type="text" class="quiz-field" id="qzWorkshop" name="workshop" placeholder="Workshop name" autocomplete="organization">
                         <input type="tel" class="quiz-field" id="qzMobile" name="mobile" placeholder="Mobile *" autocomplete="tel" required>
                         <input type="email" class="quiz-field" id="qzEmail" name="email" placeholder="Email *" autocomplete="email" required>
+                        <label style="display:flex; align-items:flex-start; gap:8px; font-size:0.85rem; color:rgba(240,240,236,0.75); margin:4px 0 14px; text-align:left;">
+                            <input type="checkbox" id="qzNewsletter" name="newsletter_optin" style="width:auto; margin-top:3px;">
+                            Send me Mechanic Marketing tips by email
+                        </label>
                         <button type="submit" class="btn-primary quiz-btn" id="qzBtn">Send &rarr;</button>
                     </form>
                     <p class="quiz-err" id="qzErr">Please enter your name, mobile and a valid email.</p>
@@ -2684,6 +2688,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
 
                     <div class="form-group full-width">
+                        <label style="display:flex; align-items:center; gap:8px; font-weight:400;">
+                            <input type="checkbox" id="cfNewsletter" name="newsletter_optin" style="width:auto;">
+                            Send me Mechanic Marketing tips by email
+                        </label>
+                    </div>
+
+                    <div class="form-group full-width">
                         <button type="submit" class="btn-primary form-submit-btn">Send Enquiry</button>
                     </div>
                 </form>
@@ -2992,6 +3003,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             mobile: mb,
                             email: em,
                             message: msg,
+                            newsletter_optin: (document.getElementById('qzNewsletter') || {}).checked || false,
                             hp_website: (document.getElementById('qz_hp') || {}).value || '',
                             ts: quizLoadedAt
                         })
@@ -3050,6 +3062,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             mobile: mobile.value.trim(),
                             email: email.value.trim(),
                             message: message ? message.value.trim() : '',
+                            newsletter_optin: (document.getElementById('cfNewsletter') || {}).checked || false,
                             hp_website: (document.getElementById('cf_hp') || {}).value || '',
                             ts: contactFormLoadedAt
                         })
