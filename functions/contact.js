@@ -275,6 +275,7 @@ async function subscribeToResend(env, { email, fullName, mmSource, newsletterOpt
   const lastName = rest.join(' ') || undefined;
   const properties = { brand: 'mm', source: mmSource };
 
+  let isNewContact = true;
   let res = await fetch('https://api.resend.com/contacts', {
     method: 'POST',
     headers,
@@ -282,6 +283,7 @@ async function subscribeToResend(env, { email, fullName, mmSource, newsletterOpt
   });
   if (!res.ok) {
     // Contact likely already exists — fall back to updating it.
+    isNewContact = false;
     res = await fetch(`https://api.resend.com/contacts/${encodeURIComponent(email)}`, {
       method: 'PATCH',
       headers,
@@ -300,16 +302,23 @@ async function subscribeToResend(env, { email, fullName, mmSource, newsletterOpt
     console.error('Resend segment add failed:', segmentRes.status, await segmentRes.text());
   }
 
-  const topicsRes = await fetch(`https://api.resend.com/contacts/${encodeURIComponent(email)}/topics`, {
-    method: 'PATCH',
-    headers,
-    body: JSON.stringify([{
-      id: RESEND_MM_NEWSLETTER_TOPIC_ID,
-      subscription: newsletterOptIn ? 'opt_in' : 'opt_out',
-    }]),
-  });
-  if (!topicsRes.ok) {
-    console.error('Resend topic update failed:', topicsRes.status, await topicsRes.text());
+  // Ticking the box always opts them in. Leaving it unticked only opts them
+  // out for a brand-new contact — the topic's default is opt_in, so a new
+  // contact left untouched would end up subscribed. An existing contact who
+  // leaves it unticked just isn't re-subscribed; we don't touch (and
+  // possibly unsubscribe) whatever preference they already had.
+  if (newsletterOptIn || isNewContact) {
+    const topicsRes = await fetch(`https://api.resend.com/contacts/${encodeURIComponent(email)}/topics`, {
+      method: 'PATCH',
+      headers,
+      body: JSON.stringify([{
+        id: RESEND_MM_NEWSLETTER_TOPIC_ID,
+        subscription: newsletterOptIn ? 'opt_in' : 'opt_out',
+      }]),
+    });
+    if (!topicsRes.ok) {
+      console.error('Resend topic update failed:', topicsRes.status, await topicsRes.text());
+    }
   }
 
   const eventRes = await fetch('https://api.resend.com/events/send', {
