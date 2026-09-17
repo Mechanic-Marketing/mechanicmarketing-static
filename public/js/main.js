@@ -78,37 +78,3 @@ document.querySelectorAll('.faq-q').forEach(function(btn) {
     this.parentElement.classList.toggle('open');
   });
 });
-
-// ---------------------------------------------------------------------------
-// Contact form handler
-// ---------------------------------------------------------------------------
-var form = document.getElementById('contact-form');
-if (form) {
-  form.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    var btn = form.querySelector('button[type="submit"]');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-    try {
-      var res = await fetch('/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(Object.fromEntries(new FormData(form)))
-      });
-      if (res.ok) {
-        form.innerHTML = '<p class="form-success">Thanks — we\'ll be in touch within 1 business day.</p>';
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ event: 'generate_lead', form_name: 'contact' });
-      } else {
-        throw new Error('Server error');
-      }
-    } catch (err) {
-      btn.textContent = 'Try again';
-      btn.disabled = false;
-      var errEl = document.createElement('p');
-      errEl.className = 'form-error';
-      errEl.textContent = 'Something went wrong. Please email us directly at hello@mechanicmarketing.co';
-      form.appendChild(errEl);
-    }
-  });
-}
