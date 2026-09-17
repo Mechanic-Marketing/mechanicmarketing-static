@@ -301,6 +301,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         e.preventDefault();
 
         var btn = form.querySelector('button[type="submit"], input[type="submit"]');
+        if (btn && btn.disabled) return; // already submitting — ignore a duplicate submit event
         if (btn) {
           btn.disabled = true;
           btn.textContent = 'Sending...';

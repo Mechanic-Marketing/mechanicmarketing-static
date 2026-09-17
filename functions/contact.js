@@ -116,7 +116,7 @@ export async function onRequestPost(context) {
   ].filter(Boolean).join('\n');
 
   const mailPayload = {
-    from: 'Mechanic Marketing Website <noreply@mechanicmarketing.co>',
+    from: 'Mechanic Marketing Website <noreply@news.mechanicmarketing.co>',
     to: LEAD_RECIPIENTS,
     subject: `New lead: ${workshopName || fullName} — ${requested}`,
     text: lines,
