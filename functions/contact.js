@@ -13,6 +13,19 @@ const CF_CHANNEL_ONLINE = '4b6d2547-2409-4563-b764-f5e34806dd93'; // Channel →
 // Everyone who should be notified of a new lead by email.
 const LEAD_RECIPIENTS = ['hello@mechanicmarketing.co', 'guy@mechanicmarketing.co'];
 
+// Resend segment/topic ids (fetched from the Resend dashboard 16 Sep 2026).
+// Replaces the retired Kit (ConvertKit) integration — see brief 4.
+const RESEND_MM_SEGMENT_ID = '731fa8c5-c579-42d8-b093-0c4cdbb8ad17';          // Segment: Mechanic Marketing
+const RESEND_MM_NEWSLETTER_TOPIC_ID = '4c25f610-ae12-4559-ba3c-d74889e12310'; // Topic: Mechanic Marketing newsletter
+
+// Only these three forms feed the Resend signup — everything else posting to
+// /contact (the other landing-page forms) is out of scope for now.
+const RESEND_SUBSCRIBE_SOURCE = {
+  'Contact page':                   'contact_form',
+  'Free Audit LP - Quiz':           'offer_form',
+  'Free Audit LP - Contact form':   'offer_form',
+};
+
 // Maps each form's `source` value to a plain-English description of what
 // the visitor actually asked for, so the email and ClickUp task are clear.
 const SOURCE_REQUESTS = {
@@ -148,6 +161,18 @@ export async function onRequestPost(context) {
     console.error('ClickUp error:', err);
   }
 
+  // Resend contact/event signup — replaces the retired Kit integration.
+  // Never blocks the form response: log and carry on if it fails.
+  const mmSource = RESEND_SUBSCRIBE_SOURCE[source];
+  if (mmSource && email) {
+    const newsletterOptIn = data.newsletter_optin === 'on' || data.newsletter_optin === true;
+    try {
+      await subscribeToResend(context.env, { email, fullName, mmSource, newsletterOptIn });
+    } catch (err) {
+      console.error('Resend subscribe error:', err);
+    }
+  }
+
   // The lead is captured as long as either channel worked. Only tell the
   // visitor to retry when both failed — retrying after a partial success
   // would double up the lead.
@@ -230,4 +255,78 @@ function postClickUpTask(env, payload) {
     },
     body: JSON.stringify(payload),
   });
+}
+
+// Creates (or updates) the Resend contact, assigns it to the Mechanic
+// Marketing segment, sets its newsletter topic subscription, and fires the
+// mm.subscribed event. Each step is independent so a partial failure still
+// leaves the contact/segment/topic in the right state.
+async function subscribeToResend(env, { email, fullName, mmSource, newsletterOptIn }) {
+  if (!env.RESEND_API_KEY) {
+    console.error('Resend subscribe: RESEND_API_KEY not set');
+    return;
+  }
+
+  const headers = {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${env.RESEND_API_KEY}`,
+  };
+  const [firstName, ...rest] = fullName.trim().split(/\s+/);
+  const lastName = rest.join(' ') || undefined;
+  const properties = { brand: 'mm', source: mmSource };
+
+  let isNewContact = true;
+  let res = await fetch('https://api.resend.com/contacts', {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({ email, first_name: firstName || undefined, last_name: lastName, properties }),
+  });
+  if (!res.ok) {
+    // Contact likely already exists — fall back to updating it.
+    isNewContact = false;
+    res = await fetch(`https://api.resend.com/contacts/${encodeURIComponent(email)}`, {
+      method: 'PATCH',
+      headers,
+      body: JSON.stringify({ first_name: firstName || undefined, last_name: lastName, properties }),
+    });
+    if (!res.ok) {
+      console.error('Resend contact create/update failed:', res.status, await res.text());
+    }
+  }
+
+  const segmentRes = await fetch(
+    `https://api.resend.com/contacts/${encodeURIComponent(email)}/segments/${RESEND_MM_SEGMENT_ID}`,
+    { method: 'POST', headers }
+  );
+  if (!segmentRes.ok) {
+    console.error('Resend segment add failed:', segmentRes.status, await segmentRes.text());
+  }
+
+  // Ticking the box always opts them in. Leaving it unticked only opts them
+  // out for a brand-new contact — the topic's default is opt_in, so a new
+  // contact left untouched would end up subscribed. An existing contact who
+  // leaves it unticked just isn't re-subscribed; we don't touch (and
+  // possibly unsubscribe) whatever preference they already had.
+  if (newsletterOptIn || isNewContact) {
+    const topicsRes = await fetch(`https://api.resend.com/contacts/${encodeURIComponent(email)}/topics`, {
+      method: 'PATCH',
+      headers,
+      body: JSON.stringify([{
+        id: RESEND_MM_NEWSLETTER_TOPIC_ID,
+        subscription: newsletterOptIn ? 'opt_in' : 'opt_out',
+      }]),
+    });
+    if (!topicsRes.ok) {
+      console.error('Resend topic update failed:', topicsRes.status, await topicsRes.text());
+    }
+  }
+
+  const eventRes = await fetch('https://api.resend.com/events/send', {
+    method: 'POST',
+    headers,
+    body: JSON.stringify({ event: 'mm.subscribed', email, payload: { source: mmSource } }),
+  });
+  if (!eventRes.ok) {
+    console.error('Resend event send failed:', eventRes.status, await eventRes.text());
+  }
 }
