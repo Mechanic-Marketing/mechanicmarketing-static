@@ -11,7 +11,7 @@ const CF_CHANNEL = 'd82f6771-a73a-4e30-8e82-fb4180fc85d9';        // Channel (dr
 const CF_CHANNEL_ONLINE = '4b6d2547-2409-4563-b764-f5e34806dd93'; // Channel → "Online"
 
 // Everyone who should be notified of a new lead by email.
-const LEAD_RECIPIENTS = ['hello@mechanicmarketing.co', 'guy@mechanicmarketing.co'];
+const LEAD_RECIPIENTS = ['hello@mechanicmarketing.co'];
 
 // Resend segment/topic ids (fetched from the Resend dashboard 16 Sep 2026).
 // Replaces the retired Kit (ConvertKit) integration — see brief 4.
