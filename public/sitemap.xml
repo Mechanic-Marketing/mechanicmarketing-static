@@ -331,4 +331,9 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+<url>
+    <loc>https://mechanicmarketing.co/blog/why-your-marketing-needs-a-service-history</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
 </urlset>
