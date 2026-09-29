@@ -1,0 +1,10 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+<rect width="600" height="630" fill="#000000"/>
+<rect x="600" width="600" height="630" fill="#F0F0EC"/>
+<circle cx="300" cy="300" r="150" fill="#FF3D02"/>
+<circle cx="300" cy="300" r="90" fill="#000000"/>
+<circle cx="900" cy="300" r="150" fill="none" stroke="#FF3D02" stroke-width="6"/>
+<circle cx="900" cy="300" r="90" fill="#F0AA00"/>
+<rect x="0" y="0" width="1200" height="14" fill="#FF3D02"/>
+<text x="40" y="590" font-family="'TT Commons Condensed','Helvetica Neue',Arial,sans-serif" font-size="12" letter-spacing="2" fill="#000000" fill-opacity="0.5">MECHANICMARKETING.CO</text>
+</svg>
