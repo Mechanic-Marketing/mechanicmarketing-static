@@ -3478,5 +3478,75 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 })();
 </script>
 
+<script>
+/* Reclaim booking attribution.
+   Captures gclid / fbclid / GA4 client id and appends them to every
+   meet.reclaimai.com link and iframe as data-* params. Reclaim echoes these
+   back in its "Meeting Created" webhook (functions/reclaim-webhook.js), which
+   reports the completed booking to GA4. Reclaim allows max 5 data-* params,
+   512 bytes total. Works on whatever element type the page uses (a or iframe). */
+(function () {
+  var HOST = 'meet.reclaimai.com';
+  var KEY = 'mm_reclaim_attr';
+
+  function load() {
+    try { return JSON.parse(sessionStorage.getItem(KEY)) || {}; } catch (e) { return {}; }
+  }
+  function save(a) {
+    try { sessionStorage.setItem(KEY, JSON.stringify(a)); } catch (e) {}
+  }
+  // _ga cookie is GA1.1.<cid1>.<cid2>; the GA4 client id is the last two parts.
+  function gaClientId() {
+    var m = document.cookie.match(/(?:^|;\s*)_ga=GA\d+\.\d+\.(\d+\.\d+)/);
+    return m ? m[1] : '';
+  }
+  function collect() {
+    var a = load();
+    var q = new URLSearchParams(location.search);
+    ['gclid', 'fbclid'].forEach(function (k) { if (q.get(k)) a[k] = q.get(k); });
+    var cid = gaClientId();
+    if (cid) a.ga_cid = cid;
+    save(a);
+    return a;
+  }
+  function decorate(url, a) {
+    var u;
+    try { u = new URL(url, location.href); } catch (e) { return url; }
+    if (u.hostname !== HOST) return url;
+    ['ga_cid', 'gclid', 'fbclid'].forEach(function (k) {
+      if (a[k]) u.searchParams.set('data-' + k, a[k]);
+    });
+    return u.toString();
+  }
+  function apply() {
+    var a = collect();
+    var i, el, next;
+    var links = document.querySelectorAll('a[href*="' + HOST + '"]');
+    for (i = 0; i < links.length; i++) {
+      el = links[i]; next = decorate(el.getAttribute('href'), a);
+      if (next !== el.getAttribute('href')) el.setAttribute('href', next);
+    }
+    var frames = document.querySelectorAll('iframe[src*="' + HOST + '"]');
+    for (i = 0; i < frames.length; i++) {
+      el = frames[i]; next = decorate(el.getAttribute('src'), a);
+      if (next !== el.getAttribute('src')) el.setAttribute('src', next);
+    }
+  }
+
+  apply();
+  // GTM sets the _ga cookie asynchronously, so retry briefly until it exists.
+  var tries = 0;
+  var t = setInterval(function () {
+    apply();
+    if (gaClientId() || ++tries >= 10) clearInterval(t);
+  }, 500);
+  // Last-chance refresh right before a link is followed.
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="' + HOST + '"]');
+    if (a) apply();
+  }, true);
+})();
+</script>
+
 </body>
 </html>
