@@ -4,7 +4,7 @@
 
 ---
 
-## Session state — last updated 2026-07-21
+## Session state — last updated 2026-09-17
 
 ### What's live
 - **Production:** `mechanicmarketing.co` — domain cutover to Cloudflare Pages is done (June 2026)
@@ -13,10 +13,24 @@
 
 ### Contact form
 - `functions/contact.js` sends via **Resend API** (replaced MailChannels, which was deprecated)
-- Requires `RESEND_API_KEY` set in Cloudflare Pages → Settings → Environment variables → Production
+- Requires `RESEND_API_KEY` set in Cloudflare Pages → Settings → Environment variables → Production. **Preview deployments do NOT get this env var by default** — if you need to test the Resend path on a PR preview, it must be added separately under Cloudflare Pages → Settings → Environment variables → Preview (confirmed empirically 16 Sep 2026: Resend calls silently no-op on preview without it, while ClickUp calls still work since `CLICKUP_API_TOKEN` was already scoped to both).
 - `onRequestPost` only — GET requests fall through to `contact.html` (do NOT add an `onRequest` handler)
-- Resend sending domain `mechanicmarketing.co` must be verified in Resend dashboard for emails to deliver
+- **Sending domain is `news.mechanicmarketing.co`, NOT `mechanicmarketing.co`.** The bare `mechanicmarketing.co` domain is not verified for sending in Resend — using it as the `from` address causes a 403 (found and fixed in PR #79, 16 Sep 2026). The `from` address is `noreply@news.mechanicmarketing.co`; `to`/`reply_to` are unaffected.
+- `LEAD_RECIPIENTS` is `['hello@mechanicmarketing.co']` only (PR #80). `guy@mechanicmarketing.co` was removed — Guy has left, his address correctly hard-bounces and is suppressed in Resend's account-wide suppression list. **Do not re-add it.** Because Resend sends to all `to` addresses in one call, having even one suppressed recipient silently suppressed the *entire* send — `hello@` was affected too until this fix, despite not being suppressed itself. If another recipient is ever added here, check it isn't on the Resend suppression list first, or a single bad address will again silently kill delivery to everyone else on the `to` line.
 - Also creates a ClickUp task per lead in the **MM Pipeline** list (`901606822314`, status `lead`) — requires `CLICKUP_API_TOKEN` in Cloudflare Pages → Settings → Environment variables → Production. ClickUp failure never blocks the form response; the visitor only sees an error if both Resend and ClickUp fail.
+
+### Resend contact/segment/topic/event signup (replaces retired Kit integration)
+- Kit (ConvertKit) is fully retired — confirmed via diagnostic (brief 4, 16 Sep 2026) that no code anywhere (this repo, `mm-leads-proxy`, or the live site) ever pushed leads to Kit; the integration lived only on the pre-migration WordPress site and was never carried over. Kit subscriber counts are a static, no-longer-growing snapshot. Do not build against Kit again.
+- After the Resend email + ClickUp steps, `functions/contact.js` creates/updates a Resend contact for exactly three forms — `/contact` (source `contact_form`), and the two `free-audit.html` forms, quiz + contact-section (source `offer_form` for both). Other LP forms that also post to `/contact` (Book a Call LP, Mechanics Only LP, Website Audit LP) are explicitly out of scope and do not get this treatment.
+- Sets: segment **Mechanic Marketing** (`731fa8c5-c579-42d8-b093-0c4cdbb8ad17`), properties `brand=mm` and `source`, topic **Mechanic Marketing newsletter** (`4c25f610-ae12-4559-ba3c-d74889e12310`) subscription, then fires event **`mm.subscribed`** with `{ source }`. IDs fetched from the Resend dashboard 16 Sep 2026 and hardcoded as constants in `contact.js`, same pattern as the ClickUp custom field IDs.
+- All three in-scope forms carry an optional, unticked "Send me Mechanic Marketing tips by email" checkbox (`newsletter_optin`). Ticking it always sets the topic subscription to `opt_in` (new or existing contact). Leaving it unticked only writes an explicit `opt_out` for a **brand-new** contact (the topic's own default is `opt_in`, so a new contact left untouched would end up subscribed by default) — an **existing** contact who leaves it unticked is left alone, so a returning visitor never gets silently unsubscribed just because they didn't re-tick the box on a later visit.
+- Every Resend call in this flow is independently try/caught and logged on failure; it never blocks the form response.
+- A parallel Hedgehog Marketing setup exists in the same Resend account (segment "Hedgehog Marketing", topic "Hedgehog newsletter", event `hh.subscribed`) — not part of this codebase, don't confuse the two when reading Resend logs/contacts.
+
+### `public/contact.html` / `public/js/main.js` — single submit handler only
+- `main.js` used to carry its own independent `#contact-form` submit handler (a leftover from before `contact.html` got its current inline submit script), and both handlers fired on every submit — every `/contact` POST was silently sent **twice** (confirmed via Resend logs, fixed in PR #79, 16 Sep 2026). `#contact-form` only exists on `contact.html`, so there is never a legitimate reason for `main.js` to reference it — **do not re-add a contact-form handler to `main.js`.**
+- The surviving handler (inline script in `contact.html`) guards against a second `submit` event while the button is already disabled (`if (btn && btn.disabled) return;`). Keep this guard if the handler is ever rewritten.
+- `main.js` is served with `cache-control: public, max-age=14400, must-revalidate` — a browser that cached it before a fix deploys keeps running the stale version for up to 4 hours. Don't be misled by an apparent bug reproducing in one browser/tab but not a fresh one; check Resend/ClickUp logs (server-side ground truth) rather than trusting a single browser's behavior when diagnosing anything in this file.
 
 ### Conversion tracking — current state (as of 2026-07-21)
 - **GTM container:** `GTM-KVCKK93P` / GA4 ID `G-DNK8STLEH3`
@@ -37,7 +51,8 @@
 
 ### Outstanding items
 - **Verify `booking_conversion` firing** — use GTM Preview mode on live `/thanks-for-booking` to confirm the push appears in dataLayer, then retire the legacy `Book a Meeting Click` trigger in GTM.
-- **Resend domain verification** — if emails aren't arriving, check Resend dashboard for `mechanicmarketing.co` domain status.
+- **Resend domain verification** — if emails aren't arriving, check Resend dashboard for the `news.mechanicmarketing.co` domain status (not `mechanicmarketing.co` — see Contact form section above).
+- **Popup and webinar-registration Resend capture** — explicitly out of scope for the Kit-replacement work done 16 Sep 2026. Only `/contact` and the two `free-audit.html` forms were wired up. If Teddi wants popup/webinar signups migrated too, that's new build work, not a bug.
 
 ### Recent PRs (this codebase)
 | PR | Branch | What |
@@ -51,6 +66,9 @@
 | #73 | `fix/remove-guy` | Removed Guy from team sections on `free-audit.html` and `mechanics-only.html` |
 | #75 | `fix/booking-conversion-pathname-mismatch` | Fixed `indexOf('thank-you')` → `indexOf('thanks-for-booking')` in 57 pages (necessary but not sufficient — see PR #76) |
 | #76 | `fix/booking-conversion-wrong-file` | Added `booking_conversion` push directly to `thanks-for-booking.html` (the actual fix) |
+| #78 | `feat/forms-resend` | Retired Kit integration replaced with Resend contact/segment/topic/event signup on `/contact` + the two `free-audit.html` forms; added newsletter opt-in checkbox |
+| #79 | `fix/contact-form-fixes` | Fixed unverified `mechanicmarketing.co` from-domain (403) → `news.mechanicmarketing.co`; fixed `/contact` double-submitting (removed dead duplicate handler in `main.js`) |
+| #80 | `fix/remove-guy-recipient` | Removed `guy@mechanicmarketing.co` (left company, hard-bouncing) from `LEAD_RECIPIENTS` — was silently suppressing the whole notification send, including to `hello@` |
 
 ### Internal link convention
 All internal `href` values now use clean URLs (no `.html` extension). Keep this consistent in any new pages or edits. Nav links in the header still use `.html` — do not change those without updating all pages.
