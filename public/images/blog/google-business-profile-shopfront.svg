@@ -1,0 +1,25 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="630" fill="#F0F0EC"/>
+<rect x="0" y="0" width="1200" height="14" fill="#FF3D02"/>
+<path d="M0,420 L1200,360" stroke="#000000" stroke-opacity="0.12" stroke-width="26" fill="none"/>
+<path d="M360,14 L300,630" stroke="#000000" stroke-opacity="0.12" stroke-width="22" fill="none"/>
+<path d="M0,190 L560,250 L1200,170" stroke="#000000" stroke-opacity="0.08" stroke-width="12" fill="none"/>
+<path d="M980,14 L1060,630" stroke="#000000" stroke-opacity="0.08" stroke-width="12" fill="none"/>
+<path d="M170,344 C164,330 146,314 146,300 A24,24 0 1 1 194,300 C194,314 176,330 170,344 Z" fill="none" stroke="#000000" stroke-opacity="0.35" stroke-width="3" stroke-dasharray="5 7"/>
+<path d="M470,544 C464,530 446,514 446,500 A24,24 0 1 1 494,500 C494,514 476,530 470,544 Z" fill="none" stroke="#000000" stroke-opacity="0.35" stroke-width="3" stroke-dasharray="5 7"/>
+<path d="M250,564 C244,550 226,534 226,520 A24,24 0 1 1 274,520 C274,534 256,550 250,564 Z" fill="none" stroke="#000000" stroke-opacity="0.35" stroke-width="3" stroke-dasharray="5 7"/>
+<path d="M1080,514 C1074,500 1056,484 1056,470 A24,24 0 1 1 1104,470 C1104,484 1086,500 1080,514 Z" fill="none" stroke="#000000" stroke-opacity="0.35" stroke-width="3" stroke-dasharray="5 7"/>
+<path d="M600,470 C588,440 552,408 552,372 A48,48 0 1 1 648,372 C648,408 612,440 600,470 Z" fill="#FF3D02"/>
+<circle cx="600" cy="372" r="18" fill="#F0F0EC"/>
+<rect x="690" y="180" width="300" height="190" fill="#FFFFFF" stroke="#000000" stroke-width="4"/>
+<rect x="690" y="180" width="300" height="12" fill="#000000"/>
+<rect x="716" y="276" width="180" height="12" fill="#000000" fill-opacity="0.75"/>
+<rect x="716" y="300" width="130" height="12" fill="#000000" fill-opacity="0.35"/>
+<rect x="716" y="328" width="78" height="26" fill="#000000"/>
+<text x="755" y="347" text-anchor="middle" font-family="'TT Commons Condensed','Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="15" letter-spacing="2" fill="#F0F0EC">OPEN</text>
+<polygon points="742,224 747.3,235 759,236.5 750.3,244.5 752.6,256 742,250 731.4,256 733.7,244.5 725,236.5 736.7,235" fill="#F0AA00"/><polygon points="782,224 787.3,235 799,236.5 790.3,244.5 792.6,256 782,250 771.4,256 773.7,244.5 765,236.5 776.7,235" fill="#F0AA00"/><polygon points="822,224 827.3,235 839,236.5 830.3,244.5 832.6,256 822,250 811.4,256 813.7,244.5 805,236.5 816.7,235" fill="#F0AA00"/><polygon points="862,224 867.3,235 879,236.5 870.3,244.5 872.6,256 862,250 851.4,256 853.7,244.5 845,236.5 856.7,235" fill="#F0AA00"/><polygon points="902,224 907.3,235 919,236.5 910.3,244.5 912.6,256 902,250 891.4,256 893.7,244.5 885,236.5 896.7,235" fill="#F0AA00"/>
+<path d="M690,370 L640,392" stroke="#000000" stroke-width="3" stroke-dasharray="6 8"/>
+<text x="170" y="380" text-anchor="middle" font-family="'TT Commons Condensed','Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="20" letter-spacing="3" fill="#000000" fill-opacity="0.55">NEAR ME</text>
+<text x="840" y="410" text-anchor="middle" font-family="'TT Commons Condensed','Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="20" letter-spacing="3" fill="#000000" fill-opacity="0.55">FIRST LOOK</text>
+<text x="40" y="590" font-family="'TT Commons Condensed','Helvetica Neue',Arial,sans-serif" font-size="12" letter-spacing="2" fill="#000000" fill-opacity="0.5">MECHANICMARKETING.CO</text>
+</svg>
