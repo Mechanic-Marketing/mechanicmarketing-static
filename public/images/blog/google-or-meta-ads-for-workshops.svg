@@ -1,0 +1,29 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+<rect width="1200" height="630" fill="#F0F0EC"/>
+<rect x="0" y="0" width="1200" height="14" fill="#FF3D02"/>
+<rect x="150" y="90" width="270" height="460" rx="30" fill="#FFFFFF" stroke="#000000" stroke-width="5"/>
+<rect x="245" y="108" width="80" height="10" rx="5" fill="#000000"/>
+<rect x="178" y="150" width="214" height="20" fill="#000000" fill-opacity="0.12"/>
+<rect x="178" y="184" width="214" height="214" fill="#000000"/>
+<circle cx="285" cy="291" r="44" fill="#FF3D02"/>
+<polygon points="270,266 270,316 310,291" fill="#F0F0EC"/>
+<rect x="178" y="414" width="170" height="12" fill="#000000" fill-opacity="0.55"/>
+<rect x="178" y="436" width="120" height="12" fill="#000000" fill-opacity="0.25"/>
+<rect x="178" y="470" width="214" height="56" fill="none" stroke="#000000" stroke-opacity="0.3" stroke-width="3" stroke-dasharray="5 7"/>
+<rect x="700" y="150" width="380" height="70" rx="35" fill="#FFFFFF" stroke="#000000" stroke-width="5"/>
+<circle cx="745" cy="182" r="14" fill="none" stroke="#000000" stroke-width="5"/>
+<path d="M755,193 L768,206" stroke="#000000" stroke-width="6" stroke-linecap="round"/>
+<text x="790" y="194" font-family="'TT Commons Condensed','Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="26" letter-spacing="0.5" fill="#000000">MECHANIC NEAR ME</text>
+<rect x="700" y="262" width="380" height="74" fill="#FFFFFF" stroke="#000000" stroke-width="4"/>
+<rect x="700" y="262" width="12" height="74" fill="#FF3D02"/>
+<rect x="732" y="282" width="200" height="14" fill="#000000"/>
+<rect x="732" y="308" width="140" height="10" fill="#000000" fill-opacity="0.35"/>
+<rect x="700" y="356" width="380" height="64" fill="none" stroke="#000000" stroke-opacity="0.3" stroke-width="3" stroke-dasharray="5 7"/>
+<rect x="700" y="440" width="380" height="64" fill="none" stroke="#000000" stroke-opacity="0.3" stroke-width="3" stroke-dasharray="5 7"/>
+<path d="M392,291 C520,291 560,299 690,299" stroke="#000000" stroke-width="3" stroke-dasharray="6 8" fill="none"/>
+<polygon points="690,288 712,299 690,310" fill="#000000"/>
+<text x="285" y="590" text-anchor="middle" font-family="'TT Commons Condensed','Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="20" letter-spacing="3" fill="#000000" fill-opacity="0.55">SCROLL</text>
+<text x="890" y="560" text-anchor="middle" font-family="'TT Commons Condensed','Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="20" letter-spacing="3" fill="#000000" fill-opacity="0.55">SEARCH</text>
+<text x="545" y="270" text-anchor="middle" font-family="'TT Commons Condensed','Helvetica Neue',Arial,sans-serif" font-weight="700" font-size="20" letter-spacing="3" fill="#000000" fill-opacity="0.55">KNOWN</text>
+<text x="40" y="610" font-family="'TT Commons Condensed','Helvetica Neue',Arial,sans-serif" font-size="12" letter-spacing="2" fill="#000000" fill-opacity="0.5">MECHANICMARKETING.CO</text>
+</svg>
