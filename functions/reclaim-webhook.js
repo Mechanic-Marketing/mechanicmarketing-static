@@ -102,12 +102,11 @@ export async function onRequestPost(context) {
     return json({ ok: true, ignored: true });
   }
 
-  // GA4 needs a client_id to attribute the event to a visitor.
-  if (!attribution.ga_cid) {
-    log.outcome = 'skipped: no data-ga_cid (visitor booked without a captured GA client id)';
-    console.log('[reclaim-webhook]', JSON.stringify(log));
-    return json({ ok: true, skipped: 'no ga_cid' });
-  }
+  // GA4 needs a client_id. Prefer the echoed data-ga_cid (format digits.digits);
+  // otherwise fall back to a synthetic id and flag it so it is visible in GA4.
+  const hasCid = /^\d+\.\d+$/.test(attribution.ga_cid || '');
+  const clientId = hasCid ? attribution.ga_cid : 'reclaim.' + Math.floor(Date.now() / 1000);
+  log.client_id_fallback = !hasCid;
   if (!env.GA4_API_SECRET) {
     log.outcome = 'GA4_API_SECRET not set';
     console.log('[reclaim-webhook]', JSON.stringify(log));
@@ -119,7 +118,8 @@ export async function onRequestPost(context) {
     ? 'https://www.google-analytics.com/debug/mp/collect'
     : 'https://www.google-analytics.com/mp/collect';
   const url = `${base}?measurement_id=${GA4_MEASUREMENT_ID}&api_secret=${encodeURIComponent(env.GA4_API_SECRET)}`;
-  const params = { source: 'reclaim_webhook', engagement_time_msec: 1 };
+  const params = { method: 'reclaim', engagement_time_msec: 1 };
+  if (!hasCid) params.client_id_fallback = true;
   if (attribution.gclid) params.gclid = attribution.gclid;
   if (attribution.fbclid) params.fbclid = attribution.fbclid;
 
@@ -127,15 +127,15 @@ export async function onRequestPost(context) {
     const res = await fetch(url, {
       method: 'POST',
       body: JSON.stringify({
-        client_id: attribution.ga_cid,
-        events: [{ name: 'booking_completed', params }],
+        client_id: clientId,
+        events: [{ name: 'meeting_booked', params }],
       }),
     });
     log.ga4Status = res.status;
     if (env.GA4_MP_DEBUG === '1') log.ga4Validation = await res.text();
-    log.outcome = res.ok ? 'forwarded to GA4' : 'GA4 rejected';
+    log.outcome = res.ok ? 'meeting_booked sent' : 'meeting_booked failed ' + res.status;
   } catch (e) {
-    log.outcome = 'GA4 request failed: ' + e.message;
+    log.outcome = 'meeting_booked failed ' + e.message;
   }
 
   console.log('[reclaim-webhook]', JSON.stringify(log));
