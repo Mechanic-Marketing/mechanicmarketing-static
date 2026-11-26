@@ -3002,6 +3002,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         // ===== Contact Form Submission =====
         (function() {
             var contactFormLoadedAt = Date.now();
+            var contactLeadPushed = false;
             var form = document.getElementById('contactForm');
             var thankYou = document.getElementById('thankYou');
 
@@ -3058,6 +3059,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             form.style.display = 'none';
                             thankYou.classList.add('visible');
                             thankYou.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            // The server answers a honeypot hit with { success: true } too, so skip
+                            // the push when the honeypot was filled. Push once per page load.
+                            if (!contactLeadPushed && !((document.getElementById('cf_hp') || {}).value || '')) {
+                                contactLeadPushed = true;
+                                window.dataLayer = window.dataLayer || [];
+                                window.dataLayer.push({ event: 'contact_form_lead', form_id: 'contactForm' });
+                            }
                             if (typeof fbq === 'function') fbq('track', 'Lead');
                         } else {
                             submitBtn.disabled = false;
